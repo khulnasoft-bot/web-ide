@@ -1,0 +1,18 @@
+{
+  // extend your base config to share compilerOptions, etc
+  "extends": "./tsconfig.json",
+  "exclude": ["packages/**/lib/**", "packages/**/test-utils/**", "packages/**/dist"],
+  "compilerOptions": {
+    // ensure that nobody can accidentally use this config for a build
+    "noEmit": true,
+    "checkJs": true,
+    "allowJs": true
+  },
+  "include": [
+    // whatever paths you intend to lint
+    "./playwright.config.ts",
+    "**/*.test.ts",
+    "tests/integration/**/*.ts",
+    "packages/**/__mocks__/**/*"
+  ]
+}

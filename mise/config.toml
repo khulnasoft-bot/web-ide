@@ -1,0 +1,7 @@
+[tools]
+node = "22.11.0"
+"asdf:yarn" = "1.22.19"
+python = "3.10.2"
+
+[settings]
+disable_backends = ["aqua"]

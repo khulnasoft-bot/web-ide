@@ -1,0 +1,15 @@
+{
+  "name": "@gitlab/cross-origin-channel",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "packageManager": "yarn@3.2.0",
+  "publishConfig": {
+    "main": "./lib/index.js"
+  },
+  "dependencies": {
+    "@gitlab/web-ide-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*"
+  }
+}

@@ -1,0 +1,529 @@
+include:
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
+  - component: ${CI_SERVER_FQDN}/gitlab-org/components/danger-review/danger-review@1.4.2
+
+stages:
+  - prepare
+  - build
+  - test
+  - publish-and-deploy
+
+workflow:
+  rules:
+    - if: $CI_API_V4_URL == 'https://ops.gitlab.net/api/v4' && $ENABLE_OPS_PIPELINE != 'true'
+      when: never
+    - when: always
+
+# NOTE: A lot of this is inspired from:
+#   - https://gitlab.com/gitlab-com/www-gitlab-com/-/blob/1a362833aae9953e9cc927f9ba4c06ce99483bbc/.gitlab-ci.yml
+default:
+  image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-vscode-build-debian-bookworm-node-22
+  tags:
+    - gitlab-org
+  interruptible: true # All jobs are interruptible by default
+  retry:
+    max: 2 # This is confusing but this means "3 runs at max".
+    when:
+      - unknown_failure
+      - api_failure
+      - runner_system_failure
+      - job_execution_timeout
+      - stuck_or_timeout_failure
+
+variables:
+  ### PERFORMANCE ###
+  # GIT_* variables to speed up repo cloning/fetching
+  GIT_DEPTH: '10'
+  GIT_STRATEGY: 'fetch'
+  GIT_SUBMODULE_STRATEGY: 'none'
+  # Disabling LFS speeds up jobs, because runners don't have to perform the LFS steps during repo clone/fetch
+  GIT_LFS_SKIP_SMUDGE: '1'
+  # NO_CONTRACTS speeds up middleman builds
+  NO_CONTRACTS: 'true'
+
+  ### RELIABILITY ###
+  # Reduce flaky builds via https://docs.gitlab.com/ee/ci/runners/configure_runners.html#job-stages-attempts variables
+  GET_SOURCES_ATTEMPTS: '3'
+  ARTIFACT_DOWNLOAD_ATTEMPTS: '3'
+  RESTORE_CACHE_ATTEMPTS: '3'
+  EXECUTOR_JOB_SECTION_ATTEMPTS: '3'
+  # Performs an error check after each Bash script command is executed, and exits if the previously executed command returned a non-zero exit code
+  # https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/2671
+  FF_ENABLE_BASH_EXIT_CODE_CHECK: 'true'
+  GITLAB_WEB_IDE_PROJECT_ID: '35104827'
+  GITLAB_WEB_IDE_SECURITY_PROJECT_ID: '47566511'
+
+  # Controls whether we deploy from ops.gitlab.net in a DR scenario
+  ENABLE_OPS_PIPELINE:
+    value: 'false'
+    options:
+      - 'true'
+      - 'false'
+
+  ### INTEGRATION TESTS ###
+  # The following variables control the GitLab instance and project targeted by the integration
+  # tests.
+  PLAYWRIGHT_GITLAB_URL: 'https://gitlab.com'
+  PLAYWRIGHT_PROJECT_PATH: '$CI_PROJECT_PATH'
+  PLAYWRIGHT_REPOSITORY_REF: 'main'
+
+  GITLAB_ADVANCED_SAST_ENABLED: 'true'
+
+# main branch in the original repo, NOT a main branch MR for a forked repo.
+# NOTE: We must make sure to exclude forked repo MRs by checking `CI_MERGE_REQUEST_SOURCE_PROJECT_ID is null,
+# because the pipeline might be in an MR against a fork's 'main' branch, and in this case this rule
+# would incorrectly trigger when the "Pipeline for Merged Results" is run for the MR.
+.if-main-original-repo: &if-main-original-repo
+  if: '$CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $GITLAB_WEB_IDE_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
+
+# merge request, from the original repo or from forks when a
+# GitLab Web IDE member triggered the pipeline
+.if-merge-request-original-repo: &if-merge-request-original-repo
+  if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+# merge request, ONLY for a branch in a forked repo
+.if-merge-request-forked-repo: &if-merge-request-forked-repo
+  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $GITLAB_WEB_IDE_PROJECT_ID'
+
+# "always" - main branch in the original repo, OR any merge request
+.if-main-original-repo-or-merge-request: &if-main-original-repo-or-merge-request
+  if: '($CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $GITLAB_WEB_IDE_PROJECT_ID) || $CI_MERGE_REQUEST_IID'
+
+.if-security-repo: &if-security-repo
+  if: '$CI_PROJECT_ID == $GITLAB_WEB_IDE_SECURITY_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
+
+.dependency-cache:
+  cache:
+    key: 'gitlab-web-ide-dependency-cache'
+    policy: pull
+    paths:
+      - .yarn/cache
+
+.node-and-yarn:
+  extends: .dependency-cache
+  variables:
+    GITLAB_NODE_VERSION: 18.19.0
+    GITLAB_YARN_VERSION: 1.22.19
+  before_script:
+    - node --version
+    - yarn --version
+    - yarn install --immutable
+
+###################################
+#
+# PREPARE STAGE
+#
+###################################
+
+# Prevents pipeline from being interrupted by subsequent commits.
+# Pipelines on the master branch of the original repo are never interruptible.
+# MR pipelines (on original repo and forks) may be made non-interruptible by manually running the job.
+dont-interrupt-me:
+  image: alpine:edge
+  interruptible: false
+  stage: prepare
+  rules:
+    - <<: *if-main-original-repo
+      when: manual
+      allow_failure: true
+    - <<: *if-merge-request-original-repo
+      when: manual
+      allow_failure: true
+    - <<: *if-merge-request-forked-repo
+      when: manual
+      allow_failure: true
+    - <<: *if-security-repo
+      when: manual
+      allow_failure: true
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "# This job makes sure this pipeline won't be interrupted on master. It can also be triggered manually to prevent a pipeline from being interrupted. See https://docs.gitlab.com/ee/ci/yaml/#interruptible."
+
+# This is a manual job for debugging any unexpected behavior encountered while refactoring the CI config
+expose-ci-rules-variables:
+  image: alpine:edge
+  stage: prepare
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+      when: manual
+      allow_failure: true
+    - <<: *if-security-repo
+      when: manual
+      allow_failure: true
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "CI_COMMIT_REF_NAME = ${CI_COMMIT_REF_NAME}"
+    - echo "CI_PROJECT_ID = ${CI_PROJECT_ID}"
+    - echo "CI_MERGE_REQUEST_IID = ${CI_MERGE_REQUEST_IID}"
+    - echo "CI_MERGE_REQUEST_TITLE = ${CI_MERGE_REQUEST_TITLE}"
+    - echo "CI_MERGE_REQUEST_SOURCE_PROJECT_ID = ${CI_MERGE_REQUEST_SOURCE_PROJECT_ID}"
+    - echo "CI_COMMIT_REF_SLUG = ${CI_COMMIT_REF_SLUG}"
+    - echo "CI_PIPELINE_SOURCE = ${CI_PIPELINE_SOURCE}"
+
+# Only push the cache from this job, to save time on all other jobs.
+push-cache:
+  extends: .node-and-yarn
+  stage: prepare
+  rules:
+    - <<: *if-main-original-repo
+    # NOTE: Uncomment this line if you are working on changes to caching in a Merge Request,
+    #       so that this job will be run for MRs as well. Normally, this line should remain
+    #       commented out, to speed up MR pipelines (per the job comment above)
+    # - <<: *if-merge-request-original-repo
+  cache:
+    policy: pull-push
+  script:
+    - echo "Pushing updated cache..."
+
+# Build integration test Docker image only when Dockerfile changes
+build-integration-test-image:
+  stage: prepare
+  needs: []
+  image: docker:20.10.16
+  tags:
+    - gitlab-org-docker
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKERFILE: tests/integration/Dockerfile
+    IMAGE_TAG: $CI_REGISTRY_IMAGE/web-ide-integration-test-runner:$CI_COMMIT_REF_NAME
+  rules:
+    - <<: *if-main-original-repo
+      changes:
+        - $DOCKERFILE
+    - <<: *if-merge-request-original-repo
+      changes:
+        - $DOCKERFILE
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -f $DOCKERFILE  -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+
+###################################
+#
+# BUILD STAGE
+#
+###################################
+create-development-package:
+  extends: .node-and-yarn
+  stage: build
+  variables:
+    # why: `yarn version` needs access to the commit history
+    # https://yarnpkg.com/features/release-workflow#caveat
+    # https://gitlab.com/gitlab-org/gitlab-web-ide/-/jobs/2842454123#L6673
+    GIT_DEPTH: 0
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+    - <<: *if-security-repo
+  script:
+    # why: we need to add to safe.directory because `yarn version` will trigger `git` commands
+    # https://yarnpkg.com/features/release-workflow#caveat
+    - git config --global --add safe.directory $PWD
+    # what: uncomment the below line if the security project needs access to the gitlab-vscode-extension
+    # - git submodule set-url gitlab-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/gitlab-vscode-extension.git"
+    - ./scripts/pack-web-ide-package.sh $GITLAB_WEB_IDE_VERSION
+    - ./scripts/pack-gitlab-vscode-theme-package.sh $GITLAB_WEB_IDE_VERSION
+  artifacts:
+    paths:
+      - tmp/packages
+
+build:
+  extends: .node-and-yarn
+  stage: build
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+    - <<: *if-security-repo
+  needs: []
+  script:
+    - git config --global --add safe.directory $PWD
+    # what: uncomment the below line if the security project needs access to the gitlab-vscode-extension
+    # - git submodule set-url gitlab-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/gitlab-vscode-extension.git"
+    - yarn run build:example:http
+  artifacts:
+    paths:
+      - packages/example/dist
+###################################
+#
+# TEST STAGE
+#
+###################################
+# Copied from the [untamper-my-lockfile template][1], but adjusted to include "--config"
+#
+# TODO: Use untamper-my-lockfile template https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/101
+# [1]: https://gitlab.com/gitlab-org/frontend/untamper-my-lockfile/-/blob/575fe0d6ccd3abc0c1c5432d6365895f38e8187e/templates/merge_request_pipelines.yml
+untamper-my-lockfile:
+  image: registry.gitlab.com/gitlab-org/frontend/untamper-my-lockfile:main
+  stage: test
+  needs: []
+  before_script: []
+  after_script: []
+  cache: {}
+  retry: 1
+  script:
+    - untamper-my-lockfile --config .untamper-my-lockfile.json --lockfile yarn.lock
+  rules:
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /untamper-my-lockfile/
+    - if: $CI_MERGE_REQUEST_IID
+      changes:
+        - yarn.lock
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - yarn.lock
+
+lint:
+  extends: .node-and-yarn
+  stage: test
+  needs: []
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+    - <<: *if-security-repo
+  script:
+    - git config --global --add safe.directory $PWD
+    - yarn run lint
+
+# More-Than-Inspired by https://gitlab.com/gitlab-org/cli/-/blob/136577d535dc4d7bc949283d5730724ff5f9b87b/.gitlab-ci.yml#L71
+lint-commit:
+  extends: .node-and-yarn
+  stage: test
+  needs: []
+  rules:
+    - <<: *if-merge-request-original-repo
+      when: always
+  script:
+    - git config --global --add safe.directory $PWD
+    - git fetch --quiet origin $CI_MERGE_REQUEST_TARGET_BRANCH_NAME $CI_COMMIT_SHA
+    - node scripts/lint-commit.mjs
+
+jest:
+  extends: .node-and-yarn
+  stage: test
+  needs: []
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+    - <<: *if-security-repo
+  script:
+    - yarn test:ci
+  artifacts:
+    reports:
+      junit:
+        - junit.xml
+
+test-web-ide-package:
+  extends: .node-and-yarn
+  stage: test
+  needs:
+    - job: create-development-package
+      artifacts: true
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+    - <<: *if-security-repo
+  script:
+    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
+    - node ./tests/package-test/run.js $GITLAB_WEB_IDE_TAR_PATH
+
+###################################
+#
+# PUBLISH AND DEPLOY STAGE
+#
+###################################
+
+.integration-tests:
+  allow_failure: false
+  stage: test
+  extends: .dependency-cache
+  needs:
+    - job: build-integration-test-image
+      optional: true
+  tags:
+    - saas-linux-medium-amd64
+  before_script:
+    # Install dependencies and build example app
+    - yarn install --immutable
+    - yarn playwright:install
+    - yarn build:example
+  script:
+    - yarn test:integration
+  artifacts:
+    when: always
+    paths:
+      - tests/integration/playwright-report/
+    reports:
+      junit: playwright-report/junit.xml
+
+.publish-development-package:
+  extends: .node-and-yarn
+  stage: publish-and-deploy
+  needs:
+    - job: create-development-package
+      artifacts: true
+  rules:
+    - <<: *if-main-original-repo
+      when: manual
+      allow_failure: false
+    - <<: *if-security-repo
+      when: manual
+      allow_failure: false
+  id_tokens:
+    NPM_ID_TOKEN:
+      aud: 'npm:registry.npmjs.org'
+  variables:
+    # Used to tag a release as "not the latest" in the GitLab UI when triggering a pipeline
+    # Helpful for security releases that should not be picked up by renovatebot
+    # https://docs.npmjs.com/cli/v8/commands/npm-publish#configuration
+    NPM_PUBLISH_TAG: 'latest'
+  before_script:
+    - npm install -g npm@11.6.2
+
+publish-development-package:
+  extends: .publish-development-package
+  script:
+    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
+    - npm publish --tag $NPM_PUBLISH_TAG --access public $GITLAB_WEB_IDE_TAR_PATH
+
+publish-development-package-dry-run:
+  extends: .publish-development-package
+  rules:
+    - <<: *if-main-original-repo-or-merge-request
+      when: manual
+      allow_failure: true
+    - <<: *if-security-repo
+      when: manual
+      allow_failure: true
+  script:
+    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
+    - npm publish --tag $NPM_PUBLISH_TAG --dry-run --access public $GITLAB_WEB_IDE_TAR_PATH
+
+publish-gitlab-vscode-theme-package:
+  extends: .node-and-yarn
+  stage: publish-and-deploy
+  needs:
+    - job: create-development-package
+      artifacts: true
+  rules:
+    - <<: *if-main-original-repo
+      when: manual
+      allow_failure: true
+    - <<: *if-security-repo
+      when: manual
+      allow_failure: true
+  script:
+    - scripts/publish-gitlab-vscode-theme-package.sh
+
+# Runs integration tests with production docker image
+integration-tests:
+  extends: .integration-tests
+  image: $CI_REGISTRY_IMAGE/web-ide-integration-test-runner:main
+  rules:
+    - <<: *if-merge-request-original-repo
+      changes:
+        - tests/integration/Dockerfile
+      when: never
+    - <<: *if-main-original-repo
+    - <<: *if-merge-request-original-repo
+    - <<: *if-security-repo
+
+# Runs integration tests with docker image generated by the current branch
+integration-tests-dockerfile-changes:
+  extends: .integration-tests
+  image: $CI_REGISTRY_IMAGE/web-ide-integration-test-runner:$CI_COMMIT_REF_NAME
+  rules:
+    - <<: *if-merge-request-original-repo
+      changes:
+        - tests/integration/Dockerfile
+
+pages:
+  extends: .node-and-yarn
+  stage: publish-and-deploy
+  rules:
+    # This job cannot be run on forks, only the original repo.
+    - <<: *if-main-original-repo
+    # NOTE: Pages does not yet support review apps, so we can't yet deploy from MRs. We could
+    #       switch to a non-pages based deploy if we want (like www-gitlab-com) to
+    #       support review apps.
+    # - <<: *if-merge-request-original-repo
+  script:
+    - mv packages/example/dist public
+  artifacts:
+    paths:
+      - public
+
+#############################
+# BEGIN: Cloudflare section #
+#############################
+.deploy-cloudflare:
+  extends: .node-and-yarn
+  stage: publish-and-deploy
+  id_tokens:
+    VAULT_ID_TOKEN:
+      aud: https://vault.gitlab.net
+
+.deploy-cloudflare-worker:
+  extends: .deploy-cloudflare
+  needs: []
+  secrets:
+    CLOUDFLARE_API_TOKEN:
+      file: false
+      vault: ops-gitlab-net/gitlab-com/gl-infra/config-mgmt/cloudflare/outputs/cloudflare_gitlab_web_ide_workers/api_token_value@ci
+
+.deploy-assets:
+  extends: .deploy-cloudflare
+  secrets:
+    RCLONE_CONFIG_R2_ACCESS_KEY_ID:
+      file: false
+      vault: ops-gitlab-net/gitlab-com/gl-infra/config-mgmt/cloudflare/outputs/cloudflare_gitlab_web_ide_r2/api_token_id@ci
+    RCLONE_CONFIG_R2_SECRET_ACCESS_KEY:
+      file: false
+      vault: ops-gitlab-net/gitlab-com/gl-infra/config-mgmt/cloudflare/outputs/cloudflare_gitlab_web_ide_r2/api_token_value_r2@ci
+  variables:
+    RCLONE_CONFIG_R2_TYPE: s3
+    RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+    RCLONE_CONFIG_R2_ENDPOINT: https://${CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
+    RCLONE_CONFIG_R2_ACL: private
+  before_script:
+    - apt-get install rclone
+
+deploy-assets-staging:
+  extends: .deploy-assets
+  environment: staging
+  allow_failure: true
+  rules:
+    - <<: *if-merge-request-original-repo
+      when: manual
+  script:
+    - rclone copy tmp/packages r2:gitlab-web-ide-gstg --progress --include "gitlab-web-ide-vscode-workbench-*/**"
+
+deploy-assets-production:
+  extends: .deploy-assets
+  environment: production
+  needs: [create-development-package, publish-development-package]
+  rules:
+    - <<: *if-main-original-repo
+  script:
+    - rclone copy tmp/packages r2:gitlab-web-ide-gprd --progress --include "gitlab-web-ide-vscode-workbench-*/**"
+
+deploy-cloudflare-worker-staging:
+  extends: .deploy-cloudflare-worker
+  environment: staging
+  allow_failure: true
+  rules:
+    - <<: *if-merge-request-original-repo
+      when: manual
+  script:
+    - yarn cloudflare:deploy -e staging
+
+deploy-cloudflare-worker-production:
+  extends: .deploy-cloudflare-worker
+  environment: production
+  rules:
+    - <<: *if-main-original-repo
+      changes:
+        - packages/cloudflare/**/*
+  script:
+    - yarn cloudflare:deploy -e production
+#############################
+# END: Cloudflare section #
+#############################

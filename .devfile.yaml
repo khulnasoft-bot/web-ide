@@ -1,0 +1,25 @@
+schemaVersion: 2.2.0
+components:
+  - name: web-ide
+    attributes:
+      gl/inject-editor: true
+    container:
+      image: registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-web-ide
+      memoryLimit: 3072Mi
+      memoryRequest: 3072Mi
+      env:
+        - name: MISE_TRUSTED_CONFIG_PATHS
+          value: /projects/gitlab-web-ide
+      endpoints:
+        - name: example-app
+          targetPort: 8000
+          secure: true
+          protocol: https
+commands:
+  - id: install-dependencies
+    exec:
+      component: web-ide
+      commandLine: 'cd /projects/gitlab-web-ide && mise install && yarn install && git submodule update --init -f'
+events:
+  postStart:
+    - install-dependencies

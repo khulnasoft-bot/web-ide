@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./lib",
+    "rootDir": "./src"
+  },
+  "references": [
+    { "path": "../logger" },
+    { "path": "../utils-path" },
+    { "path": "../vscode-mediator-commands" },
+    { "path": "../web-ide-fs" }
+  ]
+}

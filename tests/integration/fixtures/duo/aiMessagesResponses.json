@@ -1,0 +1,56 @@
+{
+  "hiUserMessage": {
+    "aiMessages": {
+      "nodes": [
+        {
+          "requestId": "req-user-message",
+          "role": "USER",
+          "content": "Hi Duo!",
+          "contentHtml": "\u003cp data-sourcepos=\"1:1-1:7\" dir=\"auto\"\u003eHi Duo!\u003c/p\u003e",
+          "timestamp": "2025-10-01T08:42:55Z",
+          "errors": [],
+          "extras": {
+            "sources": null,
+            "additionalContext": null
+          }
+        }
+      ]
+    }
+  },
+  "simpleGreeting": {
+    "aiMessages": {
+      "nodes": [
+        {
+          "requestId": "req-simple-greeting",
+          "role": "ASSISTANT",
+          "content": "Hello! I'm GitLab Duo, your AI coding assistant. How can I help you today?",
+          "contentHtml": "<p>Hello! I'm GitLab Duo, your AI coding assistant. How can I help you today?</p>",
+          "timestamp": "2025-08-13T00:00:00Z",
+          "errors": [],
+          "extras": {
+            "sources": null,
+            "additionalContext": null
+          }
+        }
+      ]
+    }
+  },
+  "javascriptExample": {
+    "aiMessages": {
+      "nodes": [
+        {
+          "requestId": "req-javascript-example",
+          "role": "ASSISTANT",
+          "content": "Here's a simple JavaScript function to calculate the factorial of a number:\n\n```javascript\nfunction factorial(n) {\n  if (n <= 1) {\n    return 1;\n  }\n  return n * factorial(n - 1);\n}\n",
+          "contentHtml": "<p>Here's a simple JavaScript function to calculate the factorial of a number:</p>\n<pre><code class=\"language-javascript\">function factorial(n) {\n  if (n &lt;= 1) {\n    return 1;\n  }\n  return n * factorial(n - 1);\n}\n</p>",
+          "timestamp": "2025-08-13T00:00:00Z",
+          "errors": [],
+          "extras": {
+            "sources": null,
+            "additionalContext": null
+          }
+        }
+      ]
+    }
+  }
+}

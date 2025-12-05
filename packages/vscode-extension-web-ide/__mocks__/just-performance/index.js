@@ -1,0 +1,3 @@
+// For some reason jest has a hard time reading this transitive dependency...
+// So we have to mock it here to keep it from trying to read the dependency
+module.exports = { performance };

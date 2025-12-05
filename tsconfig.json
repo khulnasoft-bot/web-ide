@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    { "path": "./packages/example" },
+    { "path": "./packages/gitlab-api-client" },
+    { "path": "./packages/gitlab-api-client-factory" },
+    { "path": "./packages/logger" },
+    { "path": "./packages/oauth-client" },
+    { "path": "./packages/utils-crypto" },
+    { "path": "./packages/utils-escape" },
+    { "path": "./packages/utils-test" },
+    { "path": "./packages/utils-path" },
+    { "path": "./packages/vscode-bootstrap" },
+    { "path": "./packages/vscode-mediator-commands" },
+    { "path": "./packages/web-ide" },
+    { "path": "./packages/web-ide-fs" },
+    { "path": "./packages/web-ide-types" },
+    { "path": "./packages/web-ide-interop" },
+    { "path": "./packages/vscode-extension-web-ide" },
+    { "path": "./packages/cross-origin-channel" },
+    { "path": "./packages/cloudflare" }
+  ],
+  "files": []
+}

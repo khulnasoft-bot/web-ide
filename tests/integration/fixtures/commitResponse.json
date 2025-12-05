@@ -1,0 +1,25 @@
+{
+  "id": "13bb4f6f489d52d44e513e7c26892531ce8465fa",
+  "short_id": "13bb4f6f",
+  "created_at": "2025-07-16T18:10:51.000+00:00",
+  "parent_ids": ["ddd0f15ae83993f5cb66a927a28673882e99100b"],
+  "title": "Update file test.txt",
+  "message": "Update file test.txt",
+  "author_name": "Administrator",
+  "author_email": "root-home@example.com",
+  "authored_date": "2025-07-16T18:10:51.000+00:00",
+  "committer_name": "Administrator",
+  "committer_email": "gitlab_admin_b8fa0c@example.com",
+  "committed_date": "2025-07-16T18:10:51.000+00:00",
+  "trailers": {},
+  "extended_trailers": {},
+  "web_url": "https://gdk.test:3443/gitlab-org/gitlab-test/-/commit/13bb4f6f489d52d44e513e7c26892531ce8465fa",
+  "stats": {
+    "additions": 0,
+    "deletions": 0,
+    "total": 0
+  },
+  "status": null,
+  "project_id": 2,
+  "last_pipeline": null
+}

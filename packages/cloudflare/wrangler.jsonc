@@ -1,0 +1,57 @@
+{
+  "name": "gitlab-web-ide",
+  "main": "src/main.ts",
+  "compatibility_date": "2023-06-28",
+  "minify": true,
+  "define": {
+    "DEBUG": "true",
+  },
+  "env": {
+    "staging": {
+      "name": "gitlab-web-ide-staging",
+      "route": {
+        "pattern": "*.staging.cdn.web-ide.gitlab-static.net/*",
+        "zone_name": "gitlab-static.net",
+      },
+      "r2_buckets": [
+        {
+          "binding": "R2_BUCKET",
+          "bucket_name": "gitlab-web-ide-gstg",
+          "preview_bucket_name": "gitlab-web-ide-gstg",
+        },
+      ],
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "CACHE_CONTROL": "max-age=60, public",
+        "ALLOWED_ORIGINS": "https://*.staging.cdn.web-ide.gitlab-static.net",
+      },
+      "define": {
+        "DEBUG": "true",
+      },
+    },
+    "production": {
+      "name": "gitlab-web-ide-production",
+      "route": {
+        "pattern": "*.cdn.web-ide.gitlab-static.net/*",
+        "zone_name": "gitlab-static.net",
+      },
+      "r2_buckets": [
+        {
+          "binding": "R2_BUCKET",
+          "bucket_name": "gitlab-web-ide-gprd",
+          "preview_bucket_name": "gitlab-web-ide-gprd",
+        },
+      ],
+      "vars": {
+        "ENVIRONMENT": "production",
+        "CACHE_CONTROL": "max-age=31536000, public",
+        "HEALTHCHECK_PATH": "/-/ping",
+        "HEALTHCHECK_UA_REGEXP": "^Pingdom\\.com",
+        "ALLOWED_ORIGINS": "https://*.cdn.web-ide.gitlab-static.net",
+      },
+      "define": {
+        "DEBUG": "false",
+      },
+    },
+  },
+}

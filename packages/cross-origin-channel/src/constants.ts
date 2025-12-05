@@ -1,0 +1,1 @@
+export const WAIT_FOR_MESSAGE_TIMEOUT = 30000;

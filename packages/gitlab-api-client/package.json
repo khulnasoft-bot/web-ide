@@ -1,0 +1,20 @@
+{
+  "name": "@gitlab/gitlab-api-client",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "packageManager": "yarn@3.2.0",
+  "publishConfig": {
+    "main": "./lib/index.js"
+  },
+  "dependencies": {
+    "@gitlab/utils-path": "workspace:*",
+    "@gitlab/web-ide-interop": "workspace:*",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*",
+    "whatwg-fetch": "^3.6.2"
+  }
+}

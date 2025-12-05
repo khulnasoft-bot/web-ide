@@ -1,0 +1,47 @@
+# region: Mac things ---------------------------------------------------
+.DS_Store
+
+# region: JetBrains things ---------------------------------------------
+.idea
+
+# region: VSCode things ------------------------------------------------
+.vscode/settings.json
+*.vsix
+
+# region: vim things ---------------------------------------------------
+.vim/*
+
+# region: yarn2 things -------------------------------------------------
+node_modules/
+.yarn/*
+!.yarn/plugins
+!.yarn/releases
+
+# region: typescript things --------------------------------------------
+*.tsbuildinfo
+
+# region: gitlab-web-ide specifics -------------------------------------
+packages/*/lib
+packages/*/dist
+packages/*/public
+
+!tmp/.gitkeep
+tmp/**/*
+
+junit.xml
+
+*.local.json
+
+# TLS certificates
+*.pem
+
+# Local environment variable files
+**/.env.local
+
+# Cloudflare wrangler
+packages/cloudflare/.wrangler
+
+# Playwright
+/tests/integration/playwright-report/
+/playwright/.cache/
+/tests/integration/screenshots/

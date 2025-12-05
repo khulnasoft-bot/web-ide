@@ -1,0 +1,10 @@
+{
+  "fontName": "gitlab_webide",
+  "fontHeight": 1000,
+  "formats": ["woff"],
+  "dest": "fonts/",
+  "normalize": true,
+  "fixedWidth": true,
+  "centerHorizontally": true,
+  "verbose": true
+}

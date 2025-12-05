@@ -1,0 +1,11 @@
+.yarn/*
+.vscode/*
+
+packages/*/lib
+packages/*/dist
+packages/*/public
+packages/vscode-extension-language-support-vue/assets/vetur
+
+gitlab-vscode-extension
+
+tmp/

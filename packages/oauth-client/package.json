@@ -1,0 +1,21 @@
+{
+  "name": "@gitlab/oauth-client",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "packageManager": "yarn@3.2.0",
+  "publishConfig": {
+    "main": "./lib/index.js"
+  },
+  "dependencies": {
+    "@gitlab/gitlab-api-client": "workspace:*",
+    "@gitlab/logger": "workspace:*",
+    "@gitlab/utils-crypto": "workspace:*",
+    "@gitlab/utils-path": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*",
+    "nanoid": "^4.0.2"
+  },
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*",
+    "whatwg-fetch": "^3.6.2"
+  }
+}

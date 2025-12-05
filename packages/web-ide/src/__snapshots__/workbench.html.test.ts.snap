@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`workbench.html loads vscode-bootstrap module 1`] = `
+"import { main } from '../main.js';
+
+      main();"
+`;

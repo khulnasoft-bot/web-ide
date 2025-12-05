@@ -1,0 +1,10 @@
+{
+  "name": "@gitlab/vscode-build",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "make dist/vscode",
+    "clean": "rm -rf dist",
+    "local-setup": "node ./scripts/localSetup.js",
+    "local-teardown": "node ./scripts/localTeardown.js"
+  }
+}

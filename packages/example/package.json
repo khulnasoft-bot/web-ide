@@ -1,0 +1,23 @@
+{
+  "name": "@gitlab/example",
+  "version": "0.0.1",
+  "packageManager": "yarn@3.2.0",
+  "dependencies": {
+    "@gitlab/fonts": "^1.3.0",
+    "@gitlab/web-ide": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*",
+    "lodash": "4.17.21",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*",
+    "@types/lodash": "4.14.182",
+    "@vitejs/plugin-vue": "^3.0.1",
+    "@vue/tsconfig": "^0.1.3",
+    "vite": "^3.0.4",
+    "vue-tsc": "^0.39.5"
+  },
+  "scripts": {
+    "build": "vite --config config/vite.config.ts build"
+  }
+}

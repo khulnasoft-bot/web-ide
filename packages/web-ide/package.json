@@ -1,0 +1,30 @@
+{
+  "name": "@gitlab/web-ide",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0",
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*",
+    "jsdom": "^19.0.0"
+  },
+  "dependencies": {
+    "@gitlab/cross-origin-channel": "workspace:*",
+    "@gitlab/logger": "workspace:*",
+    "@gitlab/oauth-client": "workspace:*",
+    "@gitlab/utils-escape": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*"
+  },
+  "scripts": {
+    "build": "node ./build.js",
+    "prepack": "node ./scripts/prepack.js",
+    "postinstall": "node ./scripts/postinstall.js"
+  },
+  "publishConfig": {
+    "main": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ]
+}

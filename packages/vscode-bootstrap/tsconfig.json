@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "types": ["./src/amd/global"]
+  },
+  "references": [
+    { "path": "../gitlab-api-client" },
+    { "path": "../utils-escape" },
+    { "path": "../utils-path" },
+    { "path": "../vscode-mediator-commands" },
+    { "path": "../web-ide-types" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "name": "Yarn Script: test (current file)",
+      "request": "launch",
+      "command": "yarn run test ${file}",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "name": "Node: attach",
+      "request": "attach",
+      "port": 9229
+    }
+  ]
+}

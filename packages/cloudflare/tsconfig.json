@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "lib": ["ES2022"],
+    "types": ["@cloudflare/workers-types", "@types/range-parser"],
+    "esModuleInterop": true
+  },
+  "references": []
+}

@@ -1,0 +1,29 @@
+{
+  "id": "id",
+  "model": {
+    "engine": "anthropic",
+    "name": "claude-3-5-sonnet-20240620",
+    "lang": "ruby",
+    "tokens_consumption_metadata": {
+      "input_tokens": 300,
+      "output_tokens": 0,
+      "max_output_tokens_used": false,
+      "context_tokens_sent": 0,
+      "context_tokens_used": 0
+    },
+    "region": "us-central1"
+  },
+  "experiments": [],
+  "object": "text_completion",
+  "created": 1755108738,
+  "choices": [
+    {
+      "text": "(num1, num2) {",
+      "index": 0,
+      "finish_reason": "length"
+    }
+  ],
+  "metadata": {
+    "enabled_feature_flags": ["expanded_ai_logging"]
+  }
+}
