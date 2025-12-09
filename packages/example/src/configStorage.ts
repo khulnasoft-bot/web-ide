@@ -15,7 +15,7 @@ export const saveConfig = (payloadUnclean: ExampleConfigPayload) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.error('[gitlab-web-ide-example] Could not save user config!', e);
+    console.error('[khulnasoft-web-ide-example] Could not save user config!', e);
   }
 };
 

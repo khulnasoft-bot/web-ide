@@ -1,7 +1,7 @@
-import type { SourceControlSystem } from '@gitlab/web-ide-fs';
+import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import { flatten, uniq } from 'lodash';
 import * as vscode from 'vscode';
-import type { GitLabProject } from '@gitlab/vscode-mediator-commands';
+import type { GitLabProject } from '@khulnasoft/vscode-mediator-commands';
 import { RELOAD_COMMAND_ID, RELOAD_WITH_WARNING_COMMAND_ID } from '../constants';
 import { createProjectBranch, fetchProjectBranches } from '../mediator';
 import type { CommandsInitialData } from '../types';

@@ -1,4 +1,4 @@
-import type { WebIDEFontFace } from '@gitlab/web-ide-types';
+import type { WebIDEFontFace } from '@khulnasoft/web-ide-types';
 import { loadGitLabFonts } from './loadGitLabFonts';
 
 describe('loadGitLabFonts', () => {

@@ -71,6 +71,6 @@ The icon unicode character is referenced in the `icons` contribution section of
 
 Follow these steps to add or remove icons from the icons font:
 
-1. Add or remove an svg icon illustration from `packages/vscode-extension-gitlab-vscode-theme/assets/fonts/icons`.
+1. Add or remove an svg icon illustration from `packages/vscode-extension-khulnasoft-vscode-theme/assets/fonts/icons`.
 2. Run `yarn build:font` to update the web font file.
 3. Commit and push the changes.

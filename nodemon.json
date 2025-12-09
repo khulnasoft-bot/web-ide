@@ -2,7 +2,7 @@
   "ignore": ["*.test.*", "lib/", "tmp/"],
   "watch": [
     "packages/**/src/**",
-    "packages/vscode-extension-gitlab-vscode-extension/dist/gitlab-vscode-extension/dist-browser",
+    "packages/vscode-extension-khulnasoft-vscode-extension/dist/khulnasoft-vscode-extension/dist-browser",
     "config/.env"
   ],
   "delay": 1000,

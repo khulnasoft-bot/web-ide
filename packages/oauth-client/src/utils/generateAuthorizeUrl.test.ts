@@ -1,7 +1,7 @@
 import type { OAuthApp } from '../types';
 import { generateAuthorizeUrl } from './generateAuthorizeUrl';
 
-import '@gitlab/utils-test/src/jsdom.d';
+import '@khulnasoft/utils-test/src/jsdom.d';
 import { sha256ForUrl } from './sha256ForUrl';
 
 const TEST_ORIGINAL_URL = 'https://example.com/original/url';

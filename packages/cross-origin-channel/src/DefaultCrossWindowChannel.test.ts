@@ -1,5 +1,5 @@
-import { createFakePartial } from '@gitlab/utils-test';
-import type { Disposable } from '@gitlab/web-ide-types';
+import { createFakePartial } from '@khulnasoft/utils-test';
+import type { Disposable } from '@khulnasoft/web-ide-types';
 import { DefaultCrossWindowChannel } from './DefaultCrossWindowChannel';
 import type {
   PortChannelRequestMessage,

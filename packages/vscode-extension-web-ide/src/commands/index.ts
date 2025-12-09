@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import type { SourceControlSystem } from '@gitlab/web-ide-fs';
+import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 
 import {

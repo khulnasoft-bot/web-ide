@@ -1,8 +1,8 @@
 import type { DefaultGitLabClient, gitlab } from '@gitlab/gitlab-api-client';
-import type { GitLabCommitPayload } from '@gitlab/vscode-mediator-commands';
+import type { GitLabCommitPayload } from '@khulnasoft/vscode-mediator-commands';
 import { gitlabApi } from '@gitlab/gitlab-api-client';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { getCommitPayload } from './getCommitPayload';
 
 export interface GetAmendCommitPayloadOptions {

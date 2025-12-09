@@ -1,5 +1,8 @@
 import * as vscode from 'vscode';
-import type { WebIdeExtensionConfig, ExtensionMarketplaceSettings } from '@gitlab/web-ide-types';
+import type {
+  WebIdeExtensionConfig,
+  ExtensionMarketplaceSettings,
+} from '@khulnasoft/web-ide-types';
 import {
   GO_TO_EXTENSION_MARKETPLACE_HELP_COMMAND_ID,
   GO_TO_USER_PREFERENCES_COMMAND_ID,

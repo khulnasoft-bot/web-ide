@@ -1,4 +1,4 @@
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { generateCommitMessage } from './generateCommitMessage';
 
 describe('scm/commit/generateCommitMessage', () => {

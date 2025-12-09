@@ -2,7 +2,7 @@
 import '../vscode.proposed.codiconDecoration.d';
 
 import * as vscode from 'vscode';
-import { basename, joinPaths } from '@gitlab/utils-path';
+import { basename, joinPaths } from '@khulnasoft/utils-path';
 import {
   initMergeRequestContext,
   MSG_FAILED,
@@ -53,7 +53,7 @@ const TEST_OPTIONS: Parameters<typeof initMergeRequestContext>[2] = {
     id: '7',
     baseSha: '000111',
     isMergeRequestBranch: true,
-    mergeRequestUrl: 'https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests/1',
+    mergeRequestUrl: 'https://gitlab.com/khulnasoft/web-ide/-/merge_requests/1',
   },
   isReload: false,
 };

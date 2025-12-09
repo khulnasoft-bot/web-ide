@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { createStatusViewModel, toResourceState, toFileDecoration } from './status';
 import type { StatusViewModel } from './types';
 import { FS_SCHEME, SCM_SCHEME } from '../constants';

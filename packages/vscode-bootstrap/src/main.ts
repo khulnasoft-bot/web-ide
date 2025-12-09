@@ -1,5 +1,5 @@
 // initialized by loading SCRIPT_VSCODE_LOADER 'vscode/out/vs/loader.js'
-import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@gitlab/web-ide-types';
+import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@khulnasoft/web-ide-types';
 import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { insertScript } from './utils/insertScript';
@@ -35,10 +35,10 @@ const getExtensionConfig = async (config: WebIdeConfig, extensionPath: string) =
 
 const getBuiltInExtensions = async (config: SerializableConfig) =>
   Promise.all([
-    getExtensionConfig(config, 'gitlab-web-ide'),
+    getExtensionConfig(config, 'khulnasoft-web-ide'),
     getExtensionConfig(config, 'gitlab-language-support-vue'),
-    getExtensionConfig(config, 'gitlab-vscode-extension'),
-    getExtensionConfig(config, 'gitlab-vscode-theme'),
+    getExtensionConfig(config, 'khulnasoft-vscode-extension'),
+    getExtensionConfig(config, 'khulnasoft-vscode-theme'),
   ]);
 
 /**

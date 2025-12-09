@@ -1,14 +1,18 @@
 // TODO: For some reason `ts-jest` isn't finsing the `.d.ts` files
 import '../../vscode.proposed.scmActionButton.d';
 import '../../vscode.proposed.scmValidation.d';
-import { createConfig, createFakePartial } from '@gitlab/utils-test';
-import type { FileStatus, SourceControlFileSystem, SourceControlSystem } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import { createConfig, createFakePartial } from '@khulnasoft/utils-test';
+import type {
+  FileStatus,
+  SourceControlFileSystem,
+  SourceControlSystem,
+} from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import * as vscode from 'vscode';
 import type { DebouncedFunc } from 'lodash';
 import { debounce } from 'lodash';
 
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import { TEST_PROJECT, TEST_REF_BRANCH } from '../../test-utils';
 import { createFakeGlobalState } from '../../test-utils/vscode';

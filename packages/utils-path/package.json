@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/utils-path",
+  "name": "@khulnasoft/utils-path",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",

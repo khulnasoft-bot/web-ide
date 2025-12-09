@@ -6,7 +6,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 # Style Guide
 
-This guide describes the style we follow when contributing to the `@gitlab/web-ide` project.
+This guide describes the style we follow when contributing to the `@khulnasoft/web-ide` project.
 
 [[_TOC_]]
 

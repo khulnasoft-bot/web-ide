@@ -1,6 +1,6 @@
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import { WEB_IDE_EXTENSION_ID } from '@gitlab/web-ide-interop';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { DEFAULT_SESSION_ID } from '../../constant';
 import type { AuthenticationSessionInfo, ISecretStorageProvider } from '../types';
 import { InMemorySecretStorageProvider } from './InMemorySecretStorageProvider';
@@ -11,9 +11,9 @@ import { ReadonlySecretStorageProvider } from './ReadonlySecretStorageProvider';
 const createExtensionSecretKey = (extensionId: string, key: string) =>
   JSON.stringify({ extensionId, key });
 
-// what: This gitlab-web-ide corresponds to the `authenticationProvider` of the `settingsSync` options
+// what: This khulnasoft-web-ide corresponds to the `authenticationProvider` of the `settingsSync` options
 //       passed to the Workbench construction options.
-const EXPECTED_LOGIN_ACCOUNT_KEY = 'gitlab-web-ide.loginAccount';
+const EXPECTED_LOGIN_ACCOUNT_KEY = 'khulnasoft-web-ide.loginAccount';
 const EXPECTED_AUTH_TOKEN_KEY = createExtensionSecretKey(WEB_IDE_EXTENSION_ID, 'auth_token');
 const EXPECTED_CONFIG_KEY = createExtensionSecretKey(WEB_IDE_EXTENSION_ID, 'config');
 
@@ -24,7 +24,7 @@ const isConfigKey = (key: string) => key === EXPECTED_CONFIG_KEY;
 const createLoginAccount = (accessToken: string): AuthenticationSessionInfo => ({
   id: DEFAULT_SESSION_ID,
   accessToken,
-  providerId: 'gitlab-web-ide',
+  providerId: 'khulnasoft-web-ide',
   canSignOut: false,
 });
 

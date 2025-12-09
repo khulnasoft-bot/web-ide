@@ -1,7 +1,7 @@
 import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
-import { createConfig, createFakePartial } from '@gitlab/utils-test';
+import { createConfig, createFakePartial } from '@khulnasoft/utils-test';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
-import { ErrorType, type WebIdeConfig } from '@gitlab/web-ide-types';
+import { ErrorType, type WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { handleEmbedderChange } from './handleEmbedderChange';
 import { main } from './main';
 import { start } from './start';

@@ -1,4 +1,4 @@
-import type { AuthType, ExtensionMarketplaceDisabledReason } from '@gitlab/web-ide-types';
+import type { AuthType, ExtensionMarketplaceDisabledReason } from '@khulnasoft/web-ide-types';
 
 export interface ExampleConfig {
   gitlabUrl: string;

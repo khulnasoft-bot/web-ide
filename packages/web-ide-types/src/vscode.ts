@@ -3,7 +3,7 @@
  */
 
 // This should mirror the IProductConfiguration['extensionsGallery'] from VSCode
-// https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/blob/0e16324eff7e45a43223f9c11dafa1b3768d3174/src/vs/base/common/product.ts#L95
+// https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/0e16324eff7e45a43223f9c11dafa1b3768d3174/src/vs/base/common/product.ts#L95
 export interface VscodeExtensionsGallerySettings {
   readonly serviceUrl: string;
   readonly servicePPEUrl?: string;
@@ -15,7 +15,7 @@ export interface VscodeExtensionsGallerySettings {
   readonly nlsBaseUrl: string;
 }
 
-// LogLevel https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/blob/main/src/vs/platform/log/common/log.ts
+// LogLevel https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/main/src/vs/platform/log/common/log.ts
 export enum LogLevel {
   Trace,
   Debug,

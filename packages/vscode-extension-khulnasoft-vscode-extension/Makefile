@@ -1,5 +1,5 @@
 dist=dist
-dist_gitlab_vscode_extension=$(dist)/gitlab-vscode-extension
+dist_gitlab_vscode_extension=$(dist)/khulnasoft-vscode-extension
 dist_gitlab_extension_tar=$(dist)/gitlab-extension.tar.gz
 dist_gitlab_vscode_extension_dist_browser=$(dist_gitlab_vscode_extension)/dist-browser
 

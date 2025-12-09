@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
 import * as vscode from 'vscode';
 
 const noopDisposable = {

@@ -13,7 +13,7 @@ The Web IDE sends tracking events to [GitLab snowplow service](https://docs.gitl
 functions exported by the [web-ide package](./architecture-packages.md#web-ide).
 
 ```typescript
-import { start } from '@gitlab/web-ide';
+import { start } from '@khulnasoft/web-ide';
 
 start({
   handleTracking: (trackingEvent: TrackingEvent) {
@@ -42,7 +42,7 @@ The Web IDE sends tracking events using the `trackEvent` mediator command.
 sequenceDiagram
     participant A as vscode-extension-web-ide
     participant B as vscode-mediator-commands
-    participant C as @gitlab/web-ide
+    participant C as @khulnasoft/web-ide
     participant D as GitLab application
     A->>+B: trackEvent(event)
     B->>-C: postMessage('web-ide-tracking', event)

@@ -1,6 +1,6 @@
 {
   "name": "web-ide-package-test",
   "dependencies": {
-    "@gitlab/web-ide": "file://{{WEB_IDE_PACKAGE_PATH}}"
+    "@khulnasoft/web-ide": "file://{{WEB_IDE_PACKAGE_PATH}}"
   }
 }

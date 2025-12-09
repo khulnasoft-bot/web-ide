@@ -1,6 +1,6 @@
 import type { AuthHeadersProvider, AuthProvider } from '@gitlab/gitlab-api-client';
 import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { createFakePartial, createWebIdeExtensionConfig } from '@gitlab/utils-test';
+import { createFakePartial, createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
 import { createGitLabClient } from './createGitLabClient';
 import { getAuthHeadersProvider } from './getAuthHeadersProvider';
 

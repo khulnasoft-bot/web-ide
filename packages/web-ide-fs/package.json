@@ -1,10 +1,10 @@
 {
-  "name": "@gitlab/web-ide-fs",
+  "name": "@khulnasoft/web-ide-fs",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "@gitlab/utils-path": "workspace:*",
+    "@khulnasoft/utils-path": "workspace:*",
     "browserfs": "^1.4.3",
     "lodash": "4.17.21"
   },

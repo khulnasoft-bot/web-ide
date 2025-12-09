@@ -5,8 +5,8 @@ import {
   DefaultAuthProvider,
 } from '@gitlab/gitlab-api-client';
 import { createPrivateTokenHeadersProvider } from '@gitlab/gitlab-api-client-factory';
-import { createConfig } from '@gitlab/utils-test';
-import { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import { createConfig } from '@khulnasoft/utils-test';
+import { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 
 export const TEST_DEFAULT_BRANCH = 'test-default-branch';
 

@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/vscode-build",
+  "name": "@khulnasoft/vscode-build",
   "version": "0.0.1",
   "scripts": {
     "build": "make dist/vscode",

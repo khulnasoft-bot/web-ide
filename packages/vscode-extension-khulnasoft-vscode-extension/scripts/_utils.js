@@ -1,5 +1,5 @@
 /**
- * @overview Shared utilities for the `vscode-extension-gitlab-vscode-extension` development scripts
+ * @overview Shared utilities for the `vscode-extension-khulnasoft-vscode-extension` development scripts
  */
 
 const path = require('path');

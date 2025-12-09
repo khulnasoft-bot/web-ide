@@ -2,7 +2,7 @@
  * ------------------------------------
  * This file contains types that are shared with other projects.
  * If you change this file, you MUST change it also in:
- *   - https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/main/src/common/platform/web_ide.ts
+ *   - https://gitlab.com/gitlab-org/khulnasoft-vscode-extension/-/blob/main/src/common/platform/web_ide.ts
  * ------------------------------------
  */
 
@@ -10,14 +10,14 @@
 /* eslint @typescript-eslint/no-unused-vars: ["error", { "varsIgnorePattern": "TReturnType" }] */
 
 // region: Shared constants --------------------------------------------
-export const WEB_IDE_EXTENSION_ID = 'gitlab.gitlab-web-ide';
-export const WEB_IDE_AUTH_PROVIDER_ID = 'gitlab-web-ide';
+export const WEB_IDE_EXTENSION_ID = 'gitlab.khulnasoft-web-ide';
+export const WEB_IDE_AUTH_PROVIDER_ID = 'khulnasoft-web-ide';
 export const WEB_IDE_AUTH_SCOPE = 'api';
 
 // region: Mediator commands -------------------------------------------
-export const COMMAND_FETCH_FROM_API = `gitlab-web-ide.mediator.fetch-from-api`;
-export const COMMAND_FETCH_BUFFER_FROM_API = `gitlab-web-ide.mediator.fetch-buffer-from-api`;
-export const COMMAND_MEDIATOR_TOKEN = `gitlab-web-ide.mediator.mediator-token`;
+export const COMMAND_FETCH_FROM_API = `khulnasoft-web-ide.mediator.fetch-from-api`;
+export const COMMAND_FETCH_BUFFER_FROM_API = `khulnasoft-web-ide.mediator.fetch-buffer-from-api`;
+export const COMMAND_MEDIATOR_TOKEN = `khulnasoft-web-ide.mediator.mediator-token`;
 
 // Return type from `COMMAND_FETCH_BUFFER_FROM_API`
 export interface VSCodeBuffer {

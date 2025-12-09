@@ -25,7 +25,7 @@ const {
 } = process.env;
 
 const HELP_URL =
-  'https://gitlab.com/gitlab-org/gitlab-web-ide/-/blob/main/docs/dev/style_guide.md#conventional-commits';
+  'https://gitlab.com/khulnasoft/web-ide/-/blob/main/docs/dev/style_guide.md#conventional-commits';
 
 const customRules = {
   'header-max-length': [2, 'always', MAXIMUM_LINE_LENGTH],

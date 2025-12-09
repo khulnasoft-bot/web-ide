@@ -1,4 +1,4 @@
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import {
   authorizeGrantWithIframe,
   isCallbackFromIframe,

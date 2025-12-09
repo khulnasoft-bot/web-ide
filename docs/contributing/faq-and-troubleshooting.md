@@ -9,7 +9,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 ## Why not use Yarn Plug n' Play?
 
 We started this project using Plug n' Play but we kept running into environment specific
-issues ([see example](https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests/124)).
+issues ([see example](https://gitlab.com/khulnasoft/web-ide/-/merge_requests/124)).
 The extra complexity of using `.zip` files for third party modules was not worth any space
 optimization benefit.
 

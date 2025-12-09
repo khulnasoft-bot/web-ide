@@ -33,8 +33,8 @@ export const fetchRef = async (
   const fullSha = metadata.tree.lastCommit?.sha;
 
   if (!fullSha) {
-    // TODO: Handle this more gracefully for the user https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/280
-    throw new Error(`[gitlab-web-ide] ref not found in repository: ${ref}`);
+    // TODO: Handle this more gracefully for the user https://gitlab.com/khulnasoft/web-ide/-/issues/280
+    throw new Error(`[khulnasoft-web-ide] ref not found in repository: ${ref}`);
   }
 
   if (isCommittish(ref, fullSha)) {

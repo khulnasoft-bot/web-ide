@@ -52,8 +52,8 @@ variables:
   # Performs an error check after each Bash script command is executed, and exits if the previously executed command returned a non-zero exit code
   # https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/2671
   FF_ENABLE_BASH_EXIT_CODE_CHECK: 'true'
-  GITLAB_WEB_IDE_PROJECT_ID: '35104827'
-  GITLAB_WEB_IDE_SECURITY_PROJECT_ID: '47566511'
+  KHULNASOFT_WEB_IDE_PROJECT_ID: '35104827'
+  KHULNASOFT_WEB_IDE_SECURITY_PROJECT_ID: '47566511'
 
   # Controls whether we deploy from ops.gitlab.net in a DR scenario
   ENABLE_OPS_PIPELINE:
@@ -76,7 +76,7 @@ variables:
 # because the pipeline might be in an MR against a fork's 'main' branch, and in this case this rule
 # would incorrectly trigger when the "Pipeline for Merged Results" is run for the MR.
 .if-main-original-repo: &if-main-original-repo
-  if: '$CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $GITLAB_WEB_IDE_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
+  if: '$CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $KHULNASOFT_WEB_IDE_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
 
 # merge request, from the original repo or from forks when a
 # GitLab Web IDE member triggered the pipeline
@@ -85,18 +85,18 @@ variables:
 
 # merge request, ONLY for a branch in a forked repo
 .if-merge-request-forked-repo: &if-merge-request-forked-repo
-  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $GITLAB_WEB_IDE_PROJECT_ID'
+  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $KHULNASOFT_WEB_IDE_PROJECT_ID'
 
 # "always" - main branch in the original repo, OR any merge request
 .if-main-original-repo-or-merge-request: &if-main-original-repo-or-merge-request
-  if: '($CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $GITLAB_WEB_IDE_PROJECT_ID) || $CI_MERGE_REQUEST_IID'
+  if: '($CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $KHULNASOFT_WEB_IDE_PROJECT_ID) || $CI_MERGE_REQUEST_IID'
 
 .if-security-repo: &if-security-repo
-  if: '$CI_PROJECT_ID == $GITLAB_WEB_IDE_SECURITY_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
+  if: '$CI_PROJECT_ID == $KHULNASOFT_WEB_IDE_SECURITY_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
 
 .dependency-cache:
   cache:
-    key: 'gitlab-web-ide-dependency-cache'
+    key: 'khulnasoft-web-ide-dependency-cache'
     policy: pull
     paths:
       - .yarn/cache
@@ -185,7 +185,7 @@ build-integration-test-image:
   needs: []
   image: docker:20.10.16
   tags:
-    - gitlab-org-docker
+    - khulnasoft-docker
   services:
     - docker:20.10.16-dind
   variables:
@@ -214,7 +214,7 @@ create-development-package:
   variables:
     # why: `yarn version` needs access to the commit history
     # https://yarnpkg.com/features/release-workflow#caveat
-    # https://gitlab.com/gitlab-org/gitlab-web-ide/-/jobs/2842454123#L6673
+    # https://gitlab.com/khulnasoft/web-ide/-/jobs/2842454123#L6673
     GIT_DEPTH: 0
   rules:
     - <<: *if-main-original-repo-or-merge-request
@@ -223,10 +223,10 @@ create-development-package:
     # why: we need to add to safe.directory because `yarn version` will trigger `git` commands
     # https://yarnpkg.com/features/release-workflow#caveat
     - git config --global --add safe.directory $PWD
-    # what: uncomment the below line if the security project needs access to the gitlab-vscode-extension
-    # - git submodule set-url gitlab-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/gitlab-vscode-extension.git"
-    - ./scripts/pack-web-ide-package.sh $GITLAB_WEB_IDE_VERSION
-    - ./scripts/pack-gitlab-vscode-theme-package.sh $GITLAB_WEB_IDE_VERSION
+    # what: uncomment the below line if the security project needs access to the khulnasoft-vscode-extension
+    # - git submodule set-url khulnasoft-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/khulnasoft-vscode-extension.git"
+    - ./scripts/pack-web-ide-package.sh $KHULNASOFT_WEB_IDE_VERSION
+    - ./scripts/pack-khulnasoft-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
   artifacts:
     paths:
       - tmp/packages
@@ -240,8 +240,8 @@ build:
   needs: []
   script:
     - git config --global --add safe.directory $PWD
-    # what: uncomment the below line if the security project needs access to the gitlab-vscode-extension
-    # - git submodule set-url gitlab-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/gitlab-vscode-extension.git"
+    # what: uncomment the below line if the security project needs access to the khulnasoft-vscode-extension
+    # - git submodule set-url khulnasoft-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/khulnasoft-vscode-extension.git"
     - yarn run build:example:http
   artifacts:
     paths:
@@ -253,7 +253,7 @@ build:
 ###################################
 # Copied from the [untamper-my-lockfile template][1], but adjusted to include "--config"
 #
-# TODO: Use untamper-my-lockfile template https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/101
+# TODO: Use untamper-my-lockfile template https://gitlab.com/khulnasoft/web-ide/-/issues/101
 # [1]: https://gitlab.com/gitlab-org/frontend/untamper-my-lockfile/-/blob/575fe0d6ccd3abc0c1c5432d6365895f38e8187e/templates/merge_request_pipelines.yml
 untamper-my-lockfile:
   image: registry.gitlab.com/gitlab-org/frontend/untamper-my-lockfile:main
@@ -322,8 +322,8 @@ test-web-ide-package:
     - <<: *if-main-original-repo-or-merge-request
     - <<: *if-security-repo
   script:
-    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
-    - node ./tests/package-test/run.js $GITLAB_WEB_IDE_TAR_PATH
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - node ./tests/package-test/run.js $KHULNASOFT_WEB_IDE_TAR_PATH
 
 ###################################
 #
@@ -381,8 +381,8 @@ test-web-ide-package:
 publish-development-package:
   extends: .publish-development-package
   script:
-    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
-    - npm publish --tag $NPM_PUBLISH_TAG --access public $GITLAB_WEB_IDE_TAR_PATH
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - npm publish --tag $NPM_PUBLISH_TAG --access public $KHULNASOFT_WEB_IDE_TAR_PATH
 
 publish-development-package-dry-run:
   extends: .publish-development-package
@@ -394,10 +394,10 @@ publish-development-package-dry-run:
       when: manual
       allow_failure: true
   script:
-    - export GITLAB_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
-    - npm publish --tag $NPM_PUBLISH_TAG --dry-run --access public $GITLAB_WEB_IDE_TAR_PATH
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - npm publish --tag $NPM_PUBLISH_TAG --dry-run --access public $KHULNASOFT_WEB_IDE_TAR_PATH
 
-publish-gitlab-vscode-theme-package:
+publish-khulnasoft-vscode-theme-package:
   extends: .node-and-yarn
   stage: publish-and-deploy
   needs:
@@ -411,7 +411,7 @@ publish-gitlab-vscode-theme-package:
       when: manual
       allow_failure: true
   script:
-    - scripts/publish-gitlab-vscode-theme-package.sh
+    - scripts/publish-khulnasoft-vscode-theme-package.sh
 
 # Runs integration tests with production docker image
 integration-tests:
@@ -494,7 +494,7 @@ deploy-assets-staging:
     - <<: *if-merge-request-original-repo
       when: manual
   script:
-    - rclone copy tmp/packages r2:gitlab-web-ide-gstg --progress --include "gitlab-web-ide-vscode-workbench-*/**"
+    - rclone copy tmp/packages r2:khulnasoft-web-ide-gstg --progress --include "khulnasoft-web-ide-vscode-workbench-*/**"
 
 deploy-assets-production:
   extends: .deploy-assets
@@ -503,7 +503,7 @@ deploy-assets-production:
   rules:
     - <<: *if-main-original-repo
   script:
-    - rclone copy tmp/packages r2:gitlab-web-ide-gprd --progress --include "gitlab-web-ide-vscode-workbench-*/**"
+    - rclone copy tmp/packages r2:khulnasoft-web-ide-gprd --progress --include "khulnasoft-web-ide-vscode-workbench-*/**"
 
 deploy-cloudflare-worker-staging:
   extends: .deploy-cloudflare-worker

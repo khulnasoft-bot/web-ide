@@ -6,8 +6,8 @@ import { createFakePartial } from '../../../test-utils/createFakePartial';
 
 jest.mock('./tryStat');
 
-const TEST_URI = vscode.Uri.parse('gitlab-web-ide:///README.md');
-const TEST_URI_NESTED = vscode.Uri.parse('gitlab-web-ide:///foo/bar/README.md');
+const TEST_URI = vscode.Uri.parse('khulnasoft-web-ide:///README.md');
+const TEST_URI_NESTED = vscode.Uri.parse('khulnasoft-web-ide:///foo/bar/README.md');
 const TEST_STAT = createFakeFileStat();
 const TEST_FS = createFakePartial<vscode.FileSystem>({
   createDirectory: jest.fn(),
@@ -36,7 +36,7 @@ describe('utils/fs/touchFile', () => {
   describe.each`
     uri                | createDirectoryCalls
     ${TEST_URI}        | ${[]}
-    ${TEST_URI_NESTED} | ${[[vscode.Uri.parse('gitlab-web-ide:///foo/bar')]]}
+    ${TEST_URI_NESTED} | ${[[vscode.Uri.parse('khulnasoft-web-ide:///foo/bar')]]}
   `('when file does not exist and uri=$uri', ({ uri, createDirectoryCalls }) => {
     beforeEach(async () => {
       jest.mocked(tryStat).mockResolvedValue(null);

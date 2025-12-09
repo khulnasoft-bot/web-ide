@@ -1,4 +1,4 @@
-import type { GraphQLRequest } from '@gitlab/web-ide-interop';
+import type { GraphQLRequest } from '@khulnasoft/web-ide-interop';
 
 /**
  * Helps create a GraphQLRequest that co-locates the:

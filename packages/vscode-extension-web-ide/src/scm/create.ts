@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import type { GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import type { GitLabProject, GitLabRef } from '@khulnasoft/vscode-mediator-commands';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { lintCommit } from './commit/lintCommit';
 import {
   COMMIT_COMMAND_ID,

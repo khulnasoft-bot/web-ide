@@ -3,7 +3,7 @@ import { tryStat } from './tryStat';
 import { createFakePartial } from '../../../test-utils/createFakePartial';
 import { createFakeFileStat } from '../../../test-utils/vscode';
 
-const TEST_URI = vscode.Uri.parse('gitlab-web-ide:///foo/src/test.js');
+const TEST_URI = vscode.Uri.parse('khulnasoft-web-ide:///foo/src/test.js');
 const TEST_FS = createFakePartial<vscode.FileSystem>({
   stat: jest.fn(),
 });

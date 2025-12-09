@@ -1,11 +1,11 @@
 import { DefaultAuthProvider } from '@gitlab/gitlab-api-client';
-import { createWebIdeExtensionConfig } from '@gitlab/utils-test';
-import { createCommands } from '@gitlab/vscode-mediator-commands';
+import { createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
+import { createCommands } from '@khulnasoft/vscode-mediator-commands';
 import { getConfig } from '../config';
 import type { SecureMediatorCommandExecutor } from './SecureMediatorCommandExecutor';
 import { createSecureMediatorCommandExecutor } from './SecureMediatorCommandExecutor';
 
-jest.mock('@gitlab/vscode-mediator-commands');
+jest.mock('@khulnasoft/vscode-mediator-commands');
 jest.mock('../config');
 
 const TEST_AUTH_PROVIDER = new DefaultAuthProvider('test-token');

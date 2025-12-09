@@ -20,7 +20,7 @@ node_modules/
 # region: typescript things --------------------------------------------
 *.tsbuildinfo
 
-# region: gitlab-web-ide specifics -------------------------------------
+# region: khulnasoft-web-ide specifics -------------------------------------
 packages/*/lib
 packages/*/dist
 packages/*/public

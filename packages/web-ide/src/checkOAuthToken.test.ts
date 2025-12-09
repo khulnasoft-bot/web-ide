@@ -1,6 +1,6 @@
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import type { OAuthClient } from '@gitlab/oauth-client';
-import { createConfig, createFakePartial, waitForPromises } from '@gitlab/utils-test';
+import { createConfig, createFakePartial, waitForPromises } from '@khulnasoft/utils-test';
 import { createOAuthClient } from '@gitlab/oauth-client';
 import { checkOAuthToken } from './checkOAuthToken';
 

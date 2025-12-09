@@ -67,4 +67,4 @@ When a Merge Request is ready to merge:
 
 - [Code Review Values](https://about.gitlab.com/handbook/engineering/workflow/reviewer-values/) for how we balance priorities and
   communication during code review.
-- [Project members page](https://gitlab.com/gitlab-org/gitlab-web-ide/-/project_members?with_inherited_permissions=exclude&sort=access_level_desc) to find the current list of active maintainers.
+- [Project members page](https://gitlab.com/khulnasoft/web-ide/-/project_members?with_inherited_permissions=exclude&sort=access_level_desc) to find the current list of active maintainers.

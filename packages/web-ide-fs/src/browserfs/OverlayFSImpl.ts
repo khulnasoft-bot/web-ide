@@ -28,7 +28,7 @@
  * ====
  *
  */
-import { joinPaths, dirname } from '@gitlab/utils-path';
+import { joinPaths, dirname } from '@khulnasoft/utils-path';
 import { ApiError, ErrorCode } from 'browserfs/dist/node/core/api_error';
 import type { File } from 'browserfs/dist/node/core/file';
 import { ActionType, FileFlag } from 'browserfs/dist/node/core/file_flag';
@@ -105,7 +105,7 @@ const makeModeWritable = (mode: number): number =>
  * - If exists in readable, update .deletedFiles.log in writable
  * - If directory, just store directory in log. Don't expand to files. This way we can
  *   keep track if the actual folder itself is deleted or not.
- *   This will help prevent issues like https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests/83#note_1178993649
+ *   This will help prevent issues like https://gitlab.com/khulnasoft/web-ide/-/merge_requests/83#note_1178993649
  */
 export class OverlayFSImpl {
   readonly #writable: PromisifiedBrowserFS;

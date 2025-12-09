@@ -1,5 +1,5 @@
-import { basename } from '@gitlab/utils-path';
-import type { FileStatus } from '@gitlab/web-ide-fs';
+import { basename } from '@khulnasoft/utils-path';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
 
 export const generateCommitMessage = (status: FileStatus[]) => {
   const count = status.length;

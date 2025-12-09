@@ -1,4 +1,4 @@
-import type { GitLabRef } from '@gitlab/vscode-mediator-commands';
+import type { GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 import * as vscode from 'vscode';
 import {
   BRANCH_STATUS_BAR_ITEM_ID,

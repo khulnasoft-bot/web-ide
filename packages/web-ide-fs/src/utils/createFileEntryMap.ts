@@ -1,4 +1,4 @@
-import { splitParent, joinPaths } from '@gitlab/utils-path';
+import { splitParent, joinPaths } from '@khulnasoft/utils-path';
 import type { GitLsTreeEntry } from '../types';
 import { FileType } from '../types';
 import type { MutableFileEntry, MutableTreeEntry, MutableBlobEntry } from './types';

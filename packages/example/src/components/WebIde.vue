@@ -1,8 +1,8 @@
 <script lang="ts">
-import { AuthConfig, WebIdeConfig, ExtensionMarketplaceSettings } from '@gitlab/web-ide-types';
-import * as webIde from '@gitlab/web-ide';
+import { AuthConfig, WebIdeConfig, ExtensionMarketplaceSettings } from '@khulnasoft/web-ide-types';
+import * as webIde from '@khulnasoft/web-ide';
 import { defineComponent, onMounted, PropType, ref } from 'vue';
-import type { ContextUpdatePayload, TrackingEvent } from '@gitlab/web-ide-types';
+import type { ContextUpdatePayload, TrackingEvent } from '@khulnasoft/web-ide-types';
 import type { ExampleConfig } from '../types';
 import {
   getRootUrlFromLocation,
@@ -12,7 +12,7 @@ import {
   getEmbedderOriginUrl,
   getSettingsContextHash,
 } from '../config';
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 
 const getAuthConfigFromExample = ({
   authType,

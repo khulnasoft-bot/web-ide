@@ -59,7 +59,7 @@ module.exports = {
     'packages/**/test-utils/**',
     'packages/**/dist',
     'tmp/**/*',
-    'gitlab-vscode-extension',
+    'khulnasoft-vscode-extension',
   ],
   env: {
     // NOTE: The env setting should be kept consistent with the `lib` entry in `tsconfig.base.json`

@@ -1,7 +1,7 @@
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import { gitlabApi } from '@gitlab/gitlab-api-client';
-import { createFakePartial } from '@gitlab/utils-test';
-import type { GitLabRef } from '@gitlab/vscode-mediator-commands';
+import { createFakePartial } from '@khulnasoft/utils-test';
+import type { GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 import { isEqual } from 'lodash';
 import { getRemoteCommitDifference } from './getRemoteCommitDifference';
 import { TEST_BRANCH, TEST_REF_BRANCH } from '../../../test-utils';

@@ -1,5 +1,5 @@
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import { useFakeBroadcastChannel } from '@gitlab/utils-test';
+import { useFakeBroadcastChannel } from '@khulnasoft/utils-test';
 import { createOAuthClient } from './createOAuthClient';
 import type { OAuthTokenState } from './types';
 import { asOAuthProvider } from './asOAuthProvider';

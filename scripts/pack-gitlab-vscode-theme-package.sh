@@ -12,6 +12,6 @@ source "${root_dir}/scripts/pack-package-base.sh"
 
 mkdir -p $tmp_dir
 
-echo "Pack: Packing gitlab-vscode-theme package with version ${GITLAB_WEB_IDE_VERSION}..."
-yarn workspace gitlab-vscode-theme version "${GITLAB_WEB_IDE_VERSION}"
-yarn workspace gitlab-vscode-theme package -o $tmp_dir
+echo "Pack: Packing khulnasoft-vscode-theme package with version ${KHULNASOFT_WEB_IDE_VERSION}..."
+yarn workspace khulnasoft-vscode-theme version "${KHULNASOFT_WEB_IDE_VERSION}"
+yarn workspace khulnasoft-vscode-theme package -o $tmp_dir

@@ -3,7 +3,12 @@ import type {
   ErrorMessage,
   WindowChannelMessage,
 } from '@gitlab/cross-origin-channel';
-import type { WebIdeConfig, WebIde, OAuthCallbackConfig, Disposable } from '@gitlab/web-ide-types';
+import type {
+  WebIdeConfig,
+  WebIde,
+  OAuthCallbackConfig,
+  Disposable,
+} from '@khulnasoft/web-ide-types';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { createOAuthClient } from '@gitlab/oauth-client';
 import { defaultLogger } from '@gitlab/logger';

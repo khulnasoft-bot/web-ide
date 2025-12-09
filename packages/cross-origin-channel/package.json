@@ -7,9 +7,9 @@
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*"
+    "@khulnasoft/utils-test": "workspace:*"
   }
 }

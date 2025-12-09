@@ -1,4 +1,4 @@
-import { oauthCallback } from '@gitlab/web-ide';
+import { oauthCallback } from '@khulnasoft/web-ide';
 import { getOAuthCallbackUrl } from './config';
 import { loadConfig } from './configStorage';
 import { addParamsToOriginalUrl } from './utils/oauthHandshakeState';

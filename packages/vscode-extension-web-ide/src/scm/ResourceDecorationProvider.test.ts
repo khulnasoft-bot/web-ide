@@ -1,5 +1,5 @@
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import type * as vscode from 'vscode';
 import { ResourceDecorationProvider } from './ResourceDecorationProvider';
 import { createStatusViewModel, toFileDecoration } from './status';

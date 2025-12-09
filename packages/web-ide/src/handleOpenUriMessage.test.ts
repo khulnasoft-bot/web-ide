@@ -1,5 +1,5 @@
-import { createFakePartial } from '@gitlab/utils-test';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import { createFakePartial } from '@khulnasoft/utils-test';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { handleOpenUriMessage } from './handleOpenUriMessage';
 
 describe('handleOpenUriMessage', () => {

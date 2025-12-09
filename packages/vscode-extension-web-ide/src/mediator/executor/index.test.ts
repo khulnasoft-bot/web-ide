@@ -1,4 +1,4 @@
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
 import { createMediatorCommandExecutor } from './factory';
 import { setupMediatorCommandExecutor, executeMediatorCommand } from './index';

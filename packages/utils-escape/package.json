@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/utils-escape",
+  "name": "@khulnasoft/utils-escape",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",

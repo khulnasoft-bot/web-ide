@@ -22,11 +22,11 @@ the Web IDE project.
 
 To release a new version of the Web IDE artifacts used by the GitLab application:
 
-1. Go to https://gitlab.com/gitlab-org/gitlab-web-ide/-/commits/main.
+1. Go to https://gitlab.com/khulnasoft/web-ide/-/commits/main.
 1. Open the pipeline of the target commit to release.
 1. Wait for the pipeline to finish successfully.
 1. Run the `publish-development-package` manual job.
-1. When `publish-development-package` finishes successfully, create a tag in the repository for the version just published. See [this tag](https://gitlab.com/gitlab-org/gitlab-web-ide/-/tags/0.0.1-dev-20220811191150) for an example.
+1. When `publish-development-package` finishes successfully, create a tag in the repository for the version just published. See [this tag](https://gitlab.com/khulnasoft/web-ide/-/tags/0.0.1-dev-20220811191150) for an example.
 
 After the `publish-development-package` job completes without errors, the `deploy-assets-production` job will deploy the Web IDE's VSCode workbench assets to `.cdn.web-ide.gitlab-static.net`.
 
@@ -36,18 +36,18 @@ After the `publish-development-package` job completes without errors, the `deplo
 
 To release the VSCode color theme:
 
-1. Go to https://gitlab.com/gitlab-org/gitlab-web-ide/-/commits/main.
+1. Go to https://gitlab.com/khulnasoft/web-ide/-/commits/main.
 1. Open the pipeline of the target commit to release.
 1. Wait for the pipeline to finish successfully.
-1. Run the `publish-gitlab-vscode-theme-package` manual job.
+1. Run the `publish-khulnasoft-vscode-theme-package` manual job.
 
-The `publish-gitlab-vscode-theme-package` CI job needs to have both _write registry_ and _write repository_ permissions. We are dogfooding the `allow_push_repository_for_job_token` feature flag for this project, allowing us to use `CI_JOB_TOKEN` without managing a separate project token.
+The `publish-khulnasoft-vscode-theme-package` CI job needs to have both _write registry_ and _write repository_ permissions. We are dogfooding the `allow_push_repository_for_job_token` feature flag for this project, allowing us to use `CI_JOB_TOKEN` without managing a separate project token.
 
 See [the docs for CI job token](https://docs.gitlab.com/ee/ci/jobs/ci_job_token.html#git-push-to-your-project-repository) for more details.
 
 ### Updating the Web IDE in the GitLab Application
 
-To update the Web IDE in the GitLab application, bump the `@gitlab/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
+To update the Web IDE in the GitLab application, bump the `@khulnasoft/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
 
 ### Security releases
 
@@ -110,8 +110,8 @@ In the Example App, the workbench URLs are set in `config/.env.local`.
 
 ```bash
 # env.local file
-VITE_WORKBENCH_BASE_URL_HTTPS="https://workbench.staging.cdn.web-ide.gitlab-static.net/gitlab-web-ide-vscode-workbench-<version>"
-VITE_EXTENSIONS_HOST_BASE_URL_HTTPS="https://{{uuid}}.staging.cdn.web-ide.gitlab-static.net/gitlab-web-ide-vscode-workbench-<version>/vscode"
+VITE_WORKBENCH_BASE_URL_HTTPS="https://workbench.staging.cdn.web-ide.gitlab-static.net/khulnasoft-web-ide-vscode-workbench-<version>"
+VITE_EXTENSIONS_HOST_BASE_URL_HTTPS="https://{{uuid}}.staging.cdn.web-ide.gitlab-static.net/khulnasoft-web-ide-vscode-workbench-<version>/vscode"
 ```
 
 **GitLab Rails app**:
@@ -120,7 +120,7 @@ In the GitLab Rails app, the workbench URLs are set in `buildExtensionHostUrl` i
 
 ## Release Artifacts
 
-### @gitlab/web-ide npm package
+### @khulnasoft/web-ide npm package
 
 This npm package contains the functionality to handle OAuth authentication flow and
 load the Web IDE's VSCode workbench. It is imported by the GitLab application to
@@ -130,7 +130,7 @@ provide Web IDE functionality within the GitLab interface.
 
 These assets include the Web IDE's VSCode workbench static files (JavaScript, CSS,
 HTML, WASM) that are hosted on Cloudflare. They are loaded in an iframe by the
-`@gitlab/web-ide` npm package and provide the core editor functionality of the Web IDE.
+`@khulnasoft/web-ide` npm package and provide the core editor functionality of the Web IDE.
 
 ### GitLab VSCode Theme VSCode Extension
 

@@ -9,7 +9,7 @@ components:
       memoryRequest: 3072Mi
       env:
         - name: MISE_TRUSTED_CONFIG_PATHS
-          value: /projects/gitlab-web-ide
+          value: /projects/khulnasoft-web-ide
       endpoints:
         - name: example-app
           targetPort: 8000
@@ -19,7 +19,7 @@ commands:
   - id: install-dependencies
     exec:
       component: web-ide
-      commandLine: 'cd /projects/gitlab-web-ide && mise install && yarn install && git submodule update --init -f'
+      commandLine: 'cd /projects/khulnasoft-web-ide && mise install && yarn install && git submodule update --init -f'
 events:
   postStart:
     - install-dependencies

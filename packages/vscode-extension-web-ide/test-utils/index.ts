@@ -1,4 +1,4 @@
-import { GitLabBranch, GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
+import { GitLabBranch, GitLabProject, GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 import { CommandsInitialData } from '../src/types';
 export const asRef = (branch: GitLabBranch): GitLabRef => ({
   type: 'branch',

@@ -1,4 +1,4 @@
-import type { Disposable } from '@gitlab/web-ide-types';
+import type { Disposable } from '@khulnasoft/web-ide-types';
 import type { PortChannel } from '@gitlab/cross-origin-channel';
 import type { OAuthClient } from '@gitlab/oauth-client';
 import { setupAutoRefresh } from '@gitlab/oauth-client';

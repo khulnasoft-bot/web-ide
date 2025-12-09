@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { joinPaths } from '@gitlab/utils-path';
-import type { GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
+import { joinPaths } from '@khulnasoft/utils-path';
+import type { GitLabProject, GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 import { getConfig } from '../../mediator';
 
 export interface ShowSuccessMessageOptions {

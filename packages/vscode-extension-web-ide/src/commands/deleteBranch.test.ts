@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import { gitlabApi } from '@gitlab/gitlab-api-client';
-import { type SourceControlSystem } from '@gitlab/web-ide-fs';
-import { createFakePartial } from '@gitlab/utils-test';
+import { type SourceControlSystem } from '@khulnasoft/web-ide-fs';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import deleteBranch from './deleteBranch';
 import * as branchUtilities from './branchUtilities';
 import { TEST_COMMANDS_INITIAL_DATA, TEST_BRANCH } from '../../test-utils';

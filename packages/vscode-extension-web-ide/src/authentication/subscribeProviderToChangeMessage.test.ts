@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import type { GitLabAuthenticationProvider } from './GitLabAuthenticationProvider';
 import {
   subscribeProviderToChangeMessage,

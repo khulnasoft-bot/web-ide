@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import { splitParent } from '@gitlab/utils-path';
+import { splitParent } from '@khulnasoft/utils-path';
 import { tryStat } from './tryStat';
 
 export const touchFile = async (fs: vscode.FileSystem, uri: vscode.Uri): Promise<void> => {

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { COMMAND_MEDIATOR_TOKEN } from '@gitlab/web-ide-interop';
+import { COMMAND_MEDIATOR_TOKEN } from '@khulnasoft/web-ide-interop';
 import {
   COMMAND_COMMIT,
   COMMAND_CREATE_PROJECT_BRANCH,
@@ -7,7 +7,7 @@ import {
   COMMAND_FETCH_MERGE_REQUEST_DIFF_STATS,
   COMMAND_FETCH_PROJECT_BRANCHES,
   COMMAND_START,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
 import * as mediator from './index';
 import { setupMediatorCommandExecutor } from './executor';

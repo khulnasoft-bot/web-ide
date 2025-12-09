@@ -3,7 +3,7 @@ import type {
   ErrorType,
   TrackingEvent,
   WebIdeConfigLinks,
-} from '@gitlab/web-ide-types';
+} from '@khulnasoft/web-ide-types';
 
 interface BaseChannel<Message, MessageKey> extends Disposable {
   postMessage(message: Message): void;

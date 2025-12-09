@@ -6,7 +6,7 @@ import {
   COMMAND_FETCH_BUFFER_FROM_API,
   COMMAND_FETCH_FROM_API,
   COMMAND_MEDIATOR_TOKEN,
-} from '@gitlab/web-ide-interop';
+} from '@khulnasoft/web-ide-interop';
 import type { Command, VSBufferWrapper } from '../types';
 import {
   COMMAND_COMMIT,

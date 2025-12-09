@@ -108,7 +108,7 @@ describe('commands/utils/fetchRef', () => {
       mockFetchRefMetadata(undefined);
 
       await expect(fetchRef(TEST_PROJECT_PATH, TEST_TAG, client)).rejects.toThrow(
-        '[gitlab-web-ide] ref not found in repository: v1.2',
+        '[khulnasoft-web-ide] ref not found in repository: v1.2',
       );
     });
   });

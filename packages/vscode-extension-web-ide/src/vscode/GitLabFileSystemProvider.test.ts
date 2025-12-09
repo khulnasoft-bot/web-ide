@@ -1,4 +1,4 @@
-import type { FileSystem } from '@gitlab/web-ide-fs';
+import type { FileSystem } from '@khulnasoft/web-ide-fs';
 import type { FileChangeEvent } from 'vscode';
 import { FileChangeType, Uri } from 'vscode';
 import { GitLabFileSystemProvider } from './GitLabFileSystemProvider';
@@ -9,8 +9,8 @@ describe('vscode/GitLabFileSystemProvider', () => {
   let subject: GitLabFileSystemProvider;
   let changeSpy: jest.Mock<unknown, [e: FileChangeEvent[]]>;
 
-  const TEST_FILE_URI = Uri.parse('gitlab-web-ide:///test/foo.md');
-  const TEST_NEW_FILE_URI = Uri.parse('gitlab-web-ide:///test/foo_new.md');
+  const TEST_FILE_URI = Uri.parse('khulnasoft-web-ide:///test/foo.md');
+  const TEST_NEW_FILE_URI = Uri.parse('khulnasoft-web-ide:///test/foo_new.md');
   const TEST_CONTENT = new Uint8Array();
 
   beforeEach(() => {

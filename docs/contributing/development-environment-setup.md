@@ -94,13 +94,13 @@ default value in `config/.env.local`.
 
 1. Create OAuth Application in local GDK
    1. Start your local GDK and go to **Admin** > **Applications** and click on **Add new application**. Fill the form with:
-      - **Name:** `gitlab-web-ide example app`
+      - **Name:** `khulnasoft-web-ide example app`
       - **Redirect URI:** `https://main.127.0.0.1.nip.io:8000/oauth_callback.html`
       - **Trusted:** Checked
       - **Confidential:** Unchecked
       - **Scopes:** Check `api`
       - Click **Save**
-1. In the `gitlab-web-ide` poject, start local example app with `yarn start:example`.
+1. In the `khulnasoft-web-ide` poject, start local example app with `yarn start:example`.
 1. Visit `https://main.127.0.0.1.nip.io:8000` and fill out the form:
    - **GitLab URL:** Enter your GDK URL.
    - **Project Path:** Enter any valid project path in your GDK instance.
@@ -112,30 +112,30 @@ default value in `config/.env.local`.
 
 ### Setup integrating with local VSCode repo
 
-You might need to integrate local changes of the [gitlab-web-ide-vscode-fork](https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/)
-while working on this `gitlab-web-ide` repo. To do this, run:
+You might need to integrate local changes of the [khulnasoft-web-ide-vscode-fork](https://gitlab.com/khulnasoft/web-ide-vscode-fork/)
+while working on this `khulnasoft-web-ide` repo. To do this, run:
 
 ```shell
-yarn local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
+yarn local-setup /absolute/path/to/khulnasoft-web-ide-vscode-fork/.build/vscode-web
 ```
 
 This will create a `vscode_version.local.json` inside the `vscode-build` package which will change how
 `make` builds the `dist/vscode` target.
 
-Now, when you make a change to your local clone of `gitlab-web-ide-vscode-fork`, run the following to
-have the change show up in the local running `gitlab-web-ide` example:
+Now, when you make a change to your local clone of `khulnasoft-web-ide-vscode-fork`, run the following to
+have the change show up in the local running `khulnasoft-web-ide` example:
 
 ```shell
-# From the `gitlab-web-ide-vscode-fork` project root
+# From the `khulnasoft-web-ide-vscode-fork` project root
 yarn gitlab:build-vscode-web
 
-# From the `gitlab-web-ide` project root
+# From the `khulnasoft-web-ide` project root
 yarn build:vscode
 ```
 
 ### Setup integrating with candidate VS Code build
 
-1. Find the artifact URL in your candidate pipeline (e.g. `https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/jobs/3027168063/artifacts/raw/.build/vscode-web-dist/vscode-web-1.69.1-1.0.0-dev-20220914131301.tar.gz`)
+1. Find the artifact URL in your candidate pipeline (e.g. `https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/jobs/3027168063/artifacts/raw/.build/vscode-web-dist/vscode-web-1.69.1-1.0.0-dev-20220914131301.tar.gz`)
 1. Go to `packages/vscode-build/vscode_version.json` and change the version and the location of the packages.
 1. There is no step 3, you can run the example.
 
@@ -149,17 +149,17 @@ For local development with the extension, see the [GitLab Workflow Extension doc
 
 To test WebIDE build with GitLab Rails app:
 
-1. Create MR in `gitlab-web-ide` project for your changes.
+1. Create MR in `khulnasoft-web-ide` project for your changes.
 1. In MR pipeline, find the `create-development-package` job.
 1. In the job, copy path to the generated artifact.
    - Click the browse button in the Job artifacts section of the job page’s sidebar.
    - Navigate to the `tmp/packages` directory in the artifacts file tree and click the generated artifact.
    - Copy the download link.
-   - For example `https://gitlab.com/gitlab-org/gitlab-web-ide/-/jobs/3615550824/artifacts/raw/tmp/packages/gitlab-web-ide-0.0.1-dev-20230118062311.tgz`
+   - For example `https://gitlab.com/khulnasoft/web-ide/-/jobs/3615550824/artifacts/raw/tmp/packages/khulnasoft-web-ide-0.0.1-dev-20230118062311.tgz`
    - Make sure the link contains the `/raw/`. Several times I managed to copy the link to the page with the job.
 1. Go to `gitlab-org/gitlab` project and type in `yarn add <link to the artifact>`.
 1. Follow [these additional steps](./web-ide-releases.md#local-testing) if you are testing GitLab VSCode Fork changes or changes to the Cloudflare worker implementation.
-1. Now you can test your development `gitlab-web-ide` build in the GitLab Rails app.
+1. Now you can test your development `khulnasoft-web-ide` build in the GitLab Rails app.
 
 ### VSCode editor
 

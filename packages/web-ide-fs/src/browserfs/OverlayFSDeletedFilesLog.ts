@@ -1,4 +1,4 @@
-import { PATH_ROOT, dirname, cleanEndingSeparator } from '@gitlab/utils-path';
+import { PATH_ROOT, dirname, cleanEndingSeparator } from '@khulnasoft/utils-path';
 import { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { MODE_DEFAULT } from '../constants';
 import { ParsedFileCache } from './ParsedFileCache';

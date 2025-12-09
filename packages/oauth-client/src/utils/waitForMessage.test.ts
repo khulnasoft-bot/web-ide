@@ -1,4 +1,4 @@
-import { waitForPromises } from '@gitlab/utils-test';
+import { waitForPromises } from '@khulnasoft/utils-test';
 import { waitForMessage } from './waitForMessage';
 
 const TEST_MESSAGE = 'test-msg';

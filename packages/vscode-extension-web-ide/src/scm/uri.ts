@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { Uri } from 'vscode';
 import { SCM_SCHEME } from '../constants';
 

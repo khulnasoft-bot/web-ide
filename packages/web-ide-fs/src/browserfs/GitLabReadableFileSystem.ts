@@ -1,4 +1,4 @@
-import { splitParent } from '@gitlab/utils-path';
+import { splitParent } from '@khulnasoft/utils-path';
 import { ApiError, ErrorCode } from 'browserfs/dist/node/core/api_error';
 import type { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { ActionType } from 'browserfs/dist/node/core/file_flag';

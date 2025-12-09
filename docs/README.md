@@ -36,5 +36,5 @@ These guides dive deep into more specific technical topics of the Web IDE:
 - [Settings Sync](./development/settings-sync.md)
 - [Working with VS Code extensions](./development/vscode-extensions.md)
 - [GitLab Workflow Extension](./development/gitlab-workflow-extension.md)
-- [GitLab VSCode theme](./development/gitlab-vscode-theme.md)
+- [GitLab VSCode theme](./development/khulnasoft-vscode-theme.md)
 - [Instrumentation](./development/instrumentation.md)

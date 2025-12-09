@@ -3,10 +3,10 @@ import '../../vscode.proposed.scmActionButton.d';
 import '../../vscode.proposed.scmValidation.d';
 
 import * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
-import { createConfig } from '@gitlab/utils-test';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
+import { createConfig } from '@khulnasoft/utils-test';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { TEST_PROJECT, TEST_REF_BRANCH } from '../../test-utils';
 import { createSourceControlViewModel } from './create';
 import type { SourceControlViewModel, StatusViewModel } from './types';

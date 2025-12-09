@@ -15,9 +15,9 @@ pkg_webide_dist_public_sources=\
  $(pkg_webide_dist_public)/assets \
  $(pkg_webide_dist_public)/vscode \
  $(pkg_webide_dist_public)/vscode/extensions/gitlab-language-support-vue \
- $(pkg_webide_dist_public)/vscode/extensions/gitlab-web-ide \
- $(pkg_webide_dist_public)/vscode/extensions/gitlab-vscode-extension \
- $(pkg_webide_dist_public)/vscode/extensions/gitlab-vscode-theme
+ $(pkg_webide_dist_public)/vscode/extensions/khulnasoft-web-ide \
+ $(pkg_webide_dist_public)/vscode/extensions/khulnasoft-vscode-extension \
+ $(pkg_webide_dist_public)/vscode/extensions/khulnasoft-vscode-theme
 
 pkg_vscode_bootstrap=packages/vscode-bootstrap
 pkg_vscode_bootstrap_dist=$(pkg_vscode_bootstrap)/dist
@@ -43,27 +43,27 @@ pkg_vscode_extension_language_support_vue_dist_all=\
  $(pkg_vscode_extension_language_support_vue_dist)/package.json\
  ${pkg_vscode_extension_language_support_vue_dist_assets}
 
-pkg_vscode_extension_gitlab_vscode_theme=packages/vscode-extension-gitlab-vscode-theme
-pkg_vscode_extension_gitlab_vscode_theme_dist=$(pkg_vscode_extension_gitlab_vscode_theme)/dist
-pkg_vscode_extension_gitlab_vscode_theme_jsons=$(shell find $(pkg_vscode_extension_gitlab_vscode_theme) -type f -name '*theme.json' -not -path '*/dist/*')
-pkg_vscode_extension_gitlab_vscode_theme_font=$(pkg_vscode_extension_gitlab_vscode_theme)/fonts/gitlab_webide.woff
+pkg_vscode_extension_khulnasoft_vscode_theme=packages/vscode-extension-khulnasoft-vscode-theme
+pkg_vscode_extension_khulnasoft_vscode_theme_dist=$(pkg_vscode_extension_khulnasoft_vscode_theme)/dist
+pkg_vscode_extension_khulnasoft_vscode_theme_jsons=$(shell find $(pkg_vscode_extension_khulnasoft_vscode_theme) -type f -name '*theme.json' -not -path '*/dist/*')
+pkg_vscode_extension_khulnasoft_vscode_theme_font=$(pkg_vscode_extension_khulnasoft_vscode_theme)/fonts/gitlab_webide.woff
 
-pkg_vscode_extension_gitlab_vscode_theme_sources=                 \
-  ${pkg_vscode_extension_gitlab_vscode_theme}/package.json \
-	${pkg_vscode_extension_gitlab_vscode_theme}/icon.png            \
-	${pkg_vscode_extension_gitlab_vscode_theme_jsons}               \
-  ${pkg_vscode_extension_gitlab_vscode_theme_font}
+pkg_vscode_extension_khulnasoft_vscode_theme_sources=                 \
+  ${pkg_vscode_extension_khulnasoft_vscode_theme}/package.json \
+	${pkg_vscode_extension_khulnasoft_vscode_theme}/icon.png            \
+	${pkg_vscode_extension_khulnasoft_vscode_theme_jsons}               \
+  ${pkg_vscode_extension_khulnasoft_vscode_theme_font}
 
-pkg_vscode_extension_gitlab_vscode_theme_dist_all=             \
-  $(pkg_vscode_extension_gitlab_vscode_theme_dist)/package.json \
-  $(pkg_vscode_extension_gitlab_vscode_theme_dist)/icon.png     \
-  $(pkg_vscode_extension_gitlab_vscode_theme_dist)/fonts/gitlab_webide.woff \
-  $(patsubst $(pkg_vscode_extension_gitlab_vscode_theme)/%,$(pkg_vscode_extension_gitlab_vscode_theme_dist)/%,$(pkg_vscode_extension_gitlab_vscode_theme_jsons))
+pkg_vscode_extension_khulnasoft_vscode_theme_dist_all=             \
+  $(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/package.json \
+  $(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/icon.png     \
+  $(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/fonts/gitlab_webide.woff \
+  $(patsubst $(pkg_vscode_extension_khulnasoft_vscode_theme)/%,$(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/%,$(pkg_vscode_extension_khulnasoft_vscode_theme_jsons))
 
-pkg_vscode_extension_gitlab_vscode_extension=packages/vscode-extension-gitlab-vscode-extension
-pkg_vscode_extension_gitlab_vscode_extension_dist=$(pkg_vscode_extension_gitlab_vscode_extension)/dist
+pkg_vscode_extension_khulnasoft_vscode_extension=packages/vscode-extension-khulnasoft-vscode-extension
+pkg_vscode_extension_khulnasoft_vscode_extension_dist=$(pkg_vscode_extension_khulnasoft_vscode_extension)/dist
 
-pkg_gitlab_vscode_extension=$(pkg_vscode_extension_gitlab_vscode_extension_dist)/gitlab-vscode-extension
+pkg_gitlab_vscode_extension=$(pkg_vscode_extension_khulnasoft_vscode_extension_dist)/khulnasoft-vscode-extension
 
 pkg_gitlab_vscode_extension_dist_browser=$(pkg_gitlab_vscode_extension)/dist-browser
 
@@ -78,12 +78,12 @@ all_src=      \
 	$(all_vue)  \
 	$(pkg_vscode_extension_dist_assets) \
 	${pkg_vscode_extension_language_support_vue_dist_assets} \
-  ${pkg_vscode_extension_gitlab_vscode_theme_sources}
+  ${pkg_vscode_extension_khulnasoft_vscode_theme_sources}
 
 workflow_src_file_options="-type f -not -path '*/node_modules/*' -not -path '*/dist/*' -not -path '*.test.*'"
 workflow_src=  \
-  $(shell find gitlab-vscode-extension/src "${workflow_src_file_options}") \
-	$(shell find gitlab-vscode-extension/webviews "${workflow_src_file_options}")
+  $(shell find khulnasoft-vscode-extension/src "${workflow_src_file_options}") \
+	$(shell find khulnasoft-vscode-extension/webviews "${workflow_src_file_options}")
 
 ## =======
 ## web-ide
@@ -103,7 +103,7 @@ $(pkg_webide): $(pkg_webide_dist)
 $(pkg_webide_dist): $(pkg_webide_dist_public) $(pkg_webide_dist_index)
 
 $(pkg_webide_dist_index): $(pkg_webide_src)/*
-	yarn workspace @gitlab/web-ide run build
+	yarn workspace @khulnasoft/web-ide run build
 
 $(pkg_webide_dist_public): $(pkg_webide_dist_public_sources)
 
@@ -118,15 +118,15 @@ $(pkg_webide_dist_public)/vscode: $(pkg_vscode_build_dist)/vscode
 	mkdir -p $(dir $@)
 	cp -r $< $@
 
-$(pkg_webide_dist_public)/vscode/extensions/gitlab-web-ide: $(pkg_vscode_extension_dist_all)
+$(pkg_webide_dist_public)/vscode/extensions/khulnasoft-web-ide: $(pkg_vscode_extension_dist_all)
 	rm -rf $@
 	mkdir -p $@
 	cp -r $(pkg_vscode_extension_dist)/* $@
 
-$(pkg_webide_dist_public)/vscode/extensions/gitlab-vscode-theme: $(pkg_vscode_extension_gitlab_vscode_theme_dist_all)
+$(pkg_webide_dist_public)/vscode/extensions/khulnasoft-vscode-theme: $(pkg_vscode_extension_khulnasoft_vscode_theme_dist_all)
 	rm -rf $@
 	mkdir -p $@
-	cp -r $(pkg_vscode_extension_gitlab_vscode_theme_dist)/* $@
+	cp -r $(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/* $@
 
 $(pkg_webide_dist_public)/vscode/extensions/gitlab-language-support-vue: $(pkg_vscode_extension_language_support_vue_dist_all)
 	rm -rf $@
@@ -138,7 +138,7 @@ $(pkg_webide_dist_public)/assets: $(pkg_webide_assets_all)
 	mkdir -p $(dir $@)
 	cp -r $(pkg_webide_assets) $@
 
-$(pkg_webide_dist_public)/vscode/extensions/gitlab-vscode-extension: $(pkg_gitlab_vscode_extension_dist_browser)
+$(pkg_webide_dist_public)/vscode/extensions/khulnasoft-vscode-extension: $(pkg_gitlab_vscode_extension_dist_browser)
 	rm -rf $@
 	mkdir -p $@
 	cp -r $(pkg_gitlab_vscode_extension_dist_browser)/* $@
@@ -157,7 +157,7 @@ $(pkg_vscode_bootstrap_dist)/main.js: $(all_ts)
 # what: Let's force this to always run the `yarn workspace` script.
 # why: This way `packages/vscode-build` can own whether it needs to rerun or not.
 $(pkg_vscode_build_dist)/vscode: FORCE
-	yarn workspace @gitlab/vscode-build run build
+	yarn workspace @khulnasoft/vscode-build run build
 
 ## =======
 ## example
@@ -198,7 +198,7 @@ $(pkg_vscode_extension_dist): $(pkg_vscode_extension_dist_all)
 
 $(pkg_vscode_extension_dist)/main.js: $(all_ts)
 	rm -f $@
-	yarn workspace @gitlab/vscode-extension-web-ide run build
+	yarn workspace @khulnasoft/vscode-extension-web-ide run build
 
 $(pkg_vscode_extension_dist)/%.json: $(pkg_vscode_extension)/vscode.%.json
 	rm -f $@
@@ -228,29 +228,29 @@ $(pkg_vscode_extension_language_support_vue_dist_assets): $(pkg_vscode_extension
 	cp -r $(pkg_vscode_extension_language_support_vue)/assets $@
 
 ## ========================
-## vscode-extension-gitlab-vscode-theme
+## vscode-extension-khulnasoft-vscode-theme
 ## ========================
-$(pkg_vscode_extension_gitlab_vscode_theme): $(pkg_vscode_extension_gitlab_vscode_theme_dist)
+$(pkg_vscode_extension_khulnasoft_vscode_theme): $(pkg_vscode_extension_khulnasoft_vscode_theme_dist)
 
-$(pkg_vscode_extension_gitlab_vscode_theme_dist): $(pkg_vscode_extension_gitlab_vscode_theme_dist_all)
+$(pkg_vscode_extension_khulnasoft_vscode_theme_dist): $(pkg_vscode_extension_khulnasoft_vscode_theme_dist_all)
 
-$(pkg_vscode_extension_gitlab_vscode_theme_dist)/package.json: $(pkg_vscode_extension_gitlab_vscode_theme)/package.json
+$(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/package.json: $(pkg_vscode_extension_khulnasoft_vscode_theme)/package.json
 	rm -f $@
 	mkdir -p $(dir $@)
 	cp $< $@
 
-$(pkg_vscode_extension_gitlab_vscode_theme_dist)/%: $(pkg_vscode_extension_gitlab_vscode_theme)/%
+$(pkg_vscode_extension_khulnasoft_vscode_theme_dist)/%: $(pkg_vscode_extension_khulnasoft_vscode_theme)/%
 	rm -f $@
 	mkdir -p $(dir $@)
 	cp $< $@
 
 ## ========================
-## vscode-extension-gitlab-vscode-extension
+## vscode-extension-khulnasoft-vscode-extension
 ## ========================
 # what: Let's force this to always run the `yarn workspace` script.
-# why: This way `packages/gitlab-vscode-extension` can own whether it needs to rerun or not.
+# why: This way `packages/khulnasoft-vscode-extension` can own whether it needs to rerun or not.
 $(pkg_gitlab_vscode_extension_dist_browser): FORCE
-	yarn workspace @gitlab/gitlab-vscode-extension run build
+	yarn workspace @khulnasoft/khulnasoft-vscode-extension run build
 
 # what: https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 FORCE:

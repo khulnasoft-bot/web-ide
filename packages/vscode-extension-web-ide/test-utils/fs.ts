@@ -1,4 +1,4 @@
-import { FileSystem } from '@gitlab/web-ide-fs';
+import { FileSystem } from '@khulnasoft/web-ide-fs';
 
 export const createFileSystemMock = (): jest.Mocked<FileSystem> => ({
   stat: jest.fn().mockResolvedValue({

@@ -1,6 +1,6 @@
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import type { Command } from '@gitlab/vscode-mediator-commands';
-import { createCommands } from '@gitlab/vscode-mediator-commands';
+import type { Command } from '@khulnasoft/vscode-mediator-commands';
+import { createCommands } from '@khulnasoft/vscode-mediator-commands';
 import type { MediatorCommandExecutor } from './types';
 import { getConfig } from '../config';
 

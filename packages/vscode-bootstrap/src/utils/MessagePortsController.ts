@@ -1,6 +1,6 @@
 import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
-import { handleMediatorMessages } from '@gitlab/vscode-mediator-commands';
-import { WEB_IDE_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { handleMediatorMessages } from '@khulnasoft/vscode-mediator-commands';
+import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 
 type MessagePortsControllerOptions = {
   windowChannel: CrossWindowChannel;

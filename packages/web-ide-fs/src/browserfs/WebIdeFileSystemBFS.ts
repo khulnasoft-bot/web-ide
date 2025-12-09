@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import type { FileStats, FileSystem } from '../types';
 import { FileType } from '../types';

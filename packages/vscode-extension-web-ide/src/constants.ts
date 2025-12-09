@@ -1,14 +1,14 @@
-import { WEB_IDE_EXTENSION_ID as FULL_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { WEB_IDE_EXTENSION_ID as FULL_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 
-export const EXTENSION_ID = 'gitlab-web-ide';
+export const EXTENSION_ID = 'khulnasoft-web-ide';
 
 export const OUTPUT_CHANNEL_NAME = 'GitLab Web IDE';
 
-export const AUTHENTICATION_PROVIDER_ID = 'gitlab-web-ide';
+export const AUTHENTICATION_PROVIDER_ID = 'khulnasoft-web-ide';
 
-export const FS_SCHEME = 'gitlab-web-ide';
-export const SCM_SCHEME = 'gitlab-web-ide-scm';
-export const MR_SCHEME = 'gitlab-web-ide-mr';
+export const FS_SCHEME = 'khulnasoft-web-ide';
+export const SCM_SCHEME = 'khulnasoft-web-ide-scm';
+export const MR_SCHEME = 'khulnasoft-web-ide-mr';
 
 export const GET_STARTED_WALKTHROUGH_ID = `${FULL_EXTENSION_ID}#getStartedWebIde`;
 
@@ -71,9 +71,9 @@ export const BRANCH_STATUS_BAR_ITEM_ID = 'branchStatusBarItem';
 export const BRANCH_STATUS_BAR_ITEM_PRIORITY = 50;
 
 // region: Context
-export const WEB_IDE_READY_CONTEXT_ID = 'gitlab-web-ide.is-ready';
-export const MERGE_REQUEST_FILE_PATHS_CONTEXT_ID = 'gitlab-web-ide.mergeRequestFilePaths';
-export const MARKETPLACE_DISABLED_CONTEXT_ID = 'gitlab-web-ide.marketplace-disabled';
+export const WEB_IDE_READY_CONTEXT_ID = 'khulnasoft-web-ide.is-ready';
+export const MERGE_REQUEST_FILE_PATHS_CONTEXT_ID = 'khulnasoft-web-ide.mergeRequestFilePaths';
+export const MARKETPLACE_DISABLED_CONTEXT_ID = 'khulnasoft-web-ide.marketplace-disabled';
 
 // region: Micellaneous -------------------------------------------------------
 export const FEEDBACK_ISSUE_URL = 'https://gitlab.com/gitlab-org/gitlab/-/issues/385787';

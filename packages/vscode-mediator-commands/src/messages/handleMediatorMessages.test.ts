@@ -1,4 +1,4 @@
-import { createFakeCrossWindowChannel, createFakePartial } from '@gitlab/utils-test';
+import { createFakeCrossWindowChannel, createFakePartial } from '@khulnasoft/utils-test';
 import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
 import {
   MESSAGE_OPEN_URI,

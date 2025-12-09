@@ -1,4 +1,4 @@
-import { createWebIdeExtensionConfig, createFakePartial } from '@gitlab/utils-test';
+import { createWebIdeExtensionConfig, createFakePartial } from '@khulnasoft/utils-test';
 import * as vscode from 'vscode';
 import { registerAuthenticationProvider } from './registerAuthenticationProvider';
 import { subscribeProviderToChangeMessage } from './subscribeProviderToChangeMessage';

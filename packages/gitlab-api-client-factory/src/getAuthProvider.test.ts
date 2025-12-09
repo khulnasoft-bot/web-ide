@@ -3,8 +3,8 @@ import {
   createFakeCrossWindowChannel,
   createFakePartial,
   useFakeBroadcastChannel,
-} from '@gitlab/utils-test';
-import type { AuthConfig, OAuthConfig } from '@gitlab/web-ide-types';
+} from '@khulnasoft/utils-test';
+import type { AuthConfig, OAuthConfig } from '@khulnasoft/web-ide-types';
 import type { CrossWindowChannel, PortChannel } from '@gitlab/cross-origin-channel';
 import { getAuthProvider } from './getAuthProvider';
 import { PortChannelAuthProvider } from './PortChannelAuthProvider';

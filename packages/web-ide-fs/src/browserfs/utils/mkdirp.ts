@@ -1,4 +1,4 @@
-import { dirname, PATH_ROOT } from '@gitlab/utils-path';
+import { dirname, PATH_ROOT } from '@khulnasoft/utils-path';
 import type { PromisifiedBrowserFS } from '../types';
 
 export const mkdirp = async (fs: PromisifiedBrowserFS, path: string, mode = 0): Promise<void> => {

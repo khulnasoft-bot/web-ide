@@ -1,6 +1,6 @@
-import { cleanLeadingSeparator } from '@gitlab/utils-path';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import { cleanLeadingSeparator } from '@khulnasoft/utils-path';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { getCommitPayload } from './getCommitPayload';
 
 const TEST_COMMIT_ID = '000000111111';

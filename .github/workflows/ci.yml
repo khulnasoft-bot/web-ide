@@ -1,0 +1,184 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+env:
+  GIT_DEPTH: 10
+  NO_CONTRACTS: true
+  GITLAB_ADVANCED_SAST_ENABLED: true
+  PLAYWRIGHT_GITLAB_URL: https://gitlab.com
+  PLAYWRIGHT_REPOSITORY_REF: main
+
+jobs:
+  ########################################
+  # PREPARE
+  ########################################
+
+  dont-interrupt-me:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - run: echo "Equivalent to khulnaSoft manual job preventing interrupts"
+
+  expose-ci-rules-variables:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - run: |
+          echo "REF = ${{ github.ref }}"
+          echo "EVENT = ${{ github.event_name }}"
+          echo "SHA = ${{ github.sha }}"
+          echo "PR = ${{ github.event.pull_request.number }}"
+
+  push-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn install --immutable
+      - run: echo "Cache updated"
+
+  build-integration-test-image:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'tests/integration/Dockerfile')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          docker build -f tests/integration/Dockerfile \
+            -t ghcr.io/${{ github.repository }}/web-ide-test:${{ github.sha }} .
+          docker push ghcr.io/${{ github.repository }}/web-ide-test:${{ github.sha }}
+
+  ########################################
+  # BUILD
+  ########################################
+
+  create-development-package:
+    runs-on: ubuntu-latest
+    needs: [push-cache]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: |
+          git config --global --add safe.directory $PWD
+          ./scripts/pack-web-ide-package.sh $KHULNASOFT_WEB_IDE_VERSION
+          ./scripts/pack-khulnasoft-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dev-packages
+          path: tmp/packages
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [push-cache]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn build:example:http
+      - uses: actions/upload-artifact@v4
+        with:
+          name: example-dist
+          path: packages/example/dist
+
+  ########################################
+  # TESTING
+  ########################################
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn lint
+
+  jest:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn test:ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: junit
+          path: junit.xml
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    needs: [build-integration-test-image]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn playwright:install
+      - run: yarn build:example
+      - run: yarn test:integration
+      - uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: tests/integration/playwright-report
+
+  ########################################
+  # PUBLISH
+  ########################################
+
+  publish-development-package:
+    runs-on: ubuntu-latest
+    needs: [create-development-package]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dev-packages
+          path: tmp/packages
+      - run: npm install -g npm@11.6.2
+      - run: |
+          FILE=$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz")
+          npm publish --tag latest --access public "$FILE"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  ########################################
+  # DEPLOY
+  ########################################
+
+  deploy-cloudflare-worker:
+    runs-on: ubuntu-latest
+    needs: [publish-development-package]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: yarn cloudflare:deploy -e production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { RELOAD_COMMAND_ID } from '../constants';
 import { registerReloadCommand } from './reload';
 import {

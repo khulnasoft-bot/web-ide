@@ -5,7 +5,7 @@ to develop the Web IDE. You can create a new workspace from either the project p
 
 ## Creating a workspace from the project page
 
-1. Open the [Web IDE project](https://gitlab.com/gitlab-org/gitlab-web-ide).
+1. Open the [Web IDE project](https://gitlab.com/khulnasoft/web-ide).
 1. In the Git revision dropdown, select the branch you want to work on.
 1. Select the **Code** button, then select **New workspace**.
 1. You will be redirected to the "New Workspace" form.
@@ -14,7 +14,7 @@ to develop the Web IDE. You can create a new workspace from either the project p
 
 ## Creating a workspace from a merge request
 
-1. Navigate to any merge request in the [Web IDE project](https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests).
+1. Navigate to any merge request in the [Web IDE project](https://gitlab.com/khulnasoft/web-ide/-/merge_requests).
 1. Select the **Code** button, then select **Open in Workspace**.
 1. You will be redirected to the "New Workspace" form with the merge request's project and source branch pre-selected.
 1. Select **Create Workspace**.

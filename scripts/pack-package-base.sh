@@ -6,19 +6,19 @@ set -u # Attempt to use undefined variable outputs error message, and forces an 
 set -o pipefail # Causes a pipeline to return the exit status of the last command in the pipe that returned a non-zero return value.
 
 CURRENT_VERSION=$(cat VERSION)
-GITLAB_WEB_IDE_VERSION="${1:-}"
+KHULNASOFT_WEB_IDE_VERSION="${1:-}"
 
-if [ -z "${GITLAB_WEB_IDE_VERSION}" ]
+if [ -z "${KHULNASOFT_WEB_IDE_VERSION}" ]
 then
-  GITLAB_WEB_IDE_VERSION="$(cat VERSION)-dev-$(date '+%Y%m%d%H%M%S')"
-  echo "No version was provided as argument. Using development version ${GITLAB_WEB_IDE_VERSION}..."
+  KHULNASOFT_WEB_IDE_VERSION="$(cat VERSION)-dev-$(date '+%Y%m%d%H%M%S')"
+  echo "No version was provided as argument. Using development version ${KHULNASOFT_WEB_IDE_VERSION}..."
 else
-  if [[ $GITLAB_WEB_IDE_VERSION != "${CURRENT_VERSION}"* ]]
+  if [[ $KHULNASOFT_WEB_IDE_VERSION != "${CURRENT_VERSION}"* ]]
   then
-    echo "Error: Version provided (${GITLAB_WEB_IDE_VERSION}) must start with the current version (${CURRENT_VERSION})."
+    echo "Error: Version provided (${KHULNASOFT_WEB_IDE_VERSION}) must start with the current version (${CURRENT_VERSION})."
     exit 1
   else
-    echo "Using version ${GITLAB_WEB_IDE_VERSION}..."
+    echo "Using version ${KHULNASOFT_WEB_IDE_VERSION}..."
   fi
 fi
 

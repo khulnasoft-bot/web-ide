@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { PromisifiedBrowserFS, ReadonlyPromisifiedBrowserFS } from '../../src/browserfs/types';
 import { REPO_ROOT } from './constants';

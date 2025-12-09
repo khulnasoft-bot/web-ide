@@ -1,11 +1,11 @@
 import type * as vscode from 'vscode';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import {
   MESSAGE_OPEN_URI,
   MESSAGE_PREVENT_UNLOAD,
   MESSAGE_SET_HREF,
   MESSAGE_UPDATE_WEB_IDE_CONTEXT,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 import { getExtensionContext } from '../context';
 import { openUri, preventUnload, setHref, updateWebIdeContext } from './messages';
 

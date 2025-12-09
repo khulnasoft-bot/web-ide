@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/vscode-mediator-commands",
+  "name": "@khulnasoft/vscode-mediator-commands",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",
@@ -7,12 +7,12 @@
     "@gitlab/cross-origin-channel": "workspace:*",
     "@gitlab/gitlab-api-client": "workspace:*",
     "@gitlab/gitlab-api-client-factory": "workspace:*",
-    "@gitlab/web-ide-interop": "workspace:*",
+    "@khulnasoft/web-ide-interop": "workspace:*",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/utils-test": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "publishConfig": {
     "main": "./lib/index.js"

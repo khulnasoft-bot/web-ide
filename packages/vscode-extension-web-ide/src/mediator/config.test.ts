@@ -1,5 +1,5 @@
 import type { ExtensionContext, SecretStorage } from 'vscode';
-import { createWebIdeExtensionConfig, createFakePartial } from '@gitlab/utils-test';
+import { createWebIdeExtensionConfig, createFakePartial } from '@khulnasoft/utils-test';
 import { getConfig, MSG_CONFIG_NOT_FOUND, MSG_CONFIG_NOT_JSON } from './config';
 import { getExtensionContext } from '../context';
 

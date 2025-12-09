@@ -7,14 +7,14 @@
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@gitlab/utils-path": "workspace:*",
-    "@gitlab/web-ide-interop": "workspace:*",
+    "@khulnasoft/utils-path": "workspace:*",
+    "@khulnasoft/web-ide-interop": "workspace:*",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*",
+    "@khulnasoft/utils-test": "workspace:*",
     "whatwg-fetch": "^3.6.2"
   }
 }

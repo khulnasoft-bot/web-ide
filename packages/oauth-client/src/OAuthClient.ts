@@ -21,7 +21,7 @@ import {
 } from './utils';
 import { StorageValueCacheBuilder } from './StorageValueCacheBuilder';
 
-export const STORAGE_KEY_PREFIX = 'gitlab/web-ide/oauth';
+export const STORAGE_KEY_PREFIX = 'khulnasoft/web-ide/oauth';
 const EVENT_TYPE = 'oauth_change';
 
 interface OAuthClientOptions {

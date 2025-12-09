@@ -1,19 +1,19 @@
 {
-  "name": "@gitlab/web-ide",
+  "name": "@khulnasoft/web-ide",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "license": "MIT",
   "packageManager": "yarn@3.2.0",
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*",
+    "@khulnasoft/utils-test": "workspace:*",
     "jsdom": "^19.0.0"
   },
   "dependencies": {
     "@gitlab/cross-origin-channel": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@gitlab/oauth-client": "workspace:*",
-    "@gitlab/utils-escape": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/utils-escape": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "scripts": {
     "build": "node ./build.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/web-ide-types",
+  "name": "@khulnasoft/web-ide-types",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0"

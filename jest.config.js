@@ -6,8 +6,8 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: './jest.domenvironment.js',
   testMatch: ['**/packages/**/*.test.ts'],
-  testPathIgnorePatterns: ['dist/', 'lib/', 'tmp/', 'gitlab-vscode-extension'],
-  modulePathIgnorePatterns: ['dist/', 'gitlab-vscode-extension'],
+  testPathIgnorePatterns: ['dist/', 'lib/', 'tmp/', 'khulnasoft-vscode-extension'],
+  modulePathIgnorePatterns: ['dist/', 'khulnasoft-vscode-extension'],
   resetMocks: true,
   transformIgnorePatterns: ['node_modules/(?!(nanoid)/)'],
   transform: {

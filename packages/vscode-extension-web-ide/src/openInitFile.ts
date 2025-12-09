@@ -1,4 +1,4 @@
-import { joinPaths, PATH_ROOT } from '@gitlab/utils-path';
+import { joinPaths, PATH_ROOT } from '@khulnasoft/utils-path';
 import * as vscode from 'vscode';
 import { FS_SCHEME, VSCODE_COMMAND_KEEP_EDITOR } from './constants';
 import { getConfig } from './mediator';
@@ -26,7 +26,7 @@ export async function openInitFile() {
 
   if (!stat && !fs.isWritableFileSystem(FS_SCHEME)) {
     log.debug(
-      '[gitlab-web-ide] File was not found and user lacks permission to create: ',
+      '[khulnasoft-web-ide] File was not found and user lacks permission to create: ',
       config.filePath,
     );
 

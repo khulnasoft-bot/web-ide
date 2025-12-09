@@ -1,4 +1,4 @@
-export const PREFIX = 'gitlab-web-ide.mediator' as const;
+export const PREFIX = 'khulnasoft-web-ide.mediator' as const;
 
 // region: message names -----------------------------------------------
 export const MESSAGE_READY = `${PREFIX}.ready` as const;

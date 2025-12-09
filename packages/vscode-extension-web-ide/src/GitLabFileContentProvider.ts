@@ -1,5 +1,5 @@
 import { RateLimiter } from 'limiter';
-import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
 import { fetchFileRaw } from './mediator';
 
 interface GitLabFileContentProviderOptions {
@@ -7,7 +7,7 @@ interface GitLabFileContentProviderOptions {
   requestsPerInterval: number;
 }
 
-// Limit to 30 requests every 6 seconds - https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/52#note_1203173080
+// Limit to 30 requests every 6 seconds - https://gitlab.com/khulnasoft/web-ide/-/issues/52#note_1203173080
 const DEFAULT_OPTIONS: GitLabFileContentProviderOptions = {
   requestsPerInterval: 30,
   interval: 6000,
@@ -29,7 +29,7 @@ export class GitLabFileContentProvider implements FileContentProvider {
 
   async getContent(path: string): Promise<Uint8Array> {
     // why: We need to RateLimit this while we investigate handling large folder
-    //      renamed https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/52
+    //      renamed https://gitlab.com/khulnasoft/web-ide/-/issues/52
     await this.#limiter.removeTokens(1);
 
     const vsbuffer = await fetchFileRaw(this.#ref, path);

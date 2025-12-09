@@ -1,4 +1,4 @@
-import { basename } from '@gitlab/utils-path';
+import { basename } from '@khulnasoft/utils-path';
 import * as vscode from 'vscode';
 import { FS_SCHEME, MR_SCHEME } from '../constants';
 

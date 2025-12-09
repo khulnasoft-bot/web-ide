@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { createWebIdeExtensionConfig } from '@gitlab/utils-test';
+import { createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
 import { TEST_PROJECT, TEST_BRANCH, TEST_REF_COMMIT, asRef } from '../../../test-utils';
 import {
   showSuccessMessage,

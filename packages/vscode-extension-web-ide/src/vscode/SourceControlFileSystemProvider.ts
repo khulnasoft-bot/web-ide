@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import type { SourceControlFileSystem } from '@gitlab/web-ide-fs';
+import type { SourceControlFileSystem } from '@khulnasoft/web-ide-fs';
 import type { Disposable, FileStat, FileSystemProvider, FileType, Uri } from 'vscode';
 import { fromScmUriToParams } from '../scm/uri';
 import { toVSCodeFileStat } from './utils';

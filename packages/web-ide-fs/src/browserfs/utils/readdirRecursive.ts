@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import type { ReadonlyPromisifiedBrowserFS } from '../types';
 
 export const readdirRecursive = async (

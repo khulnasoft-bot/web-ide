@@ -1,4 +1,4 @@
-import { createWebIdeExtensionConfig } from '@gitlab/utils-test';
+import { createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
 import type { AuthenticationSessionInfo, ISecretStorageProvider } from '../types';
 import { createDefaultSecretStorageProvider } from './factory';
@@ -11,7 +11,7 @@ const TEST_CONFIG = createWebIdeExtensionConfig();
 const EXPECTED_ACCOUNT: AuthenticationSessionInfo = {
   id: 'current-user',
   accessToken: TEST_TOKEN,
-  providerId: 'gitlab-web-ide',
+  providerId: 'khulnasoft-web-ide',
   canSignOut: false,
 };
 
@@ -36,13 +36,13 @@ describe('vscode/secrets/factory', () => {
     });
 
     it.each`
-      key                                                                            | expectation
-      ${JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' })} | ${TEST_TOKEN}
-      ${JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'config' })}     | ${JSON.stringify(TEST_CONFIG)}
-      ${JSON.stringify({ extensionId: 'vim', key: 'auth_token' })}                   | ${undefined}
-      ${'gitlab-web-ide.loginAccount'}                                               | ${JSON.stringify(EXPECTED_ACCOUNT)}
-      ${TEST_CUSTOM_KEY}                                                             | ${TEST_CUSTOM_VALUE}
-      ${'dne'}                                                                       | ${undefined}
+      key                                                                                | expectation
+      ${JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' })} | ${TEST_TOKEN}
+      ${JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'config' })}     | ${JSON.stringify(TEST_CONFIG)}
+      ${JSON.stringify({ extensionId: 'vim', key: 'auth_token' })}                       | ${undefined}
+      ${'khulnasoft-web-ide.loginAccount'}                                               | ${JSON.stringify(EXPECTED_ACCOUNT)}
+      ${TEST_CUSTOM_KEY}                                                                 | ${TEST_CUSTOM_VALUE}
+      ${'dne'}                                                                           | ${undefined}
     `('get for key="$key", returns $expectation', async ({ key, expectation }) => {
       const result = await subject.get(key);
 
@@ -52,14 +52,14 @@ describe('vscode/secrets/factory', () => {
     describe('after set on expected auth_token key', () => {
       beforeEach(async () => {
         await subject.set(
-          JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' }),
+          JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' }),
           'new value',
         );
       });
 
       it('overwrites auth_token value', async () => {
         const result = await subject.get(
-          JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' }),
+          JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' }),
         );
 
         expect(result).toBe('new value');
@@ -69,13 +69,13 @@ describe('vscode/secrets/factory', () => {
     describe('after delete on expected auth_token key', () => {
       beforeEach(async () => {
         await subject.delete(
-          JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' }),
+          JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' }),
         );
       });
 
       it('does nothing', async () => {
         const result = await subject.get(
-          JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' }),
+          JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' }),
         );
 
         expect(result).toBe(TEST_TOKEN);
@@ -103,10 +103,10 @@ describe('vscode/secrets/factory', () => {
     });
 
     it.each`
-      key                                                                            | expectation
-      ${JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'auth_token' })} | ${undefined}
-      ${JSON.stringify({ extensionId: 'gitlab.gitlab-web-ide', key: 'config' })}     | ${JSON.stringify(TEST_CONFIG)}
-      ${'gitlab-web-ide.loginAccount'}                                               | ${undefined}
+      key                                                                                | expectation
+      ${JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'auth_token' })} | ${undefined}
+      ${JSON.stringify({ extensionId: 'gitlab.khulnasoft-web-ide', key: 'config' })}     | ${JSON.stringify(TEST_CONFIG)}
+      ${'khulnasoft-web-ide.loginAccount'}                                               | ${undefined}
     `('get for key="$key", returns $expectation', async ({ key, expectation }) => {
       const result = await subject.get(key);
 

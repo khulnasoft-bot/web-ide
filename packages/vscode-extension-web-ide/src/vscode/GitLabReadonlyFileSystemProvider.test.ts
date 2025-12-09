@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
 import { GitLabReadonlyFileSystemProvider } from './GitLabReadonlyFileSystemProvider';
 
 const TEST_CONTENT = Buffer.from('Hello world!');

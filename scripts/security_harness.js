@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // ===============
 // This file originated from
-// https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/c7ae7fca6269918c718466a61a60fb9d4ffadd79/scripts/security_harness.js
+// https://gitlab.com/gitlab-org/khulnasoft-vscode-extension/-/blob/c7ae7fca6269918c718466a61a60fb9d4ffadd79/scripts/security_harness.js
 // ===============
 
 const path = require('path');

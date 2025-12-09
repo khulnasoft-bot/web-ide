@@ -1,5 +1,5 @@
 {
-  "name": "gitlab-vscode-theme",
+  "name": "khulnasoft-vscode-theme",
   "displayName": "GitLab Theme for Visual Studio Code",
   "description": "The GitLab Theme for Visual Studio Code brings the sleek and professional look of GitLab to your coding environment.",
   "version": "0.0.1",
@@ -7,10 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/gitlab-org/gitlab-web-ide/-/tree/main/packages/vscode-extension-gitlab-vscode-theme"
+    "url": "https://gitlab.com/khulnasoft/web-ide/-/tree/main/packages/vscode-extension-khulnasoft-vscode-theme"
   },
   "bugs": {
-    "url": "https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues"
+    "url": "https://gitlab.com/khulnasoft/web-ide/-/issues"
   },
   "engines": {
     "vscode": "^1.80.0"

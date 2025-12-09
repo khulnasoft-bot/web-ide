@@ -1,5 +1,5 @@
-import { escapeCssQuotedValue } from '@gitlab/utils-escape';
-import type { WebIDEFontFace } from '@gitlab/web-ide-types';
+import { escapeCssQuotedValue } from '@khulnasoft/utils-escape';
+import type { WebIDEFontFace } from '@khulnasoft/web-ide-types';
 import { kebabCase } from './kebabCase';
 
 const getFontPreloadElements = (fontFace: WebIDEFontFace) =>

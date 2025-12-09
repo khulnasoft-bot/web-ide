@@ -1,9 +1,9 @@
 import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
-import { handleMediatorMessages } from '@gitlab/vscode-mediator-commands';
-import { createFakeCrossWindowChannel, useFakeMessageChannel } from '@gitlab/utils-test';
+import { handleMediatorMessages } from '@khulnasoft/vscode-mediator-commands';
+import { createFakeCrossWindowChannel, useFakeMessageChannel } from '@khulnasoft/utils-test';
 import { MessagePortsController } from './MessagePortsController';
 
-jest.mock('@gitlab/vscode-mediator-commands');
+jest.mock('@khulnasoft/vscode-mediator-commands');
 
 describe('utils/MessagePortsController', () => {
   useFakeMessageChannel();
@@ -27,11 +27,11 @@ describe('utils/MessagePortsController', () => {
     });
 
     it('messagePorts - has messagePort with extension id', () => {
-      expect(Array.from(subject.messagePorts.keys())).toEqual(['gitlab.gitlab-web-ide']);
+      expect(Array.from(subject.messagePorts.keys())).toEqual(['gitlab.khulnasoft-web-ide']);
     });
 
     it('onTokenChange - triggers message port', () => {
-      const port = subject.messagePorts.get('gitlab.gitlab-web-ide');
+      const port = subject.messagePorts.get('gitlab.khulnasoft-web-ide');
 
       if (!port) {
         throw new Error('Expected MessagePort to be found');

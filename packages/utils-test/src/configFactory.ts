@@ -1,6 +1,6 @@
 import { omit } from 'lodash';
 
-import type { WebIdeConfig, WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig, WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 
 export const createConfig = (): WebIdeConfig => ({
   workbenchBaseUrl: 'https://ide.foo.bar',

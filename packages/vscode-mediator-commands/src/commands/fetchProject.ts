@@ -1,6 +1,6 @@
 import type { DefaultGitLabClient, gitlab } from '@gitlab/gitlab-api-client';
 import { gitlabApi } from '@gitlab/gitlab-api-client';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import type { GitLabProject } from '../types';
 
 export const fetchProject = async (

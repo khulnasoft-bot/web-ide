@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { PATH_ROOT } from '@gitlab/utils-path';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import { PATH_ROOT } from '@khulnasoft/utils-path';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { openInitFile } from './openInitFile';
 import { getConfig } from './mediator';
 import { VSCODE_COMMAND_KEEP_EDITOR } from './constants';
@@ -12,7 +12,7 @@ jest.mock('./utils/fs');
 
 const TEST_FILE_PATH = '/src/foo.md';
 const TEST_REPO_ROOT = 'gitlab-repo-root';
-const TEST_FULL_URI = vscode.Uri.parse('gitlab-web-ide:///gitlab-repo-root/src/foo.md');
+const TEST_FULL_URI = vscode.Uri.parse('khulnasoft-web-ide:///gitlab-repo-root/src/foo.md');
 
 const TEST_STAT_FILE = createFakeFileStat();
 const TEST_STAT_DIR = createFakeFileStat(vscode.FileType.Directory);

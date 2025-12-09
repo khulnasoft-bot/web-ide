@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
+import type { GitLabProject, GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 import { COMMIT_TO_DEFAULT_BRANCH_PREFERENCE } from '../../constants';
 import { promptBranchName } from './promptBranchName';
 import type { LocalStorage } from '../../types';

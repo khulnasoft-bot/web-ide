@@ -18,7 +18,7 @@ vscode_location=$(shell node -p -e 'require("./$(vscode_version_json)").location
 
 # what: No matter what the vscode version "type" is, we always run this after the main recipe
 .after:
-# why: This blocks ability to publish https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/3#note_1058971918
+# why: This blocks ability to publish https://gitlab.com/khulnasoft/web-ide/-/issues/3#note_1058971918
 	rm -rf $(dist_vscode_dir)/node_modules/.bin
 	# Touch so that we consider this "updated" for Makefile's calc
 	touch $(dist_vscode_dir)

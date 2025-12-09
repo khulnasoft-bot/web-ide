@@ -1,4 +1,4 @@
-import { dirname } from '@gitlab/utils-path';
+import { dirname } from '@khulnasoft/utils-path';
 import { ApiError, ErrorCode } from 'browserfs/dist/node/core/api_error';
 import { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { REPO_ROOT, DEFAULT_FILES, DEFAULT_FILE_ARRAY, bfsUtils } from '../../test-utils/fs';

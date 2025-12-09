@@ -1,5 +1,5 @@
 import { createOAuthClient } from '@gitlab/oauth-client';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 
 export const checkOAuthToken = async (config: WebIdeConfig): Promise<void> => {
   if (config.auth.type === 'oauth') {

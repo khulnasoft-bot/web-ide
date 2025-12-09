@@ -1,9 +1,9 @@
 import { flow } from 'lodash';
-import { cleanLeadingSeparator, joinPaths } from '@gitlab/utils-path';
+import { cleanLeadingSeparator, joinPaths } from '@khulnasoft/utils-path';
 import type {
   FetchMergeRequestDiffStatsResponse,
   StartCommandResponse,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 import * as vscode from 'vscode';
 import {
   COMPARE_WITH_MR_BASE_COMMAND_ID,

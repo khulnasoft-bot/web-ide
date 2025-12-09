@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===============
 # This file originated from
-# https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/c7ae7fca6269918c718466a61a60fb9d4ffadd79/scripts/security_harness_hook.sh
+# https://gitlab.com/gitlab-org/khulnasoft-vscode-extension/-/blob/c7ae7fca6269918c718466a61a60fb9d4ffadd79/scripts/security_harness_hook.sh
 # ===============
 
 set -e

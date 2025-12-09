@@ -1,5 +1,5 @@
 /**
- * @overview Development script to trigger the `make` for `vscode-extension-gitlab-vscode-extension` to use a `gitlab_vscode_extension_version.local.json`.
+ * @overview Development script to trigger the `make` for `vscode-extension-khulnasoft-vscode-extension` to use a `gitlab_vscode_extension_version.local.json`.
  *
  * ```
  * yarn local-setup $PATH_TO_GITLAB_VSCODE_EXTENSION_BROWSER_BUILD
@@ -32,7 +32,7 @@ const main = async () => {
 Please provide a path for the local extension browser build.
 For example:
 
-   yarn local-setup /absolute/path/to/gitlab-vscode-extension/dist-browser
+   yarn local-setup /absolute/path/to/khulnasoft-vscode-extension/dist-browser
 `);
     process.exit(1);
     return;

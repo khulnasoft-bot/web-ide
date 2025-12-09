@@ -1,6 +1,9 @@
 import * as vscode from 'vscode';
-import { createFakePartial, createWebIdeExtensionConfig } from '@gitlab/utils-test';
-import type { ExtensionMarketplaceSettings, WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import { createFakePartial, createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
+import type {
+  ExtensionMarketplaceSettings,
+  WebIdeExtensionConfig,
+} from '@khulnasoft/web-ide-types';
 import { setupExtensionMarketplaceDisabledView } from './setupExtensionMarketplaceDisabledView';
 import {
   MARKETPLACE_DISABLED_CONTEXT_ID,

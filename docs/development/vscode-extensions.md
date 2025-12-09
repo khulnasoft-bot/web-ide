@@ -12,7 +12,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 1. Add build instructions to the `Makefile` so that the extension is included in the main `web-ide` package.
    Look for references to `vscode-extension-language-support-vue` to copy.
 1. Add a reference to the new extension in the VSCode bootstrapper
-   (see [relevant code](https://gitlab.com/gitlab-org/gitlab-web-ide/-/blob/deec8349cde45a1b8292445fd425d232c63c2db3/packages/vscode-bootstrap/src/main.ts#L40)).
+   (see [relevant code](https://gitlab.com/khulnasoft/web-ide/-/blob/deec8349cde45a1b8292445fd425d232c63c2db3/packages/vscode-bootstrap/src/main.ts#L40)).
 
 **PLEASE NOTE:**
 

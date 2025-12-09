@@ -1,5 +1,5 @@
 import type { PortChannel } from '@gitlab/cross-origin-channel';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { PortChannelAuthProvider } from './PortChannelAuthProvider';
 
 describe('PortChannelAuthProvider', () => {

@@ -1,14 +1,14 @@
-import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@gitlab/web-ide-types';
+import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
 import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
-import webIdeExtensionMeta from '@gitlab/vscode-extension-web-ide/vscode.package.json';
-import { createCommands } from '@gitlab/vscode-mediator-commands';
+import webIdeExtensionMeta from '@khulnasoft/vscode-extension-web-ide/vscode.package.json';
+import { createCommands } from '@khulnasoft/vscode-mediator-commands';
 import {
   createFakeCrossWindowChannel,
   createFakePartial,
   createWebIdeExtensionConfig,
   useFakeMessageChannel,
-} from '@gitlab/utils-test';
-import vscodeVersion from '@gitlab/vscode-build/vscode_version.json';
+} from '@khulnasoft/utils-test';
+import vscodeVersion from '@khulnasoft/vscode-build/vscode_version.json';
 import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { useMockAMDEnvironment } from '../test-utils/amd';
@@ -38,13 +38,13 @@ const TEST_SETTINGS_SYNC_OPTIONS = {
   enabled: true,
   extensionsSyncStateVersion: '1.0.0',
   authenticationProvider: expect.objectContaining({
-    id: 'gitlab-web-ide',
+    id: 'khulnasoft-web-ide',
   }),
 };
 const TEST_SETTINGS_CONTEXT_HASH = '1234';
 
 jest.mock('@gitlab/cross-origin-channel');
-jest.mock('@gitlab/vscode-mediator-commands');
+jest.mock('@khulnasoft/vscode-mediator-commands');
 jest.mock('@gitlab/gitlab-api-client-factory');
 jest.mock('./vscode/secrets/factory');
 jest.mock('./cleanExtensions');
@@ -129,7 +129,7 @@ describe('vscode-bootstrap start', () => {
         expect(subject).toMatchObject({
           windowIndicator: {
             label: '$(gitlab-tanuki) GitLab',
-            command: 'gitlab-web-ide.open-remote-window',
+            command: 'khulnasoft-web-ide.open-remote-window',
           },
         });
       });
@@ -209,7 +209,7 @@ describe('vscode-bootstrap start', () => {
         const spy = jest.fn();
 
         subject.messagePorts
-          ?.get('gitlab.gitlab-web-ide')
+          ?.get('gitlab.khulnasoft-web-ide')
           ?.addEventListener('message', e => spy(e.data));
         const { onTokenChange } = jest.mocked(getAuthProvider).mock.calls[0][0];
 
@@ -226,7 +226,7 @@ describe('vscode-bootstrap start', () => {
       it('has productConfiguration for configurationSync.store', () => {
         expect(subject.productConfiguration?.['configurationSync.store']).toEqual({
           authenticationProviders: {
-            'gitlab-web-ide': {
+            'khulnasoft-web-ide': {
               scopes: ['api'],
             },
           },
@@ -364,7 +364,7 @@ describe('vscode-bootstrap start', () => {
 
           expect(subject.productConfiguration?.['configurationSync.store']).toEqual({
             authenticationProviders: {
-              'gitlab-web-ide': {
+              'khulnasoft-web-ide': {
                 scopes: ['api'],
               },
             },

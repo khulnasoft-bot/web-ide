@@ -3,7 +3,7 @@ import type {
   PostRequest,
   DeleteRequest,
   GetBufferRequest,
-} from '@gitlab/web-ide-interop';
+} from '@khulnasoft/web-ide-interop';
 
 export type EndpointMethod =
   | GetRequest<unknown>['method']

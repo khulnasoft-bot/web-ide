@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import * as vscode from 'vscode';
 import { FS_SCHEME } from '../constants';
 import { getConfig } from '../mediator';
@@ -35,7 +35,7 @@ async function getWebIdeCompatibleUri(uriStr: string): Promise<vscode.Uri> {
 
   const { repoRoot } = await getConfig();
 
-  // Somehow, when a remote schema is present the `uriStr` passed is translated to `gitlab-web-ide:/~/path/to/file.json`
+  // Somehow, when a remote schema is present the `uriStr` passed is translated to `khulnasoft-web-ide:/~/path/to/file.json`
   // This leads to incorrect parsing of the Uri (`~` is included as a path) causing it to fail when attempting to read the file.
   // Let's remove this `~` if it exists and is in the beginning of the path.
   const pathNoTilde = uriArg.path.replace(/^\/~/, '');

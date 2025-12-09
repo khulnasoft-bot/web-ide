@@ -1,5 +1,5 @@
 {
-  "name": "gitlab-web-ide",
+  "name": "khulnasoft-web-ide",
   "main": "src/main.ts",
   "compatibility_date": "2023-06-28",
   "minify": true,
@@ -8,7 +8,7 @@
   },
   "env": {
     "staging": {
-      "name": "gitlab-web-ide-staging",
+      "name": "khulnasoft-web-ide-staging",
       "route": {
         "pattern": "*.staging.cdn.web-ide.gitlab-static.net/*",
         "zone_name": "gitlab-static.net",
@@ -16,8 +16,8 @@
       "r2_buckets": [
         {
           "binding": "R2_BUCKET",
-          "bucket_name": "gitlab-web-ide-gstg",
-          "preview_bucket_name": "gitlab-web-ide-gstg",
+          "bucket_name": "khulnasoft-web-ide-gstg",
+          "preview_bucket_name": "khulnasoft-web-ide-gstg",
         },
       ],
       "vars": {
@@ -30,7 +30,7 @@
       },
     },
     "production": {
-      "name": "gitlab-web-ide-production",
+      "name": "khulnasoft-web-ide-production",
       "route": {
         "pattern": "*.cdn.web-ide.gitlab-static.net/*",
         "zone_name": "gitlab-static.net",
@@ -38,8 +38,8 @@
       "r2_buckets": [
         {
           "binding": "R2_BUCKET",
-          "bucket_name": "gitlab-web-ide-gprd",
-          "preview_bucket_name": "gitlab-web-ide-gprd",
+          "bucket_name": "khulnasoft-web-ide-gprd",
+          "preview_bucket_name": "khulnasoft-web-ide-gprd",
         },
       ],
       "vars": {

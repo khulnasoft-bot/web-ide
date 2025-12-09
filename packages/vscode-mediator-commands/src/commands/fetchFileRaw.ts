@@ -1,5 +1,5 @@
 import type { DeprecatedGitLabClient as GitLabClient } from '@gitlab/gitlab-api-client';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import type { VSBufferWrapper, VSCodeBuffer } from '../types';
 
 type FetchFileRawCommand = (ref: string, path: string) => Promise<VSCodeBuffer>;

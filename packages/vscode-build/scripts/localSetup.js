@@ -32,7 +32,7 @@ const main = async () => {
 Please provide a path for the local vscode build.
 For example:
 
-   yarn local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
+   yarn local-setup /absolute/path/to/khulnasoft-web-ide-vscode-fork/.build/vscode-web
 `);
     process.exit(1);
     return;

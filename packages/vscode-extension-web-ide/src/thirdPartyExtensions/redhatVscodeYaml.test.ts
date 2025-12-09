@@ -1,4 +1,4 @@
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import * as vscode from 'vscode';
 
 import { FS_SCHEME } from '../constants';
@@ -50,7 +50,7 @@ describe('requestSchemaContent', () => {
   });
 
   it('removes `~` from path if it exists', async () => {
-    const mockBadUriStr = `gitlab-web-ide:/~/path/to/file.json`;
+    const mockBadUriStr = `khulnasoft-web-ide:/~/path/to/file.json`;
     await requestSchemaContent(mockBadUriStr);
     expect(jest.mocked(vscode.workspace.fs.readFile)).toHaveBeenCalledWith(
       expect.objectContaining({ path: `/${MOCK_REPO_ROOT}/path/to/file.json` }),

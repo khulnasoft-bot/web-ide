@@ -1,13 +1,16 @@
 // TODO: For some reason `ts-jest` isn't finding the `.d.ts` files
 import '../../vscode.proposed.ipc.d';
 
-import type { MediatorMessageEvent, MediatorMessageKey } from '@gitlab/vscode-mediator-commands';
+import type {
+  MediatorMessageEvent,
+  MediatorMessageKey,
+} from '@khulnasoft/vscode-mediator-commands';
 import {
   MESSAGE_PREVENT_UNLOAD,
   MESSAGE_SET_HREF,
   MESSAGE_OPEN_URI,
   MESSAGE_UPDATE_WEB_IDE_CONTEXT,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 
 import { getExtensionContext } from '../context';
 

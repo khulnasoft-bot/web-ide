@@ -1,1 +1,1 @@
-export const createError = (msg: string) => new Error(`[gitlab-web-ide] ${msg}`);
+export const createError = (msg: string) => new Error(`[khulnasoft-web-ide] ${msg}`);

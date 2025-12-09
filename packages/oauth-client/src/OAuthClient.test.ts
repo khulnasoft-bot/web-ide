@@ -1,4 +1,4 @@
-import { useFakeLocation } from '@gitlab/utils-test';
+import { useFakeLocation } from '@khulnasoft/utils-test';
 import { InMemoryOAuthStorage } from '../test-utils/InMemoryOAuthStorage';
 import { DefaultOAuthClient } from './OAuthClient';
 import type {
@@ -18,13 +18,13 @@ import {
 import { createBroadcasterStub } from '../test-utils';
 
 import 'whatwg-fetch';
-import '@gitlab/utils-test/src/jsdom.d';
+import '@khulnasoft/utils-test/src/jsdom.d';
 
 jest.mock('./utils/iframeAuth');
 
 const TEST_TIME = new Date('2023-10-10T00:00:00Z');
-const TEST_TOKEN_KEY = 'gitlab/web-ide/oauth/client_id/token';
-const TEST_HANDSHAKE_KEY = 'gitlab/web-ide/oauth/client_id/handshake';
+const TEST_TOKEN_KEY = 'khulnasoft/web-ide/oauth/client_id/token';
+const TEST_HANDSHAKE_KEY = 'khulnasoft/web-ide/oauth/client_id/handshake';
 const TEST_OWNER = 'root';
 const TEST_TOKEN_LIFETIME = 1000;
 const TEST_APP: OAuthApp = {

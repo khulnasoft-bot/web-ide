@@ -1,7 +1,7 @@
 import type { FileChangeEvent, FileStat, FileSystemProvider, FileType, Uri } from 'vscode';
 import { Disposable, EventEmitter, FileSystemError, FileChangeType } from 'vscode';
-import type { FileSystem } from '@gitlab/web-ide-fs';
-import { ErrorCode } from '@gitlab/web-ide-fs';
+import type { FileSystem } from '@khulnasoft/web-ide-fs';
+import { ErrorCode } from '@khulnasoft/web-ide-fs';
 import { toVSCodeFileStat, toVSCodeFileType } from './utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

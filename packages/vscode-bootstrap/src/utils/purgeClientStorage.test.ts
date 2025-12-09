@@ -1,5 +1,5 @@
 import { defaultLogger } from '@gitlab/logger';
-import { createFakePartial, withFakeIndexedDbStorage } from '@gitlab/utils-test';
+import { createFakePartial, withFakeIndexedDbStorage } from '@khulnasoft/utils-test';
 import { purgeClientStorage } from './purgeClientStorage';
 import { storageAvailable } from './storageAvailable';
 

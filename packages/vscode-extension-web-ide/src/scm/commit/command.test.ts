@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { type DefaultGitLabClient, NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
-import { createFakePartial } from '@gitlab/utils-test';
-import type { GitLabCommitPayload } from '@gitlab/vscode-mediator-commands';
+import { createFakePartial } from '@khulnasoft/utils-test';
+import type { GitLabCommitPayload } from '@khulnasoft/vscode-mediator-commands';
 import type { CommitCommand, ReadonlySourceControlViewModel } from '../types';
 import type { LocalStorage } from '../../types';
 import { generateCommitMessage } from './generateCommitMessage';

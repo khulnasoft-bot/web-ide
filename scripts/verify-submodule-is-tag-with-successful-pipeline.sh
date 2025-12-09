@@ -6,12 +6,12 @@ set -o pipefail # fail when pipelines contain an error (see http://www.gnu.org/s
 #
 # this only works when the submodule is up to date, when there are changes, the first character of the output is a `+`
 SUBMODULE_SHA="$(git submodule | awk '{print $1}')"
-TARGET_TAG="$(cd gitlab-vscode-extension && git tag --points-at "$SUBMODULE_SHA")"
+TARGET_TAG="$(cd khulnasoft-vscode-extension && git tag --points-at "$SUBMODULE_SHA")"
 
 echo "Checking SHA ${SUBMODULE_SHA} ... and TAG: ${TARGET_TAG}"
 
-PIPELINES_FOR_SHA=$(curl "https://gitlab.com/api/v4/projects/gitlab-org%2Fgitlab-vscode-extension/pipelines?scope=finished&sha=${SUBMODULE_SHA}")
-TAG_INFO=$(curl "https://gitlab.com/api/v4/projects/gitlab-org%2Fgitlab-vscode-extension/repository/tags/${TARGET_TAG}")
+PIPELINES_FOR_SHA=$(curl "https://gitlab.com/api/v4/projects/gitlab-org%2Fkhulnasoft-vscode-extension/pipelines?scope=finished&sha=${SUBMODULE_SHA}")
+TAG_INFO=$(curl "https://gitlab.com/api/v4/projects/gitlab-org%2Fkhulnasoft-vscode-extension/repository/tags/${TARGET_TAG}")
 
 TAG_FOUND=$(jq '(.release != null)' <<< "$TAG_INFO")
 PIPELINE_FOUND=$(jq '. | length > 0' <<< "$PIPELINES_FOR_SHA")

@@ -1,7 +1,7 @@
 import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
 import { DefaultAuthProvider } from '@gitlab/gitlab-api-client';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { PortChannelAuthProvider } from './PortChannelAuthProvider';
 
 interface GetAuthProviderOptions {

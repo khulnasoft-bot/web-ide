@@ -1,4 +1,4 @@
-import type { SerializableConfig } from '@gitlab/web-ide-types';
+import type { SerializableConfig } from '@khulnasoft/web-ide-types';
 import { createError } from './error';
 
 const CONFIG_EL_ID = 'gl-config-json';

@@ -1,4 +1,4 @@
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { DefaultAuthProvider } from '@gitlab/gitlab-api-client';
 import { DeprecatedMediatorCommandExecutor } from './DeprecatedMediatorCommandExecutor';
 import type { SecureMediatorCommandExecutor } from './SecureMediatorCommandExecutor';

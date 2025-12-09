@@ -1,11 +1,11 @@
 import './amd/global.d';
 
-import type { WebIdeExtensionConfig, WebIdeConfig } from '@gitlab/web-ide-types';
-import { LogLevel } from '@gitlab/web-ide-types';
-import { escapeCssQuotedValue } from '@gitlab/utils-escape';
-import { joinPaths } from '@gitlab/utils-path';
+import type { WebIdeExtensionConfig, WebIdeConfig } from '@khulnasoft/web-ide-types';
+import { LogLevel } from '@khulnasoft/web-ide-types';
+import { escapeCssQuotedValue } from '@khulnasoft/utils-escape';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
-import { WEB_IDE_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import type {
   WorkbenchModule,
@@ -24,13 +24,13 @@ const getDomainFromFullUrl = (urlStr: string) => {
   return url.host;
 };
 
-const amdModuleName = (funcName: string) => `gitlab-web-ide/${funcName}`;
+const amdModuleName = (funcName: string) => `khulnasoft-web-ide/${funcName}`;
 
 const SETTINGS_SYNC_OPTIONS = {
   enabled: true,
   extensionsSyncStateVersion: '1.0.0',
   authenticationProvider: {
-    id: 'gitlab-web-ide',
+    id: 'khulnasoft-web-ide',
     signIn() {
       return Promise.resolve(DEFAULT_SESSION_ID);
     },
@@ -38,7 +38,7 @@ const SETTINGS_SYNC_OPTIONS = {
 };
 
 const BASE_OPTIONS: Partial<IWorkbenchConstructionOptions> = {
-  // implements IWorkbenchConstructionOptions https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/blob/1076180257af86c0f540faf7f6087041bd37ef8c/src/vs/workbench/browser/web.api.ts#L127
+  // implements IWorkbenchConstructionOptions https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/1076180257af86c0f540faf7f6087041bd37ef8c/src/vs/workbench/browser/web.api.ts#L127
 
   homeIndicator: {
     href: 'https://gitlab.com',
@@ -47,7 +47,7 @@ const BASE_OPTIONS: Partial<IWorkbenchConstructionOptions> = {
   },
   windowIndicator: {
     label: '$(gitlab-tanuki) GitLab',
-    command: 'gitlab-web-ide.open-remote-window',
+    command: 'khulnasoft-web-ide.open-remote-window',
   },
   defaultLayout: {
     views: [],
@@ -56,16 +56,16 @@ const BASE_OPTIONS: Partial<IWorkbenchConstructionOptions> = {
   },
   additionalTrustedDomains: ['gitlab.com', 'about.gitlab.com', 'docs.gitlab.com', 'aka.ms'],
   productConfiguration: {
-    // implements Partial<IProductConfiguration> https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/blob/11b6d009a4ec1567b50ba2c0ac5235d5db8ba1e9/src/vs/base/common/product.ts#L33
+    // implements Partial<IProductConfiguration> https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/11b6d009a4ec1567b50ba2c0ac5235d5db8ba1e9/src/vs/base/common/product.ts#L33
     // example https://sourcegraph.com/github.com/sourcegraph/openvscode-server@3169b2e0423a56afba4fa1c824f966e7b3b9bf07/-/blob/product.json?L586
     nameShort: 'GitLab Web IDE',
     nameLong: 'GitLab Web IDE',
-    applicationName: 'gitlab-web-ide',
-    urlProtocol: 'gitlab-web-ide',
+    applicationName: 'khulnasoft-web-ide',
+    urlProtocol: 'khulnasoft-web-ide',
     enableTelemetry: false,
     extensionsGallery: undefined,
     licenseName: 'MIT License',
-    licenseUrl: 'https://gitlab.com/gitlab-org/gitlab-web-ide/-/blob/main/LICENSE',
+    licenseUrl: 'https://gitlab.com/khulnasoft/web-ide/-/blob/main/LICENSE',
     licenseFileName: 'LICENSE',
     twitterUrl: 'https://twitter.com/gitlab',
     sendASmile: {
@@ -114,7 +114,7 @@ const getConfigurationSyncStoreProperties = (config: WebIdeConfig): Configuratio
     stableUrl: settingsSyncUrl,
     canSwitch: false,
     authenticationProviders: {
-      'gitlab-web-ide': {
+      'khulnasoft-web-ide': {
         scopes: ['api'],
       },
     },
@@ -211,9 +211,9 @@ export const start = (config: WebIdeExtensionConfig) =>
 
           startWorkbench(workbenchModule, config, {
             additionalTrustedDomains: [getDomainFromFullUrl(config.gitlabUrl)],
-            // what: Flag the gitlab-web-ide extension as an environment extension which cannot be disabled
-            // https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/13#note_1053126388
-            // https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/blob/fa3eb589de07ab4db0500c32519ce41940c11241/src/vs/workbench/browser/web.api.ts#L215
+            // what: Flag the khulnasoft-web-ide extension as an environment extension which cannot be disabled
+            // https://gitlab.com/khulnasoft/web-ide/-/issues/13#note_1053126388
+            // https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/fa3eb589de07ab4db0500c32519ce41940c11241/src/vs/workbench/browser/web.api.ts#L215
             enabledExtensions: [WEB_IDE_EXTENSION_ID],
             // TODO - Maybe we want this...
             welcomeBanner: undefined,
@@ -226,7 +226,7 @@ export const start = (config: WebIdeExtensionConfig) =>
             // This is needed so that we don't enter multiple workspace zone :|
             workspaceProvider: {
               workspace: {
-                folderUri: workbenchModule.URI.parse(`gitlab-web-ide:///${config.repoRoot}`),
+                folderUri: workbenchModule.URI.parse(`khulnasoft-web-ide:///${config.repoRoot}`),
               },
               trusted: true,
               async open() {
@@ -240,7 +240,7 @@ export const start = (config: WebIdeExtensionConfig) =>
             },
             messagePorts: messagePortsController.messagePorts,
             // why: Settings sync depends on authProvider being set up
-            // https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/327
+            // https://gitlab.com/khulnasoft/web-ide/-/issues/327
             settingsSyncOptions: authProvider ? SETTINGS_SYNC_OPTIONS : undefined,
           });
 

@@ -4,7 +4,7 @@ import type {
   UpdateWebIDEContextMessage,
   WebIDETrackingMessage,
 } from '@gitlab/cross-origin-channel';
-import type { WebIdeConfigLinks } from '@gitlab/web-ide-types';
+import type { WebIdeConfigLinks } from '@khulnasoft/web-ide-types';
 import {
   MESSAGE_OPEN_URI,
   MESSAGE_PREVENT_UNLOAD,

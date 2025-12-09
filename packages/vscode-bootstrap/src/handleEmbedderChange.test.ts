@@ -1,6 +1,6 @@
 import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
 import { defaultLogger } from '@gitlab/logger';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { handleEmbedderChange } from './handleEmbedderChange';
 import { storageAvailable } from './utils/storageAvailable';
 import { purgeClientStorage } from './utils/purgeClientStorage';

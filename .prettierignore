@@ -6,6 +6,6 @@ packages/*/dist
 packages/*/public
 packages/vscode-extension-language-support-vue/assets/vetur
 
-gitlab-vscode-extension
+khulnasoft-vscode-extension
 
 tmp/

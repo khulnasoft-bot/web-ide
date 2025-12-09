@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { GitLabRef, GitLabProject } from '@gitlab/vscode-mediator-commands';
+import type { GitLabRef, GitLabProject } from '@khulnasoft/vscode-mediator-commands';
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import { gitlabApi } from '@gitlab/gitlab-api-client';
 import { defaultLogger } from '@gitlab/logger';

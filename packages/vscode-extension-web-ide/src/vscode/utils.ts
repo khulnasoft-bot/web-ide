@@ -1,7 +1,7 @@
 import type { FileStat } from 'vscode';
 import { FileType } from 'vscode';
-import type { FileStats } from '@gitlab/web-ide-fs';
-import { FileType as WebIdeFileType } from '@gitlab/web-ide-fs';
+import type { FileStats } from '@khulnasoft/web-ide-fs';
+import { FileType as WebIdeFileType } from '@khulnasoft/web-ide-fs';
 
 export const toVSCodeFileType = (type: WebIdeFileType): FileType => {
   switch (type) {
