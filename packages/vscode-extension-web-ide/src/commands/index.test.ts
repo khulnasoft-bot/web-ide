@@ -16,7 +16,7 @@ import {
 import { registerCommands } from './index';
 import checkoutBranch from './checkoutBranch';
 import compareWithMrBase from './compareWithMrBase';
-import goToGitLab from './goToGitLab';
+import goToKhulnaSoft from './goToGitLab';
 import goToProject from './goToProject';
 import reloadWithWarning from './reloadWithWarning';
 import shareYourFeedback from './shareYourFeedback';

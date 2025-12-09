@@ -123,7 +123,7 @@ export interface WebIdeConfig {
 
   /**
    * URL pointing to the system embedding the Web IDE. Most of the
-   * time, but not necessarily, is a GitLab instance.
+   * time, but not necessarily, is a KhulnaSoft instance.
    */
   embedderOriginUrl: string;
 
@@ -134,7 +134,7 @@ export interface WebIdeConfig {
   extensionsHostBaseUrl: string;
 
   /**
-   * URL pointing to the origin of the GitLab instance.
+   * URL pointing to the origin of the KhulnaSoft instance.
    * It is used for API access.
    */
   gitlabUrl: string;
@@ -196,7 +196,7 @@ export interface WebIdeConfig {
   //            https://gitlab.com/gitlab-org/gitlab/-/blob/dd1e70d3676891025534dc4a1e89ca9383178fe7/app/assets/javascripts/ide/stores/getters.js#L24
   forkInfo?: ForkInfo;
 
-  // username - The current username for the GitLab context. This is used for things like
+  // username - The current username for the KhulnaSoft context. This is used for things like
   //            generating default branch names.
   //            https://gitlab.com/khulnasoft/web-ide/-/issues/82
   username?: string;

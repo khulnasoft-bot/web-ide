@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
   // Opens the Web IDE example app.
   await webIde.goto();
 
-  // Fills in the GitLab URL, project path, repository ref, and token in the example app initialization form
+  // Fills in the KhulnaSoft URL, project path, repository ref, and token in the example app initialization form
   // and starts the Web IDE.
   await initForm.initWebIDE();
 

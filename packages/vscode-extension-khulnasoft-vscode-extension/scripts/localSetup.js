@@ -12,8 +12,8 @@ const EXPECTED_LOCAL_LOCATION_REGEX = /^[/\\].*[/\\]dist-browser[/\\]?$/;
 const EXPECTED_LOCAL_LOCATION_SUFFIX = 'dist-browser';
 
 /**
- * @param {String} path - Used as the "location" for the local GitLab VSCode Extension version metadata
- * @returns {String} JSON formatted string of content to be written to the local GitLab VSCode Extension version metadata file
+ * @param {String} path - Used as the "location" for the local KhulnaSoft VSCode Extension version metadata
+ * @returns {String} JSON formatted string of content to be written to the local KhulnaSoft VSCode Extension version metadata file
  */
 const getLocalExtensionVersionContents = path => {
   const json = {

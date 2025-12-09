@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
   // Opens the Web IDE example app.
   await webIde.goto();
 
-  // Fills in the GitLab URL, project path, repository ref, and token in the example app initialization form
+  // Fills in the KhulnaSoft URL, project path, repository ref, and token in the example app initialization form
   // and starts the Web IDE.
   await initForm.initWebIDE();
 
@@ -31,7 +31,7 @@ test('opens a file in the Web IDE', async () => {
 
   const { fileContent } = await getFixture('fileContent.txt', 'text');
 
-  // Mocks a request to the GitLab API to return the file content.
+  // Mocks a request to the KhulnaSoft API to return the file content.
   await mockHttpRequest.mockRawFileRequest(fileName, fileContent);
 
   // Opens the file in the files explorer.

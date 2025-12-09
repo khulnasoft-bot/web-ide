@@ -28,7 +28,7 @@ export enum LogLevel {
 
 /**
  * This type contains the commit sha that points
- * to the version of GitLab VSCode Fork used in the Web IDE
+ * to the version of KhulnaSoft VSCode Fork used in the Web IDE
  * and the build quality ('stable' or 'insiders').
  *
  * This type is used by the global constant VSCodeInfo

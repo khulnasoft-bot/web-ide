@@ -91,7 +91,7 @@ describe('DeprecatedGitLabClient', () => {
         `${TEST_BASE_URL}/api/v4/projects/lorem%2Fipsum/repository/tree?ref=test%2Fref&recursive=true&pagination=none`,
       ],
     ])('%s', (_, act, expectedURL) => {
-      it('fetches from GitLab API', async () => {
+      it('fetches from KhulnaSoft API', async () => {
         const actual = await act();
 
         expect(actual).toEqual(TEST_RESPONSE_OBJ);
@@ -170,7 +170,7 @@ describe('DeprecatedGitLabClient', () => {
     });
 
     describe('fetchFileRaw', () => {
-      it('fetched buffer from GitLab API', async () => {
+      it('fetched buffer from KhulnaSoft API', async () => {
         const expectedBuffer = Buffer.from('Hello world!');
         mockResponse(new Response(expectedBuffer, { status: 200, statusText: 'OK' }));
 
@@ -185,7 +185,7 @@ describe('DeprecatedGitLabClient', () => {
     });
 
     describe('commit', () => {
-      it('posts commit to GitLab API', async () => {
+      it('posts commit to KhulnaSoft API', async () => {
         const TEST_COMMIT_PAYLOAD: gitlab.CommitPayload = {
           branch: 'main-test-patch',
           start_sha: '',

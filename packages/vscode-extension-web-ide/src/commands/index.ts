@@ -20,7 +20,7 @@ import checkoutBranch from './checkoutBranch';
 import createBranch from './createBranch';
 import deleteBranch from './deleteBranch';
 import compareWithMrBase from './compareWithMrBase';
-import goToGitLab from './goToGitLab';
+import goToKhulnaSoft from './goToGitLab';
 import goToProject from './goToProject';
 import shareYourFeedback from './shareYourFeedback';
 import openRemoteWindow from './openRemoteWindow';

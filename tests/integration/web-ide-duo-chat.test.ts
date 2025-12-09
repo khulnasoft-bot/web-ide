@@ -6,7 +6,7 @@ import type { InitForm } from './pages/init-form/InitForm';
 import type { MockGraphQLRequest } from './network/MockGraphQLRequest';
 
 const SIMPLE_GREETING_RESPONSE =
-  "Hello! I'm GitLab Duo, your AI coding assistant. How can I help you today?";
+  "Hello! I'm KhulnaSoft Duo, your AI coding assistant. How can I help you today?";
 const JAVASCRIPT_EXAMPLE_RESPONSE =
   "Here's a simple JavaScript function to calculate the factorial of a number:";
 
@@ -36,7 +36,7 @@ test.beforeEach(async ({ page }) => {
   // Opens the Web IDE example app.
   await webIde.goto();
 
-  // Fills in the GitLab URL, project path, repository ref, and token in the example app initialization form
+  // Fills in the KhulnaSoft URL, project path, repository ref, and token in the example app initialization form
   // and starts the Web IDE.
   await initForm.initWebIDE();
 

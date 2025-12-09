@@ -173,7 +173,7 @@ export const start = async (el: Element, configArg: WebIdeConfig): Promise<WebId
     /**
      * TODO: Remove these fallback values once the embedderOriginUrl,
      * workbenchBaseUrl, and the extensionsHostBaseUrl are provided
-     * by the GitLab Rails application.
+     * by the KhulnaSoft Rails application.
      */
     embedderOriginUrl: configArg.embedderOriginUrl || configArg.baseUrl || '',
     workbenchBaseUrl: configArg.workbenchBaseUrl || configArg.baseUrl || '',

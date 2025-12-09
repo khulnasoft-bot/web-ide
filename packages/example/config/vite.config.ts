@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue()],
   root: resolve(__dirname, '../src'),
   envDir: resolve(__dirname, '../../../config'),
-  // why: Use relative URL's since this gets published to GitLab pages
+  // why: Use relative URL's since this gets published to KhulnaSoft pages
   base: './',
   build: {
     target: 'es2022',

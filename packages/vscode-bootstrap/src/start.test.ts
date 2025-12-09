@@ -245,7 +245,7 @@ describe('vscode-bootstrap start', () => {
             fallbackFontFamily: 'monospace',
             fontFaces: [
               {
-                family: 'GitLab Mono',
+                family: 'KhulnaSoft Mono',
                 src: [
                   {
                     url: '/GitLabMono.woff2',
@@ -254,7 +254,7 @@ describe('vscode-bootstrap start', () => {
                 ],
               },
               {
-                family: 'GitLab Mono',
+                family: 'KhulnaSoft Mono',
                 style: 'italic',
                 src: [
                   {
@@ -274,7 +274,7 @@ describe('vscode-bootstrap start', () => {
 
       it('sets the default configuration for font family', () => {
         expect(subject.configurationDefaults?.['editor.fontFamily']).toBe(
-          "'GitLab Mono', monospace",
+          "'KhulnaSoft Mono', monospace",
         );
       });
     });

@@ -9,7 +9,7 @@ export class DuoChatPanel {
 
   constructor(webIdeFrame: FrameLocator) {
     this.#webIdeFrame = webIdeFrame;
-    this.#duoChatPanel = this.#webIdeFrame.getByRole('tab', { name: 'GitLab Duo Chat' });
+    this.#duoChatPanel = this.#webIdeFrame.getByRole('tab', { name: 'KhulnaSoft Duo Chat' });
     this.duoChatFrame = this.#webIdeFrame
       .locator('iframe.webview.ready[src*="GitLab.gitlab-workflow"]')
       .contentFrame()
@@ -22,7 +22,7 @@ export class DuoChatPanel {
   }
 
   getChatPanelHeader() {
-    return this.#webIdeFrame.getByRole('heading', { name: 'GitLab Duo Chat' });
+    return this.#webIdeFrame.getByRole('heading', { name: 'KhulnaSoft Duo Chat' });
   }
 
   getChatPromptInput() {

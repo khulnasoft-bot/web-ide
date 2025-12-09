@@ -7,7 +7,7 @@ export enum FeatureFlags {
 
   // languageServerWebIDE -
   // This WIP feature flag controls the availability of the Language Server used
-  // in the GitLab Workflow VSCode Extension.
+  // in the KhulnaSoft Workflow VSCode Extension.
   // See https://gitlab.com/groups/gitlab-org/-/epics/14203
   LanguageServerWebIDE = 'languageServerWebIDE',
 
