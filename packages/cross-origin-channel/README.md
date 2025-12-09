@@ -1,6 +1,6 @@
 # packages/cross-origin-channel
 
-This package handles bi-directional communication between the Web IDE origin and the GitLab rails
+This package handles bi-directional communication between the Web IDE origin and the KhulnaSoft rails
 application origin. The communication between both origins happens securely via the [`postMessage`]
 (https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) API and the [`MessageChannel`]
 (https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel) API. This package contains two classes

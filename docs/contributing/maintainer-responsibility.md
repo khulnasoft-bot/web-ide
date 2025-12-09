@@ -6,11 +6,11 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 # Maintainer Responsibility
 
-Maintainers of the GitLab Web IDE are responsible for:
+Maintainers of the KhulnaSoft Web IDE are responsible for:
 
-1. Reviewing and merging Merge Requests for the GitLab Web IDE.
+1. Reviewing and merging Merge Requests for the KhulnaSoft Web IDE.
 2. Joining the internal `#f_vscode_web_ide` Slack channel, to stay up-to-date
-   with GitLab Web IDE specifics.
+   with KhulnaSoft Web IDE specifics.
 
 ## Code Review
 
@@ -58,7 +58,7 @@ When a Merge Request is ready to merge:
 1. Approve the Merge Request.
 1. Check that the commit messages follow the [style guide](./style-guide.md#conventional-commits). If the commits do not follow the style guide
    (or includes `fixup!` commits), you may consider either:
-   1. Squash the commits on merge through the GitLab UI. Check the **Squash commits** checkbox and **Modify commit messages** next to the **Merge** button. Modify the squash commit message following the [style guide](./style-guide.md#conventional-commits). The merge commit message does not need to follow the style guide.
+   1. Squash the commits on merge through the KhulnaSoft UI. Check the **Squash commits** checkbox and **Modify commit messages** next to the **Merge** button. Modify the squash commit message following the [style guide](./style-guide.md#conventional-commits). The merge commit message does not need to follow the style guide.
    1. Ask the Merge Request contributor to squash the commits themselves.
 1. Click **Merge**, which should add the Merge Request to the Merge Train.
    You _should not_ need to start a new pipeline.

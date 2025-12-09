@@ -8,7 +8,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 [TOC]
 
-The Web IDE sends tracking events to [GitLab snowplow service](https://docs.gitlab.com/ee/development/snowplow/implementation.html)
+The Web IDE sends tracking events to [KhulnaSoft snowplow service](https://docs.gitlab.com/ee/development/snowplow/implementation.html)
 . The Web IDE doesn’t connect to Snowplow, but allows passing a `handleTracking` function to the `start` or `startRemote`
 functions exported by the [web-ide package](./architecture-packages.md#web-ide).
 
@@ -43,7 +43,7 @@ sequenceDiagram
     participant A as vscode-extension-web-ide
     participant B as vscode-mediator-commands
     participant C as @khulnasoft/web-ide
-    participant D as GitLab application
+    participant D as KhulnaSoft application
     A->>+B: trackEvent(event)
     B->>-C: postMessage('web-ide-tracking', event)
     Note right of A: iframe

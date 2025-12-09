@@ -2,7 +2,7 @@ import { WEB_IDE_EXTENSION_ID as FULL_EXTENSION_ID } from '@khulnasoft/web-ide-i
 
 export const EXTENSION_ID = 'khulnasoft-web-ide';
 
-export const OUTPUT_CHANNEL_NAME = 'GitLab Web IDE';
+export const OUTPUT_CHANNEL_NAME = 'KhulnaSoft Web IDE';
 
 export const AUTHENTICATION_PROVIDER_ID = 'khulnasoft-web-ide';
 

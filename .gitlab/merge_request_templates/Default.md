@@ -22,7 +22,7 @@ _Screenshots are required for UI changes, and strongly recommended for all other
 <!--
 Please include any relevant screenshots or screen recordings that will assist
 reviewers and future readers. If you need help visually verifying the change,
-please leave a comment and ping a GitLab reviewer, maintainer, or MR coach.
+please leave a comment and ping a KhulnaSoft reviewer, maintainer, or MR coach.
 -->
 
 | Before | After |

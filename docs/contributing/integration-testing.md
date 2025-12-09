@@ -8,12 +8,12 @@ The integration tests use Playwright to automate browser interactions and test t
 real browser environment. The tests are located in the `tests/integration` directory. The integration tests
 exercise the integration between the major subsystems that conform the Web IDE:
 
-- GitLab VSCode Fork.
+- KhulnaSoft VSCode Fork.
 - The Web IDE VSCode extension.
-- The GitLab VSCode extension.
-- The GitLab REST and GraphQL API.
+- The KhulnaSoft VSCode extension.
+- The KhulnaSoft REST and GraphQL API.
 
-Integration tests prioritize reliability over using a real GitLab REST or GraphQL APIs. These tests
+Integration tests prioritize reliability over using a real KhulnaSoft REST or GraphQL APIs. These tests
 mock API requests that return unpredictable responses.
 
 ## Setup
@@ -29,7 +29,7 @@ mock API requests that return unpredictable responses.
 1. Set the the following environment variables in the `config/.env.local` file:
 
    ```bash
-   # GitLab instance URL (choose one)
+   # KhulnaSoft instance URL (choose one)
    PLAYWRIGHT_GITLAB_URL="https://gdk.test:3443"
    PLAYWRIGHT_GITLAB_URL="https://gitlab.com"
 
@@ -135,9 +135,9 @@ When adding new tests:
 
 The `WebIDE` class is the main entry point for interacting with the Web IDE in tests. It provides:
 
-- `initForm`: For initializing the Web IDE with GitLab URL, project path, etc.
+- `initForm`: For initializing the Web IDE with KhulnaSoft URL, project path, etc.
 - `workbench`: For interacting with the Web IDE UI components
-- `mockHttpRequest`: For mocking network requests to GitLab API
+- `mockHttpRequest`: For mocking network requests to KhulnaSoft API
 
 Example of initializing the Web IDE:
 

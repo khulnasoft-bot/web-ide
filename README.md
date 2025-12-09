@@ -1,10 +1,10 @@
-# GitLab Web IDE
+# KhulnaSoft Web IDE
 
-[**Example App**](https://gitlab-org.gitlab.io/khulnasoft-web-ide/) | [**Developer Guides**](./docs/README.md) | [**GitLab VS Code Extension**](https://gitlab.com/gitlab-org/khulnasoft-vscode-extension)
+[**Example App**](https://gitlab-org.gitlab.io/khulnasoft-web-ide/) | [**Developer Guides**](./docs/README.md) | [**KhulnaSoft VS Code Extension**](https://gitlab.com/gitlab-org/khulnasoft-vscode-extension)
 
 ## What is this?
 
-This project builds the [`@khulnasoft/web-ide` npm package](https://www.npmjs.com/package/@khulnasoft/web-ide), used in the [main GitLab project](https://gitlab.com/gitlab-org/gitlab) to bootstrap GitLab's context-aware Web IDE.
+This project builds the [`@khulnasoft/web-ide` npm package](https://www.npmjs.com/package/@khulnasoft/web-ide), used in the [main KhulnaSoft project](https://gitlab.com/gitlab-org/gitlab) to bootstrap GitLab's context-aware Web IDE.
 
 ## How to use the example?
 
@@ -15,11 +15,11 @@ Visit [the Pages Deployment](https://gitlab-org.gitlab.io/khulnasoft-web-ide/) o
    | Field        | Value                   |
    | ------------ | ----------------------- |
    | Type         | `Client only (Default)` |
-   | GitLab URL   | `https://gitlab.com`    |
+   | KhulnaSoft URL   | `https://gitlab.com`    |
    | Project Path | `gitlab-org/gitlab`     |
    | Ref          | `master`                |
 
-2. Click **Start GitLab Web IDE**
+2. Click **Start KhulnaSoft Web IDE**
 
 ## How to contribute?
 

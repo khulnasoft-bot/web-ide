@@ -23,8 +23,8 @@
         {
           "requestId": "req-simple-greeting",
           "role": "ASSISTANT",
-          "content": "Hello! I'm GitLab Duo, your AI coding assistant. How can I help you today?",
-          "contentHtml": "<p>Hello! I'm GitLab Duo, your AI coding assistant. How can I help you today?</p>",
+          "content": "Hello! I'm KhulnaSoft Duo, your AI coding assistant. How can I help you today?",
+          "contentHtml": "<p>Hello! I'm KhulnaSoft Duo, your AI coding assistant. How can I help you today?</p>",
           "timestamp": "2025-08-13T00:00:00Z",
           "errors": [],
           "extras": {

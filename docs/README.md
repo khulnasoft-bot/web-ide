@@ -6,13 +6,13 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 # Developer guides
 
-This directory contains development guides for the GitLab Web IDE project.
-You can find the GitLab Web IDE's user documentation in the
-[GitLab user documentation](https://docs.gitlab.com/ee/user/project/web_ide/) site.
+This directory contains development guides for the KhulnaSoft Web IDE project.
+You can find the KhulnaSoft Web IDE's user documentation in the
+[KhulnaSoft user documentation](https://docs.gitlab.com/ee/user/project/web_ide/) site.
 
 ## Contribution guidelines
 
-These guides focus on general topics around contributing to the GitLab Web IDE project:
+These guides focus on general topics around contributing to the KhulnaSoft Web IDE project:
 
 - [Development environment setup](./contributing/development-environment-setup.md) - Start here
 - [Style Guide](./contributing/style-guide.md)
@@ -20,7 +20,7 @@ These guides focus on general topics around contributing to the GitLab Web IDE p
 
 ### Maintaining
 
-These guides focus on workflows pertaining to maintaining the GitLab Web IDE project:
+These guides focus on workflows pertaining to maintaining the KhulnaSoft Web IDE project:
 
 - [Web IDE releases](./contributing/web-ide-releases.md)
 - [Maintainer Responsibility](./contributing/maintainer-responsibility.md)
@@ -35,6 +35,6 @@ These guides dive deep into more specific technical topics of the Web IDE:
 - [Working with packages](./development/working-with-packages.md)
 - [Settings Sync](./development/settings-sync.md)
 - [Working with VS Code extensions](./development/vscode-extensions.md)
-- [GitLab Workflow Extension](./development/gitlab-workflow-extension.md)
-- [GitLab VSCode theme](./development/khulnasoft-vscode-theme.md)
+- [KhulnaSoft Workflow Extension](./development/gitlab-workflow-extension.md)
+- [KhulnaSoft VSCode theme](./development/khulnasoft-vscode-theme.md)
 - [Instrumentation](./development/instrumentation.md)

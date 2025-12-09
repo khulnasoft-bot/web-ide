@@ -20,7 +20,7 @@ now on.
 
 The Web IDE, just like `Code - OSS`, can run 3rd-party code via extensions that users can
 install at will. This powerful feature also poses a significant security challenge because
-we need to ensure that unverified 3rd-party code doesn't have unrestricted access to a GitLab user
+we need to ensure that unverified 3rd-party code doesn't have unrestricted access to a KhulnaSoft user
 account. The Web IDE also inherits code sandbox architecture from `Code - OSS` that isolates
 3rd-party code using the web browser's [same origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
 
@@ -43,23 +43,23 @@ subdomains for sandbox three documents or execution contexts:
 
 ## Deploying the Web IDE
 
-By default, every GitLab instance uses a CDN provided by the GitLab organization
+By default, every KhulnaSoft instance uses a CDN provided by the KhulnaSoft organization
 that hosts `Code - OSS` static assets and it's reachable using the wildcard domain name
 `*.cdn.web-ide.gitlab-static.net`. This default setup removes the necessity of setting
-up a wildcard domain for GitLab Self-Managed instances.
+up a wildcard domain for KhulnaSoft Self-Managed instances.
 
-The following diagram visualizes how the web browser uses the GitLab application
+The following diagram visualizes how the web browser uses the KhulnaSoft application
 server and the `*.cdn.web-ide.gitlab-static.net` to initialize the Web IDE, built-in
 extensions, and web views. **All the interactions between these components happen
 exclusively on the client-side**.
 
 ```mermaid
 flowchart TD
-    User["GitLab User<br/>[Person]<br/><br/>GitLab user editing files using the Web IDE."]
+    User["KhulnaSoft User<br/>[Person]<br/><br/>KhulnaSoft user editing files using the Web IDE."]
 
     subgraph browser["Web Browser"]
         subgraph gitlab-boundary["main window"]
-            Rails["GitLab Application<br/>[Container]<br/><br/>Rails web application that hosts<br/>the Web IDE and manages<br/>OAuth authentication flow"]
+            Rails["KhulnaSoft Application<br/>[Container]<br/><br/>Rails web application that hosts<br/>the Web IDE and manages<br/>OAuth authentication flow"]
         end
 
         subgraph workbench-boundary["[Sandboxed iframe]"]
@@ -103,20 +103,20 @@ flowchart TD
 
 ### Air-gapped instances
 
-GitLab instances running on air-gapped/offline environments don't have access to the
+KhulnaSoft instances running on air-gapped/offline environments don't have access to the
 `*.cdn.web-ide.gitlab-static.net` assets host. In this scenario, the GitLab
-to set up a custom wildcard domain. Go to the GitLab administrator documentation to learn
+to set up a custom wildcard domain. Go to the KhulnaSoft administrator documentation to learn
 how to set up a custom wildcard domain for the Web IDE **(pending)**.
 
-The following sequence diagram describes how the GitLab instance serves `Code - OSS` static
+The following sequence diagram describes how the KhulnaSoft instance serves `Code - OSS` static
 assets after setting up a custom wildcard domain:
 
 ```mermaid
 sequenceDiagram
     participant Browser as Web Browser
     participant Frontend as Frontend Server<br/>(NGINX)
-    participant Workhorse as GitLab Workhorse
-    participant Rails as GitLab Rails<br/>Application
+    participant Workhorse as KhulnaSoft Workhorse
+    participant Rails as KhulnaSoft Rails<br/>Application
 
     Note over Browser,Rails: Code - OSS Static Asset Request Flow with CORS
 
@@ -141,7 +141,7 @@ sequenceDiagram
     Note right of Browser: Browser validates CORS<br/>and loads the asset
 ```
 
-The main requirement for using the GitLab instance as a Web IDE assets host is
+The main requirement for using the KhulnaSoft instance as a Web IDE assets host is
 configuring the frontend server of choice to accept HTTP traffic from a wildcard
-domain and providing a TLS certificate. The GitLab instance will know how to
+domain and providing a TLS certificate. The KhulnaSoft instance will know how to
 infer CORS rules to ensure that `Code - OSS` assets are used in a secure context.

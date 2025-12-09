@@ -64,7 +64,7 @@ export default defineComponent({
     >
       <config-form-fields v-bind="config" @update="onConfigUpdate" />
       <div class="mt-3 flex items-center justify-center">
-        <button type="submit" class="gl-submit-btn">Start GitLab Web IDE</button>
+        <button type="submit" class="gl-submit-btn">Start KhulnaSoft Web IDE</button>
       </div>
     </form>
   </div>

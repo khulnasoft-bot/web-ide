@@ -63,7 +63,7 @@ variables:
       - 'false'
 
   ### INTEGRATION TESTS ###
-  # The following variables control the GitLab instance and project targeted by the integration
+  # The following variables control the KhulnaSoft instance and project targeted by the integration
   # tests.
   PLAYWRIGHT_GITLAB_URL: 'https://gitlab.com'
   PLAYWRIGHT_PROJECT_PATH: '$CI_PROJECT_PATH'
@@ -79,7 +79,7 @@ variables:
   if: '$CI_COMMIT_REF_NAME == "main" && $CI_PROJECT_ID == $KHULNASOFT_WEB_IDE_PROJECT_ID && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == null'
 
 # merge request, from the original repo or from forks when a
-# GitLab Web IDE member triggered the pipeline
+# KhulnaSoft Web IDE member triggered the pipeline
 .if-merge-request-original-repo: &if-merge-request-original-repo
   if: $CI_PIPELINE_SOURCE == 'merge_request_event'
 
@@ -371,7 +371,7 @@ test-web-ide-package:
     NPM_ID_TOKEN:
       aud: 'npm:registry.npmjs.org'
   variables:
-    # Used to tag a release as "not the latest" in the GitLab UI when triggering a pipeline
+    # Used to tag a release as "not the latest" in the KhulnaSoft UI when triggering a pipeline
     # Helpful for security releases that should not be picked up by renovatebot
     # https://docs.npmjs.com/cli/v8/commands/npm-publish#configuration
     NPM_PUBLISH_TAG: 'latest'

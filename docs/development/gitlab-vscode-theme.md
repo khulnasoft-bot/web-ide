@@ -4,17 +4,17 @@ group: remote development
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
-# GitLab VSCode theme extension
+# KhulnaSoft VSCode theme extension
 
-The GitLab VSCode theme extension contains three
+The KhulnaSoft VSCode theme extension contains three
 [color theme](https://code.visualstudio.com/api/references/theme-color) implementations
 used by the Web IDE:
 
-- GitLab Dark Midnight.
-- GitLab Dark.
-- GitLab Light.
+- KhulnaSoft Dark Midnight.
+- KhulnaSoft Dark.
+- KhulnaSoft Light.
 
-It also contains an icons font with icons used by the Web IDE. GitLab also releases this
+It also contains an icons font with icons used by the Web IDE. KhulnaSoft also releases this
 extension as a standalone package to style other VSCode projects like Workspaces.
 
 ## Icons font
@@ -58,7 +58,7 @@ The icon unicode character is referenced in the `icons` contribution section of
 ```json
 "icons": {
   "gitlab-tanuki": {
-    "description": "GitLab Tanuki",
+    "description": "KhulnaSoft Tanuki",
     "default": {
       "fontPath": "assets/fonts/gitlab_webide.woff",
       "fontCharacter": "\\eA01"

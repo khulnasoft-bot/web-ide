@@ -1,6 +1,6 @@
 # Using workspaces to develop the Web IDE
 
-GitLab team members can use [GitLab Workspaces](https://docs.gitlab.com/ee/user/workspace/)
+KhulnaSoft team members can use [KhulnaSoft Workspaces](https://docs.gitlab.com/ee/user/workspace/)
 to develop the Web IDE. You can create a new workspace from either the project page or a merge request page.
 
 ## Creating a workspace from the project page

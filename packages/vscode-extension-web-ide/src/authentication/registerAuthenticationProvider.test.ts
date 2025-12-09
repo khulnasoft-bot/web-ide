@@ -71,7 +71,7 @@ describe('authentication/registerAuthenticationProvider', () => {
       expect(vscode.authentication.registerAuthenticationProvider).toHaveBeenCalledTimes(1);
       expect(vscode.authentication.registerAuthenticationProvider).toHaveBeenCalledWith(
         AUTHENTICATION_PROVIDER_ID,
-        'GitLab Web IDE',
+        'KhulnaSoft Web IDE',
         expect.any(GitLabAuthenticationProvider),
         {
           supportsMultipleAccounts: false,

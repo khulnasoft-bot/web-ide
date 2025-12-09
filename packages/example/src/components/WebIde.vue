@@ -118,7 +118,7 @@ const getConfigFromExample = async (exampleConfig: ExampleConfig) => {
     filePath: url.searchParams.get('filePath') || '',
     mrId: url.searchParams.get('mrId') || '',
     mrTargetProject: url.searchParams.get('mrTargetProject') || '',
-    // Used to test what `forkInfo` we might receive from the main GitLab project.
+    // Used to test what `forkInfo` we might receive from the main KhulnaSoft project.
     // See ../../web-ide-types/src/config.ts for more comments on `forkInfo`.
     forkInfo: {
       ide_path: url.searchParams.get('forkInfo.ide_path') || undefined,
@@ -190,7 +190,7 @@ export default defineComponent({
           fallbackFontFamily: 'monospace',
           fontFaces: [
             {
-              family: 'GitLab Mono',
+              family: 'KhulnaSoft Mono',
               display: 'block',
               src: [
                 {
@@ -200,7 +200,7 @@ export default defineComponent({
               ],
             },
             {
-              family: 'GitLab Mono',
+              family: 'KhulnaSoft Mono',
               style: 'italic',
               display: 'block',
               src: [

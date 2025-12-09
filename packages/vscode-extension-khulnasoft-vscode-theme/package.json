@@ -1,7 +1,7 @@
 {
   "name": "khulnasoft-vscode-theme",
-  "displayName": "GitLab Theme for Visual Studio Code",
-  "description": "The GitLab Theme for Visual Studio Code brings the sleek and professional look of GitLab to your coding environment.",
+  "displayName": "KhulnaSoft Theme for Visual Studio Code",
+  "description": "The KhulnaSoft Theme for Visual Studio Code brings the sleek and professional look of KhulnaSoft to your coding environment.",
   "version": "0.0.1",
   "publisher": "GitLab",
   "license": "MIT",
@@ -37,24 +37,24 @@
   "contributes": {
     "themes": [
       {
-        "label": "GitLab Dark Midnight",
+        "label": "KhulnaSoft Dark Midnight",
         "uiTheme": "vs-dark",
         "path": "./themes/GitLab_Dark_Midnight-color-theme.json"
       },
       {
-        "label": "GitLab Dark",
+        "label": "KhulnaSoft Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/GitLab_Dark-color-theme.json"
       },
       {
-        "label": "GitLab Light",
+        "label": "KhulnaSoft Light",
         "uiTheme": "vs",
         "path": "./themes/GitLab_Light-color-theme.json"
       }
     ],
     "icons": {
       "gitlab-tanuki": {
-        "description": "GitLab Mono Tanuki",
+        "description": "KhulnaSoft Mono Tanuki",
         "default": {
           "fontPath": "fonts/gitlab_webide.woff",
           "fontCharacter": "\\eA01"

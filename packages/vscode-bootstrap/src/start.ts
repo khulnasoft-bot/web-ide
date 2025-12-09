@@ -58,8 +58,8 @@ const BASE_OPTIONS: Partial<IWorkbenchConstructionOptions> = {
   productConfiguration: {
     // implements Partial<IProductConfiguration> https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/blob/11b6d009a4ec1567b50ba2c0ac5235d5db8ba1e9/src/vs/base/common/product.ts#L33
     // example https://sourcegraph.com/github.com/sourcegraph/openvscode-server@3169b2e0423a56afba4fa1c824f966e7b3b9bf07/-/blob/product.json?L586
-    nameShort: 'GitLab Web IDE',
-    nameLong: 'GitLab Web IDE',
+    nameShort: 'KhulnaSoft Web IDE',
+    nameLong: 'KhulnaSoft Web IDE',
     applicationName: 'khulnasoft-web-ide',
     urlProtocol: 'khulnasoft-web-ide',
     enableTelemetry: false,
@@ -178,7 +178,7 @@ const getConfigurationDefaultFontFamily = (editorFont: WebIdeConfig['editorFont'
 };
 
 const getConfigurationDefaults = (config: WebIdeExtensionConfig) => ({
-  'workbench.colorTheme': 'GitLab Dark',
+  'workbench.colorTheme': 'KhulnaSoft Dark',
   'gitlab.duoCodeSuggestions.enabled': config.codeSuggestionsEnabled,
   'gitlab.featureFlags.languageServerWebIDE': config.featureFlags?.languageServerWebIDE,
   'editor.fontFamily': getConfigurationDefaultFontFamily(config.editorFont),

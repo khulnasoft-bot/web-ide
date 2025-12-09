@@ -29,8 +29,8 @@ import { setupThirdPartyExtensions } from './thirdPartyExtensions';
 import { GitLabFileSystemProvider } from './vscode/GitLabFileSystemProvider';
 import { showSecurityWarning } from './showSecurityWarning';
 
-const MSG_INITIALIZING = 'Initializing GitLab Web IDE...';
-const MSG_LOADING = 'Loading GitLab Web IDE...';
+const MSG_INITIALIZING = 'Initializing KhulnaSoft Web IDE...';
+const MSG_LOADING = 'Loading KhulnaSoft Web IDE...';
 
 function initializeFileSystemProvider(
   disposables: vscode.Disposable[],

@@ -6,7 +6,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 # Development environment setup
 
-The GitLab Web IDE project is just your run-of-the-mill JavaScript monorepo using:
+The KhulnaSoft Web IDE project is just your run-of-the-mill JavaScript monorepo using:
 
 - [Typescript](https://www.typescriptlang.org/) with [composite project references](https://www.typescriptlang.org/docs/handbook/project-references.html#composite). Type safety is ensured during the project's `typescript-check` CI job.
 - [Yarn 2+ workspaces](https://yarnpkg.com/features/workspaces) which allows us to create internal packages, controlling
@@ -86,7 +86,7 @@ explain how to set up `dnsmasq` on Mac OS:
 1. Run the command `yarn start:example`. The Web IDE will regenerate TLS certificates for the
    `*.web-ide.test` wildcard domain.
 
-### Set up OAuth in GitLab Dedevelopment Kit
+### Set up OAuth in KhulnaSoft Dedevelopment Kit
 
 The following instructions use the URL `https://main.127.0.0.1.nip.io:8000` for example purposes. Replace
 this URL with the URL set in the `VITE_EMBEDDER_ORIGIN_URL_HTTPS` variable if you overwrote its
@@ -102,13 +102,13 @@ default value in `config/.env.local`.
       - Click **Save**
 1. In the `khulnasoft-web-ide` poject, start local example app with `yarn start:example`.
 1. Visit `https://main.127.0.0.1.nip.io:8000` and fill out the form:
-   - **GitLab URL:** Enter your GDK URL.
+   - **KhulnaSoft URL:** Enter your GDK URL.
    - **Project Path:** Enter any valid project path in your GDK instance.
    - **Git Ref:** Enter any valid branch name in the project
    - **Authentication Type:** `OAuth`
    - **Client ID:** Enter the Client ID (or Application ID) of the OAuth App created in the previous step.
-   - Click **Start GitLab Web IDE**
-1. If the page refreshes, you might need to click **Start GitLab Web IDE** again. This happens when the Web IDE required the OAuth handshake.
+   - Click **Start KhulnaSoft Web IDE**
+1. If the page refreshes, you might need to click **Start KhulnaSoft Web IDE** again. This happens when the Web IDE required the OAuth handshake.
 
 ### Setup integrating with local VSCode repo
 
@@ -139,15 +139,15 @@ yarn build:vscode
 1. Go to `packages/vscode-build/vscode_version.json` and change the version and the location of the packages.
 1. There is no step 3, you can run the example.
 
-### Setup integrating with GitLab Workflow VS Code extension
+### Setup integrating with KhulnaSoft Workflow VS Code extension
 
-By default, `yarn run start:example` runs a make task that will download and build the GitLab Workflow Extension from the specified release artifact.
+By default, `yarn run start:example` runs a make task that will download and build the KhulnaSoft Workflow Extension from the specified release artifact.
 
-For local development with the extension, see the [GitLab Workflow Extension documentation](../development/gitlab-workflow-extension.md).
+For local development with the extension, see the [KhulnaSoft Workflow Extension documentation](../development/gitlab-workflow-extension.md).
 
-### Setup integrating with GitLab Rails app
+### Setup integrating with KhulnaSoft Rails app
 
-To test WebIDE build with GitLab Rails app:
+To test WebIDE build with KhulnaSoft Rails app:
 
 1. Create MR in `khulnasoft-web-ide` project for your changes.
 1. In MR pipeline, find the `create-development-package` job.
@@ -158,8 +158,8 @@ To test WebIDE build with GitLab Rails app:
    - For example `https://gitlab.com/khulnasoft/web-ide/-/jobs/3615550824/artifacts/raw/tmp/packages/khulnasoft-web-ide-0.0.1-dev-20230118062311.tgz`
    - Make sure the link contains the `/raw/`. Several times I managed to copy the link to the page with the job.
 1. Go to `gitlab-org/gitlab` project and type in `yarn add <link to the artifact>`.
-1. Follow [these additional steps](./web-ide-releases.md#local-testing) if you are testing GitLab VSCode Fork changes or changes to the Cloudflare worker implementation.
-1. Now you can test your development `khulnasoft-web-ide` build in the GitLab Rails app.
+1. Follow [these additional steps](./web-ide-releases.md#local-testing) if you are testing KhulnaSoft VSCode Fork changes or changes to the Cloudflare worker implementation.
+1. Now you can test your development `khulnasoft-web-ide` build in the KhulnaSoft Rails app.
 
 ### VSCode editor
 

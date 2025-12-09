@@ -161,12 +161,12 @@ export default defineComponent({
 <template>
   <div>
     <label class="block">
-      <span>GitLab URL</span>
+      <span>KhulnaSoft URL</span>
       <input
         name="gitlab_url"
         class="gl-input"
         type="text"
-        placeholder="URL of GitLab instance (e.g. https://gitlab.com)"
+        placeholder="URL of KhulnaSoft instance (e.g. https://gitlab.com)"
         :value="gitlabUrl"
         @input="updateKey('gitlabUrl', $event)"
       />
@@ -177,7 +177,7 @@ export default defineComponent({
         name="project_path"
         class="gl-input"
         type="text"
-        placeholder="Path to GitLab project (e.g. gitlab-org/gitlab)"
+        placeholder="Path to KhulnaSoft project (e.g. gitlab-org/gitlab)"
         :value="projectPath"
         @input="updateKey('projectPath', $event)"
       />

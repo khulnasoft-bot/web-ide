@@ -45,11 +45,11 @@ export class Workbench {
   }
 
   async waitForReady() {
-    await this.webIdeFrame.getByRole('dialog', { name: 'Initializing GitLab Web IDE...' }).waitFor({
+    await this.webIdeFrame.getByRole('dialog', { name: 'Initializing KhulnaSoft Web IDE...' }).waitFor({
       state: 'visible',
     });
     await this.filesExplorer.getFirstItem().waitFor({ state: 'visible' });
-    await this.webIdeFrame.getByRole('dialog', { name: 'Initializing GitLab Web IDE...' }).waitFor({
+    await this.webIdeFrame.getByRole('dialog', { name: 'Initializing KhulnaSoft Web IDE...' }).waitFor({
       state: 'hidden',
     });
   }

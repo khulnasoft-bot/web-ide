@@ -22,5 +22,5 @@ git tag -a "${version}" -m "Version ${version}"
 git push origin "${version}"
 
 curl --fail --header 'Content-Type: application/json' --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
-     --data "{ \"name\": \"GitLab VSCode Theme ${version}\", \"tag_name\": \"${version}\", \"assets\": { \"links\": [{ \"name\": \"${file_name}\", \"url\": \"${package_url}\" } ] } }" \
+     --data "{ \"name\": \"KhulnaSoft VSCode Theme ${version}\", \"tag_name\": \"${version}\", \"assets\": { \"links\": [{ \"name\": \"${file_name}\", \"url\": \"${package_url}\" } ] } }" \
      --request POST "${CI_API_V4_URL}/projects/${KHULNASOFT_WEB_IDE_PROJECT_ID}/releases"

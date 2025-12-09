@@ -4,15 +4,15 @@ group: remote development
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
-# GitLab Workflow Extension
+# KhulnaSoft Workflow Extension
 
 The Web IDE includes the
-[GitLab Workflow Extension](https://gitlab.com/gitlab-org/khulnasoft-vscode-extension) as a built-in extension. This documentation provides guidance on how to test this extension in the Web IDE
+[KhulnaSoft Workflow Extension](https://gitlab.com/gitlab-org/khulnasoft-vscode-extension) as a built-in extension. This documentation provides guidance on how to test this extension in the Web IDE
 during development.
 
-## The GitLab Workflow Extension package
+## The KhulnaSoft Workflow Extension package
 
-The GitLab Workflow Extension is included as a release artifact managed by the
+The KhulnaSoft Workflow Extension is included as a release artifact managed by the
 `packages/vscode-extension-khulnasoft-vscode-extension` package. By default, running `yarn start:example`
 will download and build the extension from the release version specified in the `gitlab_vscode_extension-version.json`.
 
@@ -23,7 +23,7 @@ The extension version is controlled by the JSON configuration file:
 
 ## Local Development
 
-To test local changes to the GitLab Workflow Extension:
+To test local changes to the KhulnaSoft Workflow Extension:
 
 ### Option 1: Using local extension files
 
@@ -51,7 +51,7 @@ To test local changes to the GitLab Workflow Extension:
 
 ### Option 2: Using a specific branch or tag
 
-To test changes from a specific branch or tag in the GitLab VSCode Extension repository:
+To test changes from a specific branch or tag in the KhulnaSoft VSCode Extension repository:
 
 1. **Create a local configuration pointing to the branch:**
 
@@ -96,9 +96,9 @@ To switch back to using the official release version:
 yarn local-teardown-khulnasoft-vscode-extension
 ```
 
-## GitLab Language Server
+## KhulnaSoft Language Server
 
-The GitLab Workflow Extension uses the
-[GitLab Language Server](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp) (gitlab-lsp) for features
-like GitLab Duo code suggestions. In the Web IDE, the gitlab-lsp is disabled by default, and you can enable it
+The KhulnaSoft Workflow Extension uses the
+[KhulnaSoft Language Server](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp) (gitlab-lsp) for features
+like KhulnaSoft Duo code suggestions. In the Web IDE, the gitlab-lsp is disabled by default, and you can enable it
 by setting the user configuration `gitlab.featureFlags.languageServerWebIDE` to `true`.

@@ -35,7 +35,7 @@ This document provides a technical overview of VSCode's Settings Sync feature. N
 
 ## Settings Context Hash
 
-The settings context hash is a GitLab feature that allows scoping extensions settings based on the Web IDE's Extensions Marketplace settings. This is represented by the `settingsContextHash` field in the Web IDE configuration and is passed to the Settings Sync API as part of the the path parameter.
+The settings context hash is a KhulnaSoft feature that allows scoping extensions settings based on the Web IDE's Extensions Marketplace settings. This is represented by the `settingsContextHash` field in the Web IDE configuration and is passed to the Settings Sync API as part of the the path parameter.
 
 ### `GET` `(/:settings_context_hash)/v1/manifest`
 

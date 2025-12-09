@@ -3,14 +3,18 @@
   "version": "0.0.2",
   "main": "./main.js",
   "browser": "./main.js",
-  "displayName": "GitLab Web IDE Extension",
+  "displayName": "KhulnaSoft Web IDE Extension",
   "description": "",
   "icon": "assets/images/gitlab_logo.svg",
   "engines": {
     "vscode": "^1.69.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onFileSystem:khulnasoft-web-ide"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onFileSystem:khulnasoft-web-ide"
+  ],
   "enabledApiProposals": [
     "codiconDecoration",
     "fileSearchProvider",
@@ -24,7 +28,7 @@
   "contributes": {
     "authentication": [
       {
-        "label": "GitLab Web IDE",
+        "label": "KhulnaSoft Web IDE",
         "id": "khulnasoft-web-ide"
       }
     ],
@@ -32,64 +36,64 @@
       {
         "command": "khulnasoft-web-ide.show-logs",
         "title": "Show Logs",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.commit",
         "title": "Commit",
-        "category": "GitLab Web IDE",
+        "category": "KhulnaSoft Web IDE",
         "icon": "$(check)"
       },
       {
         "command": "khulnasoft-web-ide.compare-with-mr-base",
         "title": "Compare with merge request base",
-        "category": "GitLab Web IDE",
+        "category": "KhulnaSoft Web IDE",
         "icon": "$(git-pull-request)"
       },
       {
         "command": "khulnasoft-web-ide.checkout-branch",
         "title": "Checkout a branch",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.go-to-gitlab",
         "title": "Go to GitLab",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.go-to-project",
         "title": "Go to your open project on GitLab",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.share-your-feedback",
         "title": "Share your feedback",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.commit-and-force-push",
         "title": "Commit and force push",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.commit-amend-and-force-push",
         "title": "Amend commit and force push",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.create-branch",
         "title": "Create branch",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.create-branch-from-base",
         "title": "Create branch from...",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       },
       {
         "command": "khulnasoft-web-ide.delete-branch",
         "title": "Delete branch",
-        "category": "GitLab Web IDE"
+        "category": "KhulnaSoft Web IDE"
       }
     ],
     "submenus": [
@@ -203,12 +207,12 @@
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "To enable the [extension marketplace](command:khulnasoft-web-ide.go-to-extension-marketplace-help), contact your GitLab instance administrator.",
+        "contents": "To enable the [extension marketplace](command:khulnasoft-web-ide.go-to-extension-marketplace-help), contact your KhulnaSoft instance administrator.",
         "when": "khulnasoft-web-ide.marketplace-disabled == 'with-docs'"
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "To enable the extension marketplace, contact your GitLab instance administrator.",
+        "contents": "To enable the extension marketplace, contact your KhulnaSoft instance administrator.",
         "when": "khulnasoft-web-ide.marketplace-disabled == 'default'"
       }
     ],
@@ -230,7 +234,7 @@
           {
             "id": "roadmap",
             "title": "What's next for the Web IDE?",
-            "description": "GitLab Workflow and third-party extensions. Personalization and customization. Search improvements. Check out our [roadmap epic](https://gitlab.com/groups/gitlab-org/-/epics/7683) for more details.",
+            "description": "KhulnaSoft Workflow and third-party extensions. Personalization and customization. Search improvements. Check out our [roadmap epic](https://gitlab.com/groups/gitlab-org/-/epics/7683) for more details.",
             "media": {
               "svg": "assets/images/step3.svg",
               "altText": "Schematic image of the roadmap"

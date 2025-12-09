@@ -30,13 +30,13 @@ A[run security-harness] --> B[prepare branches]
 B --> C[MR to the security release branch]
 C --> D[tag and release]
 D --> E[MR to main repo]
-E --> F[validate and wait for GitLab security release]
+E --> F[validate and wait for KhulnaSoft security release]
 F --> G[push changes to the regular repo]
 ```
 
 ### Preparation
 
-Before starting, add the new `security` remote on your local GitLab repository:
+Before starting, add the new `security` remote on your local KhulnaSoft repository:
 
 ```sh
 git remote add security git@gitlab.com:gitlab-org/security/khulnasoft-web-ide.git
@@ -58,10 +58,10 @@ The main objective is to release the security fix as a patch of the latest produ
 
 Before starting the development of the fix, do the following:
 
-1. In the GitLab UI, find the latest released tag by checking the [commits](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/commits/main)
+1. In the KhulnaSoft UI, find the latest released tag by checking the [commits](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/commits/main)
    or [tags](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/tags).
-   If the security project is outdated, you may need to trigger an update through the GitLab UI.
-1. In the GitLab UI, [create a security branch](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/branches/new) based on the latest released tag.
+   If the security project is outdated, you may need to trigger an update through the KhulnaSoft UI.
+1. In the KhulnaSoft UI, [create a security branch](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/branches/new) based on the latest released tag.
    For example, if the latest released tag is `0.0.1-dev-20230524134151`, create a branch in the security project with:
    - **Branch name:** `security-release-0.0.1-dev-20230524134151`
    - **Create from:** `0.0.1-dev-20230524134151`.
@@ -100,22 +100,22 @@ the base version for security patches. For example, if we're developing a securi
 1. Wait for the pipeline to complete.
 1. Run the `publish-development-package` manual job with the following CI/CD job variables:
    - **NPM_PUBLISH_TAG:** `dev`. Please note, the `NPM_PUBLISH_TAG` must not be `latest` (the default value) so that the security release is not picked up by renovate bot prematurely.
-1. [Create a tag](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/tags/new) in the GitLab UI for the security patch version that was just published
+1. [Create a tag](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/tags/new) in the KhulnaSoft UI for the security patch version that was just published
    - **Tag name:** Use the version of the security patch that was just published. This should be the same as the `KHULNASOFT_WEB_IDE_VERSION` used to start the pipeline.
    - **Create from:** The commit sha of the `HEAD` of the relevant `security-release-` branch.
    - **Message:** Add a link to the newly published `npmjs` package in `https://www.npmjs.com/package/@khulnasoft/web-ide`
 
-### Create GitLab Security Merge Requests
+### Create KhulnaSoft Security Merge Requests
 
 **IMPORTANT:** You must ensure that the latest WebIDE version is backwards compatible with all three versions.
 For example, you should check if any of the [related WebIde config interfaces](https://gitlab.com/khulnasoft/web-ide/-/blob/main/packages/web-ide-types/src/config.ts#L28) have changed in a breaking way.
 
-Follow the [security development process](https://gitlab.com/gitlab-org/release/docs/-/blob/master/general/security/developer.md) on the main GitLab project,
-updating the `@khulnasoft/web-ide` version to the latest patched release in each vulnerable GitLab version.
+Follow the [security development process](https://gitlab.com/gitlab-org/release/docs/-/blob/master/general/security/developer.md) on the main KhulnaSoft project,
+updating the `@khulnasoft/web-ide` version to the latest patched release in each vulnerable KhulnaSoft version.
 
-For example, if the following GitLab version referenced these `@khulnasoft/web-ide` versions, which were all determined vulnerable to the relevant security issue:
+For example, if the following KhulnaSoft version referenced these `@khulnasoft/web-ide` versions, which were all determined vulnerable to the relevant security issue:
 
-| GitLab Version | `@khulnasoft/web-ide` reference |
+| KhulnaSoft Version | `@khulnasoft/web-ide` reference |
 | -------------- | ------------------------------- |
 | %15.11         | `0.0.1-dev-20230323132525`      |
 | %16.0          | `0.0.1-dev-20230418150125`      |
@@ -124,7 +124,7 @@ For example, if the following GitLab version referenced these `@khulnasoft/web-i
 And a `0.0.1-dev-20230524134151-patch-1` version was released to resolve the security issue (see previous steps), then we'll create security backport MR's
 (following the [security development process](https://gitlab.com/gitlab-org/release/docs/-/blob/master/general/security/developer.md)) to update the versions to:
 
-| GitLab Version | `@khulnasoft/web-ide` reference    |
+| KhulnaSoft Version | `@khulnasoft/web-ide` reference    |
 | -------------- | ---------------------------------- |
 | %15.11         | `0.0.1-dev-20230524134151-patch-1` |
 | %16.0          | `0.0.1-dev-20230524134151-patch-1` |
@@ -132,8 +132,8 @@ And a `0.0.1-dev-20230524134151-patch-1` version was released to resolve the sec
 
 ## Push changes back to the [Web IDE repo](https://gitlab.com/khulnasoft/web-ide)
 
-**IMPORTANT:** Do not perform this step until the GitLab Security Merge Requests have been merged **and released.** We must keep the security issue
-confidential until the relevant GitLab versions are patched and new versions are released.
+**IMPORTANT:** Do not perform this step until the KhulnaSoft Security Merge Requests have been merged **and released.** We must keep the security issue
+confidential until the relevant KhulnaSoft versions are patched and new versions are released.
 
 1. [Create an MR](https://gitlab.com/gitlab-org/security/khulnasoft-web-ide/-/merge_requests/new?merge_request%5Bsource_project_id%5D=47566511&merge_request%5Bsource_branch%5D=&merge_request%5Btarget_project_id%5D=35104827&merge_request%5Btarget_branch%5D=main) from the security project:
    - **Source project:** `gitlab-org/security/khulnasoft-web-ide`
@@ -152,13 +152,13 @@ cannot apply to the Web IDE project yet since we do not publish a CHANGELOG.
 
 ### What if I need to patch a historic version of `khulnasoft-web-ide`?
 
-This is relevant if a security issue is identified in a past version of GitLab which references an old version of `khulnasoft-web-ide`. In this case, we have two options:
+This is relevant if a security issue is identified in a past version of KhulnaSoft which references an old version of `khulnasoft-web-ide`. In this case, we have two options:
 
-- Create a patch for that **historic** verison of `khulnasoft-web-ide` and update the GitLab `package.json` to reference this new patch in a GitLab security MR.
-- Create a patch for the **latest** version of `khulnasoft-web-ide` and update the GitLab `package.json` to reference this latest version in a GitLab security MR.
+- Create a patch for that **historic** verison of `khulnasoft-web-ide` and update the KhulnaSoft `package.json` to reference this new patch in a KhulnaSoft security MR.
+- Create a patch for the **latest** version of `khulnasoft-web-ide` and update the KhulnaSoft `package.json` to reference this latest version in a KhulnaSoft security MR.
 
-For now, we will prefer the second option, updating old versions of GitLab to point to the latest `khulnasoft-web-ide` version. This helps us be more efficient without
+For now, we will prefer the second option, updating old versions of KhulnaSoft to point to the latest `khulnasoft-web-ide` version. This helps us be more efficient without
 managing multiple patch releases across multiple versions.
 
 It's possible this won't work out in some future scenario. In this case, we'll adapt the process to follow the first option, creating patch releases for each
-`khulnasoft-web-ide` version referenced by each vulnerable GitLab release.
+`khulnasoft-web-ide` version referenced by each vulnerable KhulnaSoft release.

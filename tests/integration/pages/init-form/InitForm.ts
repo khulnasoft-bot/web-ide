@@ -51,7 +51,7 @@ export class InitForm {
     this.#gitlabProject = projectPath;
     this.#repositoryRef = repositoryRef;
     this.#accessToken = accessToken;
-    this.#gitlabUrlTextbox = this.#page.getByRole('textbox', { name: 'GitLab URL' });
+    this.#gitlabUrlTextbox = this.#page.getByRole('textbox', { name: 'KhulnaSoft URL' });
     this.#projectPathTextbox = this.#page.getByRole('textbox', { name: 'Project Path' });
     this.#gitRefTextbox = this.#page.getByRole('textbox', { name: 'Git ref' });
     this.#authenticationTypeCombobox = this.#page.getByRole('combobox', {
@@ -66,11 +66,11 @@ export class InitForm {
     this.#enableCodeSuggestionsCheckbox = this.#page.getByRole('checkbox', {
       name: 'Enable code suggestions',
     });
-    this.#startWebIdeButton = this.#page.getByRole('button', { name: 'Start GitLab Web IDE' });
+    this.#startWebIdeButton = this.#page.getByRole('button', { name: 'Start KhulnaSoft Web IDE' });
   }
 
   /**
-   * Fills in the GitLab URL, project path, repository ref, and token
+   * Fills in the KhulnaSoft URL, project path, repository ref, and token
    * in the example app initialization form and start the Web IDE.
    */
   async initWebIDE(): Promise<void> {
