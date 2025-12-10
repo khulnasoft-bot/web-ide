@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 
 export class WebIdeExtensionTokenProvider implements AuthProvider {
   #context: vscode.ExtensionContext;

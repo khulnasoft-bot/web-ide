@@ -1,4 +1,4 @@
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import { getAuthHeadersProvider } from './getAuthHeadersProvider';
 
 const TEST_AUTH_PROVIDER: AuthProvider = {

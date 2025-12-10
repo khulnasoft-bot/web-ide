@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import { createFakePartial } from '@khulnasoft/utils-test';
 import {
   CHECKOUT_BRANCH_COMMAND_ID,

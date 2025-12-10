@@ -14,7 +14,7 @@ NPM_PACKAGE_PATH="$DEST_DIR/khulnasoft-web-ide-npm-$KHULNASOFT_WEB_IDE_VERSION.t
 WORKBENCH_PACKAGE_PATH="$DEST_DIR/khulnasoft-web-ide-vscode-workbench-$KHULNASOFT_WEB_IDE_VERSION"
 
 echo "Build: Building @khulnasoft/web-ide package..."
-yarn run build:webide
+pnpm run build:webide
 
 echo "Pre-pack: Setting @khulnasoft/web-ide version to ${KHULNASOFT_WEB_IDE_VERSION}..."
 yarn workspace @khulnasoft/web-ide version ${KHULNASOFT_WEB_IDE_VERSION}

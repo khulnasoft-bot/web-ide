@@ -36,6 +36,9 @@ importers:
       '@playwright/test':
         specifier: ^1.54.2
         version: 1.57.0
+      '@types/lodash':
+        specifier: ^4.17.21
+        version: 4.17.21
       '@types/node':
         specifier: ^24.1.0
         version: 24.10.2
@@ -154,7 +157,7 @@ importers:
         specifier: ^0.39.5
         version: 0.39.5(typescript@5.8.3)
 
-  packages/gitlab-api-client:
+  packages/khulnasoft-api-client:
     dependencies:
       '@khulnasoft/utils-path':
         specifier: workspace:*
@@ -179,14 +182,14 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
 
-  packages/gitlab-api-client-factory:
+  packages/khulnasoft-api-client-factory:
     dependencies:
-      '@gitlab/cross-origin-channel':
+      '@khulnasoft/cross-origin-channel':
         specifier: workspace:*
         version: link:../cross-origin-channel
-      '@gitlab/gitlab-api-client':
+      '@khulnasoft/khulnasoft-api-client':
         specifier: workspace:*
-        version: link:../gitlab-api-client
+        version: link:../khulnasoft-api-client
       '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
@@ -199,15 +202,15 @@ importers:
 
   packages/oauth-client:
     dependencies:
-      '@gitlab/gitlab-api-client':
-        specifier: workspace:*
-        version: link:../gitlab-api-client
       '@gitlab/logger':
         specifier: workspace:*
         version: link:../logger
       '@gitlab/utils-crypto':
         specifier: workspace:*
         version: link:../utils-crypto
+      '@khulnasoft/khulnasoft-api-client':
+        specifier: workspace:*
+        version: link:../khulnasoft-api-client
       '@khulnasoft/utils-path':
         specifier: workspace:*
         version: link:../utils-path
@@ -233,7 +236,7 @@ importers:
 
   packages/utils-test:
     dependencies:
-      '@gitlab/cross-origin-channel':
+      '@khulnasoft/cross-origin-channel':
         specifier: workspace:*
         version: link:../cross-origin-channel
       '@khulnasoft/web-ide-types':
@@ -248,18 +251,18 @@ importers:
 
   packages/vscode-bootstrap:
     dependencies:
-      '@gitlab/cross-origin-channel':
-        specifier: workspace:*
-        version: link:../cross-origin-channel
-      '@gitlab/gitlab-api-client':
-        specifier: workspace:*
-        version: link:../gitlab-api-client
-      '@gitlab/gitlab-api-client-factory':
-        specifier: workspace:*
-        version: link:../gitlab-api-client-factory
       '@gitlab/logger':
         specifier: workspace:*
         version: link:../logger
+      '@khulnasoft/cross-origin-channel':
+        specifier: workspace:*
+        version: link:../cross-origin-channel
+      '@khulnasoft/khulnasoft-api-client':
+        specifier: workspace:*
+        version: link:../khulnasoft-api-client
+      '@khulnasoft/khulnasoft-api-client-factory':
+        specifier: workspace:*
+        version: link:../khulnasoft-api-client-factory
       '@khulnasoft/utils-escape':
         specifier: workspace:*
         version: link:../utils-escape
@@ -299,15 +302,15 @@ importers:
 
   packages/vscode-extension-web-ide:
     dependencies:
-      '@gitlab/gitlab-api-client':
-        specifier: workspace:*
-        version: link:../gitlab-api-client
-      '@gitlab/gitlab-api-client-factory':
-        specifier: workspace:*
-        version: link:../gitlab-api-client-factory
       '@gitlab/logger':
         specifier: workspace:*
         version: link:../logger
+      '@khulnasoft/khulnasoft-api-client':
+        specifier: workspace:*
+        version: link:../khulnasoft-api-client
+      '@khulnasoft/khulnasoft-api-client-factory':
+        specifier: workspace:*
+        version: link:../khulnasoft-api-client-factory
       '@khulnasoft/utils-path':
         specifier: workspace:*
         version: link:../utils-path
@@ -348,15 +351,12 @@ importers:
 
   packages/vscode-mediator-commands:
     dependencies:
-      '@gitlab/cross-origin-channel':
+      '@khulnasoft/cross-origin-channel':
         specifier: workspace:*
         version: link:../cross-origin-channel
-      '@gitlab/gitlab-api-client':
+      '@khulnasoft/khulnasoft-api-client':
         specifier: workspace:*
-        version: link:../gitlab-api-client
-      '@gitlab/gitlab-api-client-factory':
-        specifier: workspace:*
-        version: link:../gitlab-api-client-factory
+        version: link:../khulnasoft-api-client
       '@khulnasoft/web-ide-interop':
         specifier: workspace:*
         version: link:../web-ide-interop
@@ -373,15 +373,15 @@ importers:
 
   packages/web-ide:
     dependencies:
-      '@gitlab/cross-origin-channel':
-        specifier: workspace:*
-        version: link:../cross-origin-channel
       '@gitlab/logger':
         specifier: workspace:*
         version: link:../logger
       '@gitlab/oauth-client':
         specifier: workspace:*
         version: link:../oauth-client
+      '@khulnasoft/cross-origin-channel':
+        specifier: workspace:*
+        version: link:../cross-origin-channel
       '@khulnasoft/utils-escape':
         specifier: workspace:*
         version: link:../utils-escape
@@ -1395,6 +1395,9 @@ packages:
 
   '@types/lodash@4.14.182':
     resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
+
+  '@types/lodash@4.17.21':
+    resolution: {integrity: sha512-FOvQ0YPD5NOfPgMzJihoT+Za5pdkDJWcbpuj1DjaKZIr/gxodQjY/uWEFlTNqW2ugXHUiL8lRQgw63dzKHZdeQ==}
 
   '@types/node@24.10.2':
     resolution: {integrity: sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA==}
@@ -5196,6 +5199,8 @@ snapshots:
       '@types/node': 24.10.2
 
   '@types/lodash@4.14.182': {}
+
+  '@types/lodash@4.17.21': {}
 
   '@types/node@24.10.2':
     dependencies:

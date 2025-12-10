@@ -242,7 +242,7 @@ build:
     - git config --global --add safe.directory $PWD
     # what: uncomment the below line if the security project needs access to the khulnasoft-vscode-extension
     # - git submodule set-url khulnasoft-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/khulnasoft-vscode-extension.git"
-    - yarn run build:example:http
+    - pnpm run build:example:http
   artifacts:
     paths:
       - packages/example/dist
@@ -283,7 +283,7 @@ lint:
     - <<: *if-security-repo
   script:
     - git config --global --add safe.directory $PWD
-    - yarn run lint
+    - pnpm run lint
 
 # More-Than-Inspired by https://gitlab.com/gitlab-org/cli/-/blob/136577d535dc4d7bc949283d5730724ff5f9b87b/.gitlab-ci.yml#L71
 lint-commit:

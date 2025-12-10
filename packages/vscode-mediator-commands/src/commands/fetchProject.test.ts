@@ -1,4 +1,4 @@
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { createTestClient, createTestProject, TEST_CONFIG } from '../../test-utils';
 import type { GitLabProject } from '../types';

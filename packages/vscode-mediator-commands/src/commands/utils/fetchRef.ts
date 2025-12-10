@@ -1,5 +1,5 @@
-import type { DeprecatedGitLabClient } from '@gitlab/gitlab-api-client';
-import { is404Error } from '@gitlab/gitlab-api-client';
+import type { DeprecatedGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { is404Error } from '@khulnasoft/khulnasoft-api-client';
 import type { GitLabRef } from '../../types';
 
 const isCommittish = (ref: string, fullSha: string) =>

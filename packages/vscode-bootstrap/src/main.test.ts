@@ -1,12 +1,12 @@
-import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
+import type { WebIDEConfigResponseMessage } from '@khulnasoft/cross-origin-channel';
 import { createConfig, createFakePartial } from '@khulnasoft/utils-test';
-import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import { ErrorType, type WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { handleEmbedderChange } from './handleEmbedderChange';
 import { main } from './main';
 import { start } from './start';
 
-jest.mock('@gitlab/cross-origin-channel');
+jest.mock('@khulnasoft/cross-origin-channel');
 jest.mock('./handleEmbedderChange');
 jest.mock('./amd/configRequire');
 jest.mock('./utils/insertScript');

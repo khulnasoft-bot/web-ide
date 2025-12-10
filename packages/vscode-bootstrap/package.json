@@ -4,9 +4,9 @@
   "main": "./src/main.ts",
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "@gitlab/cross-origin-channel": "workspace:*",
-    "@gitlab/gitlab-api-client": "workspace:*",
-    "@gitlab/gitlab-api-client-factory": "workspace:*",
+    "@khulnasoft/cross-origin-channel": "workspace:*",
+    "@khulnasoft/khulnasoft-api-client": "workspace:*",
+    "@khulnasoft/khulnasoft-api-client-factory": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@khulnasoft/utils-escape": "workspace:*",
     "@khulnasoft/utils-path": "workspace:*",

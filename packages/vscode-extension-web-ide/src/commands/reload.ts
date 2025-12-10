@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import { RELOAD_COMMAND_ID } from '../constants';
 import type { InitializeOptions } from '../types';
 import { log } from '../utils';

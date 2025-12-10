@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { gitlabApi } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { gitlabApi } from '@khulnasoft/khulnasoft-api-client';
 import { type SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import { createFakePartial } from '@khulnasoft/utils-test';
 import deleteBranch from './deleteBranch';

@@ -1,6 +1,6 @@
 import type { Disposable } from '@khulnasoft/web-ide-types';
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import type { AuthenticationTokenResponseMessage, PortChannel } from '@gitlab/cross-origin-channel';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
+import type { AuthenticationTokenResponseMessage, PortChannel } from '@khulnasoft/cross-origin-channel';
 
 type OnTokenChange = () => void;
 

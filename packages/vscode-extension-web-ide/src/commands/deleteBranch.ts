@@ -1,4 +1,4 @@
-import { type DefaultGitLabClient, gitlabApi } from '@gitlab/gitlab-api-client';
+import { type DefaultGitLabClient, gitlabApi } from '@khulnasoft/khulnasoft-api-client';
 import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import * as vscode from 'vscode';
 import type { CommandsInitialData } from '../types';

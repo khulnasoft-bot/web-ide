@@ -1,4 +1,4 @@
-import type { AuthProvider as ApiAuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider as ApiAuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import type * as vscode from 'vscode';
 import { NOOP_DISPOSABLE } from '../utils';
 import type { GitLabAuthenticationProvider } from './GitLabAuthenticationProvider';

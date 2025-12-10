@@ -1,8 +1,8 @@
-import type { DeprecatedGitLabClient as GitLabClient } from '@gitlab/gitlab-api-client';
+import type { DeprecatedGitLabClient as GitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import { createTestClient, TEST_COMMIT_PAYLOAD, TEST_CONFIG } from '../../test-utils';
 import * as commit from './commit';
 
-jest.mock('@gitlab/gitlab-api-client');
+jest.mock('@khulnasoft/khulnasoft-api-client');
 
 describe('vscode-mediator-commands/commands/commit', () => {
   let client: jest.Mocked<GitLabClient>;

@@ -4,9 +4,9 @@ import type { WebIdeExtensionConfig, WebIdeConfig } from '@khulnasoft/web-ide-ty
 import { LogLevel } from '@khulnasoft/web-ide-types';
 import { escapeCssQuotedValue } from '@khulnasoft/utils-escape';
 import { joinPaths } from '@khulnasoft/utils-path';
-import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
+import { getAuthProvider } from '@khulnasoft/khulnasoft-api-client-factory';
 import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
-import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import type {
   WorkbenchModule,
   IWorkbenchConstructionOptions,

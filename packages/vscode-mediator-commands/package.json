@@ -4,9 +4,8 @@
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "@gitlab/cross-origin-channel": "workspace:*",
-    "@gitlab/gitlab-api-client": "workspace:*",
-    "@gitlab/gitlab-api-client-factory": "workspace:*",
+    "@khulnasoft/cross-origin-channel": "workspace:*",
+    "@khulnasoft/khulnasoft-api-client": "workspace:*",
     "@khulnasoft/web-ide-interop": "workspace:*",
     "nanoid": "^4.0.2"
   },

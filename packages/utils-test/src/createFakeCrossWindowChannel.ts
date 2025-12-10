@@ -1,4 +1,4 @@
-import type { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import { createFakePartial } from './createFakePartial';
 
 export const createFakeCrossWindowChannel = () =>

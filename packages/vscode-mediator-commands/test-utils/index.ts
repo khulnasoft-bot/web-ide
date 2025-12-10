@@ -3,8 +3,8 @@ import {
   DeprecatedGitLabClient as GitLabClient,
   DefaultGitLabClient,
   DefaultAuthProvider,
-} from '@gitlab/gitlab-api-client';
-import { createPrivateTokenHeadersProvider } from '@gitlab/gitlab-api-client-factory';
+} from '@khulnasoft/khulnasoft-api-client';
+import { createPrivateTokenHeadersProvider } from '@khulnasoft/khulnasoft-api-client-factory';
 import { createConfig } from '@khulnasoft/utils-test';
 import { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 

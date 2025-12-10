@@ -3,7 +3,7 @@ import type {
   PreventUnloadMessage,
   UpdateWebIDEContextMessage,
   WebIDETrackingMessage,
-} from '@gitlab/cross-origin-channel';
+} from '@khulnasoft/cross-origin-channel';
 import type { WebIdeConfigLinks } from '@khulnasoft/web-ide-types';
 import {
   MESSAGE_OPEN_URI,

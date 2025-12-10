@@ -1,4 +1,4 @@
-import type { PortChannel } from '@gitlab/cross-origin-channel';
+import type { PortChannel } from '@khulnasoft/cross-origin-channel';
 import { createFakePartial } from '@khulnasoft/utils-test';
 import { PortChannelAuthProvider } from './PortChannelAuthProvider';
 

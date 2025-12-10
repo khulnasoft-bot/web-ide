@@ -1,5 +1,5 @@
-import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@gitlab/cross-origin-channel';
-import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@khulnasoft/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import {
   createConfig,
   createFakePartial,
@@ -21,7 +21,7 @@ jest.mock('./checkOAuthToken');
 jest.mock('./unloadPreventer');
 jest.mock('./AuthPortChannelController');
 jest.mock('@gitlab/oauth-client');
-jest.mock('@gitlab/cross-origin-channel');
+jest.mock('@khulnasoft/cross-origin-channel');
 jest.mock('@gitlab/logger');
 
 const TEST_OAUTH_CLIENT: ReturnType<typeof createOAuthClient> = {

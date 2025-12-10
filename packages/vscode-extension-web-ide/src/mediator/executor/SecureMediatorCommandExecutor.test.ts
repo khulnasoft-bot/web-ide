@@ -1,4 +1,4 @@
-import { DefaultAuthProvider } from '@gitlab/gitlab-api-client';
+import { DefaultAuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import { createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
 import { createCommands } from '@khulnasoft/vscode-mediator-commands';
 import { getConfig } from '../config';

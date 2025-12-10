@@ -2,8 +2,8 @@
   "extends": "./tsconfig.base.json",
   "references": [
     { "path": "./packages/example" },
-    { "path": "./packages/gitlab-api-client" },
-    { "path": "./packages/gitlab-api-client-factory" },
+    { "path": "./packages/khulnasoft-api-client" },
+    { "path": "./packages/khulnasoft-api-client-factory" },
     { "path": "./packages/logger" },
     { "path": "./packages/oauth-client" },
     { "path": "./packages/utils-crypto" },

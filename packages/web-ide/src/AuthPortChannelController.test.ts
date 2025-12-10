@@ -1,4 +1,4 @@
-import type { PortChannel } from '@gitlab/cross-origin-channel';
+import type { PortChannel } from '@khulnasoft/cross-origin-channel';
 import { setupAutoRefresh } from '@gitlab/oauth-client';
 import type { OAuthClient } from '@gitlab/oauth-client';
 import { createFakePartial } from '@khulnasoft/utils-test';

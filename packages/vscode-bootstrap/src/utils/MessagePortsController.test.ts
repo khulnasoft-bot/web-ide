@@ -1,4 +1,4 @@
-import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { CrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import { handleMediatorMessages } from '@khulnasoft/vscode-mediator-commands';
 import { createFakeCrossWindowChannel, useFakeMessageChannel } from '@khulnasoft/utils-test';
 import { MessagePortsController } from './MessagePortsController';

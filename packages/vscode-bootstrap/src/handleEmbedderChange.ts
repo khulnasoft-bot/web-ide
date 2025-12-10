@@ -1,4 +1,4 @@
-import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
+import type { WebIDEConfigResponseMessage } from '@khulnasoft/cross-origin-channel';
 import { defaultLogger } from '@gitlab/logger';
 import { storageAvailable } from './utils/storageAvailable';
 import { purgeClientStorage } from './utils/purgeClientStorage';

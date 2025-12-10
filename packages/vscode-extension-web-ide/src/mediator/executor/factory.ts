@@ -1,4 +1,4 @@
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import { log } from '../../utils';
 import { DeprecatedMediatorCommandExecutor } from './DeprecatedMediatorCommandExecutor';
 import { createSecureMediatorCommandExecutor } from './SecureMediatorCommandExecutor';

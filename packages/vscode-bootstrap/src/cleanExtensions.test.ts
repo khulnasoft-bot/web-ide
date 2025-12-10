@@ -1,4 +1,4 @@
-import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import {
   createWebIdeExtensionConfig,
   createFakePartial,

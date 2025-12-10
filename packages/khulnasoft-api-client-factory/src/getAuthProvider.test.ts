@@ -5,7 +5,7 @@ import {
   useFakeBroadcastChannel,
 } from '@khulnasoft/utils-test';
 import type { AuthConfig, OAuthConfig } from '@khulnasoft/web-ide-types';
-import type { CrossWindowChannel, PortChannel } from '@gitlab/cross-origin-channel';
+import type { CrossWindowChannel, PortChannel } from '@khulnasoft/cross-origin-channel';
 import { getAuthProvider } from './getAuthProvider';
 import { PortChannelAuthProvider } from './PortChannelAuthProvider';
 

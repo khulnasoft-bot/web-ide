@@ -1,6 +1,6 @@
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import { DeprecatedGitLabClient as GitLabClient } from '@gitlab/gitlab-api-client';
-import { createGitLabClient } from '@gitlab/gitlab-api-client-factory';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
+import { DeprecatedGitLabClient as GitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { createGitLabClient } from '@khulnasoft/khulnasoft-api-client-factory';
 import {
   COMMAND_FETCH_FROM_API,
   COMMAND_FETCH_BUFFER_FROM_API,

@@ -1,4 +1,4 @@
-import type { AuthHeadersProvider, AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthHeadersProvider, AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import type { AuthType } from '@khulnasoft/web-ide-types';
 
 import {

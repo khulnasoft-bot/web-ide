@@ -13,7 +13,7 @@
 # 1. Start by building the whole project, mainly the `web-ide` package:  
 #    
 #    ```
-#    yarn clean && yarn run build:example
+#    yarn clean && pnpm run build:example
 #    ```
 # 2. Copy the `./packages/web-ide` to `./tmp`:
 #

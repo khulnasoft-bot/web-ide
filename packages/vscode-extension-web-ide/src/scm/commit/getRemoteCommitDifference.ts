@@ -1,5 +1,5 @@
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { gitlabApi } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { gitlabApi } from '@khulnasoft/khulnasoft-api-client';
 import type { GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 
 const getCommitSequence = async (

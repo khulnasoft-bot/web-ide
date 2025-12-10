@@ -7,7 +7,7 @@
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@gitlab/gitlab-api-client": "workspace:*",
+    "@khulnasoft/khulnasoft-api-client": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@gitlab/utils-crypto": "workspace:*",
     "@khulnasoft/utils-path": "workspace:*",

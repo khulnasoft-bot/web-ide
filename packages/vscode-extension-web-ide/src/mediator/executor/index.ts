@@ -1,4 +1,4 @@
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import { createMediatorCommandExecutor } from './factory';
 import type { MediatorCommandExecutor } from './types';
 

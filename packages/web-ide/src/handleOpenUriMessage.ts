@@ -1,4 +1,4 @@
-import type { OpenURIMessage } from '@gitlab/cross-origin-channel';
+import type { OpenURIMessage } from '@khulnasoft/cross-origin-channel';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 
 export const handleOpenUriMessage = (config: WebIdeConfig, message: OpenURIMessage) => {

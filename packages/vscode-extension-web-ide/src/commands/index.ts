@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 
 import {
   CHECKOUT_BRANCH_COMMAND_ID,

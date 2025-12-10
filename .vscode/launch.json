@@ -5,7 +5,7 @@
       "type": "node-terminal",
       "name": "Yarn Script: test (current file)",
       "request": "launch",
-      "command": "yarn run test ${file}",
+      "command": "pnpm run test ${file}",
       "cwd": "${workspaceFolder}"
     },
     {

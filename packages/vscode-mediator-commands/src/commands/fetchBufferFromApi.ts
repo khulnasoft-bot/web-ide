@@ -1,4 +1,4 @@
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import type { fetchBufferFromApi, GetBufferRequest } from '@khulnasoft/web-ide-interop';
 import type { VSBufferWrapper } from '../types';
 

@@ -9,7 +9,7 @@
     "jsdom": "^19.0.0"
   },
   "dependencies": {
-    "@gitlab/cross-origin-channel": "workspace:*",
+    "@khulnasoft/cross-origin-channel": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@gitlab/oauth-client": "workspace:*",
     "@khulnasoft/utils-escape": "workspace:*",

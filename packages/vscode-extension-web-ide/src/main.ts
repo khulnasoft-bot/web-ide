@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import type { WebIDEExtension } from '@khulnasoft/web-ide-interop';
 import { createSystems, DefaultFileList } from '@khulnasoft/web-ide-fs';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { createGitLabClient } from '@gitlab/gitlab-api-client-factory';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { createGitLabClient } from '@khulnasoft/khulnasoft-api-client-factory';
 import type { FileSystem } from '@khulnasoft/web-ide-fs';
 import { GitLabFileSearchProvider } from './vscode/GitLabFileSearchProvider';
 import { start, setupMediatorCommandExecutor, getConfig, updateWebIdeContext } from './mediator';

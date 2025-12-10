@@ -1,4 +1,4 @@
-import { type DefaultGitLabClient, type gitlab, gitlabApi } from '@gitlab/gitlab-api-client';
+import { type DefaultGitLabClient, type gitlab, gitlabApi } from '@khulnasoft/khulnasoft-api-client';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { isEqual } from 'lodash';

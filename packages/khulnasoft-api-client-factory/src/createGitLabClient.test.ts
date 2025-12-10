@@ -1,10 +1,10 @@
-import type { AuthHeadersProvider, AuthProvider } from '@gitlab/gitlab-api-client';
-import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { AuthHeadersProvider, AuthProvider } from '@khulnasoft/khulnasoft-api-client';
+import { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import { createFakePartial, createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
 import { createGitLabClient } from './createGitLabClient';
 import { getAuthHeadersProvider } from './getAuthHeadersProvider';
 
-jest.mock('@gitlab/gitlab-api-client');
+jest.mock('@khulnasoft/khulnasoft-api-client');
 jest.mock('./getAuthHeadersProvider');
 
 const TEST_CONFIG = {

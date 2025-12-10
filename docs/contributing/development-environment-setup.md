@@ -141,7 +141,7 @@ yarn build:vscode
 
 ### Setup integrating with KhulnaSoft Workflow VS Code extension
 
-By default, `yarn run start:example` runs a make task that will download and build the KhulnaSoft Workflow Extension from the specified release artifact.
+By default, `pnpm run start:example` runs a make task that will download and build the KhulnaSoft Workflow Extension from the specified release artifact.
 
 For local development with the extension, see the [KhulnaSoft Workflow Extension documentation](../development/gitlab-workflow-extension.md).
 
@@ -175,9 +175,9 @@ Here's some scripts which can be run in the project root directory.
 
 | Name                     | Description                                                        |
 | ------------------------ | ------------------------------------------------------------------ |
-| `yarn run build:ts`      | Builds and checks the typescript files.                            |
-| `yarn run clean:ts`      | Cleans up typescript builds.                                       |
-| `yarn run start:example` | Starts both the server and watched build of the `example` package. |
+| `pnpm run build:ts`      | Builds and checks the typescript files.                            |
+| `pnpm run clean:ts`      | Cleans up typescript builds.                                       |
+| `pnpm run start:example` | Starts both the server and watched build of the `example` package. |
 
 ## Note about directory meanings
 

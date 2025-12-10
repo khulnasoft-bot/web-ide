@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
-import { type DefaultGitLabClient, NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
+import { type DefaultGitLabClient, NOOP_AUTH_PROVIDER } from '@khulnasoft/khulnasoft-api-client';
 import { createFakePartial } from '@khulnasoft/utils-test';
 import type { GitLabCommitPayload } from '@khulnasoft/vscode-mediator-commands';
 import type { CommitCommand, ReadonlySourceControlViewModel } from '../types';

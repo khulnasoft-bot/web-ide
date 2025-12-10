@@ -1,5 +1,5 @@
 import { createFakeCrossWindowChannel, createFakePartial } from '@khulnasoft/utils-test';
-import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { CrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import {
   MESSAGE_OPEN_URI,
   MESSAGE_PREVENT_UNLOAD,

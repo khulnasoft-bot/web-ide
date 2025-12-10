@@ -1,6 +1,6 @@
-import type { DefaultGitLabClient, gitlab } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient, gitlab } from '@khulnasoft/khulnasoft-api-client';
 import type { GitLabCommitPayload } from '@khulnasoft/vscode-mediator-commands';
-import { gitlabApi } from '@gitlab/gitlab-api-client';
+import { gitlabApi } from '@khulnasoft/khulnasoft-api-client';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { getCommitPayload } from './getCommitPayload';

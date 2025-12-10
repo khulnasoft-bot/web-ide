@@ -42,11 +42,10 @@ export class GitLabAuthenticationProvider
     });
   }
 
-  getSessions(): Thenable<readonly vscode.AuthenticationSession[]> {
+  getSessions(scopes?: readonly string[], options?: vscode.AuthenticationProviderSessionOptions): Thenable<vscode.AuthenticationSession[]> {
     if (this.#session) {
-      return Promise.resolve([this.#session]);
+      return Promise.resolve([{...this.#session}]);
     }
-
     return Promise.resolve([]);
   }
 

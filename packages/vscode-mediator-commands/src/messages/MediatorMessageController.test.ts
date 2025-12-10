@@ -2,7 +2,7 @@ import type {
   CrossWindowChannel,
   UpdateWebIDEContextMessage,
   WebIDETrackingMessage,
-} from '@gitlab/cross-origin-channel';
+} from '@khulnasoft/cross-origin-channel';
 import { createFakeCrossWindowChannel } from '@khulnasoft/utils-test';
 import { createMediatorMessageController } from './MediatorMessageController';
 import type { MediatorMessageController } from './MediatorMessageController';

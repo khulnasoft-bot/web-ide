@@ -1,4 +1,4 @@
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { DEFAULT_SESSION_ID } from '../../constant';

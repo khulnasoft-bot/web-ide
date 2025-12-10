@@ -1,5 +1,5 @@
-import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import type { AuthProvider } from '@khulnasoft/khulnasoft-api-client';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { getAuthHeadersProvider } from './getAuthHeadersProvider';
 

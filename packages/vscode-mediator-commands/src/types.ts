@@ -1,4 +1,4 @@
-import type { gitlab, ProjectUserPermissions } from '@gitlab/gitlab-api-client';
+import type { gitlab, ProjectUserPermissions } from '@khulnasoft/khulnasoft-api-client';
 import type { ForkInfo } from '@khulnasoft/web-ide-types';
 
 // region: KhulnaSoft API Types we pass through to the extension -----------

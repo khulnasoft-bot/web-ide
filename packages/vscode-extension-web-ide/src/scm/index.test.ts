@@ -13,7 +13,7 @@ import type { DebouncedFunc } from 'lodash';
 import { debounce } from 'lodash';
 
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
 import { TEST_PROJECT, TEST_REF_BRANCH } from '../../test-utils';
 import { createFakeGlobalState } from '../../test-utils/vscode';
 import { initializeSourceControl } from './index';

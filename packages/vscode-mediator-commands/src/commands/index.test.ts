@@ -1,7 +1,7 @@
 import {
   DefaultGitLabClient,
   DeprecatedGitLabClient as GitLabClient,
-} from '@gitlab/gitlab-api-client';
+} from '@khulnasoft/khulnasoft-api-client';
 import {
   COMMAND_FETCH_BUFFER_FROM_API,
   COMMAND_FETCH_FROM_API,
@@ -23,7 +23,7 @@ import * as fetchFileRaw from './fetchFileRaw';
 import { generateUniqueToken } from './utils/generateUniqueToken';
 import { TEST_COMMIT_PAYLOAD, TEST_CONFIG } from '../../test-utils';
 
-jest.mock('@gitlab/gitlab-api-client');
+jest.mock('@khulnasoft/khulnasoft-api-client');
 jest.mock('./commit');
 jest.mock('./start');
 jest.mock('./fetchFileRaw');

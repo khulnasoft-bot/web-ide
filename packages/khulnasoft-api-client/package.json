@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/gitlab-api-client",
+  "name": "@khulnasoft/khulnasoft-api-client",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",
