@@ -83,7 +83,7 @@ jobs:
       - run: |
           git config --global --add safe.directory $PWD
           ./scripts/pack-web-ide-package.sh $KHULNASOFT_WEB_IDE_VERSION
-          ./scripts/pack-khulnasoft-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
+          ./scripts/pack-gitlab-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
       - uses: actions/upload-artifact@v4
         with:
           name: dev-packages
@@ -174,7 +174,7 @@ jobs:
           path: tmp/packages
       - run: npm install -g npm@11.6.2
       - run: |
-          FILE=$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz")
+          FILE=$(find tmp/packages -name "gitlab-web-ide-npm*.tgz")
           npm publish --tag latest --access public "$FILE"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

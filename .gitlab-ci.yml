@@ -53,6 +53,7 @@ variables:
   # https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/2671
   FF_ENABLE_BASH_EXIT_CODE_CHECK: 'true'
   KHULNASOFT_WEB_IDE_PROJECT_ID: '35104827'
+  GITLAB_WEB_IDE_PROJECT_ID: '35104827'
   KHULNASOFT_WEB_IDE_SECURITY_PROJECT_ID: '47566511'
 
   # Controls whether we deploy from ops.gitlab.net in a DR scenario
@@ -219,7 +220,7 @@ create-development-package:
     # what: uncomment the below line if the security project needs access to the khulnasoft-vscode-extension
     # - git submodule set-url khulnasoft-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/khulnasoft-vscode-extension.git"
     - ./scripts/pack-web-ide-package.sh $KHULNASOFT_WEB_IDE_VERSION
-    - ./scripts/pack-khulnasoft-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
+    - ./scripts/pack-gitlab-vscode-theme-package.sh $KHULNASOFT_WEB_IDE_VERSION
   artifacts:
     paths:
       - tmp/packages
@@ -292,7 +293,7 @@ test-web-ide-package:
     - <<: *if-main-original-repo-or-merge-request
     - <<: *if-security-repo
   script:
-    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
     - node ./tests/package-test/run.js $KHULNASOFT_WEB_IDE_TAR_PATH
 
 ###################################
@@ -354,7 +355,7 @@ test-web-ide-package:
 publish-development-package:
   extends: .publish-development-package
   script:
-    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
     - npm publish --tag $NPM_PUBLISH_TAG --access public $KHULNASOFT_WEB_IDE_TAR_PATH
 
 publish-development-package-dry-run:
@@ -367,7 +368,7 @@ publish-development-package-dry-run:
       when: manual
       allow_failure: true
   script:
-    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "khulnasoft-web-ide-npm*.tgz" -type f)"
+    - export KHULNASOFT_WEB_IDE_TAR_PATH="$(find tmp/packages -name "gitlab-web-ide-npm*.tgz" -type f)"
     - npm publish --tag $NPM_PUBLISH_TAG --dry-run --access public $KHULNASOFT_WEB_IDE_TAR_PATH
 
 publish-khulnasoft-vscode-theme-package:
@@ -384,7 +385,7 @@ publish-khulnasoft-vscode-theme-package:
       when: manual
       allow_failure: true
   script:
-    - scripts/publish-khulnasoft-vscode-theme-package.sh
+    - scripts/publish-gitlab-vscode-theme-package.sh
 
 # Runs integration tests with production docker image
 integration-tests:
@@ -467,7 +468,7 @@ deploy-assets-staging:
     - <<: *if-merge-request-original-repo
       when: manual
   script:
-    - rclone copy tmp/packages r2:khulnasoft-web-ide-gstg --progress --include "khulnasoft-web-ide-vscode-workbench-*/**"
+    - rclone copy tmp/packages r2:khulnasoft-web-ide-gstg --progress --include "gitlab-web-ide-vscode-workbench-*/**"
 
 deploy-assets-production:
   extends: .deploy-assets
@@ -476,7 +477,7 @@ deploy-assets-production:
   rules:
     - <<: *if-main-original-repo
   script:
-    - rclone copy tmp/packages r2:khulnasoft-web-ide-gprd --progress --include "khulnasoft-web-ide-vscode-workbench-*/**"
+    - rclone copy tmp/packages r2:khulnasoft-web-ide-gprd --progress --include "gitlab-web-ide-vscode-workbench-*/**"
 
 deploy-cloudflare-worker-staging:
   extends: .deploy-cloudflare-worker
