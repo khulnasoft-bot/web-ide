@@ -2,7 +2,7 @@ import type {
   gitlab,
   DeprecatedGitLabClient as GitLabClient,
   ProjectUserPermissions,
-} from '@khulnasoft/khulnasoft-api-client';
+} from '@gitlab/gitlab-api-client';
 import {
   createRepositoryTreeItem,
   createTestBranch,

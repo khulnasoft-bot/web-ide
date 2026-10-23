@@ -1,5 +1,5 @@
 {
-  "name": "@khulnasoft/utils-test",
+  "name": "@gitlab/utils-test",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "packageManager": "yarn@3.2.0",
@@ -7,8 +7,8 @@
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@khulnasoft/cross-origin-channel": "workspace:*",
-    "@khulnasoft/web-ide-types": "workspace:*",
+    "@gitlab/cross-origin-channel": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*",
     "fake-indexeddb": "^5.0.2",
     "lodash": "^4.17.21"
   }

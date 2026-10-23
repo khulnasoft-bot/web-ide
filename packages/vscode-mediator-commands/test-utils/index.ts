@@ -3,10 +3,10 @@ import {
   DeprecatedGitLabClient as GitLabClient,
   DefaultGitLabClient,
   DefaultAuthProvider,
-} from '@khulnasoft/khulnasoft-api-client';
-import { createPrivateTokenHeadersProvider } from '@khulnasoft/khulnasoft-api-client-factory';
-import { createConfig } from '@khulnasoft/utils-test';
-import { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
+} from '@gitlab/gitlab-api-client';
+import { createPrivateTokenHeadersProvider } from '@gitlab/gitlab-api-client-factory';
+import { createConfig } from '@gitlab/utils-test';
+import { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
 
 export const TEST_DEFAULT_BRANCH = 'test-default-branch';
 

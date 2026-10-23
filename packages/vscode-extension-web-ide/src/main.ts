@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
-import type { WebIDEExtension } from '@khulnasoft/web-ide-interop';
-import { createSystems, DefaultFileList } from '@khulnasoft/web-ide-fs';
-import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
-import { createGitLabClient } from '@khulnasoft/khulnasoft-api-client-factory';
-import type { FileSystem } from '@khulnasoft/web-ide-fs';
+import type { WebIDEExtension } from '@gitlab/web-ide-interop';
+import { createSystems, DefaultFileList } from '@gitlab/web-ide-fs';
+import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import { createGitLabClient } from '@gitlab/gitlab-api-client-factory';
+import type { FileSystem } from '@gitlab/web-ide-fs';
 import { GitLabFileSearchProvider } from './vscode/GitLabFileSearchProvider';
 import { start, setupMediatorCommandExecutor, getConfig, updateWebIdeContext } from './mediator';
 import { GitLabFileContentProvider } from './GitLabFileContentProvider';
@@ -19,7 +19,9 @@ import type { InitializeOptions } from './types';
 import DefaultLocalStorage from './DefaultLocalStorage';
 import { openWalkthrough } from './openWalkthrough';
 import { openInitFile } from './openInitFile';
+import { limitRecentWorkspaces } from './limitRecentWorkspaces';
 import { setDefaultLogWriter } from './utils';
+
 import { OutputChannelLogWriter } from './vscode/OutputChannelLogWriter';
 import { registerShowLogsCommand } from './commands/showLogs';
 import { initExtensionContext } from './context';
@@ -29,8 +31,8 @@ import { setupThirdPartyExtensions } from './thirdPartyExtensions';
 import { GitLabFileSystemProvider } from './vscode/GitLabFileSystemProvider';
 import { showSecurityWarning } from './showSecurityWarning';
 
-const MSG_INITIALIZING = 'Initializing KhulnaSoft Web IDE...';
-const MSG_LOADING = 'Loading KhulnaSoft Web IDE...';
+const MSG_INITIALIZING = 'Initializing GitLab Web IDE...';
+const MSG_LOADING = 'Loading GitLab Web IDE...';
 
 function initializeFileSystemProvider(
   disposables: vscode.Disposable[],
@@ -50,7 +52,7 @@ function initializeFileSystemProvider(
 function refreshFileView() {
   // why: We need to refresh file view by closing and opening the sidebar.
   //      Otherwise, the file view shows the root folder.
-  //      https://gitlab.com/khulnasoft/web-ide/-/merge_requests/81#note_1178771600
+  //      https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests/81#note_1178771600
   return Promise.allSettled([
     vscode.commands.executeCommand('workbench.action.closeSidebar'),
     vscode.commands.executeCommand('workbench.explorer.fileView.focus'),
@@ -172,6 +174,7 @@ async function initializeWithProgress(
         }),
     ),
     openWalkthrough(),
+    limitRecentWorkspaces(),
   ]);
 
   await openInitFile();
@@ -231,7 +234,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<WebIDE
   );
 
   // Actually start the Web IDE file system and source control things
-  // not awaiting to prevent blocking khulnasoft-vscode-extension activation
+  // not awaiting to prevent blocking gitlab-vscode-extension activation
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
   initializeWithProgress(context, apiClient, reloadDisposables);
 
@@ -247,4 +250,4 @@ export async function activate(context: vscode.ExtensionContext): Promise<WebIDE
   };
 }
 
-export function deactivate() { }
+export function deactivate() {}

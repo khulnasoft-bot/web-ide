@@ -1,4 +1,4 @@
-import { splitParent } from '@khulnasoft/utils-path';
+import { splitParent } from '@gitlab/utils-path';
 
 const addAllParentPathsToSet = (pathsSet: Set<string>, path: string) => {
   if (!path || pathsSet.has(path)) {

@@ -1,5 +1,5 @@
-import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
-import { is404Error } from '@khulnasoft/khulnasoft-api-client';
+import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import { is404Error } from '@gitlab/gitlab-api-client';
 
 /**
  * Decorator for FileContentProvider that returns 404 responses as empty

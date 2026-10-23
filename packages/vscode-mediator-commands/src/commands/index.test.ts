@@ -1,12 +1,12 @@
 import {
   DefaultGitLabClient,
   DeprecatedGitLabClient as GitLabClient,
-} from '@khulnasoft/khulnasoft-api-client';
+} from '@gitlab/gitlab-api-client';
 import {
   COMMAND_FETCH_BUFFER_FROM_API,
   COMMAND_FETCH_FROM_API,
   COMMAND_MEDIATOR_TOKEN,
-} from '@khulnasoft/web-ide-interop';
+} from '@gitlab/web-ide-interop';
 import type { Command, VSBufferWrapper } from '../types';
 import {
   COMMAND_COMMIT,
@@ -23,7 +23,7 @@ import * as fetchFileRaw from './fetchFileRaw';
 import { generateUniqueToken } from './utils/generateUniqueToken';
 import { TEST_COMMIT_PAYLOAD, TEST_CONFIG } from '../../test-utils';
 
-jest.mock('@khulnasoft/khulnasoft-api-client');
+jest.mock('@gitlab/gitlab-api-client');
 jest.mock('./commit');
 jest.mock('./start');
 jest.mock('./fetchFileRaw');

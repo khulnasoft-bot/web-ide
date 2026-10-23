@@ -1,8 +1,8 @@
 <script lang="ts">
-import { AuthConfig, WebIdeConfig, ExtensionMarketplaceSettings } from '@khulnasoft/web-ide-types';
-import * as webIde from '@khulnasoft/web-ide';
+import { AuthConfig, WebIdeConfig, ExtensionMarketplaceSettings } from '@gitlab/web-ide-types';
+import * as webIde from '@gitlab/web-ide';
 import { defineComponent, onMounted, PropType, ref } from 'vue';
-import type { ContextUpdatePayload, TrackingEvent } from '@khulnasoft/web-ide-types';
+import type { ContextUpdatePayload, TrackingEvent } from '@gitlab/web-ide-types';
 import type { ExampleConfig } from '../types';
 import {
   getRootUrlFromLocation,
@@ -12,7 +12,7 @@ import {
   getEmbedderOriginUrl,
   getSettingsContextHash,
 } from '../config';
-import { joinPaths } from '@khulnasoft/utils-path';
+import { joinPaths } from '@gitlab/utils-path';
 
 const getAuthConfigFromExample = ({
   authType,
@@ -118,7 +118,7 @@ const getConfigFromExample = async (exampleConfig: ExampleConfig) => {
     filePath: url.searchParams.get('filePath') || '',
     mrId: url.searchParams.get('mrId') || '',
     mrTargetProject: url.searchParams.get('mrTargetProject') || '',
-    // Used to test what `forkInfo` we might receive from the main KhulnaSoft project.
+    // Used to test what `forkInfo` we might receive from the main GitLab project.
     // See ../../web-ide-types/src/config.ts for more comments on `forkInfo`.
     forkInfo: {
       ide_path: url.searchParams.get('forkInfo.ide_path') || undefined,
@@ -190,7 +190,7 @@ export default defineComponent({
           fallbackFontFamily: 'monospace',
           fontFaces: [
             {
-              family: 'KhulnaSoft Mono',
+              family: 'GitLab Mono',
               display: 'block',
               src: [
                 {
@@ -200,7 +200,7 @@ export default defineComponent({
               ],
             },
             {
-              family: 'KhulnaSoft Mono',
+              family: 'GitLab Mono',
               style: 'italic',
               display: 'block',
               src: [

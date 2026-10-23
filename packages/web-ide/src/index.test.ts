@@ -1,13 +1,13 @@
-import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@khulnasoft/cross-origin-channel';
-import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
+import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@gitlab/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import {
   createConfig,
   createFakePartial,
   waitForPromises,
   createMockLocation,
   createFakeCrossWindowChannel,
-} from '@khulnasoft/utils-test';
-import { ErrorType, type WebIde, type WebIdeConfig } from '@khulnasoft/web-ide-types';
+} from '@gitlab/utils-test';
+import { ErrorType, type WebIde, type WebIdeConfig } from '@gitlab/web-ide-types';
 import { createOAuthClient } from '@gitlab/oauth-client';
 import { defaultLogger } from '@gitlab/logger';
 import { oauthCallback, pingWorkbench, start } from './index';
@@ -21,7 +21,7 @@ jest.mock('./checkOAuthToken');
 jest.mock('./unloadPreventer');
 jest.mock('./AuthPortChannelController');
 jest.mock('@gitlab/oauth-client');
-jest.mock('@khulnasoft/cross-origin-channel');
+jest.mock('@gitlab/cross-origin-channel');
 jest.mock('@gitlab/logger');
 
 const TEST_OAUTH_CLIENT: ReturnType<typeof createOAuthClient> = {
@@ -79,7 +79,7 @@ describe('web-ide/src/index', () => {
 
     it('allows clipboard usage in the iframe', () => {
       expect(getIframe()?.getAttribute('allow')).toBe(
-        'clipboard-read; clipboard-write; usb; serial; hid; cross-origin-isolated; autoplay;',
+        'clipboard-read; clipboard-write; usb; serial; hid; cross-origin-isolated; autoplay; local-network-access;',
       );
     });
 

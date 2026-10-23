@@ -32,30 +32,4 @@ export class DuoStatusBarIndicator {
     const menuOption = this.#webIdeFrame.getByRole('option', { name: optionName });
     await menuOption.click();
   }
-
-  async enableCodeSuggestions() {
-    await this.openDuoStatusMenu();
-
-    const enableOption = this.#webIdeFrame.getByRole('option', { name: 'Enable Code Suggestions' });
-
-    if (await enableOption.isVisible()) {
-      await this.clickOption('Enable Code Suggestions');
-    }
-
-    await this.closeDuoStatusMenu();
-  }
-
-  async disableCodeSuggestions() {
-    await this.openDuoStatusMenu();
-
-    const disableOption = this.#webIdeFrame.getByRole('option', {
-      name: 'Disable Code Suggestions',
-    });
-
-    if (await disableOption.isVisible()) {
-      await this.clickOption('Disable Code Suggestions');
-    }
-
-    await this.closeDuoStatusMenu();
-  }
 }

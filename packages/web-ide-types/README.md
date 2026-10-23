@@ -1,3 +1,3 @@
-# @khulnasoft/web-ide-types
+# @gitlab/web-ide-types
 
 This package is used to provide interfaces and types needed by other package.

@@ -1,0 +1,17 @@
+{
+  "name": "@gitlab/gitlab-api-client-factory",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "packageManager": "yarn@3.2.0",
+  "publishConfig": {
+    "main": "./lib/index.js"
+  },
+  "dependencies": {
+    "@gitlab/cross-origin-channel": "workspace:*",
+    "@gitlab/gitlab-api-client": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@gitlab/utils-test": "workspace:*"
+  }
+}

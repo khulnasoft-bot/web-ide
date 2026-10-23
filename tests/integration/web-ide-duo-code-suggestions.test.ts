@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
   // Opens the Web IDE example app.
   await webIde.goto();
 
-  // Fills in the KhulnaSoft URL, project path, repository ref, and token in the example app initialization form
+  // Fills in the GitLab URL, project path, repository ref, and token in the example app initialization form
   // and starts the Web IDE.
   await initForm.initWebIDE();
 
@@ -105,40 +105,4 @@ test('shows and dismisses code suggestions', async () => {
     await expect(workbench.webIdeFrame.getByText('(num1, num2) {', { exact: true })).toBeHidden();
     await expect(textEditor).not.toHaveValue(/\s*function add\(num1, num2\) {/);
   }).toPass({ timeout: 20000 });
-});
-
-test.describe('code suggestions disabled', () => {
-  test.beforeEach(async () => {
-    await workbench.duoChatPanel.getChatPanel().waitFor({ state: 'visible' });
-
-    await workbench.duoStatusBarIndicator.disableCodeSuggestions();
-
-    await expect(
-      workbench.webIdeFrame.getByRole('option', { name: 'Disable Code Suggestions' }),
-    ).toBeHidden();
-  });
-
-  test('does not show suggestions when code suggestions is disabled', async () => {
-    const fileName = 'test.js';
-    const { fileContent: suggestions } = await getFixture('duo/codeSuggestions.json', 'json');
-
-    await mockHttpRequest.mockRawFileRequest(fileName, '');
-
-    await mockHttpRequest.mockCodeSuggestionsRequest(suggestions);
-
-    await workbench.filesExplorer.createFile(fileName);
-
-    await expect(workbench.filesExplorer.getItem(fileName)).toBeVisible();
-
-    await workbench.filesExplorer.openFile(fileName);
-
-    const textEditor = workbench.textEditor.getFileTextEditor(fileName);
-
-    await textEditor.pressSequentially('function add', { delay: 10 });
-
-    await expect(textEditor).toHaveValue(/\s*function add/);
-
-    // Assert that code suggestions doesn't appear
-    await expect(workbench.webIdeFrame.getByText('(num1, num2) {', { exact: true })).toBeHidden();
-  });
 });

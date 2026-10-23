@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
-import { createFakePartial } from '@khulnasoft/utils-test';
+import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import { createFakePartial } from '@gitlab/utils-test';
 import {
   CHECKOUT_BRANCH_COMMAND_ID,
   GO_TO_GITLAB_COMMAND_ID,
@@ -16,7 +16,7 @@ import {
 import { registerCommands } from './index';
 import checkoutBranch from './checkoutBranch';
 import compareWithMrBase from './compareWithMrBase';
-import goToKhulnaSoft from './goToGitLab';
+import goToGitLab from './goToGitLab';
 import goToProject from './goToProject';
 import reloadWithWarning from './reloadWithWarning';
 import shareYourFeedback from './shareYourFeedback';

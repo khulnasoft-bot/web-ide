@@ -123,7 +123,7 @@ export interface WebIdeConfig {
 
   /**
    * URL pointing to the system embedding the Web IDE. Most of the
-   * time, but not necessarily, is a KhulnaSoft instance.
+   * time, but not necessarily, is a GitLab instance.
    */
   embedderOriginUrl: string;
 
@@ -134,7 +134,7 @@ export interface WebIdeConfig {
   extensionsHostBaseUrl: string;
 
   /**
-   * URL pointing to the origin of the KhulnaSoft instance.
+   * URL pointing to the origin of the GitLab instance.
    * It is used for API access.
    */
   gitlabUrl: string;
@@ -196,9 +196,9 @@ export interface WebIdeConfig {
   //            https://gitlab.com/gitlab-org/gitlab/-/blob/dd1e70d3676891025534dc4a1e89ca9383178fe7/app/assets/javascripts/ide/stores/getters.js#L24
   forkInfo?: ForkInfo;
 
-  // username - The current username for the KhulnaSoft context. This is used for things like
+  // username - The current username for the GitLab context. This is used for things like
   //            generating default branch names.
-  //            https://gitlab.com/khulnasoft/web-ide/-/issues/82
+  //            https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/82
   username?: string;
 
   // telemetryEnabled - This property is a boolean that indicates if telemetry is enabled
@@ -207,7 +207,7 @@ export interface WebIdeConfig {
   //                    in the Web IDE is GitLab's tracking module.
   //                    See https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/tracking/tracker.js#L26
   telemetryEnabled?: boolean;
-  // handleContextUpdate - This property is a function that gets invoked upon `khulnasoft-web-ide.update-web-ide-context`
+  // handleContextUpdate - This property is a function that gets invoked upon `gitlab-web-ide.update-web-ide-context`
   //                     VSCode mediator command execution.
   handleContextUpdate?: (payload: ContextUpdatePayload) => void;
 }
@@ -236,6 +236,6 @@ export interface WebIdeExtensionConfig extends SerializableConfig {
 /**
  * Config used for the oauthCallback entrypoint of the Web IDE.
  *
- * NOTE: Not used yet. See https://gitlab.com/khulnasoft/web-ide/-/merge_requests/240 for upcoming changes.
+ * NOTE: Not used yet. See https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_requests/240 for upcoming changes.
  */
 export type OAuthCallbackConfig = Pick<WebIdeConfig, 'gitlabUrl' | 'auth' | 'username'>;

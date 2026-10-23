@@ -1,4 +1,4 @@
-import { joinPaths } from '@khulnasoft/utils-path';
+import { joinPaths } from '@gitlab/utils-path';
 import { FileListWithCache } from './FileListWithCache';
 import type { FileList, FileSystem, SourceControlSystem } from './types';
 import { FileStatusType } from './types';

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { TEST_COMMANDS_INITIAL_DATA } from '../../test-utils';
-import goToKhulnaSoft from './goToGitLab';
+import goToGitLab from './goToGitLab';
 
 describe('commands/goToGitLab', () => {
   describe('when gitlab URL is available', () => {

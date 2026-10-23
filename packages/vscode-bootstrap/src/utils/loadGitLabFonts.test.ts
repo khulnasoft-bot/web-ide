@@ -1,10 +1,10 @@
-import type { WebIDEFontFace } from '@khulnasoft/web-ide-types';
+import type { WebIDEFontFace } from '@gitlab/web-ide-types';
 import { loadGitLabFonts } from './loadGitLabFonts';
 
 describe('loadGitLabFonts', () => {
   const editorFontFaces: WebIDEFontFace[] = [
     {
-      family: 'KhulnaSoft Mono',
+      family: 'GitLab Mono',
       src: [
         {
           format: 'woff2',
@@ -13,7 +13,7 @@ describe('loadGitLabFonts', () => {
       ],
     },
     {
-      family: 'KhulnaSoft Mono',
+      family: 'GitLab Mono',
       style: 'italic',
       src: [
         {
@@ -66,11 +66,11 @@ describe('loadGitLabFonts', () => {
   it('adds font-face css definitions in a style tag', () => {
     expect(document.querySelector('style')?.textContent).toMatchInlineSnapshot(`
       "@font-face {
-      font-family: 'KhulnaSoft Mono';
+      font-family: 'GitLab Mono';
       src: url('http://example.com/fonts/GitLabMono.woff2') format('woff2');
       }
       @font-face {
-      font-family: 'KhulnaSoft Mono';
+      font-family: 'GitLab Mono';
       font-style: italic;
       src: url('http://example.com/fonts/GitLabMonoItalic.woff2') format('woff2');
       }

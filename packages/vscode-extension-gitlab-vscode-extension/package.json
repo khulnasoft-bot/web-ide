@@ -1,0 +1,10 @@
+{
+  "name": "@gitlab/gitlab-vscode-extension",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "make dist/gitlab-vscode-extension",
+    "clean": "make clean",
+    "local-setup": "node ./scripts/localSetup.js",
+    "local-teardown": "node ./scripts/localTeardown.js"
+  }
+}

@@ -18,6 +18,8 @@ export const authorizeGrantWithIframe = async (app: OAuthApp): Promise<OAuthToke
   const readyAsync = waitForMessage(data => data === MSG_WEB_IDE_OAUTH_HANDSHAKE_READY);
 
   const authorizeIframe = document.createElement('iframe');
+
+  authorizeIframe.setAttribute('allow', 'local-network-access');
   authorizeIframe.src = authorizeUrl;
   authorizeIframe.style.width = '0';
   authorizeIframe.style.height = '0';

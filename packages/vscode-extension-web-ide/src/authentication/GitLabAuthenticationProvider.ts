@@ -1,4 +1,4 @@
-import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
+import type { WebIdeConfig } from '@gitlab/web-ide-types';
 import * as vscode from 'vscode';
 import { log } from '../utils';
 
@@ -42,10 +42,11 @@ export class GitLabAuthenticationProvider
     });
   }
 
-  getSessions(scopes?: readonly string[], options?: vscode.AuthenticationProviderSessionOptions): Thenable<vscode.AuthenticationSession[]> {
+  getSessions(): Thenable<readonly vscode.AuthenticationSession[]> {
     if (this.#session) {
-      return Promise.resolve([{...this.#session}]);
+      return Promise.resolve([this.#session]);
     }
+
     return Promise.resolve([]);
   }
 

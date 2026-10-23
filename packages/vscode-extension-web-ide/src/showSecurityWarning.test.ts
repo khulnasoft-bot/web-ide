@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { createFakePartial } from '@khulnasoft/utils-test';
+import { createFakePartial } from '@gitlab/utils-test';
 import { showSecurityWarning } from './showSecurityWarning';
 
 describe('showSecurityWarning', () => {

@@ -1,20 +1,16 @@
 {
-  "name": "khulnasoft-web-ide",
+  "name": "gitlab-web-ide",
   "version": "0.0.2",
   "main": "./main.js",
   "browser": "./main.js",
-  "displayName": "KhulnaSoft Web IDE Extension",
+  "displayName": "GitLab Web IDE Extension",
   "description": "",
   "icon": "assets/images/gitlab_logo.svg",
   "engines": {
     "vscode": "^1.69.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onFileSystem:khulnasoft-web-ide"
-  ],
+  "categories": ["Other"],
+  "activationEvents": ["onFileSystem:gitlab-web-ide"],
   "enabledApiProposals": [
     "codiconDecoration",
     "fileSearchProvider",
@@ -28,165 +24,165 @@
   "contributes": {
     "authentication": [
       {
-        "label": "KhulnaSoft Web IDE",
-        "id": "khulnasoft-web-ide"
+        "label": "GitLab Web IDE",
+        "id": "gitlab-web-ide"
       }
     ],
     "commands": [
       {
-        "command": "khulnasoft-web-ide.show-logs",
+        "command": "gitlab-web-ide.show-logs",
         "title": "Show Logs",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.commit",
+        "command": "gitlab-web-ide.commit",
         "title": "Commit",
-        "category": "KhulnaSoft Web IDE",
+        "category": "GitLab Web IDE",
         "icon": "$(check)"
       },
       {
-        "command": "khulnasoft-web-ide.compare-with-mr-base",
+        "command": "gitlab-web-ide.compare-with-mr-base",
         "title": "Compare with merge request base",
-        "category": "KhulnaSoft Web IDE",
+        "category": "GitLab Web IDE",
         "icon": "$(git-pull-request)"
       },
       {
-        "command": "khulnasoft-web-ide.checkout-branch",
+        "command": "gitlab-web-ide.checkout-branch",
         "title": "Checkout a branch",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.go-to-gitlab",
+        "command": "gitlab-web-ide.go-to-gitlab",
         "title": "Go to GitLab",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.go-to-project",
+        "command": "gitlab-web-ide.go-to-project",
         "title": "Go to your open project on GitLab",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.share-your-feedback",
+        "command": "gitlab-web-ide.share-your-feedback",
         "title": "Share your feedback",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.commit-and-force-push",
+        "command": "gitlab-web-ide.commit-and-force-push",
         "title": "Commit and force push",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.commit-amend-and-force-push",
+        "command": "gitlab-web-ide.commit-amend-and-force-push",
         "title": "Amend commit and force push",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.create-branch",
+        "command": "gitlab-web-ide.create-branch",
         "title": "Create branch",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.create-branch-from-base",
+        "command": "gitlab-web-ide.create-branch-from-base",
         "title": "Create branch from...",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       },
       {
-        "command": "khulnasoft-web-ide.delete-branch",
+        "command": "gitlab-web-ide.delete-branch",
         "title": "Delete branch",
-        "category": "KhulnaSoft Web IDE"
+        "category": "GitLab Web IDE"
       }
     ],
     "submenus": [
       {
-        "id": "khulnasoft-web-ide.commitSubmenu",
+        "id": "gitlab-web-ide.commitSubmenu",
         "label": "Commit"
       },
       {
-        "id": "khulnasoft-web-ide.branchSubmenu",
+        "id": "gitlab-web-ide.branchSubmenu",
         "label": "Branch"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "khulnasoft-web-ide.compare-with-mr-base",
-          "when": "!explorerResourceIsFolder && resourcePath in khulnasoft-web-ide.mergeRequestFilePaths",
+          "command": "gitlab-web-ide.compare-with-mr-base",
+          "when": "!explorerResourceIsFolder && resourcePath in gitlab-web-ide.mergeRequestFilePaths",
           "group": "3_compare"
         }
       ],
       "editor/title": [
         {
-          "command": "khulnasoft-web-ide.compare-with-mr-base",
-          "when": "!isInDiffEditor && resourcePath in khulnasoft-web-ide.mergeRequestFilePaths",
+          "command": "gitlab-web-ide.compare-with-mr-base",
+          "when": "!isInDiffEditor && resourcePath in gitlab-web-ide.mergeRequestFilePaths",
           "group": "navigation"
         }
       ],
       "scm/title": [
         {
-          "command": "khulnasoft-web-ide.commit",
+          "command": "gitlab-web-ide.commit",
           "group": "navigation"
         },
         {
-          "submenu": "khulnasoft-web-ide.commitSubmenu",
+          "submenu": "gitlab-web-ide.commitSubmenu",
           "group": "1_modification",
           "when": "additionalSourceControlOperations == true"
         },
         {
-          "submenu": "khulnasoft-web-ide.branchSubmenu",
+          "submenu": "gitlab-web-ide.branchSubmenu",
           "group": "1_modification",
           "when": "additionalSourceControlOperations == true"
         }
       ],
-      "khulnasoft-web-ide.commitSubmenu": [
+      "gitlab-web-ide.commitSubmenu": [
         {
-          "command": "khulnasoft-web-ide.commit-and-force-push",
+          "command": "gitlab-web-ide.commit-and-force-push",
           "group": "1_commit",
           "when": "additionalSourceControlOperations == true"
         },
         {
-          "command": "khulnasoft-web-ide.commit-amend-and-force-push",
+          "command": "gitlab-web-ide.commit-amend-and-force-push",
           "group": "1_commit",
           "when": "additionalSourceControlOperations == true"
         }
       ],
-      "khulnasoft-web-ide.branchSubmenu": [
+      "gitlab-web-ide.branchSubmenu": [
         {
-          "command": "khulnasoft-web-ide.create-branch",
+          "command": "gitlab-web-ide.create-branch",
           "group": "2_modification",
           "when": "additionalSourceControlOperations == true"
         },
         {
-          "command": "khulnasoft-web-ide.create-branch-from-base",
+          "command": "gitlab-web-ide.create-branch-from-base",
           "group": "2_modification",
           "when": "additionalSourceControlOperations == true"
         },
         {
-          "command": "khulnasoft-web-ide.delete-branch",
+          "command": "gitlab-web-ide.delete-branch",
           "group": "2_modification",
           "when": "additionalSourceControlOperations == true"
         }
       ],
       "commandPalette": [
         {
-          "command": "khulnasoft-web-ide.compare-with-mr-base",
+          "command": "gitlab-web-ide.compare-with-mr-base",
           "group": "navigation",
-          "when": "resourcePath in khulnasoft-web-ide.mergeRequestFilePaths"
+          "when": "resourcePath in gitlab-web-ide.mergeRequestFilePaths"
         },
         {
-          "command": "khulnasoft-web-ide.go-to-project",
-          "when": "khulnasoft-web-ide.is-ready"
+          "command": "gitlab-web-ide.go-to-project",
+          "when": "gitlab-web-ide.is-ready"
         },
         {
-          "command": "khulnasoft-web-ide.go-to-gitlab",
-          "when": "khulnasoft-web-ide.is-ready"
+          "command": "gitlab-web-ide.go-to-gitlab",
+          "when": "gitlab-web-ide.is-ready"
         },
         {
-          "command": "khulnasoft-web-ide.commit",
-          "when": "khulnasoft-web-ide.is-ready"
+          "command": "gitlab-web-ide.commit",
+          "when": "gitlab-web-ide.is-ready"
         },
         {
-          "command": "khulnasoft-web-ide.checkout-branch",
-          "when": "khulnasoft-web-ide.is-ready"
+          "command": "gitlab-web-ide.checkout-branch",
+          "when": "gitlab-web-ide.is-ready"
         }
       ]
     },
@@ -197,23 +193,23 @@
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "Enable the [extension marketplace](command:khulnasoft-web-ide.go-to-extension-marketplace-help) in your user preferences and reload the Web IDE.\n[Open user preferences](command:khulnasoft-web-ide.go-to-user-preferences)",
-        "when": "khulnasoft-web-ide.marketplace-disabled == 'opt-in'"
+        "contents": "Enable the [extension marketplace](command:gitlab-web-ide.go-to-extension-marketplace-help) in your user preferences and reload the Web IDE.\n[Open user preferences](command:gitlab-web-ide.go-to-user-preferences)",
+        "when": "gitlab-web-ide.marketplace-disabled == 'opt-in'"
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "To enable the [extension marketplace](command:khulnasoft-web-ide.go-to-extension-marketplace-help), contact a user with the Owner role for the enterprise group.\n[Go to enterprise group](command:khulnasoft-web-ide.go-to-enterprise-group)",
-        "when": "khulnasoft-web-ide.marketplace-disabled == 'enterprise-group'"
+        "contents": "To enable the [extension marketplace](command:gitlab-web-ide.go-to-extension-marketplace-help), contact a user with the Owner role for the enterprise group.\n[Go to enterprise group](command:gitlab-web-ide.go-to-enterprise-group)",
+        "when": "gitlab-web-ide.marketplace-disabled == 'enterprise-group'"
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "To enable the [extension marketplace](command:khulnasoft-web-ide.go-to-extension-marketplace-help), contact your KhulnaSoft instance administrator.",
-        "when": "khulnasoft-web-ide.marketplace-disabled == 'with-docs'"
+        "contents": "To enable the [extension marketplace](command:gitlab-web-ide.go-to-extension-marketplace-help), contact your GitLab instance administrator.",
+        "when": "gitlab-web-ide.marketplace-disabled == 'with-docs'"
       },
       {
         "view": "workbench.views.extensions.installed",
-        "contents": "To enable the extension marketplace, contact your KhulnaSoft instance administrator.",
-        "when": "khulnasoft-web-ide.marketplace-disabled == 'default'"
+        "contents": "To enable the extension marketplace, contact your GitLab instance administrator.",
+        "when": "gitlab-web-ide.marketplace-disabled == 'default'"
       }
     ],
     "walkthroughs": [
@@ -234,7 +230,7 @@
           {
             "id": "roadmap",
             "title": "What's next for the Web IDE?",
-            "description": "KhulnaSoft Workflow and third-party extensions. Personalization and customization. Search improvements. Check out our [roadmap epic](https://gitlab.com/groups/gitlab-org/-/epics/7683) for more details.",
+            "description": "GitLab for VS Code and third-party extensions. Personalization and customization. Search improvements. Check out our [roadmap epic](https://gitlab.com/groups/gitlab-org/-/epics/7683) for more details.",
             "media": {
               "svg": "assets/images/step3.svg",
               "altText": "Schematic image of the roadmap"

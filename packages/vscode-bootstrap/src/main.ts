@@ -1,7 +1,7 @@
 // initialized by loading SCRIPT_VSCODE_LOADER 'vscode/out/vs/loader.js'
-import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@khulnasoft/web-ide-types';
-import type { WebIDEConfigResponseMessage } from '@khulnasoft/cross-origin-channel';
-import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
+import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@gitlab/web-ide-types';
+import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { insertScript } from './utils/insertScript';
 import { insertMeta } from './utils/insertMeta';
 import { getRepoRoot } from './utils/getRepoRoot';
@@ -35,10 +35,10 @@ const getExtensionConfig = async (config: WebIdeConfig, extensionPath: string) =
 
 const getBuiltInExtensions = async (config: SerializableConfig) =>
   Promise.all([
-    getExtensionConfig(config, 'khulnasoft-web-ide'),
+    getExtensionConfig(config, 'gitlab-web-ide'),
     getExtensionConfig(config, 'gitlab-language-support-vue'),
-    getExtensionConfig(config, 'khulnasoft-vscode-extension'),
-    getExtensionConfig(config, 'khulnasoft-vscode-theme'),
+    getExtensionConfig(config, 'gitlab-vscode-extension'),
+    getExtensionConfig(config, 'gitlab-vscode-theme'),
   ]);
 
 /**
@@ -93,6 +93,8 @@ export const main = async () => {
     await fetch(`${config.gitlabUrl}/api/graphql`, {
       mode: 'cors',
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
     });
 
     windowChannel.postMessage({ key: 'web-ide-cors-success-response' });

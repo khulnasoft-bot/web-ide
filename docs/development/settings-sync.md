@@ -1,3 +1,9 @@
+---
+stage: AI Clients
+group: unassigned
+info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
+---
+
 # Settings Sync
 
 VSCode supports an out-of-the-box solution to synchronize VSCode configurations across machines. This feature is called [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync).
@@ -35,7 +41,7 @@ This document provides a technical overview of VSCode's Settings Sync feature. N
 
 ## Settings Context Hash
 
-The settings context hash is a KhulnaSoft feature that allows scoping extensions settings based on the Web IDE's Extensions Marketplace settings. This is represented by the `settingsContextHash` field in the Web IDE configuration and is passed to the Settings Sync API as part of the the path parameter.
+The settings context hash is a GitLab feature that allows scoping extensions settings based on the Web IDE's Extensions Marketplace settings. This is represented by the `settingsContextHash` field in the Web IDE configuration and is passed to the Settings Sync API as part of the the path parameter.
 
 ### `GET` `(/:settings_context_hash)/v1/manifest`
 

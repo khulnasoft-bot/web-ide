@@ -2,12 +2,12 @@ export enum FeatureFlags {
   // projectPushRules -
   // This WIP feature flag enables the project push rule detection feature for
   // commit message linting based on the project's configured push rules.
-  // See https://gitlab.com/khulnasoft/web-ide/-/issues/388
+  // See https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/388
   ProjectPushRules = 'projectPushRules',
 
   // languageServerWebIDE -
   // This WIP feature flag controls the availability of the Language Server used
-  // in the KhulnaSoft Workflow VSCode Extension.
+  // in the GitLab for VS Code Extension.
   // See https://gitlab.com/groups/gitlab-org/-/epics/14203
   LanguageServerWebIDE = 'languageServerWebIDE',
 

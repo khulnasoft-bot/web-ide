@@ -1,6 +1,6 @@
 ---
-stage: Create
-group: remote development
+stage: AI Clients
+group: unassigned
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
@@ -9,7 +9,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 This project uses [yarn 2+ workspaces](https://yarnpkg.com/features/workspaces) to
 split up the code and responsibilities into cohesive packages.
 
-The `web-ide` package is the main package which will be consumed by the KhulnaSoft project. In this
+The `web-ide` package is the main package which will be consumed by the GitLab project. In this
 project, it is also consumed by the `example` package.
 
 Currently the `web-ide` package is the only package that is published.
@@ -76,11 +76,11 @@ Update the `dependenies` (or `devDependencies`) field in the requiring package's
 
 ```json
 {
-  "name": "@khulnasoft/web-ide",
+  "name": "@gitlab/web-ide",
   // ...
   "devDendencies": {
     // ...
-    "@khulnasoft/web-ide-types": "workspace:*"
+    "@gitlab/web-ide-types": "workspace:*"
     // ...
   }
   // ...

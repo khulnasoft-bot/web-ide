@@ -1,5 +1,5 @@
-import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
-import type { ApiRequest, fetchFromApi } from '@khulnasoft/web-ide-interop';
+import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { ApiRequest, fetchFromApi } from '@gitlab/web-ide-interop';
 
 export const commandFactory =
   (client: DefaultGitLabClient): fetchFromApi =>

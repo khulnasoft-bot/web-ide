@@ -1,5 +1,5 @@
-import type { gitlab, DeprecatedGitLabClient as GitLabClient } from '@khulnasoft/khulnasoft-api-client';
-import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
+import type { gitlab, DeprecatedGitLabClient as GitLabClient } from '@gitlab/gitlab-api-client';
+import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
 
 export const commandFactory =
   (config: WebIdeExtensionConfig, client: GitLabClient) =>

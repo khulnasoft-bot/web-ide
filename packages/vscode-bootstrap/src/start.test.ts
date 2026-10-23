@@ -1,16 +1,16 @@
-import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
-import { getAuthProvider } from '@khulnasoft/khulnasoft-api-client-factory';
-import webIdeExtensionMeta from '@khulnasoft/vscode-extension-web-ide/vscode.package.json';
-import { createCommands } from '@khulnasoft/vscode-mediator-commands';
+import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@gitlab/web-ide-types';
+import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
+import webIdeExtensionMeta from '@gitlab/vscode-extension-web-ide/vscode.package.json';
+import { createCommands } from '@gitlab/vscode-mediator-commands';
 import {
   createFakeCrossWindowChannel,
   createFakePartial,
   createWebIdeExtensionConfig,
   useFakeMessageChannel,
-} from '@khulnasoft/utils-test';
-import vscodeVersion from '@khulnasoft/vscode-build/vscode_version.json';
-import { NOOP_AUTH_PROVIDER } from '@khulnasoft/khulnasoft-api-client';
-import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
+} from '@gitlab/utils-test';
+import vscodeVersion from '@gitlab/vscode-build/vscode_version.json';
+import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
+import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { useMockAMDEnvironment } from '../test-utils/amd';
 import { start } from './start';
 import type {
@@ -38,14 +38,14 @@ const TEST_SETTINGS_SYNC_OPTIONS = {
   enabled: true,
   extensionsSyncStateVersion: '1.0.0',
   authenticationProvider: expect.objectContaining({
-    id: 'khulnasoft-web-ide',
+    id: 'gitlab-web-ide',
   }),
 };
 const TEST_SETTINGS_CONTEXT_HASH = '1234';
 
-jest.mock('@khulnasoft/cross-origin-channel');
-jest.mock('@khulnasoft/vscode-mediator-commands');
-jest.mock('@khulnasoft/khulnasoft-api-client-factory');
+jest.mock('@gitlab/cross-origin-channel');
+jest.mock('@gitlab/vscode-mediator-commands');
+jest.mock('@gitlab/gitlab-api-client-factory');
 jest.mock('./vscode/secrets/factory');
 jest.mock('./cleanExtensions');
 
@@ -129,7 +129,7 @@ describe('vscode-bootstrap start', () => {
         expect(subject).toMatchObject({
           windowIndicator: {
             label: '$(gitlab-tanuki) GitLab',
-            command: 'khulnasoft-web-ide.open-remote-window',
+            command: 'gitlab-web-ide.open-remote-window',
           },
         });
       });
@@ -209,7 +209,7 @@ describe('vscode-bootstrap start', () => {
         const spy = jest.fn();
 
         subject.messagePorts
-          ?.get('gitlab.khulnasoft-web-ide')
+          ?.get('gitlab.gitlab-web-ide')
           ?.addEventListener('message', e => spy(e.data));
         const { onTokenChange } = jest.mocked(getAuthProvider).mock.calls[0][0];
 
@@ -226,7 +226,7 @@ describe('vscode-bootstrap start', () => {
       it('has productConfiguration for configurationSync.store', () => {
         expect(subject.productConfiguration?.['configurationSync.store']).toEqual({
           authenticationProviders: {
-            'khulnasoft-web-ide': {
+            'gitlab-web-ide': {
               scopes: ['api'],
             },
           },
@@ -245,7 +245,7 @@ describe('vscode-bootstrap start', () => {
             fallbackFontFamily: 'monospace',
             fontFaces: [
               {
-                family: 'KhulnaSoft Mono',
+                family: 'GitLab Mono',
                 src: [
                   {
                     url: '/GitLabMono.woff2',
@@ -254,7 +254,7 @@ describe('vscode-bootstrap start', () => {
                 ],
               },
               {
-                family: 'KhulnaSoft Mono',
+                family: 'GitLab Mono',
                 style: 'italic',
                 src: [
                   {
@@ -274,7 +274,7 @@ describe('vscode-bootstrap start', () => {
 
       it('sets the default configuration for font family', () => {
         expect(subject.configurationDefaults?.['editor.fontFamily']).toBe(
-          "'KhulnaSoft Mono', monospace",
+          "'GitLab Mono', monospace",
         );
       });
     });
@@ -364,7 +364,7 @@ describe('vscode-bootstrap start', () => {
 
           expect(subject.productConfiguration?.['configurationSync.store']).toEqual({
             authenticationProviders: {
-              'khulnasoft-web-ide': {
+              'gitlab-web-ide': {
                 scopes: ['api'],
               },
             },

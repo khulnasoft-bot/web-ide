@@ -1,4 +1,4 @@
-import { splitParent } from '@khulnasoft/utils-path';
+import { splitParent } from '@gitlab/utils-path';
 import { ApiError, ErrorCode } from 'browserfs/dist/node/core/api_error';
 import type { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { ActionType } from 'browserfs/dist/node/core/file_flag';
@@ -50,7 +50,7 @@ export interface GitLabReadableFileSystemOptions {
 }
 
 /**
- * This is a BrowserFS File System for reading from "deferred" KhulnaSoft file entries.
+ * This is a BrowserFS File System for reading from "deferred" GitLab file entries.
  *
  * See https://github.com/jvilk/BrowserFS/blob/a96aa2d417995dac7d376987839bc4e95e218e06/src/backend/HTTPRequest.ts
  * for where this implementation is inspired from.

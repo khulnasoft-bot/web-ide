@@ -1,6 +1,6 @@
 ---
-stage: Create
-group: remote development
+stage: AI Clients
+group: unassigned
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
@@ -20,13 +20,13 @@ the Web IDE project.
 
 ### Web IDE Main Artifacts
 
-To release a new version of the Web IDE artifacts used by the KhulnaSoft application:
+To release a new version of the Web IDE artifacts used by the GitLab application:
 
-1. Go to https://gitlab.com/khulnasoft/web-ide/-/commits/main.
+1. Go to https://gitlab.com/gitlab-org/gitlab-web-ide/-/commits/main.
 1. Open the pipeline of the target commit to release.
 1. Wait for the pipeline to finish successfully.
 1. Run the `publish-development-package` manual job.
-1. When `publish-development-package` finishes successfully, create a tag in the repository for the version just published. See [this tag](https://gitlab.com/khulnasoft/web-ide/-/tags/0.0.1-dev-20220811191150) for an example.
+1. When `publish-development-package` finishes successfully, create a tag in the repository for the version just published. See [this tag](https://gitlab.com/gitlab-org/gitlab-web-ide/-/tags/0.0.1-dev-20220811191150) for an example.
 
 After the `publish-development-package` job completes without errors, the `deploy-assets-production` job will deploy the Web IDE's VSCode workbench assets to `.cdn.web-ide.gitlab-static.net`.
 
@@ -36,18 +36,18 @@ After the `publish-development-package` job completes without errors, the `deplo
 
 To release the VSCode color theme:
 
-1. Go to https://gitlab.com/khulnasoft/web-ide/-/commits/main.
+1. Go to https://gitlab.com/gitlab-org/gitlab-web-ide/-/commits/main.
 1. Open the pipeline of the target commit to release.
 1. Wait for the pipeline to finish successfully.
-1. Run the `publish-khulnasoft-vscode-theme-package` manual job.
+1. Run the `publish-gitlab-vscode-theme-package` manual job.
 
-The `publish-khulnasoft-vscode-theme-package` CI job needs to have both _write registry_ and _write repository_ permissions. We are dogfooding the `allow_push_repository_for_job_token` feature flag for this project, allowing us to use `CI_JOB_TOKEN` without managing a separate project token.
+The `publish-gitlab-vscode-theme-package` CI job needs to have both _write registry_ and _write repository_ permissions. We are dogfooding the `allow_push_repository_for_job_token` feature flag for this project, allowing us to use `CI_JOB_TOKEN` without managing a separate project token.
 
 See [the docs for CI job token](https://docs.gitlab.com/ee/ci/jobs/ci_job_token.html#git-push-to-your-project-repository) for more details.
 
-### Updating the Web IDE in the KhulnaSoft Application
+### Updating the Web IDE in the GitLab Application
 
-To update the Web IDE in the KhulnaSoft application, bump the `@khulnasoft/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
+To update the Web IDE in the GitLab application, bump the `@gitlab/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
 
 ### Security releases
 
@@ -60,12 +60,12 @@ All release artifacts use the versioning convention `0.0.1-dev-$TIMESTAMP`, wher
 
 ## Cloudflare (cdn.web-ide.gitlab-static.net)
 
-The Web IDE deploys the KhulnaSoft VSCode Fork static assets and built-in VSCode
+The Web IDE deploys the GitLab VSCode Fork static assets and built-in VSCode
 extensions in an external HTTP server hosted on Cloudflare and implemented using the
 Cloudflare Worker service. The goal of hosting these assets in a separate HTTP server
 is to sandbox the execution of the VSCode workbench and VSCode extensions using the
 web browser's [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This sandbox prevents 3rd-party code from having
-unrestricted access to a KhulnaSoft user account.
+unrestricted access to a GitLab user account.
 
 ### Staging and Production Environments
 
@@ -99,7 +99,7 @@ do not overwrite previous ones.
 
 ### Local Testing
 
-You can use the staging environment to test new releases of the KhulnaSoft VSCode Fork or
+You can use the staging environment to test new releases of the GitLab VSCode Fork or
 changes to the Cloudflare worker implementation.
 
 After running the jobs based on your use case (`deploy-cloudflare-worker-staging` and/or `deploy-assets-staging`) from your merge request, you can then use the Cloudflare assets staging environment by updating the workbench and extensions host URLs to the staging endpoint: `staging.cdn.web-ide.gitlab-static.net`
@@ -110,37 +110,37 @@ In the Example App, the workbench URLs are set in `config/.env.local`.
 
 ```bash
 # env.local file
-VITE_WORKBENCH_BASE_URL_HTTPS="https://workbench.staging.cdn.web-ide.gitlab-static.net/khulnasoft-web-ide-vscode-workbench-<version>"
-VITE_EXTENSIONS_HOST_BASE_URL_HTTPS="https://{{uuid}}.staging.cdn.web-ide.gitlab-static.net/khulnasoft-web-ide-vscode-workbench-<version>/vscode"
+VITE_WORKBENCH_BASE_URL_HTTPS="https://workbench.staging.cdn.web-ide.gitlab-static.net/gitlab-web-ide-vscode-workbench-<version>"
+VITE_EXTENSIONS_HOST_BASE_URL_HTTPS="https://{{uuid}}.staging.cdn.web-ide.gitlab-static.net/gitlab-web-ide-vscode-workbench-<version>/vscode"
 ```
 
-**KhulnaSoft Rails app**:
+**GitLab Rails app**:
 
-In the KhulnaSoft Rails app, the workbench URLs are set in `buildExtensionHostUrl` in `app/assets/javascripts/ide/lib/gitlab_web_ide/get_web_ide_workbench_config.js`.
+In the GitLab Rails app, the workbench URLs are set in `buildExtensionHostUrl` in `app/assets/javascripts/ide/lib/gitlab_web_ide/get_web_ide_workbench_config.js`.
 
 ## Release Artifacts
 
-### @khulnasoft/web-ide npm package
+### @gitlab/web-ide npm package
 
 This npm package contains the functionality to handle OAuth authentication flow and
-load the Web IDE's VSCode workbench. It is imported by the KhulnaSoft application to
-provide Web IDE functionality within the KhulnaSoft interface.
+load the Web IDE's VSCode workbench. It is imported by the GitLab application to
+provide Web IDE functionality within the GitLab interface.
 
 ### .cdn.web-ide.gitlab-static.net Assets
 
 These assets include the Web IDE's VSCode workbench static files (JavaScript, CSS,
 HTML, WASM) that are hosted on Cloudflare. They are loaded in an iframe by the
-`@khulnasoft/web-ide` npm package and provide the core editor functionality of the Web IDE.
+`@gitlab/web-ide` npm package and provide the core editor functionality of the Web IDE.
 
-### KhulnaSoft VSCode Theme VSCode Extension
+### GitLab VSCode Theme VSCode Extension
 
 A VSCode extension file (.vsix) that contains the color themes used by the Web IDE. It
 is bundled as a built-in extension in the Web IDE to provide consistent visual styling.
 
 ## Glossary
 
-- **Web IDE**: The integrated development environment within KhulnaSoft that allows users to edit code directly in the browser.
-- **KhulnaSoft VSCode Fork**: The fork of Visual Studio Code, the open-source code editor that
+- **Web IDE**: The integrated development environment within GitLab that allows users to edit code directly in the browser.
+- **GitLab VSCode Fork**: The fork of Visual Studio Code, the open-source code editor that
   forms the basis of the Web IDE.
 - **Cloudflare Worker**: A serverless execution environment that allows you to create
   an HTTP server without configuring or maintaining infrastructure.

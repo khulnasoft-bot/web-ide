@@ -4,20 +4,20 @@
   "main": "./src/main.ts",
   "packageManager": "yarn@3.2.0",
   "dependencies": {
-    "@khulnasoft/cross-origin-channel": "workspace:*",
-    "@khulnasoft/khulnasoft-api-client": "workspace:*",
-    "@khulnasoft/khulnasoft-api-client-factory": "workspace:*",
+    "@gitlab/cross-origin-channel": "workspace:*",
+    "@gitlab/gitlab-api-client": "workspace:*",
+    "@gitlab/gitlab-api-client-factory": "workspace:*",
     "@gitlab/logger": "workspace:*",
-    "@khulnasoft/utils-escape": "workspace:*",
-    "@khulnasoft/utils-path": "workspace:*",
-    "@khulnasoft/vscode-mediator-commands": "workspace:*",
-    "@khulnasoft/web-ide-interop": "workspace:*",
-    "@khulnasoft/web-ide-types": "workspace:*"
+    "@gitlab/utils-escape": "workspace:*",
+    "@gitlab/utils-path": "workspace:*",
+    "@gitlab/vscode-mediator-commands": "workspace:*",
+    "@gitlab/web-ide-interop": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*"
   },
   "devDependencies": {
-    "@khulnasoft/utils-test": "workspace:*",
-    "@khulnasoft/vscode-build": "workspace:*",
-    "@khulnasoft/vscode-extension-web-ide": "workspace:*",
+    "@gitlab/utils-test": "workspace:*",
+    "@gitlab/vscode-build": "workspace:*",
+    "@gitlab/vscode-extension-web-ide": "workspace:*",
     "whatwg-fetch": "3.6.2"
   },
   "scripts": {

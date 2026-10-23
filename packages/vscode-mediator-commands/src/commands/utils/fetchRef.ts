@@ -1,5 +1,5 @@
-import type { DeprecatedGitLabClient } from '@khulnasoft/khulnasoft-api-client';
-import { is404Error } from '@khulnasoft/khulnasoft-api-client';
+import type { DeprecatedGitLabClient } from '@gitlab/gitlab-api-client';
+import { is404Error } from '@gitlab/gitlab-api-client';
 import type { GitLabRef } from '../../types';
 
 const isCommittish = (ref: string, fullSha: string) =>
@@ -33,8 +33,8 @@ export const fetchRef = async (
   const fullSha = metadata.tree.lastCommit?.sha;
 
   if (!fullSha) {
-    // TODO: Handle this more gracefully for the user https://gitlab.com/khulnasoft/web-ide/-/issues/280
-    throw new Error(`[khulnasoft-web-ide] ref not found in repository: ${ref}`);
+    // TODO: Handle this more gracefully for the user https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues/280
+    throw new Error(`[gitlab-web-ide] ref not found in repository: ${ref}`);
   }
 
   if (isCommittish(ref, fullSha)) {

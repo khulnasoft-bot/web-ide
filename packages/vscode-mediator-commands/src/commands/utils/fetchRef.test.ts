@@ -1,11 +1,11 @@
-import { DeprecatedGitLabClient, DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import { DeprecatedGitLabClient, DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import { fetchRef } from './fetchRef';
 import { createTestBranch } from '../../../test-utils';
 
 // note: This isn't great, but we only want to mock the clients (not the utils)
 //       coming from this package. Maybe there's a better way to do this...
-jest.mock('@khulnasoft/khulnasoft-api-client/src/DeprecatedGitLabClient');
-jest.mock('@khulnasoft/khulnasoft-api-client/src/DefaultGitLabClient');
+jest.mock('@gitlab/gitlab-api-client/src/DeprecatedGitLabClient');
+jest.mock('@gitlab/gitlab-api-client/src/DefaultGitLabClient');
 
 const TEST_PROJECT_PATH = 'lorem/ipsum';
 const TEST_BRANCH_NAME = 'ps-test';
@@ -108,7 +108,7 @@ describe('commands/utils/fetchRef', () => {
       mockFetchRefMetadata(undefined);
 
       await expect(fetchRef(TEST_PROJECT_PATH, TEST_TAG, client)).rejects.toThrow(
-        '[khulnasoft-web-ide] ref not found in repository: v1.2',
+        '[gitlab-web-ide] ref not found in repository: v1.2',
       );
     });
   });

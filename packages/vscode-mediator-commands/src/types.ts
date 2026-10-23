@@ -1,7 +1,7 @@
-import type { gitlab, ProjectUserPermissions } from '@khulnasoft/khulnasoft-api-client';
-import type { ForkInfo } from '@khulnasoft/web-ide-types';
+import type { gitlab, ProjectUserPermissions } from '@gitlab/gitlab-api-client';
+import type { ForkInfo } from '@gitlab/web-ide-types';
 
-// region: KhulnaSoft API Types we pass through to the extension -----------
+// region: GitLab API Types we pass through to the extension -----------
 
 export type GitLabCommitPayload = gitlab.CommitPayload;
 export type GitLabRepositoryTreeItem = gitlab.RepositoryTreeItem;
@@ -34,7 +34,7 @@ interface GitLabRefTag {
 }
 
 // note: In this context "ref" refers to GitLab's definition of "ref"
-//       (not necessarily git) which is a reference to a KhulnaSoft branch,
+//       (not necessarily git) which is a reference to a GitLab branch,
 //       commit, or tag.
 export type GitLabRef = GitLabRefBranch | GitLabRefCommit | GitLabRefTag;
 
@@ -57,7 +57,7 @@ export interface StartCommandOptions {
 }
 
 export interface StartCommandResponse {
-  // gitlUrl - KhulnaSoft instance URL
+  // gitlUrl - GitLab instance URL
   gitlabUrl: string;
 
   // files - A list of files used to initialize the file system
@@ -66,7 +66,7 @@ export interface StartCommandResponse {
   // ref - The ref (e.g. branch, commit, or tag) for the current Web IDE context
   ref: GitLabRef;
 
-  // project - The KhulnaSoft Project for the current Web IDE context
+  // project - The GitLab Project for the current Web IDE context
   project: GitLabProject;
 
   // repoRoot - the root path of the FileSystem where the main repository lives

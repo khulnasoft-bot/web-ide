@@ -1,12 +1,12 @@
 ---
-stage: Create
-group: remote development
+stage: AI Clients
+group: unassigned
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
 # Development environment setup
 
-The KhulnaSoft Web IDE project is just your run-of-the-mill JavaScript monorepo using:
+The GitLab Web IDE project is just your run-of-the-mill JavaScript monorepo using:
 
 - [Typescript](https://www.typescriptlang.org/) with [composite project references](https://www.typescriptlang.org/docs/handbook/project-references.html#composite). Type safety is ensured during the project's `typescript-check` CI job.
 - [Yarn 2+ workspaces](https://yarnpkg.com/features/workspaces) which allows us to create internal packages, controlling
@@ -86,7 +86,7 @@ explain how to set up `dnsmasq` on Mac OS:
 1. Run the command `yarn start:example`. The Web IDE will regenerate TLS certificates for the
    `*.web-ide.test` wildcard domain.
 
-### Set up OAuth in KhulnaSoft Dedevelopment Kit
+### Set up OAuth in GitLab Dedevelopment Kit
 
 The following instructions use the URL `https://main.127.0.0.1.nip.io:8000` for example purposes. Replace
 this URL with the URL set in the `VITE_EMBEDDER_ORIGIN_URL_HTTPS` variable if you overwrote its
@@ -94,72 +94,72 @@ default value in `config/.env.local`.
 
 1. Create OAuth Application in local GDK
    1. Start your local GDK and go to **Admin** > **Applications** and click on **Add new application**. Fill the form with:
-      - **Name:** `khulnasoft-web-ide example app`
+      - **Name:** `gitlab-web-ide example app`
       - **Redirect URI:** `https://main.127.0.0.1.nip.io:8000/oauth_callback.html`
       - **Trusted:** Checked
       - **Confidential:** Unchecked
       - **Scopes:** Check `api`
       - Click **Save**
-1. In the `khulnasoft-web-ide` poject, start local example app with `yarn start:example`.
+1. In the `gitlab-web-ide` poject, start local example app with `yarn start:example`.
 1. Visit `https://main.127.0.0.1.nip.io:8000` and fill out the form:
-   - **KhulnaSoft URL:** Enter your GDK URL.
+   - **GitLab URL:** Enter your GDK URL.
    - **Project Path:** Enter any valid project path in your GDK instance.
    - **Git Ref:** Enter any valid branch name in the project
    - **Authentication Type:** `OAuth`
    - **Client ID:** Enter the Client ID (or Application ID) of the OAuth App created in the previous step.
-   - Click **Start KhulnaSoft Web IDE**
-1. If the page refreshes, you might need to click **Start KhulnaSoft Web IDE** again. This happens when the Web IDE required the OAuth handshake.
+   - Click **Start GitLab Web IDE**
+1. If the page refreshes, you might need to click **Start GitLab Web IDE** again. This happens when the Web IDE required the OAuth handshake.
 
 ### Setup integrating with local VSCode repo
 
-You might need to integrate local changes of the [khulnasoft-web-ide-vscode-fork](https://gitlab.com/khulnasoft/web-ide-vscode-fork/)
-while working on this `khulnasoft-web-ide` repo. To do this, run:
+You might need to integrate local changes of the [gitlab-web-ide-vscode-fork](https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/)
+while working on this `gitlab-web-ide` repo. To do this, run:
 
 ```shell
-yarn local-setup /absolute/path/to/khulnasoft-web-ide-vscode-fork/.build/vscode-web
+yarn local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
 ```
 
 This will create a `vscode_version.local.json` inside the `vscode-build` package which will change how
 `make` builds the `dist/vscode` target.
 
-Now, when you make a change to your local clone of `khulnasoft-web-ide-vscode-fork`, run the following to
-have the change show up in the local running `khulnasoft-web-ide` example:
+Now, when you make a change to your local clone of `gitlab-web-ide-vscode-fork`, run the following to
+have the change show up in the local running `gitlab-web-ide` example:
 
 ```shell
-# From the `khulnasoft-web-ide-vscode-fork` project root
+# From the `gitlab-web-ide-vscode-fork` project root
 yarn gitlab:build-vscode-web
 
-# From the `khulnasoft-web-ide` project root
+# From the `gitlab-web-ide` project root
 yarn build:vscode
 ```
 
 ### Setup integrating with candidate VS Code build
 
-1. Find the artifact URL in your candidate pipeline (e.g. `https://gitlab.com/khulnasoft/web-ide-vscode-fork/-/jobs/3027168063/artifacts/raw/.build/vscode-web-dist/vscode-web-1.69.1-1.0.0-dev-20220914131301.tar.gz`)
+1. Find the artifact URL in your candidate pipeline (e.g. `https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork/-/jobs/3027168063/artifacts/raw/.build/vscode-web-dist/vscode-web-1.69.1-1.0.0-dev-20220914131301.tar.gz`)
 1. Go to `packages/vscode-build/vscode_version.json` and change the version and the location of the packages.
 1. There is no step 3, you can run the example.
 
-### Setup integrating with KhulnaSoft Workflow VS Code extension
+### Setup for integrating with GitLab for VS Code
 
-By default, `pnpm run start:example` runs a make task that will download and build the KhulnaSoft Workflow Extension from the specified release artifact.
+By default, `yarn run start:example` runs a make task that will download and build the GitLab for VS Code extension from the specified release artifact.
 
-For local development with the extension, see the [KhulnaSoft Workflow Extension documentation](../development/gitlab-workflow-extension.md).
+For local development with the extension, see the [GitLab for VS Code documentation](../development/gitlab-for-vscode-extension.md).
 
-### Setup integrating with KhulnaSoft Rails app
+### Setup integrating with GitLab Rails app
 
-To test WebIDE build with KhulnaSoft Rails app:
+To test WebIDE build with GitLab Rails app:
 
-1. Create MR in `khulnasoft-web-ide` project for your changes.
+1. Create MR in `gitlab-web-ide` project for your changes.
 1. In MR pipeline, find the `create-development-package` job.
 1. In the job, copy path to the generated artifact.
    - Click the browse button in the Job artifacts section of the job page’s sidebar.
    - Navigate to the `tmp/packages` directory in the artifacts file tree and click the generated artifact.
    - Copy the download link.
-   - For example `https://gitlab.com/khulnasoft/web-ide/-/jobs/3615550824/artifacts/raw/tmp/packages/khulnasoft-web-ide-0.0.1-dev-20230118062311.tgz`
+   - For example `https://gitlab.com/gitlab-org/gitlab-web-ide/-/jobs/3615550824/artifacts/raw/tmp/packages/gitlab-web-ide-0.0.1-dev-20230118062311.tgz`
    - Make sure the link contains the `/raw/`. Several times I managed to copy the link to the page with the job.
 1. Go to `gitlab-org/gitlab` project and type in `yarn add <link to the artifact>`.
-1. Follow [these additional steps](./web-ide-releases.md#local-testing) if you are testing KhulnaSoft VSCode Fork changes or changes to the Cloudflare worker implementation.
-1. Now you can test your development `khulnasoft-web-ide` build in the KhulnaSoft Rails app.
+1. Follow [these additional steps](./web-ide-releases.md#local-testing) if you are testing GitLab VSCode Fork changes or changes to the Cloudflare worker implementation.
+1. Now you can test your development `gitlab-web-ide` build in the GitLab Rails app.
 
 ### VSCode editor
 
@@ -175,9 +175,9 @@ Here's some scripts which can be run in the project root directory.
 
 | Name                     | Description                                                        |
 | ------------------------ | ------------------------------------------------------------------ |
-| `pnpm run build:ts`      | Builds and checks the typescript files.                            |
-| `pnpm run clean:ts`      | Cleans up typescript builds.                                       |
-| `pnpm run start:example` | Starts both the server and watched build of the `example` package. |
+| `yarn run build:ts`      | Builds and checks the typescript files.                            |
+| `yarn run clean:ts`      | Cleans up typescript builds.                                       |
+| `yarn run start:example` | Starts both the server and watched build of the `example` package. |
 
 ## Note about directory meanings
 

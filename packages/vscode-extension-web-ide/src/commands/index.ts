@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
-import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
-import type { DefaultGitLabClient } from '@khulnasoft/khulnasoft-api-client';
+import type { SourceControlSystem } from '@gitlab/web-ide-fs';
+import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 
 import {
   CHECKOUT_BRANCH_COMMAND_ID,
@@ -20,7 +20,7 @@ import checkoutBranch from './checkoutBranch';
 import createBranch from './createBranch';
 import deleteBranch from './deleteBranch';
 import compareWithMrBase from './compareWithMrBase';
-import goToKhulnaSoft from './goToGitLab';
+import goToGitLab from './goToGitLab';
 import goToProject from './goToProject';
 import shareYourFeedback from './shareYourFeedback';
 import openRemoteWindow from './openRemoteWindow';

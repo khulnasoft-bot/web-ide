@@ -1,6 +1,6 @@
 ---
-stage: Create
-group: remote development
+stage: AI Clients
+group: unassigned
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
 ---
 
@@ -8,12 +8,12 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 [TOC]
 
-The Web IDE sends tracking events to [KhulnaSoft snowplow service](https://docs.gitlab.com/ee/development/snowplow/implementation.html)
+The Web IDE sends tracking events to [GitLab snowplow service](https://docs.gitlab.com/ee/development/snowplow/implementation.html)
 . The Web IDE doesn’t connect to Snowplow, but allows passing a `handleTracking` function to the `start` or `startRemote`
 functions exported by the [web-ide package](./architecture-packages.md#web-ide).
 
 ```typescript
-import { start } from '@khulnasoft/web-ide';
+import { start } from '@gitlab/web-ide';
 
 start({
   handleTracking: (trackingEvent: TrackingEvent) {
@@ -42,8 +42,8 @@ The Web IDE sends tracking events using the `trackEvent` mediator command.
 sequenceDiagram
     participant A as vscode-extension-web-ide
     participant B as vscode-mediator-commands
-    participant C as @khulnasoft/web-ide
-    participant D as KhulnaSoft application
+    participant C as @gitlab/web-ide
+    participant D as GitLab application
     A->>+B: trackEvent(event)
     B->>-C: postMessage('web-ide-tracking', event)
     Note right of A: iframe

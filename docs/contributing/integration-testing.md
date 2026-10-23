@@ -1,3 +1,9 @@
+---
+stage: AI Clients
+group: unassigned
+info: To determine the technical writer assigned to the Stage/Group associated with this page, see https://about.gitlab.com/handbook/product/ux/technical-writing/#assignments
+---
+
 # Integration Testing with Playwright
 
 This document describes how to set up, run, and write integration tests using Playwright.
@@ -8,12 +14,12 @@ The integration tests use Playwright to automate browser interactions and test t
 real browser environment. The tests are located in the `tests/integration` directory. The integration tests
 exercise the integration between the major subsystems that conform the Web IDE:
 
-- KhulnaSoft VSCode Fork.
+- GitLab VSCode Fork.
 - The Web IDE VSCode extension.
-- The KhulnaSoft VSCode extension.
-- The KhulnaSoft REST and GraphQL API.
+- The GitLab for VS Code extension.
+- The GitLab REST and GraphQL API.
 
-Integration tests prioritize reliability over using a real KhulnaSoft REST or GraphQL APIs. These tests
+Integration tests prioritize reliability over using a real GitLab REST or GraphQL APIs. These tests
 mock API requests that return unpredictable responses.
 
 ## Setup
@@ -29,7 +35,7 @@ mock API requests that return unpredictable responses.
 1. Set the the following environment variables in the `config/.env.local` file:
 
    ```bash
-   # KhulnaSoft instance URL (choose one)
+   # GitLab instance URL (choose one)
    PLAYWRIGHT_GITLAB_URL="https://gdk.test:3443"
    PLAYWRIGHT_GITLAB_URL="https://gitlab.com"
 
@@ -43,6 +49,17 @@ mock API requests that return unpredictable responses.
    # Personal or project access token to authenticate HTTP requests
    PLAYWRIGHT_ACCESS_TOKEN="your_gitlab_access_token"
    ```
+
+### Access token
+
+`PLAYWRIGHT_ACCESS_TOKEN` is a personal access token of the `gitlab-qa-user-for-webide` user, whose
+credentials are in the Engineering 1Password vault. In CI, the token is stored in the masked
+`PLAYWRIGHT_ACCESS_TOKEN` CI/CD variable of this project.
+
+When the token expires, every integration test fails: the GitLab API answers `401 Unauthorized` and
+the Web IDE hangs on `Initializing GitLab Web IDE...`. To rotate the token, sign in as
+`gitlab-qa-user-for-webide` with the 1Password credentials, create a personal access token with the
+`api` scope, then update both the CI/CD variable and the 1Password entry.
 
 ## Running Tests
 
@@ -84,6 +101,9 @@ in the Playwright documentation.
 The Web IDE project's pipeline runs integration tests in the `integration-tests` job. If the
 integration tests fail, playwright generates videos that you can find in the CI jobs' generated
 artifacts.
+
+The job runs against `https://gitlab.com` and authenticates with the
+[access token](#access-token). If all tests fail at once, check that the token has not expired.
 
 ## Playwright configuration
 
@@ -135,9 +155,9 @@ When adding new tests:
 
 The `WebIDE` class is the main entry point for interacting with the Web IDE in tests. It provides:
 
-- `initForm`: For initializing the Web IDE with KhulnaSoft URL, project path, etc.
+- `initForm`: For initializing the Web IDE with GitLab URL, project path, etc.
 - `workbench`: For interacting with the Web IDE UI components
-- `mockHttpRequest`: For mocking network requests to KhulnaSoft API
+- `mockHttpRequest`: For mocking network requests to GitLab API
 
 Example of initializing the Web IDE:
 

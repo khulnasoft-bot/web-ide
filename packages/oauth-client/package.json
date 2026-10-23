@@ -7,15 +7,15 @@
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@khulnasoft/khulnasoft-api-client": "workspace:*",
+    "@gitlab/gitlab-api-client": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@gitlab/utils-crypto": "workspace:*",
-    "@khulnasoft/utils-path": "workspace:*",
-    "@khulnasoft/web-ide-types": "workspace:*",
+    "@gitlab/utils-path": "workspace:*",
+    "@gitlab/web-ide-types": "workspace:*",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
-    "@khulnasoft/utils-test": "workspace:*",
+    "@gitlab/utils-test": "workspace:*",
     "whatwg-fetch": "^3.6.2"
   }
 }

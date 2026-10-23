@@ -2,14 +2,9 @@ import type {
   CrossWindowChannel,
   ErrorMessage,
   WindowChannelMessage,
-} from '@khulnasoft/cross-origin-channel';
-import type {
-  WebIdeConfig,
-  WebIde,
-  OAuthCallbackConfig,
-  Disposable,
-} from '@khulnasoft/web-ide-types';
-import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
+} from '@gitlab/cross-origin-channel';
+import type { WebIdeConfig, WebIde, OAuthCallbackConfig, Disposable } from '@gitlab/web-ide-types';
+import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { createOAuthClient } from '@gitlab/oauth-client';
 import { defaultLogger } from '@gitlab/logger';
 import { checkOAuthToken } from './checkOAuthToken';
@@ -110,7 +105,7 @@ const startAnyConfig = (el: Element, config: WebIdeConfig): WebIde => {
   });
   iframe.setAttribute(
     'allow',
-    `clipboard-read; clipboard-write; usb; serial; hid; cross-origin-isolated; autoplay;`,
+    `clipboard-read; clipboard-write; usb; serial; hid; cross-origin-isolated; autoplay; local-network-access;`,
   );
   iframe.setAttribute('data-testid', 'web-ide-iframe');
 
@@ -173,7 +168,7 @@ export const start = async (el: Element, configArg: WebIdeConfig): Promise<WebId
     /**
      * TODO: Remove these fallback values once the embedderOriginUrl,
      * workbenchBaseUrl, and the extensionsHostBaseUrl are provided
-     * by the KhulnaSoft Rails application.
+     * by the GitLab Rails application.
      */
     embedderOriginUrl: configArg.embedderOriginUrl || configArg.baseUrl || '',
     workbenchBaseUrl: configArg.workbenchBaseUrl || configArg.baseUrl || '',
@@ -199,6 +194,7 @@ export const pingWorkbench = async ({
   const iframe = document.createElement('iframe');
 
   iframe.setAttribute('id', WEB_IDE_WORKBENCH_PING_IFRAME_ID);
+  iframe.setAttribute('allow', 'local-network-access');
   iframe.style.display = 'none';
 
   el.appendChild(iframe);
