@@ -29,7 +29,7 @@ mock API requests that return unpredictable responses.
 1. Install Playwright browsers:
 
    ```bash
-   yarn playwright:install
+   pnpm playwright:install
    ```
 
 1. Set the the following environment variables in the `config/.env.local` file:
@@ -66,31 +66,31 @@ the Web IDE hangs on `Initializing GitLab Web IDE...`. To rotate the token, sign
 Run all E2E tests:
 
 ```bash
-yarn test:integration
+pnpm test:integration
 ```
 
 Run a specific test:
 
 ```bash
-yarn test:integration tests/integration/web-ide.spec.ts
+pnpm test:integration tests/integration/web-ide.spec.ts
 ```
 
 Run tests in a single browser:
 
 ```bash
-yarn test:integration --project chromium
+pnpm test:integration --project chromium
 ```
 
 Run tests in UI mode:
 
 ```bash
-yarn test:integration --ui
+pnpm test:integration --ui
 ```
 
 Run in headed mode
 
 ```bash
-yarn test:integration --headed
+pnpm test:integration --headed
 ```
 
 For more information, read [how to run and debug tests](https://playwright.dev/docs/running-tests)

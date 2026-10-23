@@ -14,10 +14,10 @@ NPM_PACKAGE_PATH="$DEST_DIR/gitlab-web-ide-npm-$GITLAB_WEB_IDE_VERSION.tgz"
 WORKBENCH_PACKAGE_PATH="$DEST_DIR/gitlab-web-ide-vscode-workbench-$GITLAB_WEB_IDE_VERSION"
 
 echo "Build: Building @gitlab/web-ide package..."
-yarn run build:webide
+pnpm run build:webide
 
 echo "Pre-pack: Setting @gitlab/web-ide version to ${GITLAB_WEB_IDE_VERSION}..."
-yarn workspace @gitlab/web-ide version ${GITLAB_WEB_IDE_VERSION}
+node scripts/set-package-version.js packages/web-ide "${GITLAB_WEB_IDE_VERSION}"
 
 # why backup package.json: We need to clean up a @gitlab/web-ide-types which is only used for compiling.
 # We are not publishing @gitlab/web-ide-types package, so releasing references to this
@@ -31,7 +31,7 @@ cp packages/web-ide/package.json{,.bak}
 
 echo "Pre-pack (clean): Cleaning package.json for publish..."
 BUNDLED_PACKAGES=$(node scripts/echo-workspace-dependencies.js packages/web-ide/package.json)
-yarn workspace @gitlab/web-ide remove ${BUNDLED_PACKAGES}
+pnpm --filter @gitlab/web-ide remove ${BUNDLED_PACKAGES}
 
 # why: https://gitlab.com/gitlab-org/gitlab/-/merge_requests/95169#note_1064410338
 echo "Pre-pack (clean): Remove .map files to improve artifact size"
@@ -41,7 +41,7 @@ find packages/web-ide/dist/public -name '*.js.map' -delete
 mkdir -p tmp/packages
 
 echo "Pack: Packing @gitlab/web-ide package..."
-yarn workspace @gitlab/web-ide pack --out "$NPM_PACKAGE_PATH"
+pnpm --filter @gitlab/web-ide pack --out "$NPM_PACKAGE_PATH"
 
 echo "Pack: Packing gitlab-web-ide-vscode-workbench package..."
 cp -r "packages/web-ide/dist/public" "$WORKBENCH_PACKAGE_PATH"
@@ -56,8 +56,8 @@ tar -cvf "$WORKBENCH_PACKAGE_PATH.tgz" -C "$WORKBENCH_PACKAGE_PATH" .
 echo "Teardown: Restoring old package.json"
 rm packages/web-ide/package.json
 mv packages/web-ide/package.json{.bak,}
-# why --no-immutable: This will be mutable since we're resurrecting a removed workspace dependency
-yarn --no-immutable
+# why --no-frozen-lockfile: This will be mutable since we're resurrecting a removed workspace dependency
+pnpm install --no-frozen-lockfile
 
 # region: Verify -------------------------------------------------------
 # TODO: Read package.json and verify no workspace dependencies

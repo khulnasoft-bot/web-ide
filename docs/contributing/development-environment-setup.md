@@ -9,11 +9,11 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 The GitLab Web IDE project is just your run-of-the-mill JavaScript monorepo using:
 
 - [Typescript](https://www.typescriptlang.org/) with [composite project references](https://www.typescriptlang.org/docs/handbook/project-references.html#composite). Type safety is ensured during the project's `typescript-check` CI job.
-- [Yarn 2+ workspaces](https://yarnpkg.com/features/workspaces) which allows us to create internal packages, controlling
+- [pnpm workspaces](https://pnpm.io/workspaces) which allows us to create internal packages, controlling
   coupling and cohesion at the package level. The `web-ide` package is the main public package which this project publishes.
 - [Make](https://www.gnu.org/software/make/manual/html_node/Introduction.html) which manages build targets, dependencies, and
   recipes. Make is great at knowing **when** to incrementally build a new thing. In this project, Make is an implementation
-  detail. Developers will typically just run [Yarn scripts](#scripts) that happen to internally call `make ...`.
+  detail. Developers will typically just run [pnpm scripts](#scripts) that happen to internally call `make ...`.
 
 ## Setup
 
@@ -21,11 +21,11 @@ The GitLab Web IDE project is just your run-of-the-mill JavaScript monorepo usin
 1. Install [mkcert](https://github.com/FiloSottile/mkcert).
 1. Run `mkcert -install` to install the root CA in the operating system.
 1. Run `mise install`.
-1. Run `yarn install`.
-1. Run `yarn start:example`.
+1. Run `pnpm install`.
+1. Run `pnpm start:example`.
 
 By default, you can access the Web IDE on `https://main.127.0.0.1.nip.io:8000`. You can
-also run the command `yarn start:example:http` to run the test server in HTTP mode.
+also run the command `pnpm start:example:http` to run the test server in HTTP mode.
 In this scenario, you can access the Web IDE on `http://localhost:8000`. We recommend
 not using HTTP when possible because the Web IDE relies on web browser's APIs that
 require a secure HTTP connection.
@@ -83,7 +83,7 @@ explain how to set up `dnsmasq` on Mac OS:
    VITE_EXTENSIONS_HOST_BASE_URL_HTTPS="https://{{uuid}}.web-ide.test:8000/web-ide/public/vscode"
    ```
 
-1. Run the command `yarn start:example`. The Web IDE will regenerate TLS certificates for the
+1. Run the command `pnpm start:example`. The Web IDE will regenerate TLS certificates for the
    `*.web-ide.test` wildcard domain.
 
 ### Set up OAuth in GitLab Dedevelopment Kit
@@ -100,7 +100,7 @@ default value in `config/.env.local`.
       - **Confidential:** Unchecked
       - **Scopes:** Check `api`
       - Click **Save**
-1. In the `gitlab-web-ide` poject, start local example app with `yarn start:example`.
+1. In the `gitlab-web-ide` poject, start local example app with `pnpm start:example`.
 1. Visit `https://main.127.0.0.1.nip.io:8000` and fill out the form:
    - **GitLab URL:** Enter your GDK URL.
    - **Project Path:** Enter any valid project path in your GDK instance.
@@ -116,7 +116,7 @@ You might need to integrate local changes of the [gitlab-web-ide-vscode-fork](ht
 while working on this `gitlab-web-ide` repo. To do this, run:
 
 ```shell
-yarn local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
+pnpm local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
 ```
 
 This will create a `vscode_version.local.json` inside the `vscode-build` package which will change how
@@ -127,10 +127,10 @@ have the change show up in the local running `gitlab-web-ide` example:
 
 ```shell
 # From the `gitlab-web-ide-vscode-fork` project root
-yarn gitlab:build-vscode-web
+pnpm gitlab:build-vscode-web
 
 # From the `gitlab-web-ide` project root
-yarn build:vscode
+pnpm build:vscode
 ```
 
 ### Setup integrating with candidate VS Code build
@@ -141,7 +141,7 @@ yarn build:vscode
 
 ### Setup for integrating with GitLab for VS Code
 
-By default, `yarn run start:example` runs a make task that will download and build the GitLab for VS Code extension from the specified release artifact.
+By default, `pnpm run start:example` runs a make task that will download and build the GitLab for VS Code extension from the specified release artifact.
 
 For local development with the extension, see the [GitLab for VS Code documentation](../development/gitlab-for-vscode-extension.md).
 
@@ -166,8 +166,8 @@ To test WebIDE build with GitLab Rails app:
 If VSCode is your preferred editor, set the TypeScript version to the one used by the
 **workspace** by opening a `.ts` file and running the `TypeScript: Select TypeScript Version...`
 
-For using this project in VSCode or other editors, please see the
-[Yarn Editor SDKs](#yarn-editor-sdks).
+For using this project in VSCode or other editors, configure your editor to use the
+TypeScript version installed in the workspace.
 
 ## Scripts
 
@@ -175,9 +175,9 @@ Here's some scripts which can be run in the project root directory.
 
 | Name                     | Description                                                        |
 | ------------------------ | ------------------------------------------------------------------ |
-| `yarn run build:ts`      | Builds and checks the typescript files.                            |
-| `yarn run clean:ts`      | Cleans up typescript builds.                                       |
-| `yarn run start:example` | Starts both the server and watched build of the `example` package. |
+| `pnpm run build:ts`      | Builds and checks the typescript files.                            |
+| `pnpm run clean:ts`      | Cleans up typescript builds.                                       |
+| `pnpm run start:example` | Starts both the server and watched build of the `example` package. |
 
 ## Note about directory meanings
 

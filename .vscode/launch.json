@@ -3,7 +3,7 @@
   "configurations": [
     {
       "type": "node-terminal",
-      "name": "Yarn Script: test (current file)",
+      "name": "pnpm Script: test (current file)",
       "request": "launch",
       "command": "pnpm run test ${file}",
       "cwd": "${workspaceFolder}"

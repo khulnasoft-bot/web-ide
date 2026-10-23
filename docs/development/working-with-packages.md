@@ -6,8 +6,9 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 
 # Working with packages
 
-This project uses [yarn 2+ workspaces](https://yarnpkg.com/features/workspaces) to
-split up the code and responsibilities into cohesive packages.
+This project uses [pnpm workspaces](https://pnpm.io/workspaces) to
+split up the code and responsibilities into cohesive packages. Workspace packages are
+configured in [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml).
 
 The `web-ide` package is the main package which will be consumed by the GitLab project. In this
 project, it is also consumed by the `example` package.
@@ -29,7 +30,6 @@ Currently the `web-ide` package is the only package that is published.
      "name": "@gitlab/new-package",
      "version": "0.0.1",
      "main": "./src/index.ts",
-     "packageManager": "yarn@3.2.0",
      "publishConfig": {
        "main": "./lib/index.js"
      }

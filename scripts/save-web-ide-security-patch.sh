@@ -13,7 +13,7 @@
 # 1. Start by building the whole project, mainly the `web-ide` package:  
 #    
 #    ```
-#    yarn clean && yarn run build:example
+#    pnpm clean && pnpm run build:example
 #    ```
 # 2. Copy the `./packages/web-ide` to `./tmp`:
 #
@@ -60,7 +60,7 @@ WEB_IDE_PATCH_PATH="$WEB_IDE_PATH/same_origin_security.patch"
 # why: This happens if `prepack` fails, which will happen if the patch doesnt apply, so it's worth checking.
 if [ -d "$WEB_IDE_DIST_PATH/public/vscode/bundled_node_modules" ]; then
     echo "Error: bundled_node_modules is present in $WEB_IDE_PATH. This will cause the diff to blow up so we're stopping now, before its too late."
-    echo "To fix this, try running 'yarn clean && yarn build:example'."
+    echo "To fix this, try running 'pnpm clean && pnpm build:example'."
     exit 1
 fi
 

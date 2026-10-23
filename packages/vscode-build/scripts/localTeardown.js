@@ -2,7 +2,7 @@
  * @overview Development script to clean up the environment created by `localSetup`.
  *
  * ```
- * yarn local-teardown
+ * pnpm local-teardown
  * ```
  */
 

@@ -11,11 +11,9 @@
 # region: vim things ---------------------------------------------------
 .vim/*
 
-# region: yarn2 things -------------------------------------------------
+# region: pnpm things -------------------------------------------------
 node_modules/
-.yarn/*
-!.yarn/plugins
-!.yarn/releases
+.pnpm-store/
 
 # region: typescript things --------------------------------------------
 *.tsbuildinfo

@@ -28,7 +28,7 @@ to develop the Web IDE. You can create a new workspace from either the project p
 
 ## Initial setup
 
-Once workspace is running, a [post-script command](/.devfile.yaml) called `install-dependencies` runs in the background asynchronously to install mise dependencies and yarn dependencies. This process takes a few minutes to complete. We recommend waiting until the post-script finishes before running other commands.
+Once workspace is running, a [post-script command](/.devfile.yaml) called `install-dependencies` runs in the background asynchronously to install mise dependencies and pnpm dependencies. This process takes a few minutes to complete. We recommend waiting until the post-script finishes before running other commands.
 
 To check the progress, run:
 

@@ -19,7 +19,7 @@ commands:
   - id: install-dependencies
     exec:
       component: web-ide
-      commandLine: 'cd /projects/gitlab-web-ide && mise install && yarn install && git submodule update --init -f'
+      commandLine: 'cd /projects/gitlab-web-ide && mise install && pnpm install && git submodule update --init -f'
 events:
   postStart:
     - install-dependencies

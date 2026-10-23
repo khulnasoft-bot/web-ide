@@ -119,7 +119,7 @@ export default defineConfig({
   // Start the example app before running tests
   webServer: {
     // Builds and starts the example server in HTTPS mode.
-    command: 'yarn build:example && yarn start:example "yarn serve:example:https"',
+    command: 'pnpm build:example && pnpm start:example "pnpm serve:example:https"',
 
     // Does not start the example app if it's already running and listening to the server port
     port: serverPort,

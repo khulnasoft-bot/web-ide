@@ -294,7 +294,7 @@ Add a root `vercel.json` (do not replace Cloudflare configuration):
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "yarn install --immutable",
+  "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "bash ./scripts/vercel/build.sh",
   "outputDirectory": "packages/example/dist",
   "trailingSlash": false,
@@ -342,7 +342,7 @@ project link. The repository currently contains `.vercel/project.json`.
      with `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` from secrets.
 3. Keep the Git-connected build as the default for pull requests/previews. Use
    `vercel.json` to select single-origin mode when no wildcard domain is set.
-4. Add build caching for `.yarn/cache` and `packages/vscode-build/dist` if the
+4. Add build caching for `.pnpm-store` and `packages/vscode-build/dist` if the
    build approaches the 45-minute limit.
 5. Ensure the build has network access to the VS Code tarball URL in
    `packages/vscode-build/vscode_version.json`. If the tarball is not publicly
@@ -427,7 +427,7 @@ current document URL.
 | ---------------------------------------------------- | ------------------------------------------------------------------------------ |
 | Wildcard domain not available on the Vercel plan     | Use single-origin fallback; document reduced isolation.                        |
 | GitLab CORS rejects the Vercel workbench origin      | Spike with a GDK instance; add the origins to the instance's CORS config.      |
-| VS Code build exceeds 45 minutes                     | Measure; cache `.yarn/cache` and `packages/vscode-build/dist`; prebuild in CI. |
+| VS Code build exceeds 45 minutes                     | Measure; cache `.pnpm-store` and `packages/vscode-build/dist`; prebuild in CI. |
 | Tarball not reachable from Vercel build network      | Mirror the tarball or deploy a CI-built artifact with `--prebuilt`.            |
 | Unversioned asset paths cause mixed releases         | Implement Phase 4 before enabling long-lived caching.                          |
 | Vercel Deployment Protection blocks subdomain assets | Disable protection on production alias; use bypass token for protected tests.  |

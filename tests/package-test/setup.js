@@ -38,10 +38,10 @@ async function setup() {
   const packageJson = origPackageJson.replace('{{WEB_IDE_PACKAGE_PATH}}', webIdePackagePath);
   await fs.writeFile(packageJsonPath, packageJson, 'utf8');
 
-  // 3. Install package using yarn ------------------------------------------
-  console.log('Installing package using yarn...');
+  // 3. Install package using pnpm ------------------------------------------
+  console.log('Installing package using pnpm...');
   process.chdir(TEMP_DIR);
-  execSync('yarn install --silent', { stdio: 'inherit' });
+  execSync('pnpm install --reporter=silent', { stdio: 'inherit' });
 }
 
 module.exports = {

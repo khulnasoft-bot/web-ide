@@ -1,6 +1,6 @@
 [tools]
 node = "22.11.0"
-"asdf:yarn" = "1.22.19"
+"asdf:pnpm" = "10.34.7"
 python = "3.10.2"
 
 [settings]

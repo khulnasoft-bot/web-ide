@@ -13,7 +13,7 @@ during development.
 ## GitLab for VS Code package
 
 The GitLab for VS Code extension is included as a release artifact managed by the
-`packages/vscode-extension-gitlab-vscode-extension` package. By default, running `yarn start:example`
+`packages/vscode-extension-gitlab-vscode-extension` package. By default, running `pnpm start:example`
 will download and build the extension from the release version specified in the `gitlab_vscode_extension-version.json`.
 
 The extension version is controlled by the JSON configuration file:
@@ -40,13 +40,13 @@ To test local changes to the GitLab for VS Code extension:
 
    ```bash
    # creates a packages/vscode-extension-gitlab-vscode-extension/gitlab_vscode_extension_version.local.json
-   yarn local-setup-gitlab-vscode-extension /path/to/your/gitlab-vscode-extension/dist-browser
+   pnpm local-setup-gitlab-vscode-extension /path/to/your/gitlab-vscode-extension/dist-browser
    ```
 
 3. **Start the Web IDE:**
 
    ```bash
-   yarn start:example
+   pnpm start:example
    ```
 
 ### Option 2: Using a specific branch or tag
@@ -66,7 +66,7 @@ To test changes from a specific branch or tag in the extension repository:
 2. **Start the Web IDE:**
 
    ```bash
-   yarn start:example
+   pnpm start:example
    ```
 
 ### Iterating on local changes
@@ -83,7 +83,7 @@ When making changes to your local extension:
 2. **Restart the Web IDE:**
 
    ```bash
-   yarn start:example
+   pnpm start:example
    ```
 
 ## Switching between versions
@@ -93,7 +93,7 @@ When making changes to your local extension:
 To switch back to using the official release version:
 
 ```bash
-yarn local-teardown-gitlab-vscode-extension
+pnpm local-teardown-gitlab-vscode-extension
 ```
 
 ## GitLab Language Server

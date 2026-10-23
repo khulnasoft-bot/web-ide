@@ -2,7 +2,6 @@
   "name": "@gitlab/vscode-mediator-commands",
   "version": "0.0.1",
   "main": "./src/index.ts",
-  "packageManager": "yarn@3.2.0",
   "dependencies": {
     "@gitlab/cross-origin-channel": "workspace:*",
     "@gitlab/gitlab-api-client": "workspace:*",

@@ -13,21 +13,20 @@ issues ([see example](https://gitlab.com/gitlab-org/gitlab-web-ide/-/merge_reque
 The extra complexity of using `.zip` files for third party modules was not worth any space
 optimization benefit.
 
-It looks like workspaces work just fine with `nodeLinker: 'node-modules'`, so
-here we are.
+We now use pnpm with a regular `node_modules` layout, which avoids those issues.
 
 ## How do I run the example with HTTPS?
 
 1. Make sure you have valid certificate files named `cert.pem` and `key.pem` in the project's root directory.
    You may want to create these outside the directory using something like `mkcert`. Then you can simply create
    symlinks in the project directory, with `ln -s <PATH_TO_CERT> ./cert.pem`.
-2. Run `yarn start:example:ssl`.
+2. Run `pnpm start:example:ssl`.
 
 # Developer Troubleshooting
 
 ## I'm adding a package and it doesn't work.
 
-When adding (or removing) a new package, you will need to run `yarn install` for yarn to recognize the
+When adding (or removing) a new package, you will need to run `pnpm install` for pnpm to recognize the
 workspace.
 
 ## Typescript isn't finding native JavaScript things.

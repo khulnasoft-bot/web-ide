@@ -2,7 +2,7 @@
  * @overview Development script to trigger the `make` for `vscode-extension-gitlab-vscode-extension` to use a `gitlab_vscode_extension_version.local.json`.
  *
  * ```
- * yarn local-setup $PATH_TO_GITLAB_VSCODE_EXTENSION_BROWSER_BUILD
+ * pnpm local-setup $PATH_TO_GITLAB_VSCODE_EXTENSION_BROWSER_BUILD
  * ```
  */
 const fs = require('fs/promises');
@@ -32,7 +32,7 @@ const main = async () => {
 Please provide a path for the local extension browser build.
 For example:
 
-   yarn local-setup /absolute/path/to/gitlab-vscode-extension/dist-browser
+   pnpm local-setup /absolute/path/to/gitlab-vscode-extension/dist-browser
 `);
     process.exit(1);
     return;

@@ -8,7 +8,7 @@ This project builds the [`@gitlab/web-ide` npm package](https://www.npmjs.com/pa
 
 ## How to use the example?
 
-Visit [the Pages Deployment](https://gitlab-org.gitlab.io/gitlab-web-ide/) or run the example locally with `yarn start:example`. See detailed instructions [here](./docs/contributing/development-environment-setup.md#Setup).
+Visit [the Pages Deployment](https://gitlab-org.gitlab.io/gitlab-web-ide/) or run the example locally with `pnpm start:example`. See detailed instructions [here](./docs/contributing/development-environment-setup.md#Setup).
 
 1. Fill out the startup configuration form, or accept the default values:
 

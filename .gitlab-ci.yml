@@ -99,17 +99,18 @@ variables:
     key: 'khulnasoft-web-ide-dependency-cache'
     policy: pull
     paths:
-      - .yarn/cache
+      - .pnpm-store
 
-.node-and-yarn:
+.node-and-pnpm:
   extends: .dependency-cache
   variables:
     GITLAB_NODE_VERSION: 18.19.0
-    GITLAB_YARN_VERSION: 1.22.19
+    npm_config_store_dir: .pnpm-store
   before_script:
+    - corepack enable
     - node --version
-    - yarn --version
-    - yarn install --immutable
+    - pnpm --version
+    - pnpm install --frozen-lockfile
 
 ###################################
 #
@@ -166,7 +167,7 @@ expose-ci-rules-variables:
 
 # Only push the cache from this job, to save time on all other jobs.
 push-cache:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: prepare
   rules:
     - <<: *if-main-original-repo
@@ -209,20 +210,12 @@ build-integration-test-image:
 #
 ###################################
 create-development-package:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: build
-  variables:
-    # why: `yarn version` needs access to the commit history
-    # https://yarnpkg.com/features/release-workflow#caveat
-    # https://gitlab.com/khulnasoft/web-ide/-/jobs/2842454123#L6673
-    GIT_DEPTH: 0
   rules:
     - <<: *if-main-original-repo-or-merge-request
     - <<: *if-security-repo
   script:
-    # why: we need to add to safe.directory because `yarn version` will trigger `git` commands
-    # https://yarnpkg.com/features/release-workflow#caveat
-    - git config --global --add safe.directory $PWD
     # what: uncomment the below line if the security project needs access to the khulnasoft-vscode-extension
     # - git submodule set-url khulnasoft-vscode-extension "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/gitlab-org/security/khulnasoft-vscode-extension.git"
     - ./scripts/pack-web-ide-package.sh $KHULNASOFT_WEB_IDE_VERSION
@@ -232,7 +225,7 @@ create-development-package:
       - tmp/packages
 
 build:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: build
   rules:
     - <<: *if-main-original-repo-or-merge-request
@@ -251,31 +244,8 @@ build:
 # TEST STAGE
 #
 ###################################
-# Copied from the [untamper-my-lockfile template][1], but adjusted to include "--config"
-#
-# TODO: Use untamper-my-lockfile template https://gitlab.com/khulnasoft/web-ide/-/issues/101
-# [1]: https://gitlab.com/gitlab-org/frontend/untamper-my-lockfile/-/blob/575fe0d6ccd3abc0c1c5432d6365895f38e8187e/templates/merge_request_pipelines.yml
-untamper-my-lockfile:
-  image: registry.gitlab.com/gitlab-org/frontend/untamper-my-lockfile:main
-  stage: test
-  needs: []
-  before_script: []
-  after_script: []
-  cache: {}
-  retry: 1
-  script:
-    - untamper-my-lockfile --config .untamper-my-lockfile.json --lockfile yarn.lock
-  rules:
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /untamper-my-lockfile/
-    - if: $CI_MERGE_REQUEST_IID
-      changes:
-        - yarn.lock
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      changes:
-        - yarn.lock
-
 lint:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: test
   needs: []
   rules:
@@ -287,7 +257,7 @@ lint:
 
 # More-Than-Inspired by https://gitlab.com/gitlab-org/cli/-/blob/136577d535dc4d7bc949283d5730724ff5f9b87b/.gitlab-ci.yml#L71
 lint-commit:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: test
   needs: []
   rules:
@@ -299,21 +269,21 @@ lint-commit:
     - node scripts/lint-commit.mjs
 
 jest:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: test
   needs: []
   rules:
     - <<: *if-main-original-repo-or-merge-request
     - <<: *if-security-repo
   script:
-    - yarn test:ci
+    - pnpm test:ci
   artifacts:
     reports:
       junit:
         - junit.xml
 
 test-web-ide-package:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: test
   needs:
     - job: create-development-package
@@ -340,13 +310,16 @@ test-web-ide-package:
       optional: true
   tags:
     - saas-linux-medium-amd64
+  variables:
+    npm_config_store_dir: .pnpm-store
   before_script:
     # Install dependencies and build example app
-    - yarn install --immutable
-    - yarn playwright:install
-    - yarn build:example
+    - corepack enable
+    - pnpm install --frozen-lockfile
+    - pnpm playwright:install
+    - pnpm build:example
   script:
-    - yarn test:integration
+    - pnpm test:integration
   artifacts:
     when: always
     paths:
@@ -355,7 +328,7 @@ test-web-ide-package:
       junit: playwright-report/junit.xml
 
 .publish-development-package:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: publish-and-deploy
   needs:
     - job: create-development-package
@@ -398,7 +371,7 @@ publish-development-package-dry-run:
     - npm publish --tag $NPM_PUBLISH_TAG --dry-run --access public $KHULNASOFT_WEB_IDE_TAR_PATH
 
 publish-khulnasoft-vscode-theme-package:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: publish-and-deploy
   needs:
     - job: create-development-package
@@ -436,7 +409,7 @@ integration-tests-dockerfile-changes:
         - tests/integration/Dockerfile
 
 pages:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: publish-and-deploy
   rules:
     # This job cannot be run on forks, only the original repo.
@@ -455,7 +428,7 @@ pages:
 # BEGIN: Cloudflare section #
 #############################
 .deploy-cloudflare:
-  extends: .node-and-yarn
+  extends: .node-and-pnpm
   stage: publish-and-deploy
   id_tokens:
     VAULT_ID_TOKEN:
@@ -513,7 +486,7 @@ deploy-cloudflare-worker-staging:
     - <<: *if-merge-request-original-repo
       when: manual
   script:
-    - yarn cloudflare:deploy -e staging
+    - pnpm cloudflare:deploy -e staging
 
 deploy-cloudflare-worker-production:
   extends: .deploy-cloudflare-worker
@@ -523,7 +496,7 @@ deploy-cloudflare-worker-production:
       changes:
         - packages/cloudflare/**/*
   script:
-    - yarn cloudflare:deploy -e production
+    - pnpm cloudflare:deploy -e production
 #############################
 # END: Cloudflare section #
 #############################

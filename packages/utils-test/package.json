@@ -2,7 +2,6 @@
   "name": "@gitlab/utils-test",
   "version": "0.0.1",
   "main": "./src/index.ts",
-  "packageManager": "yarn@3.2.0",
   "publishConfig": {
     "main": "./lib/index.js"
   },
@@ -11,5 +10,8 @@
     "@gitlab/web-ide-types": "workspace:*",
     "fake-indexeddb": "^5.0.2",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.21"
   }
 }

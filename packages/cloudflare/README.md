@@ -11,27 +11,27 @@ which is what we mainly use it for.
 
 ## Setup
 
-1. Run `yarn install` (from the repo root) locally to install the necessary packages to run wrangler.
+1. Run `pnpm install` (from the repo root) locally to install the necessary packages to run wrangler.
 1. Export `CLOUDFLARE_API_TOKEN` with a token that has access to workers, R2, etc in the zone you're targeting:
 
    ```sh
    export CLOUDFLARE_API_TOKEN=xxx
    ```
 
-1. Trigger the desired `yarn` commands below.
+1. Trigger the desired `pnpm` commands below.
 
 ## Running in development mode
 
 You can run in development mode with local resources (ie. temporary KV local store using SQLite):
 
 ```sh
-yarn cloudflare:start -e staging --host abc123.staging.cdn.web-ide.gitlab-static.net
+pnpm cloudflare:start -e staging --host abc123.staging.cdn.web-ide.gitlab-static.net
 ```
 
 ... but it's more useful to run in development mode with `--remote`, which uses remote resources (e.g., R2) and data stored on Cloudflare's network.
 
 ```sh
-yarn cloudflare:start -e staging --host abc123.staging.cdn.web-ide.gitlab-static.net --remote
+pnpm cloudflare:start -e staging --host abc123.staging.cdn.web-ide.gitlab-static.net --remote
 ```
 
 The `--host` argument is required to override the default host of the site name (`gitlab-static.net`).
@@ -43,5 +43,5 @@ Any request you make to `http://127.0.0.1:8787` will be as if you were making th
 To deploy, you need to run a command like the following:
 
 ```sh
-yarn cloudflare:deploy -e staging
+pnpm cloudflare:deploy -e staging
 ```

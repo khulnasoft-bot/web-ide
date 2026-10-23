@@ -2,7 +2,7 @@
  * @overview Development script to trigger the `make` for `vscode-build` to use a `vscode_version.local.json`.
  *
  * ```
- * yarn local-setup $PATH_TO_VSCODE_FORK_BUILD_DIR
+ * pnpm local-setup $PATH_TO_VSCODE_FORK_BUILD_DIR
  * ```
  */
 const fs = require('fs/promises');
@@ -32,7 +32,7 @@ const main = async () => {
 Please provide a path for the local vscode build.
 For example:
 
-   yarn local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
+   pnpm local-setup /absolute/path/to/gitlab-web-ide-vscode-fork/.build/vscode-web
 `);
     process.exit(1);
     return;

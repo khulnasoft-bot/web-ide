@@ -26,8 +26,8 @@
     "dark"
   ],
   "scripts": {
-    "package": "yarn dlx @vscode/vsce@^3.1.1 package --no-dependencies",
-    "build:font": "yarn dlx webfont@11.2.26 ./fonts/icons/*.svg"
+    "package": "pnpm dlx @vscode/vsce@^3.1.1 package --no-dependencies",
+    "build:font": "pnpm dlx webfont@11.2.26 ./fonts/icons/*.svg"
   },
   "icon": "icon.png",
   "galleryBanner": {

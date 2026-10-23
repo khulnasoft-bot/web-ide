@@ -24,7 +24,7 @@ start_server() {
     echo -e "${GREEN}Use the following URL to access the Web IDE: ${VITE_HOST_PROTOCOL}://${IDE_HOST_MAIN_DOMAIN}:8000${NC}"
   fi
 
-  concurrently "yarn:watch:example" "yarn:serve:example:${VITE_HOST_PROTOCOL}"
+  concurrently "pnpm:watch:example" "pnpm:serve:example:${VITE_HOST_PROTOCOL}"
 }
 
 generate_tls_certificates() {
