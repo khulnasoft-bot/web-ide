@@ -1,4 +1,4 @@
-import type { GitLabProjectPushRules } from '@gitlab/vscode-mediator-commands';
+import type { GitLabProjectPushRules } from '@khulnasoft/vscode-mediator-commands';
 
 export const positiveRegexErrorMessage = (pushRule: string) =>
   `⚠️ Commit message violates the project's push rules.

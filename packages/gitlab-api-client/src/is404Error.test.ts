@@ -1,4 +1,4 @@
-import { createFakeResponse } from '@gitlab/utils-test';
+import { createFakeResponse } from '@khulnasoft/utils-test';
 import { createResponseError } from './createResponseError';
 import { is404Error } from './is404Error';
 

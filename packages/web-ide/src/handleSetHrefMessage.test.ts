@@ -1,4 +1,4 @@
-import { createMockLocation } from '@gitlab/utils-test';
+import { createMockLocation } from '@khulnasoft/utils-test';
 import { handleSetHrefMessage } from './handleSetHrefMessage';
 
 describe('handleSetHrefMessage', () => {

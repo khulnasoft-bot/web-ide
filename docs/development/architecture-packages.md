@@ -261,7 +261,7 @@ This internal package contains the types and functions associated
 with communicating to a GitLab instance through its REST API.
 
 ```typescript
-import { DefaultGitLabClient, gitlabApi } from '@gitlab/gitlab-api-client';
+import { DefaultGitLabClient, gitlabApi } from '@khulnasoft/gitlab-api-client';
 
 const client = new DefaultGitLabClient({ baseUrl: '...' });
 const request = gitlabApi.getProjectBranch.createRequest({

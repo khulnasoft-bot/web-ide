@@ -1,5 +1,5 @@
 import type { ExtensionContext, SecretStorage } from 'vscode';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { WebIdeExtensionTokenProvider } from './WebIdeExtensionTokenProvider';
 
 const TEST_AUTH_TOKEN = 'test-auth-token';

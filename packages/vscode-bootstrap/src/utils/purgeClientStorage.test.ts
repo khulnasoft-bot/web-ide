@@ -1,11 +1,11 @@
-import { defaultLogger } from '@gitlab/logger';
-import { createFakePartial, withFakeIndexedDbStorage } from '@gitlab/utils-test';
+import { defaultLogger } from '@khulnasoft/logger';
+import { createFakePartial, withFakeIndexedDbStorage } from '@khulnasoft/utils-test';
 import { purgeClientStorage } from './purgeClientStorage';
 import { storageAvailable } from './storageAvailable';
 
 // Mock dependencies
 jest.mock('./storageAvailable');
-jest.mock('@gitlab/logger', () => ({
+jest.mock('@khulnasoft/logger', () => ({
   defaultLogger: {
     info: jest.fn(),
     error: jest.fn(),

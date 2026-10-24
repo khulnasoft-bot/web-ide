@@ -1,4 +1,4 @@
-import { escapeCssQuotedValue } from '@gitlab/utils-escape';
+import { escapeCssQuotedValue } from '@khulnasoft/utils-escape';
 import type { WebIDEFontFace } from '@khulnasoft/web-ide-types';
 import { kebabCase } from './kebabCase';
 

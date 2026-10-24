@@ -1,10 +1,10 @@
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
-import type { OAuthClient } from '@gitlab/oauth-client';
-import { createConfig, createFakePartial, waitForPromises } from '@gitlab/utils-test';
-import { createOAuthClient } from '@gitlab/oauth-client';
+import type { OAuthClient } from '@khulnasoft/oauth-client';
+import { createConfig, createFakePartial, waitForPromises } from '@khulnasoft/utils-test';
+import { createOAuthClient } from '@khulnasoft/oauth-client';
 import { checkOAuthToken } from './checkOAuthToken';
 
-jest.mock('@gitlab/oauth-client');
+jest.mock('@khulnasoft/oauth-client');
 
 describe('checkOAuthToken', () => {
   const TEST_OAUTH_CONFIG: WebIdeConfig = {

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 
 import { setupThirdPartyExtensions } from '.';
 import * as redhatVscodeYaml from './redhatVscodeYaml';

@@ -1,6 +1,6 @@
-import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
-import { defaultLogger } from '@gitlab/logger';
-import { createFakePartial } from '@gitlab/utils-test';
+import type { WebIDEConfigResponseMessage } from '@khulnasoft/cross-origin-channel';
+import { defaultLogger } from '@khulnasoft/logger';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import { handleEmbedderChange } from './handleEmbedderChange';
 import { storageAvailable } from './utils/storageAvailable';
 import { purgeClientStorage } from './utils/purgeClientStorage';
@@ -8,7 +8,7 @@ import { LAST_KNOWN_EMBEDDER_ORIGIN_STORAGE_KEY } from './constant';
 
 jest.mock('./utils/storageAvailable');
 jest.mock('./utils/purgeClientStorage');
-jest.mock('@gitlab/logger', () => ({
+jest.mock('@khulnasoft/logger', () => ({
   defaultLogger: {
     info: jest.fn(),
     error: jest.fn(),

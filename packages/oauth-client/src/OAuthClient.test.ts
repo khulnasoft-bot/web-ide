@@ -1,4 +1,4 @@
-import { useFakeLocation } from '@gitlab/utils-test';
+import { useFakeLocation } from '@khulnasoft/utils-test';
 import { InMemoryOAuthStorage } from '../test-utils/InMemoryOAuthStorage';
 import { DefaultOAuthClient } from './OAuthClient';
 import type {
@@ -18,7 +18,7 @@ import {
 import { createBroadcasterStub } from '../test-utils';
 
 import 'whatwg-fetch';
-import '@gitlab/utils-test/src/jsdom.d';
+import '@khulnasoft/utils-test/src/jsdom.d';
 
 jest.mock('./utils/iframeAuth');
 

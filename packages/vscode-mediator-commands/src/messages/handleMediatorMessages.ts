@@ -1,4 +1,4 @@
-import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { CrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import {
   createMediatorMessageController,
   MEDIATOR_MESSAGE_KEYS,

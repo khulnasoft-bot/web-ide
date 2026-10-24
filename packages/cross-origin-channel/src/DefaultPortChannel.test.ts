@@ -1,4 +1,4 @@
-import { createFakePartial } from '@gitlab/utils-test';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import type { PortChannelMessage } from './types';
 import { WAIT_FOR_MESSAGE_TIMEOUT } from './constants';
 import { DefaultPortChannel } from './DefaultPortChannel';

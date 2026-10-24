@@ -1,4 +1,4 @@
-import type { DeprecatedGitLabClient as GitLabClient } from '@gitlab/gitlab-api-client';
+import type { DeprecatedGitLabClient as GitLabClient } from '@khulnasoft/gitlab-api-client';
 import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import type { VSBufferWrapper, VSCodeBuffer } from '../types';
 

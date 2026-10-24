@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
-import type { GitLabRef, GitLabProject } from '@gitlab/vscode-mediator-commands';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import { gitlabApi } from '@gitlab/gitlab-api-client';
-import { defaultLogger } from '@gitlab/logger';
+import type { GitLabRef, GitLabProject } from '@khulnasoft/vscode-mediator-commands';
+import type { DefaultGitLabClient } from '@khulnasoft/gitlab-api-client';
+import { gitlabApi } from '@khulnasoft/gitlab-api-client';
+import { defaultLogger } from '@khulnasoft/logger';
 import { RELOAD_COMMAND_ID } from '../../constants';
 import { generateCommitMessage } from './generateCommitMessage';
 import { getCommitPayload } from './getCommitPayload';

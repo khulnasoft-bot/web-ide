@@ -1,4 +1,4 @@
-import type { GitLabRef } from '@gitlab/vscode-mediator-commands';
+import type { GitLabRef } from '@khulnasoft/vscode-mediator-commands';
 
 const SHORT_SHA_LENGTH = 8;
 

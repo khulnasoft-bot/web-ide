@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import type { StartCommandResponse } from '@gitlab/vscode-mediator-commands';
+import type { StartCommandResponse } from '@khulnasoft/vscode-mediator-commands';
 
 interface UnloadedContent {
   type: 'unloaded';

@@ -177,14 +177,14 @@ $(pkg_example_dist): \
 $(pkg_example_dist)/index.html: $(all_src)
 	rm -f $@
 	pnpm build:ts
-	pnpm --filter @gitlab/example run build
+	pnpm --filter @khulnasoft/example run build
 
 $(pkg_example_dist)/web-ide/public: $(pkg_webide_dist_public_sources)
 	rm -rf $@
 	mkdir -p $(dir $@)
 	cp -r $(pkg_webide_dist_public) $@
 
-$(pkg_example_dist)/fonts: $(pkg_example)/node_modules/@gitlab/fonts/gitlab-mono/GitLabMono.woff2 $(pkg_example)/node_modules/@gitlab/fonts/gitlab-mono/GitLabMono-Italic.woff2
+$(pkg_example_dist)/fonts: $(pkg_example)/node_modules/@khulnasoft/fonts/gitlab-mono/GitLabMono.woff2 $(pkg_example)/node_modules/@khulnasoft/fonts/gitlab-mono/GitLabMono-Italic.woff2
 	rm -rf $@
 	mkdir $@
 	cp -r $^ $@
@@ -198,7 +198,7 @@ $(pkg_vscode_extension_dist): $(pkg_vscode_extension_dist_all)
 
 $(pkg_vscode_extension_dist)/main.js: $(all_ts)
 	rm -f $@
-	pnpm --filter @gitlab/vscode-extension-web-ide run build
+	pnpm --filter @khulnasoft/vscode-extension-web-ide run build
 
 $(pkg_vscode_extension_dist)/%.json: $(pkg_vscode_extension)/vscode.%.json
 	rm -f $@
@@ -250,7 +250,7 @@ $(pkg_vscode_extension_gitlab_vscode_theme_dist)/%: $(pkg_vscode_extension_gitla
 # what: Let's force this to always run the `pnpm --filter` script.
 # why: This way `packages/gitlab-vscode-extension` can own whether it needs to rerun or not.
 $(pkg_gitlab_vscode_extension_dist_browser): FORCE
-	pnpm --filter @gitlab/gitlab-vscode-extension run build
+	pnpm --filter @khulnasoft/gitlab-vscode-extension run build
 
 # what: https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 FORCE:

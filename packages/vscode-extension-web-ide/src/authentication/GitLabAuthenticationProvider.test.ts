@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import { createConfig } from '@gitlab/utils-test';
+import { createConfig } from '@khulnasoft/utils-test';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { GitLabAuthenticationProvider } from './GitLabAuthenticationProvider';
 

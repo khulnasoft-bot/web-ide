@@ -2,8 +2,8 @@ import * as vscode from 'vscode';
 import { debounce } from 'lodash';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import type { SourceControlFileSystem, SourceControlSystem } from '@khulnasoft/web-ide-fs';
-import type { GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
-import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import type { GitLabProject, GitLabRef } from '@khulnasoft/vscode-mediator-commands';
+import type { DefaultGitLabClient } from '@khulnasoft/gitlab-api-client';
 import {
   COMMIT_AMEND_AND_FORCE_PUSH_COMMAND_ID,
   COMMIT_AND_FORCE_PUSH_COMMAND_ID,

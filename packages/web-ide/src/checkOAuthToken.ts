@@ -1,4 +1,4 @@
-import { createOAuthClient } from '@gitlab/oauth-client';
+import { createOAuthClient } from '@khulnasoft/oauth-client';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 
 export const checkOAuthToken = async (config: WebIdeConfig): Promise<void> => {

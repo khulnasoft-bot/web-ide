@@ -1,4 +1,4 @@
-import { LogLevel } from '@gitlab/logger';
+import { LogLevel } from '@khulnasoft/logger';
 import { log, setDefaultLogWriter } from './log';
 
 describe('utils/log', () => {

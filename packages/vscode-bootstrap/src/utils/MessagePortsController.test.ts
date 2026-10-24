@@ -1,9 +1,9 @@
-import type { CrossWindowChannel } from '@gitlab/cross-origin-channel';
-import { handleMediatorMessages } from '@gitlab/vscode-mediator-commands';
-import { createFakeCrossWindowChannel, useFakeMessageChannel } from '@gitlab/utils-test';
+import type { CrossWindowChannel } from '@khulnasoft/cross-origin-channel';
+import { handleMediatorMessages } from '@khulnasoft/vscode-mediator-commands';
+import { createFakeCrossWindowChannel, useFakeMessageChannel } from '@khulnasoft/utils-test';
 import { MessagePortsController } from './MessagePortsController';
 
-jest.mock('@gitlab/vscode-mediator-commands');
+jest.mock('@khulnasoft/vscode-mediator-commands');
 
 describe('utils/MessagePortsController', () => {
   useFakeMessageChannel();

@@ -1,4 +1,4 @@
-import type { SetHrefMessage } from '@gitlab/cross-origin-channel';
+import type { SetHrefMessage } from '@khulnasoft/cross-origin-channel';
 
 export const handleSetHrefMessage = (message: SetHrefMessage) => {
   const parentHref = window.location.href;

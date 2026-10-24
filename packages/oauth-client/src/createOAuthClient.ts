@@ -1,4 +1,4 @@
-import { createConsoleLogger, type Logger } from '@gitlab/logger';
+import { createConsoleLogger, type Logger } from '@khulnasoft/logger';
 import type { OAuthConfig } from '@khulnasoft/web-ide-types';
 import { joinPaths } from '@khulnasoft/utils-path';
 import type { OAuthClient } from './OAuthClient';

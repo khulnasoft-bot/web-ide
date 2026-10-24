@@ -1,4 +1,4 @@
-import type { AuthHeadersProvider, AuthProvider } from '@gitlab/gitlab-api-client';
+import type { AuthHeadersProvider, AuthProvider } from '@khulnasoft/gitlab-api-client';
 
 const oauthTokenAsHeaders = (token: string) => ({
   Authorization: `Bearer ${token}`,

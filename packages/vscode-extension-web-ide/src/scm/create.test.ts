@@ -5,7 +5,7 @@ import '../../vscode.proposed.scmValidation.d';
 import * as vscode from 'vscode';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
-import { createConfig } from '@gitlab/utils-test';
+import { createConfig } from '@khulnasoft/utils-test';
 import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { TEST_PROJECT, TEST_REF_BRANCH } from '../../test-utils';
 import { createSourceControlViewModel } from './create';

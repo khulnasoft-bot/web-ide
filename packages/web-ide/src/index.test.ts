@@ -1,15 +1,15 @@
-import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@gitlab/cross-origin-channel';
-import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import type { ErrorMessage, PortChannel, WindowChannelMessage } from '@khulnasoft/cross-origin-channel';
+import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import {
   createConfig,
   createFakePartial,
   waitForPromises,
   createMockLocation,
   createFakeCrossWindowChannel,
-} from '@gitlab/utils-test';
+} from '@khulnasoft/utils-test';
 import { ErrorType, type WebIde, type WebIdeConfig } from '@khulnasoft/web-ide-types';
-import { createOAuthClient } from '@gitlab/oauth-client';
-import { defaultLogger } from '@gitlab/logger';
+import { createOAuthClient } from '@khulnasoft/oauth-client';
+import { defaultLogger } from '@khulnasoft/logger';
 import { oauthCallback, pingWorkbench, start } from './index';
 import type { UnloadPreventer } from './unloadPreventer';
 import { createUnloadPreventer } from './unloadPreventer';
@@ -20,9 +20,9 @@ import { WEB_IDE_WORKBENCH_PING_IFRAME_ID, WEB_IDE_WORKBENCH_PING_TIMEOUT } from
 jest.mock('./checkOAuthToken');
 jest.mock('./unloadPreventer');
 jest.mock('./AuthPortChannelController');
-jest.mock('@gitlab/oauth-client');
-jest.mock('@gitlab/cross-origin-channel');
-jest.mock('@gitlab/logger');
+jest.mock('@khulnasoft/oauth-client');
+jest.mock('@khulnasoft/cross-origin-channel');
+jest.mock('@khulnasoft/logger');
 
 const TEST_OAUTH_CLIENT: ReturnType<typeof createOAuthClient> = {
   checkForValidToken: jest.fn().mockResolvedValue(true),

@@ -1,11 +1,11 @@
-import type { PortChannel } from '@gitlab/cross-origin-channel';
-import { setupAutoRefresh } from '@gitlab/oauth-client';
-import type { OAuthClient } from '@gitlab/oauth-client';
-import { createFakePartial } from '@gitlab/utils-test';
+import type { PortChannel } from '@khulnasoft/cross-origin-channel';
+import { setupAutoRefresh } from '@khulnasoft/oauth-client';
+import type { OAuthClient } from '@khulnasoft/oauth-client';
+import { createFakePartial } from '@khulnasoft/utils-test';
 import type { Disposable } from '@khulnasoft/web-ide-types';
 import { AuthPortChannelController } from './AuthPortChannelController';
 
-jest.mock('@gitlab/oauth-client');
+jest.mock('@khulnasoft/oauth-client');
 
 describe('AuthPortChannelController', () => {
   let oauthClient: OAuthClient;

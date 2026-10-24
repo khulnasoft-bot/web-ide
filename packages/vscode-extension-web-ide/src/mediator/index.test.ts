@@ -7,8 +7,8 @@ import {
   COMMAND_FETCH_MERGE_REQUEST_DIFF_STATS,
   COMMAND_FETCH_PROJECT_BRANCHES,
   COMMAND_START,
-} from '@gitlab/vscode-mediator-commands';
-import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
+} from '@khulnasoft/vscode-mediator-commands';
+import { NOOP_AUTH_PROVIDER } from '@khulnasoft/gitlab-api-client';
 import * as mediator from './index';
 import { setupMediatorCommandExecutor } from './executor';
 import { setupFakeMediatorToken } from '../../test-utils/setupFakeMediatorToken';

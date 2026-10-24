@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/gitlab-api-client",
+"name": "@khulnasoft/gitlab-api-client",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "publishConfig": {
@@ -13,7 +13,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*",
+    "@khulnasoft/utils-test": "workspace:*",
     "whatwg-fetch": "^3.6.2"
   }
 }

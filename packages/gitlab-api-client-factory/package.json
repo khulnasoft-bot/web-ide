@@ -1,16 +1,16 @@
 {
-  "name": "@gitlab/gitlab-api-client-factory",
+"name": "@khulnasoft/gitlab-api-client-factory",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "publishConfig": {
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@gitlab/cross-origin-channel": "workspace:*",
-    "@gitlab/gitlab-api-client": "workspace:*",
+    "@khulnasoft/cross-origin-channel": "workspace:*",
+    "@khulnasoft/gitlab-api-client": "workspace:*",
     "@khulnasoft/web-ide-types": "workspace:*"
   },
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*"
+    "@khulnasoft/utils-test": "workspace:*"
   }
 }

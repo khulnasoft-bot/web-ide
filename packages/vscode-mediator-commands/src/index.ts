@@ -1,4 +1,4 @@
-export { ResponseErrorBody } from '@gitlab/gitlab-api-client';
+export { ResponseErrorBody } from '@khulnasoft/gitlab-api-client';
 export * from './constants';
 export * from './messages';
 export * from './commands';

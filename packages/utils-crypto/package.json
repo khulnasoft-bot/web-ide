@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/utils-crypto",
+"name": "@khulnasoft/utils-crypto",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "publishConfig": {

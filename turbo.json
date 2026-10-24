@@ -28,7 +28,7 @@
     "local-teardown": {
       "cache": false
     },
-    "@gitlab/utils-test#build": {
+    "@khulnasoft/utils-test#build": {
       "dependsOn": []
     }
   }

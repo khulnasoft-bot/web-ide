@@ -1,9 +1,9 @@
-import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
+import { DefaultGitLabClient } from '@khulnasoft/gitlab-api-client';
 import {
   createWebIdeExtensionConfig,
   createFakePartial,
   withFakeIndexedDbStorage,
-} from '@gitlab/utils-test';
+} from '@khulnasoft/utils-test';
 import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
 import type { ApiRequest } from '@khulnasoft/web-ide-interop';
 import {

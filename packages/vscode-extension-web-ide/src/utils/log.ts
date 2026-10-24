@@ -1,5 +1,5 @@
-import type { LogLevel, LogWriter } from '@gitlab/logger';
-import { Logger } from '@gitlab/logger';
+import type { LogLevel, LogWriter } from '@khulnasoft/logger';
+import { Logger } from '@khulnasoft/logger';
 
 let defaultLogWriter: LogWriter | undefined;
 

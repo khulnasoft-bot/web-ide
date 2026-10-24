@@ -1,4 +1,4 @@
-import { DefaultAuthProvider } from '@gitlab/gitlab-api-client';
+import { DefaultAuthProvider } from '@khulnasoft/gitlab-api-client';
 
 import {
   createOAuthHeadersProvider,

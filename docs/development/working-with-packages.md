@@ -27,7 +27,7 @@ Currently the `web-ide` package is the only package that is published.
 
    ```json
    {
-     "name": "@gitlab/new-package",
+     "name": "@khulnasoft/new-package",
      "version": "0.0.1",
      "main": "./src/index.ts",
      "publishConfig": {

@@ -1,19 +1,19 @@
 {
-  "name": "@gitlab/vscode-extension-web-ide",
+"name": "@khulnasoft/vscode-extension-web-ide",
   "version": "0.0.2",
   "main": "./src/main.ts",
   "devDependencies": {
-    "@gitlab/utils-test": "workspace:*",
+    "@khulnasoft/utils-test": "workspace:*",
     "@types/fuzzaldrin-plus": "^0.6.2",
     "@types/lodash": "^4.14.182",
     "@types/vscode": "1.81.0"
   },
   "dependencies": {
-    "@gitlab/gitlab-api-client": "workspace:*",
-    "@gitlab/gitlab-api-client-factory": "workspace:*",
-    "@gitlab/logger": "workspace:*",
+    "@khulnasoft/gitlab-api-client": "workspace:*",
+    "@khulnasoft/gitlab-api-client-factory": "workspace:*",
+    "@khulnasoft/logger": "workspace:*",
     "@khulnasoft/utils-path": "workspace:*",
-    "@gitlab/vscode-mediator-commands": "workspace:*",
+    "@khulnasoft/vscode-mediator-commands": "workspace:*",
     "@khulnasoft/web-ide-fs": "workspace:*",
     "@khulnasoft/web-ide-interop": "workspace:*",
     "@khulnasoft/web-ide-types": "workspace:*",

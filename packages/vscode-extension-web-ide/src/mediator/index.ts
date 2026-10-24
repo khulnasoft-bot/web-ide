@@ -5,7 +5,7 @@ import {
   COMMAND_FETCH_MERGE_REQUEST_DIFF_STATS,
   COMMAND_FETCH_PROJECT_BRANCHES,
   COMMAND_CREATE_PROJECT_BRANCH,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 import type {
   StartCommandResponse,
   VSCodeBuffer,
@@ -17,7 +17,7 @@ import type {
   CreateProjectBranchResponse,
   GitLabCommitPayload,
   StartCommandOptions,
-} from '@gitlab/vscode-mediator-commands';
+} from '@khulnasoft/vscode-mediator-commands';
 import { executeMediatorCommand } from './executor';
 
 export const start = async (options: StartCommandOptions = {}): Promise<StartCommandResponse> =>

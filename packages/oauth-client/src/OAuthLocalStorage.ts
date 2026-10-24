@@ -1,4 +1,4 @@
-import type { Logger } from '@gitlab/logger';
+import type { Logger } from '@khulnasoft/logger';
 import type { OAuthStorage } from './types';
 import { encodeBase64, decodeBase64 } from './utils';
 

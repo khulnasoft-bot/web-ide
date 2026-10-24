@@ -1,4 +1,4 @@
-import type { ResponseErrorBody } from '@gitlab/vscode-mediator-commands';
+import type { ResponseErrorBody } from '@khulnasoft/vscode-mediator-commands';
 
 function isResponseErrorBody(obj: unknown): obj is ResponseErrorBody {
   const responseErrorBody = obj as ResponseErrorBody;

@@ -1,4 +1,4 @@
-import { defaultLogger } from '@gitlab/logger';
+import { defaultLogger } from '@khulnasoft/logger';
 import { storageAvailable } from './storageAvailable';
 
 /**

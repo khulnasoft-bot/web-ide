@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import { LogLevel } from '@gitlab/logger';
+import { LogLevel } from '@khulnasoft/logger';
 import { OutputChannelLogWriter } from './OutputChannelLogWriter';
 import { createFakePartial } from '../../test-utils/createFakePartial';
 

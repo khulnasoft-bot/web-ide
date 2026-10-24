@@ -1,12 +1,12 @@
 {
-  "name": "@gitlab/utils-test",
+"name": "@khulnasoft/utils-test",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "publishConfig": {
     "main": "./lib/index.js"
   },
   "dependencies": {
-    "@gitlab/cross-origin-channel": "workspace:*",
+    "@khulnasoft/cross-origin-channel": "workspace:*",
     "@khulnasoft/web-ide-types": "workspace:*",
     "fake-indexeddb": "^5.0.2",
     "lodash": "^4.17.21"

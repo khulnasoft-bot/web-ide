@@ -1,16 +1,16 @@
 import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
-import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
-import webIdeExtensionMeta from '@gitlab/vscode-extension-web-ide/vscode.package.json';
-import { createCommands } from '@gitlab/vscode-mediator-commands';
+import { getAuthProvider } from '@khulnasoft/gitlab-api-client-factory';
+import webIdeExtensionMeta from '@khulnasoft/vscode-extension-web-ide/vscode.package.json';
+import { createCommands } from '@khulnasoft/vscode-mediator-commands';
 import {
   createFakeCrossWindowChannel,
   createFakePartial,
   createWebIdeExtensionConfig,
   useFakeMessageChannel,
-} from '@gitlab/utils-test';
+} from '@khulnasoft/utils-test';
 import vscodeVersion from '@khulnasoft/vscode-build/vscode_version.json';
-import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
-import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
+import { NOOP_AUTH_PROVIDER } from '@khulnasoft/gitlab-api-client';
+import { DefaultCrossWindowChannel } from '@khulnasoft/cross-origin-channel';
 import { useMockAMDEnvironment } from '../test-utils/amd';
 import { start } from './start';
 import type {
@@ -43,9 +43,9 @@ const TEST_SETTINGS_SYNC_OPTIONS = {
 };
 const TEST_SETTINGS_CONTEXT_HASH = '1234';
 
-jest.mock('@gitlab/cross-origin-channel');
-jest.mock('@gitlab/vscode-mediator-commands');
-jest.mock('@gitlab/gitlab-api-client-factory');
+jest.mock('@khulnasoft/cross-origin-channel');
+jest.mock('@khulnasoft/vscode-mediator-commands');
+jest.mock('@khulnasoft/gitlab-api-client-factory');
 jest.mock('./vscode/secrets/factory');
 jest.mock('./cleanExtensions');
 

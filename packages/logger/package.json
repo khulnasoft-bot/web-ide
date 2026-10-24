@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/logger",
+"name": "@khulnasoft/logger",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "publishConfig": {

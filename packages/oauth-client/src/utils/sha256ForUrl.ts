@@ -1,4 +1,4 @@
-import { sha256, urlSafeBase64 } from '@gitlab/utils-crypto';
+import { sha256, urlSafeBase64 } from '@khulnasoft/utils-crypto';
 
 export const sha256ForUrl = (str: string) => {
   const input = new TextEncoder().encode(str);

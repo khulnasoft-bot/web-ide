@@ -1,5 +1,5 @@
-import { createWebIdeExtensionConfig } from '@gitlab/utils-test';
-import type { AuthProvider } from '@gitlab/gitlab-api-client';
+import { createWebIdeExtensionConfig } from '@khulnasoft/utils-test';
+import type { AuthProvider } from '@khulnasoft/gitlab-api-client';
 import type { AuthenticationSessionInfo, ISecretStorageProvider } from '../types';
 import { createDefaultSecretStorageProvider } from './factory';
 

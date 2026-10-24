@@ -1,4 +1,4 @@
-import { useFakeBroadcastChannel } from '@gitlab/utils-test';
+import { useFakeBroadcastChannel } from '@khulnasoft/utils-test';
 import {
   DefaultOAuthStateBroadcaster,
   CHANNEL_NAME,

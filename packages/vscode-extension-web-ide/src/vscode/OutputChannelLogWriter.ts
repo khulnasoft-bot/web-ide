@@ -1,6 +1,6 @@
 import type * as vscode from 'vscode';
-import type { LogLevel, LogWriter } from '@gitlab/logger';
-import { LOG_LEVEL_NAMES } from '@gitlab/logger';
+import type { LogLevel, LogWriter } from '@khulnasoft/logger';
+import { LOG_LEVEL_NAMES } from '@khulnasoft/logger';
 
 const PADDING = 4;
 const padNextLines = (text: string) => text.replace(/\n/g, `\n${' '.repeat(PADDING)}`);
