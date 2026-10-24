@@ -254,3 +254,7 @@ $(pkg_gitlab_vscode_extension_dist_browser): FORCE
 
 # what: https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 FORCE:
+
+.PHONY: deploy-vercel
+deploy-vercel:
+	pnpm deploy:vercel

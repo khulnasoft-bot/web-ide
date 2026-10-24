@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "VERSION",
+    "pnpm-lock.yaml",
+    "tsconfig.base.json",
+    "scripts/build.base.js",
+    "packages/vscode-build/vscode_version.json"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "lib/**"]
+    },
+    "build:font": {
+      "outputs": ["fonts/**", "dist/**"]
+    },
+    "package": {
+      "dependsOn": ["build", "^build"],
+      "outputs": ["*.vsix"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "local-setup": {
+      "cache": false
+    },
+    "local-teardown": {
+      "cache": false
+    },
+    "@gitlab/utils-test#build": {
+      "dependsOn": []
+    }
+  }
+}

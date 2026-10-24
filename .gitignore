@@ -15,6 +15,12 @@
 node_modules/
 .pnpm-store/
 
+# region: turbo things ------------------------------------------------
+.turbo/
+
+# region: vercel things -----------------------------------------------
+.vercel/
+
 # region: typescript things --------------------------------------------
 *.tsbuildinfo
 

@@ -35,6 +35,7 @@
     "jest-junit": "^16.0.0",
     "nodemon": "^3.1.14",
     "prettier": "3.6.2",
+    "turbo": "^2.11.10",
     "typescript": "5.8.3"
   },
   "scripts": {
@@ -45,8 +46,12 @@
     "build:webide": "make packages/web-ide",
     "build:example": "make packages/example",
     "build:example:http": "VITE_HOST_PROTOCOL=http make packages/example",
+    "build:example:vercel": "bash ./scripts/vercel/build.sh",
     "build:vscode": "make packages/vscode-build/dist/vscode",
     "build:font": "pnpm --filter gitlab-vscode-theme build:font",
+    "turbo:build": "turbo run build",
+    "turbo:clean": "turbo run clean",
+    "turbo:package": "turbo run package",
     "serve:example:https": "http-server ./packages/example/dist -a $IDE_HOST_MAIN_DOMAIN -p 8000 -c-1 --cors --ssl --cert $IDE_CERT_FILE --key $IDE_KEY_FILE",
     "serve:example:http": "http-server ./packages/example/dist -p 8000 -c-1 --cors",
     "watch:example": "pnpm build:example && nodemon --config nodemon.json --exec 'pnpm build:example'",
@@ -54,6 +59,7 @@
     "start:example:http": "dotenvx run --env VITE_HOST_PROTOCOL=http -f config/.env.local -f config/.env -- ./scripts/start-example-app.sh",
     "cloudflare:deploy": "pnpm --filter cloudflare deploy",
     "cloudflare:start": "pnpm --filter cloudflare start",
+    "deploy:vercel": "bash ./scripts/vercel/deploy.sh",
     "test": "jest",
     "test:ci": "jest --config ./jest.config.js --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "test:integration": "pnpm exec playwright test -c ./tests/integration/playwright.config.ts --tsconfig ./tests/integration/tsconfig.json",

@@ -4,6 +4,19 @@ import { viteEnv } from './viteEnv';
 const resolveUrl = (url: string) =>
   decodeURIComponent(new URL(url, window.location.href).toString());
 
+const readBooleanFromViteEnv = (key: string, defaultValue: boolean): boolean => {
+  const val = viteEnv[key];
+
+  if (typeof val !== 'string' || val === '') {
+    return defaultValue;
+  }
+
+  if (val === 'true') return true;
+  if (val === 'false') return false;
+
+  throw new Error(`Expected environment variable '${key}' to be 'true' or 'false'.`);
+};
+
 const readFromViteEnv = (key: string): string => {
   const protocol = (viteEnv.VITE_HOST_PROTOCOL || 'https').toUpperCase();
   const keyWithProtocol = `${key}_${protocol}`;
@@ -23,6 +36,37 @@ export const getEmbedderOriginUrl = () => resolveUrl(readFromViteEnv('VITE_EMBED
 export const getWorkbenchBaseUrl = () => resolveUrl(readFromViteEnv('VITE_WORKBENCH_BASE_URL'));
 export const getExtensionsHostBaseUrl = () =>
   resolveUrl(readFromViteEnv('VITE_EXTENSIONS_HOST_BASE_URL'));
+
+export const getCrossOriginExtensionHost = () =>
+  readBooleanFromViteEnv('VITE_CROSS_ORIGIN_EXTENSION_HOST', true);
+
+export const validateCrossOriginExtensionHost = () => {
+  if (!getCrossOriginExtensionHost()) {
+    return;
+  }
+
+  const extensionsHostBaseUrl = getExtensionsHostBaseUrl();
+  const workbenchBaseUrl = getWorkbenchBaseUrl();
+  const errors: string[] = [];
+
+  if (!extensionsHostBaseUrl.includes('{{uuid}}')) {
+    errors.push(
+      'VITE_EXTENSIONS_HOST_BASE_URL must include the "{{uuid}}" template when VITE_CROSS_ORIGIN_EXTENSION_HOST is true.',
+    );
+  }
+
+  if (new URL(extensionsHostBaseUrl).origin === new URL(workbenchBaseUrl).origin) {
+    errors.push(
+      'VITE_EXTENSIONS_HOST_BASE_URL and VITE_WORKBENCH_BASE_URL must use different origins when VITE_CROSS_ORIGIN_EXTENSION_HOST is true.',
+    );
+  }
+
+  if (errors.length > 0) {
+    throw new Error(
+      `[web-ide-example-app] Invalid cross-origin extension host configuration:\n- ${errors.join('\n- ')}`,
+    );
+  }
+};
 
 export const getRootUrlFromLocation = () => {
   const newUrl = new URL('/', window.location.href);

@@ -101,6 +101,38 @@ flowchart TD
     class gitlab-boundary,workbench-boundary,extension-boundary,webview-boundary boundary-class
 ```
 
+### Deploying the example app to Vercel
+
+The example embedder can also be deployed to [Vercel](https://vercel.com) as a
+static site. This is an additional host adapter; the Cloudflare and GitLab Pages
+deployments remain the production sources of truth.
+
+The repository includes:
+
+- `vercel.json`: build, output, CORS, and cache configuration.
+- `scripts/vercel/build.sh`: selects the multi-origin or single-origin profile
+  and runs `make packages/example`.
+- `scripts/vercel/deploy.sh`: pulls the Vercel project settings, builds, and
+  deploys a prebuilt artifact.
+- `config/.env.vercel.example`: reference environment matrix.
+
+Build locally with the single-origin profile:
+
+```shell
+pnpm build:example:vercel
+```
+
+Set `VITE_VERCEL_WILDCARD_DOMAIN` to a custom domain with wildcard DNS to build
+the multi-origin profile. Without it, preview deployments use the single-origin
+fallback. Deploy with:
+
+```shell
+VERCEL_TOKEN=... VERCEL_ORG_ID=... VERCEL_PROJECT_ID=... pnpm deploy:vercel
+```
+
+See [Vercel host support](./vercel-host-support.md) for topology, prerequisites,
+CORS, caching, and deployment-protection considerations.
+
 ### Air-gapped instances
 
 GitLab instances running on air-gapped/offline environments don't have access to the

@@ -11,6 +11,8 @@ import {
   getWorkbenchBaseUrl,
   getEmbedderOriginUrl,
   getSettingsContextHash,
+  getCrossOriginExtensionHost,
+  validateCrossOriginExtensionHost,
 } from '../config';
 import { joinPaths } from '@gitlab/utils-path';
 
@@ -172,12 +174,14 @@ export default defineComponent({
         }).toString();
       };
 
+      validateCrossOriginExtensionHost();
+
       const userConfig = await getConfigFromExample(props.config);
       start(container.value, {
         extensionsHostBaseUrl: getExtensionsHostBaseUrl(),
         workbenchBaseUrl: getWorkbenchBaseUrl(),
         embedderOriginUrl: getEmbedderOriginUrl(),
-        crossOriginExtensionHost: true,
+        crossOriginExtensionHost: getCrossOriginExtensionHost(),
         handleError,
         handleTracking,
         handleContextUpdate, // TODO: Remove this once we have a better way to handle context updates
