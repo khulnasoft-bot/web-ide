@@ -1,16 +1,16 @@
 {
-  "name": "gitlab-vscode-theme",
-  "displayName": "GitLab Theme for Visual Studio Code",
-  "description": "The GitLab Theme for Visual Studio Code brings the sleek and professional look of GitLab to your coding environment.",
+  "name": "khulnasoft-vscode-theme",
+  "displayName": "Khulnasoft Theme for Visual Studio Code",
+  "description": "The Khulnasoft Theme for Visual Studio Code brings the sleek and professional look of Khulnasoft to your coding environment.",
   "version": "0.0.1",
-  "publisher": "GitLab",
+  "publisher": "Khulnasoft",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/gitlab-org/gitlab-web-ide/-/tree/main/packages/vscode-extension-gitlab-vscode-theme"
+    "url": "https://github.com/khulnasoft/khulnasoft-vscode-theme"
   },
   "bugs": {
-    "url": "https://gitlab.com/gitlab-org/gitlab-web-ide/-/issues"
+    "url": "https://github.com/khulnasoft/khulnasoft-vscode-theme/issues"
   },
   "engines": {
     "vscode": "^1.80.0"
@@ -21,7 +21,7 @@
   "keywords": [
     "theme",
     "color-theme",
-    "gitlab",
+    "khulnasoft",
     "light",
     "dark"
   ],
@@ -37,19 +37,19 @@
   "contributes": {
     "themes": [
       {
-        "label": "GitLab Dark Midnight",
+        "label": "Khulnasoft Dark Midnight",
         "uiTheme": "vs-dark",
-        "path": "./themes/GitLab_Dark_Midnight-color-theme.json"
+        "path": "./themes/Khulnasoft_Dark_Midnight-color-theme.json"
       },
       {
-        "label": "GitLab Dark",
+        "label": "Khulnasoft Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/GitLab_Dark-color-theme.json"
+        "path": "./themes/Khulnasoft_Dark-color-theme.json"
       },
       {
-        "label": "GitLab Light",
+        "label": "Khulnasoft Light",
         "uiTheme": "vs",
-        "path": "./themes/GitLab_Light-color-theme.json"
+        "path": "./themes/Khulnasoft_Light-color-theme.json"
       }
     ],
     "icons": {
