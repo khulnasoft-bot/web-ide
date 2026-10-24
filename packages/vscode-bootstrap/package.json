@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@gitlab/utils-test": "workspace:*",
-    "@gitlab/vscode-build": "workspace:*",
+    "@khulnasoft/vscode-build": "workspace:*",
     "@gitlab/vscode-extension-web-ide": "workspace:*",
     "whatwg-fetch": "3.6.2"
   },

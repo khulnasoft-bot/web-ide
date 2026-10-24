@@ -157,7 +157,7 @@ $(pkg_vscode_bootstrap_dist)/main.js: $(all_ts)
 # what: Let's force this to always run the `pnpm --filter` script.
 # why: This way `packages/vscode-build` can own whether it needs to rerun or not.
 $(pkg_vscode_build_dist)/vscode: FORCE
-	pnpm --filter @gitlab/vscode-build run build
+	pnpm --filter @khulnasoft/vscode-build run build
 
 ## =======
 ## example

@@ -286,7 +286,7 @@ importers:
       '@gitlab/utils-test':
         specifier: workspace:*
         version: link:../utils-test
-      '@gitlab/vscode-build':
+      '@khulnasoft/vscode-build':
         specifier: workspace:*
         version: link:../vscode-build
       '@gitlab/vscode-extension-web-ide':

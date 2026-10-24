@@ -67,8 +67,8 @@
     "lint:eslint": "eslint --max-warnings=0 --ext .js --ext .ts . ",
     "lint:prettier": "prettier --check .",
     "lint:prettier:write": "prettier --write .",
-    "local-setup": "pnpm --filter @gitlab/vscode-build local-setup",
-    "local-teardown": "pnpm --filter @gitlab/vscode-build local-teardown",
+    "local-setup": "pnpm --filter @khulnasoft/vscode-build local-setup",
+    "local-teardown": "pnpm --filter @khulnasoft/vscode-build local-teardown",
     "local-setup-gitlab-vscode-extension": "pnpm --filter @gitlab/gitlab-vscode-extension local-setup",
     "local-teardown-gitlab-vscode-extension": "pnpm --filter @gitlab/gitlab-vscode-extension local-teardown",
     "playwright:install": "pnpm exec playwright install --with-deps"

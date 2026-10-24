@@ -8,7 +8,7 @@ import {
   createWebIdeExtensionConfig,
   useFakeMessageChannel,
 } from '@gitlab/utils-test';
-import vscodeVersion from '@gitlab/vscode-build/vscode_version.json';
+import vscodeVersion from '@khulnasoft/vscode-build/vscode_version.json';
 import { NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { useMockAMDEnvironment } from '../test-utils/amd';
