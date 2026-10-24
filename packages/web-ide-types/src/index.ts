@@ -16,7 +16,7 @@ export interface Disposable {
 }
 
 /**
- * This is the type we return from the `start` functions of the `@gitlab/web-ide` package
+ * This is the type we return from the `start` functions of the `@khulnasoft/web-ide` package
  */
 export interface WebIde extends Disposable {
   /**

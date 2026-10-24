@@ -1,4 +1,4 @@
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { memoize } from 'lodash';
 import { getExtensionContext } from '../context';
 import { log } from '../utils';

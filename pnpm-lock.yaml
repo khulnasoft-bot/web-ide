@@ -109,7 +109,7 @@ importers:
 
   packages/cross-origin-channel:
     dependencies:
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
     devDependencies:
@@ -125,10 +125,10 @@ importers:
       '@gitlab/utils-path':
         specifier: workspace:*
         version: link:../utils-path
-      '@gitlab/web-ide':
+      '@khulnasoft/web-ide':
         specifier: workspace:*
         version: link:../web-ide
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
       lodash:
@@ -162,7 +162,7 @@ importers:
       '@gitlab/utils-path':
         specifier: workspace:*
         version: link:../utils-path
-      '@gitlab/web-ide-interop':
+      '@khulnasoft/web-ide-interop':
         specifier: workspace:*
         version: link:../web-ide-interop
       graphql:
@@ -190,7 +190,7 @@ importers:
       '@gitlab/gitlab-api-client':
         specifier: workspace:*
         version: link:../gitlab-api-client
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
     devDependencies:
@@ -214,7 +214,7 @@ importers:
       '@gitlab/utils-path':
         specifier: workspace:*
         version: link:../utils-path
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
       nanoid:
@@ -239,7 +239,7 @@ importers:
       '@gitlab/cross-origin-channel':
         specifier: workspace:*
         version: link:../cross-origin-channel
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
       fake-indexeddb:
@@ -276,10 +276,10 @@ importers:
       '@gitlab/vscode-mediator-commands':
         specifier: workspace:*
         version: link:../vscode-mediator-commands
-      '@gitlab/web-ide-interop':
+      '@khulnasoft/web-ide-interop':
         specifier: workspace:*
         version: link:../web-ide-interop
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
     devDependencies:
@@ -321,13 +321,13 @@ importers:
       '@gitlab/vscode-mediator-commands':
         specifier: workspace:*
         version: link:../vscode-mediator-commands
-      '@gitlab/web-ide-fs':
+      '@khulnasoft/web-ide-fs':
         specifier: workspace:*
         version: link:../web-ide-fs
-      '@gitlab/web-ide-interop':
+      '@khulnasoft/web-ide-interop':
         specifier: workspace:*
         version: link:../web-ide-interop
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
       fuzzaldrin-plus:
@@ -364,7 +364,7 @@ importers:
       '@gitlab/gitlab-api-client-factory':
         specifier: workspace:*
         version: link:../gitlab-api-client-factory
-      '@gitlab/web-ide-interop':
+      '@khulnasoft/web-ide-interop':
         specifier: workspace:*
         version: link:../web-ide-interop
       nanoid:
@@ -374,7 +374,7 @@ importers:
       '@gitlab/utils-test':
         specifier: workspace:*
         version: link:../utils-test
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
 
@@ -392,7 +392,7 @@ importers:
       '@gitlab/utils-escape':
         specifier: workspace:*
         version: link:../utils-escape
-      '@gitlab/web-ide-types':
+      '@khulnasoft/web-ide-types':
         specifier: workspace:*
         version: link:../web-ide-types
     devDependencies:

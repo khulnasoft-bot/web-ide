@@ -103,7 +103,7 @@ $(pkg_webide): $(pkg_webide_dist)
 $(pkg_webide_dist): $(pkg_webide_dist_public) $(pkg_webide_dist_index)
 
 $(pkg_webide_dist_index): $(pkg_webide_src)/*
-	pnpm --filter @gitlab/web-ide run build
+	pnpm --filter @khulnasoft/web-ide run build
 
 $(pkg_webide_dist_public): $(pkg_webide_dist_public_sources)
 

@@ -7,7 +7,7 @@ import type {
   GetRequest,
   GraphQLRequest,
   PostRequest,
-} from '@gitlab/web-ide-interop';
+} from '@khulnasoft/web-ide-interop';
 import { NOOP_AUTH_HEADERS_PROVIDER } from './createHeadersProvider';
 import { createResponseError } from './createResponseError';
 import type { AuthHeadersProvider } from './types';

@@ -1,4 +1,4 @@
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { storageAvailable } from './utils/storageAvailable';
 import { vsCodeWebExtensionsStore } from './utils/vsCodeWebExtensionsStore';
 import { isExtensionsMarketplaceEnabled } from './utils/isExtensionsMarketplaceEnabled';

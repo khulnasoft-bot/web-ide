@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/web-ide",
+  "name": "@khulnasoft/web-ide",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "@gitlab/logger": "workspace:*",
     "@gitlab/oauth-client": "workspace:*",
     "@gitlab/utils-escape": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "scripts": {
     "build": "node ./build.js",

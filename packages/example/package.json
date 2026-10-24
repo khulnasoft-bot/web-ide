@@ -4,8 +4,8 @@
   "dependencies": {
     "@gitlab/fonts": "^1.3.0",
     "@gitlab/utils-path": "workspace:*",
-    "@gitlab/web-ide": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*",
+    "@khulnasoft/web-ide": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*",
     "lodash": "4.17.21",
     "vue": "^3.2.37"
   },

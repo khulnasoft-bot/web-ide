@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { generateBranchName } from './generateBranchName';
 import type { BranchSelection } from './promptBranchName';
 import { promptBranchName } from './promptBranchName';

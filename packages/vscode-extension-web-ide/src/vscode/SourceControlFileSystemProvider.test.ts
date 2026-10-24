@@ -1,6 +1,6 @@
 import type * as vscode from 'vscode';
-import type { FileStats, SourceControlFileSystem } from '@gitlab/web-ide-fs';
-import { FileType } from '@gitlab/web-ide-fs';
+import type { FileStats, SourceControlFileSystem } from '@khulnasoft/web-ide-fs';
+import { FileType } from '@khulnasoft/web-ide-fs';
 import { SourceControlFileSystemProvider } from './SourceControlFileSystemProvider';
 import { fromPathToScmUri, fromUriToScmUri } from '../scm/uri';
 

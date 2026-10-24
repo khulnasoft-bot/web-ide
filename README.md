@@ -4,7 +4,7 @@
 
 ## What is this?
 
-This project builds the [`@gitlab/web-ide` npm package](https://www.npmjs.com/package/@gitlab/web-ide), used in the [main GitLab project](https://gitlab.com/gitlab-org/gitlab) to bootstrap GitLab's context-aware Web IDE.
+This project builds the [`@khulnasoft/web-ide` npm package](https://www.npmjs.com/package/@khulnasoft/web-ide), used in the [main GitLab project](https://gitlab.com/gitlab-org/gitlab) to bootstrap GitLab's context-aware Web IDE.
 
 ## How to use the example?
 

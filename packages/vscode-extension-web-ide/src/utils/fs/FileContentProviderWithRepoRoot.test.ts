@@ -1,4 +1,4 @@
-import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
 import { FileContentProviderWithRepoRoot } from './FileContentProviderWithRepoRoot';
 
 const TEST_CONTENT = Buffer.from('Hello world!');

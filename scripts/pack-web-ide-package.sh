@@ -13,14 +13,14 @@ DEST_DIR="$PWD/tmp/packages"
 NPM_PACKAGE_PATH="$DEST_DIR/gitlab-web-ide-npm-$GITLAB_WEB_IDE_VERSION.tgz"
 WORKBENCH_PACKAGE_PATH="$DEST_DIR/gitlab-web-ide-vscode-workbench-$GITLAB_WEB_IDE_VERSION"
 
-echo "Build: Building @gitlab/web-ide package..."
+echo "Build: Building @khulnasoft/web-ide package..."
 pnpm run build:webide
 
-echo "Pre-pack: Setting @gitlab/web-ide version to ${GITLAB_WEB_IDE_VERSION}..."
+echo "Pre-pack: Setting @khulnasoft/web-ide version to ${GITLAB_WEB_IDE_VERSION}..."
 node scripts/set-package-version.js packages/web-ide "${GITLAB_WEB_IDE_VERSION}"
 
-# why backup package.json: We need to clean up a @gitlab/web-ide-types which is only used for compiling.
-# We are not publishing @gitlab/web-ide-types package, so releasing references to this
+# why backup package.json: We need to clean up a @khulnasoft/web-ide-types which is only used for compiling.
+# We are not publishing @khulnasoft/web-ide-types package, so releasing references to this
 # could cause problems...
 # For this reason, let's copy off the existing package.json so we can remove this dependency
 # before packing.
@@ -31,7 +31,7 @@ cp packages/web-ide/package.json{,.bak}
 
 echo "Pre-pack (clean): Cleaning package.json for publish..."
 BUNDLED_PACKAGES=$(node scripts/echo-workspace-dependencies.js packages/web-ide/package.json)
-pnpm --filter @gitlab/web-ide remove ${BUNDLED_PACKAGES}
+pnpm --filter @khulnasoft/web-ide remove ${BUNDLED_PACKAGES}
 
 # why: https://gitlab.com/gitlab-org/gitlab/-/merge_requests/95169#note_1064410338
 echo "Pre-pack (clean): Remove .map files to improve artifact size"
@@ -40,8 +40,8 @@ find packages/web-ide/dist/public -name '*.js.map' -delete
 # region: Pack ---------------------------------------------------------
 mkdir -p tmp/packages
 
-echo "Pack: Packing @gitlab/web-ide package..."
-pnpm --filter @gitlab/web-ide pack --out "$NPM_PACKAGE_PATH"
+echo "Pack: Packing @khulnasoft/web-ide package..."
+pnpm --filter @khulnasoft/web-ide pack --out "$NPM_PACKAGE_PATH"
 
 echo "Pack: Packing gitlab-web-ide-vscode-workbench package..."
 cp -r "packages/web-ide/dist/public" "$WORKBENCH_PACKAGE_PATH"

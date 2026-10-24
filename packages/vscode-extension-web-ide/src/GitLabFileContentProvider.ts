@@ -1,5 +1,5 @@
 import { RateLimiter } from 'limiter';
-import type { FileContentProvider } from '@gitlab/web-ide-fs';
+import type { FileContentProvider } from '@khulnasoft/web-ide-fs';
 import { fetchFileRaw } from './mediator';
 
 interface GitLabFileContentProviderOptions {

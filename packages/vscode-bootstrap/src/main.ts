@@ -1,5 +1,5 @@
 // initialized by loading SCRIPT_VSCODE_LOADER 'vscode/out/vs/loader.js'
-import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@gitlab/web-ide-types';
+import { type WebIdeConfig, type SerializableConfig, ErrorType } from '@khulnasoft/web-ide-types';
 import type { WebIDEConfigResponseMessage } from '@gitlab/cross-origin-channel';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import { insertScript } from './utils/insertScript';

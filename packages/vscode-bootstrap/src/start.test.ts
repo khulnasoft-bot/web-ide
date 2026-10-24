@@ -1,4 +1,4 @@
-import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@gitlab/web-ide-types';
+import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
 import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
 import webIdeExtensionMeta from '@gitlab/vscode-extension-web-ide/vscode.package.json';
 import { createCommands } from '@gitlab/vscode-mediator-commands';

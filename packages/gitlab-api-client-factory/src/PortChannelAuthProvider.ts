@@ -1,4 +1,4 @@
-import type { Disposable } from '@gitlab/web-ide-types';
+import type { Disposable } from '@khulnasoft/web-ide-types';
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
 import type { AuthenticationTokenResponseMessage, PortChannel } from '@gitlab/cross-origin-channel';
 

@@ -1,4 +1,4 @@
-import type { SourceControlSystem } from '@gitlab/web-ide-fs';
+import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import * as vscode from 'vscode';
 import type { CommandsInitialData } from '../types';
 import { loadRef, selectBranch, showCreateBranchPrompt } from './branchUtilities';

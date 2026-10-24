@@ -1,4 +1,4 @@
-import { type SourceControlSystem } from '@gitlab/web-ide-fs';
+import { type SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import * as vscode from 'vscode';
 import { TEST_COMMANDS_INITIAL_DATA, TEST_PROJECT, TEST_REF_BRANCH } from '../../test-utils';
 import { createMockSourceControl } from '../../test-utils/createMockSourceControl';

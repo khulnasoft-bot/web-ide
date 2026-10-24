@@ -1,6 +1,6 @@
 import { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
 import type { AuthProvider } from '@gitlab/gitlab-api-client';
-import type { WebIdeConfig } from '@gitlab/web-ide-types';
+import type { WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { getAuthHeadersProvider } from './getAuthHeadersProvider';
 
 export const createGitLabClient = (

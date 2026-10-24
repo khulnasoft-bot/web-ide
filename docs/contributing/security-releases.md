@@ -103,7 +103,7 @@ the base version for security patches. For example, if we're developing a securi
 1. [Create a tag](https://gitlab.com/gitlab-org/security/gitlab-web-ide/-/tags/new) in the GitLab UI for the security patch version that was just published
    - **Tag name:** Use the version of the security patch that was just published. This should be the same as the `GITLAB_WEB_IDE_VERSION` used to start the pipeline.
    - **Create from:** The commit sha of the `HEAD` of the relevant `security-release-` branch.
-   - **Message:** Add a link to the newly published `npmjs` package in `https://www.npmjs.com/package/@gitlab/web-ide`
+   - **Message:** Add a link to the newly published `npmjs` package in `https://www.npmjs.com/package/@khulnasoft/web-ide`
 
 ### Create GitLab Security Merge Requests
 
@@ -111,11 +111,11 @@ the base version for security patches. For example, if we're developing a securi
 For example, you should check if any of the [related WebIde config interfaces](https://gitlab.com/gitlab-org/gitlab-web-ide/-/blob/main/packages/web-ide-types/src/config.ts#L28) have changed in a breaking way.
 
 Follow the [security development process](https://gitlab.com/gitlab-org/release/docs/-/blob/master/general/security/developer.md) on the main GitLab project,
-updating the `@gitlab/web-ide` version to the latest patched release in each vulnerable GitLab version.
+updating the `@khulnasoft/web-ide` version to the latest patched release in each vulnerable GitLab version.
 
-For example, if the following GitLab version referenced these `@gitlab/web-ide` versions, which were all determined vulnerable to the relevant security issue:
+For example, if the following GitLab version referenced these `@khulnasoft/web-ide` versions, which were all determined vulnerable to the relevant security issue:
 
-| GitLab Version | `@gitlab/web-ide` reference |
+| GitLab Version | `@khulnasoft/web-ide` reference |
 | -------------- | --------------------------- |
 | %15.11         | `0.0.1-dev-20230323132525`  |
 | %16.0          | `0.0.1-dev-20230418150125`  |
@@ -124,7 +124,7 @@ For example, if the following GitLab version referenced these `@gitlab/web-ide` 
 And a `0.0.1-dev-20230524134151-patch-1` version was released to resolve the security issue (see previous steps), then we'll create security backport MR's
 (following the [security development process](https://gitlab.com/gitlab-org/release/docs/-/blob/master/general/security/developer.md)) to update the versions to:
 
-| GitLab Version | `@gitlab/web-ide` reference        |
+| GitLab Version | `@khulnasoft/web-ide` reference        |
 | -------------- | ---------------------------------- |
 | %15.11         | `0.0.1-dev-20230524134151-patch-1` |
 | %16.0          | `0.0.1-dev-20230524134151-patch-1` |

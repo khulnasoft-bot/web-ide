@@ -10,8 +10,8 @@
     "@gitlab/utils-escape": "workspace:*",
     "@gitlab/utils-path": "workspace:*",
     "@gitlab/vscode-mediator-commands": "workspace:*",
-    "@gitlab/web-ide-interop": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/web-ide-interop": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "devDependencies": {
     "@gitlab/utils-test": "workspace:*",

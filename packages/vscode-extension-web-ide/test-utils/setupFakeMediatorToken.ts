@@ -1,4 +1,4 @@
-import { COMMAND_MEDIATOR_TOKEN } from '@gitlab/web-ide-interop';
+import { COMMAND_MEDIATOR_TOKEN } from '@khulnasoft/web-ide-interop';
 import * as vscode from 'vscode';
 
 export const setupFakeMediatorToken = (token: string) => {

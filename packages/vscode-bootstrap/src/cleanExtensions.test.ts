@@ -4,8 +4,8 @@ import {
   createFakePartial,
   withFakeIndexedDbStorage,
 } from '@gitlab/utils-test';
-import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@gitlab/web-ide-types';
-import type { ApiRequest } from '@gitlab/web-ide-interop';
+import type { WebIdeConfig, VscodeExtensionsGallerySettings } from '@khulnasoft/web-ide-types';
+import type { ApiRequest } from '@khulnasoft/web-ide-interop';
 import {
   VSCODE_EXTENSIONS_KEY,
   VSCODE_EXTENSIONS_LAST_SYNCED_KEY,

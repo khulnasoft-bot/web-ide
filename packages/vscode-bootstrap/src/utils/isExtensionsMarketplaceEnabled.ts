@@ -1,4 +1,4 @@
-import type { SettingsEnabled, WebIdeConfig } from '@gitlab/web-ide-types';
+import type { SettingsEnabled, WebIdeConfig } from '@khulnasoft/web-ide-types';
 
 type WebIdeConfigWithMarketplaceEnabled = WebIdeConfig & {
   extensionMarketplaceSettings: SettingsEnabled;

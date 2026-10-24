@@ -1,5 +1,5 @@
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import type { fetchBufferFromApi, GetBufferRequest } from '@gitlab/web-ide-interop';
+import type { fetchBufferFromApi, GetBufferRequest } from '@khulnasoft/web-ide-interop';
 import type { VSBufferWrapper } from '../types';
 
 export const commandFactory =

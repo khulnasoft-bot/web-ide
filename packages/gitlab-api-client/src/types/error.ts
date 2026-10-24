@@ -1,4 +1,4 @@
-import type { ResponseError } from '@gitlab/web-ide-interop';
+import type { ResponseError } from '@khulnasoft/web-ide-interop';
 
 export class FetchError extends Error implements ResponseError {
   status: number;

@@ -1,4 +1,4 @@
-import { WEB_IDE_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 import * as vsCodePackageConfig from './vscode.package.json';
 
 describe('vscode.package.json', () => {

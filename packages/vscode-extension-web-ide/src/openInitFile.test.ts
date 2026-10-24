@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { PATH_ROOT } from '@gitlab/utils-path';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { openInitFile } from './openInitFile';
 import { getConfig } from './mediator';
 import { VSCODE_COMMAND_KEEP_EDITOR } from './constants';

@@ -1,4 +1,4 @@
-import { WEB_IDE_EXTENSION_ID as FULL_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { WEB_IDE_EXTENSION_ID as FULL_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 
 export const EXTENSION_ID = 'gitlab-web-ide';
 

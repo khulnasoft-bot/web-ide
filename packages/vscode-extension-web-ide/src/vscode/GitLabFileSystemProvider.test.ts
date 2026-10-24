@@ -1,4 +1,4 @@
-import type { FileSystem } from '@gitlab/web-ide-fs';
+import type { FileSystem } from '@khulnasoft/web-ide-fs';
 import type { FileChangeEvent } from 'vscode';
 import { FileChangeType, Uri } from 'vscode';
 import { GitLabFileSystemProvider } from './GitLabFileSystemProvider';

@@ -1,4 +1,4 @@
-import type { OAuthConfig } from '@gitlab/web-ide-types';
+import type { OAuthConfig } from '@khulnasoft/web-ide-types';
 import { useFakeBroadcastChannel } from '@gitlab/utils-test';
 import { Logger } from '@gitlab/logger';
 import { DefaultOAuthClient } from './OAuthClient';

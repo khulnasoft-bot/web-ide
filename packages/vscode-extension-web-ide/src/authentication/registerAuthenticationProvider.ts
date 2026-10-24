@@ -1,4 +1,4 @@
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import type { AuthProvider as ApiAuthProvider } from '@gitlab/gitlab-api-client';
 import * as vscode from 'vscode';
 import { AUTHENTICATION_PROVIDER_ID } from '../constants';

@@ -1,4 +1,4 @@
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import * as vscode from 'vscode';
 
 import { FS_SCHEME } from '../constants';

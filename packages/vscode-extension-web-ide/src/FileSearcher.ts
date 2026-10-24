@@ -1,4 +1,4 @@
-import type { FileList } from '@gitlab/web-ide-fs';
+import type { FileList } from '@khulnasoft/web-ide-fs';
 import fuzzaldrinPlus from 'fuzzaldrin-plus';
 import type { FileSearcher } from './types';
 

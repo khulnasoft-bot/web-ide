@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { ForkInfo } from '@gitlab/web-ide-types';
+import type { ForkInfo } from '@khulnasoft/web-ide-types';
 import { setHref } from '../mediator';
 
 // why: Export msg for testing

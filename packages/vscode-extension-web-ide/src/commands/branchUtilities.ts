@@ -1,4 +1,4 @@
-import type { SourceControlSystem } from '@gitlab/web-ide-fs';
+import type { SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import { flatten, uniq } from 'lodash';
 import * as vscode from 'vscode';
 import type { GitLabProject } from '@gitlab/vscode-mediator-commands';

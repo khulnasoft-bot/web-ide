@@ -1,11 +1,11 @@
 import './amd/global.d';
 
-import type { WebIdeExtensionConfig, WebIdeConfig } from '@gitlab/web-ide-types';
-import { LogLevel } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig, WebIdeConfig } from '@khulnasoft/web-ide-types';
+import { LogLevel } from '@khulnasoft/web-ide-types';
 import { escapeCssQuotedValue } from '@gitlab/utils-escape';
 import { joinPaths } from '@gitlab/utils-path';
 import { getAuthProvider } from '@gitlab/gitlab-api-client-factory';
-import { WEB_IDE_EXTENSION_ID } from '@gitlab/web-ide-interop';
+import { WEB_IDE_EXTENSION_ID } from '@khulnasoft/web-ide-interop';
 import { DefaultCrossWindowChannel } from '@gitlab/cross-origin-channel';
 import type {
   WorkbenchModule,

@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/web-ide-fs",
+  "name": "@khulnasoft/web-ide-fs",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "dependencies": {

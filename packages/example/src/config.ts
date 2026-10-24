@@ -1,4 +1,4 @@
-import type { ExtensionMarketplaceSettings } from '@gitlab/web-ide-types';
+import type { ExtensionMarketplaceSettings } from '@khulnasoft/web-ide-types';
 import { viteEnv } from './viteEnv';
 
 const resolveUrl = (url: string) =>

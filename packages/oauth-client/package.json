@@ -10,7 +10,7 @@
     "@gitlab/logger": "workspace:*",
     "@gitlab/utils-crypto": "workspace:*",
     "@gitlab/utils-path": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {

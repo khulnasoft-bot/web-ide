@@ -1,5 +1,5 @@
 import { createConsoleLogger, type Logger } from '@gitlab/logger';
-import type { OAuthConfig } from '@gitlab/web-ide-types';
+import type { OAuthConfig } from '@khulnasoft/web-ide-types';
 import { joinPaths } from '@gitlab/utils-path';
 import type { OAuthClient } from './OAuthClient';
 import type { OAuthTokenState } from './types';

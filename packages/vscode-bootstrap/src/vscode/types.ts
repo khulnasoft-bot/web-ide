@@ -1,4 +1,4 @@
-import type { VscodeExtensionsGallerySettings, LogLevel } from '@gitlab/web-ide-types';
+import type { VscodeExtensionsGallerySettings, LogLevel } from '@khulnasoft/web-ide-types';
 
 // region: VSCode module paths -----------------------------------------
 

@@ -76,11 +76,11 @@ Update the `dependenies` (or `devDependencies`) field in the requiring package's
 
 ```json
 {
-  "name": "@gitlab/web-ide",
+  "name": "@khulnasoft/web-ide",
   // ...
   "devDendencies": {
     // ...
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/web-ide-types": "workspace:*"
     // ...
   }
   // ...

@@ -1,4 +1,4 @@
-import type { Disposable } from '@gitlab/web-ide-types';
+import type { Disposable } from '@khulnasoft/web-ide-types';
 import { WAIT_FOR_MESSAGE_TIMEOUT } from './constants';
 import type { PortChannel, PortChannelMessage, PortChannelMessageKey, PortName } from './types';
 

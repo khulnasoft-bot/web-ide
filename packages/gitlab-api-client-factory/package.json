@@ -8,7 +8,7 @@
   "dependencies": {
     "@gitlab/cross-origin-channel": "workspace:*",
     "@gitlab/gitlab-api-client": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*"
+    "@khulnasoft/web-ide-types": "workspace:*"
   },
   "devDependencies": {
     "@gitlab/utils-test": "workspace:*"

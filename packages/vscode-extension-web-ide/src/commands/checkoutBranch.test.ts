@@ -1,4 +1,4 @@
-import { type SourceControlSystem } from '@gitlab/web-ide-fs';
+import { type SourceControlSystem } from '@khulnasoft/web-ide-fs';
 import checkoutBranch from './checkoutBranch';
 import * as branchUtilities from './branchUtilities';
 import { showSearchableQuickPick } from '../vscodeUi';

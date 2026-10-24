@@ -1,6 +1,6 @@
 import { type DefaultGitLabClient, type gitlab, gitlabApi } from '@gitlab/gitlab-api-client';
-import { FileStatusType } from '@gitlab/web-ide-fs';
-import type { FileStatus } from '@gitlab/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { isEqual } from 'lodash';
 import { createFakePartial } from '@gitlab/utils-test';
 import { getAmendCommitPayload } from './getAmendCommitPayload';

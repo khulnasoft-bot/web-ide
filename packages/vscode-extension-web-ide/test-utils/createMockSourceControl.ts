@@ -1,4 +1,4 @@
-import { FileStatusType, type SourceControlSystem, type FileStatus } from '@gitlab/web-ide-fs';
+import { FileStatusType, type SourceControlSystem, type FileStatus } from '@khulnasoft/web-ide-fs';
 
 export const MOCK_FILE_STATUS_DELETED: FileStatus = {
   type: FileStatusType.Deleted,

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { COMMAND_MEDIATOR_TOKEN } from '@gitlab/web-ide-interop';
+import { COMMAND_MEDIATOR_TOKEN } from '@khulnasoft/web-ide-interop';
 import {
   COMMAND_COMMIT,
   COMMAND_CREATE_PROJECT_BRANCH,

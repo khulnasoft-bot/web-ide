@@ -1,5 +1,5 @@
 import type * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
 
 export interface StatusViewModel {
   readonly uri: vscode.Uri;

@@ -47,7 +47,7 @@ See [the docs for CI job token](https://docs.gitlab.com/ee/ci/jobs/ci_job_token.
 
 ### Updating the Web IDE in the GitLab Application
 
-To update the Web IDE in the GitLab application, bump the `@gitlab/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
+To update the Web IDE in the GitLab application, bump the `@khulnasoft/web-ide` npm package version in the [gitlab-org/gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/package.json?ref_type=heads#L71) repository.
 
 ### Security releases
 
@@ -120,7 +120,7 @@ In the GitLab Rails app, the workbench URLs are set in `buildExtensionHostUrl` i
 
 ## Release Artifacts
 
-### @gitlab/web-ide npm package
+### @khulnasoft/web-ide npm package
 
 This npm package contains the functionality to handle OAuth authentication flow and
 load the Web IDE's VSCode workbench. It is imported by the GitLab application to
@@ -130,7 +130,7 @@ provide Web IDE functionality within the GitLab interface.
 
 These assets include the Web IDE's VSCode workbench static files (JavaScript, CSS,
 HTML, WASM) that are hosted on Cloudflare. They are loaded in an iframe by the
-`@gitlab/web-ide` npm package and provide the core editor functionality of the Web IDE.
+`@khulnasoft/web-ide` npm package and provide the core editor functionality of the Web IDE.
 
 ### GitLab VSCode Theme VSCode Extension
 

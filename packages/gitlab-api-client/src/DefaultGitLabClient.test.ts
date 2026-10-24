@@ -1,4 +1,4 @@
-import type { GetRequest, GraphQLRequest, PostRequest } from '@gitlab/web-ide-interop';
+import type { GetRequest, GraphQLRequest, PostRequest } from '@khulnasoft/web-ide-interop';
 import * as graphqlRequestModule from 'graphql-request';
 import 'whatwg-fetch';
 import { createHeadersProvider } from './createHeadersProvider';

@@ -6,11 +6,11 @@ const { TEMP_DIR } = require('./setup');
 
 const PATH_PUBLIC_VSCODE = nodePath.join(
   TEMP_DIR,
-  'node_modules/@gitlab/web-ide/dist/public/vscode',
+  'node_modules/@khulnasoft/web-ide/dist/public/vscode',
 );
 const PATH_PUBLIC_VSCODE_NODE_MODULES = nodePath.join(PATH_PUBLIC_VSCODE, 'node_modules');
 
-describe('@gitlab/web-ide package', () => {
+describe('@khulnasoft/web-ide package', () => {
   test('does not have extraneous html files', async () => {
     const allChildren = await nodeFs.readdir(PATH_PUBLIC_VSCODE, {
       encoding: 'utf-8',

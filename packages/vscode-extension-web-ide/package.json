@@ -14,9 +14,9 @@
     "@gitlab/logger": "workspace:*",
     "@gitlab/utils-path": "workspace:*",
     "@gitlab/vscode-mediator-commands": "workspace:*",
-    "@gitlab/web-ide-fs": "workspace:*",
-    "@gitlab/web-ide-interop": "workspace:*",
-    "@gitlab/web-ide-types": "workspace:*",
+    "@khulnasoft/web-ide-fs": "workspace:*",
+    "@khulnasoft/web-ide-interop": "workspace:*",
+    "@khulnasoft/web-ide-types": "workspace:*",
     "fuzzaldrin-plus": "^0.6.0",
     "limiter": "^2.1.0",
     "lodash": "^4.17.21"

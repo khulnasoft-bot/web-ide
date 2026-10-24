@@ -1,5 +1,5 @@
 import type { DefaultGitLabClient } from '@gitlab/gitlab-api-client';
-import type { WebIdeExtensionConfig } from '@gitlab/web-ide-types';
+import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { createTestClient, createTestProject, TEST_CONFIG } from '../../test-utils';
 import type { GitLabProject } from '../types';
 import * as fetchProjectFile from './fetchProject';

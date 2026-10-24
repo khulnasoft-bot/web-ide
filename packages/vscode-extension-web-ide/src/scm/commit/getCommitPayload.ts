@@ -1,5 +1,5 @@
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import type { GitLabCommitPayload } from '@gitlab/vscode-mediator-commands';
 import { cleanLeadingSeparator } from '@gitlab/utils-path';
 

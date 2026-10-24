@@ -30,7 +30,7 @@ deployment. Cloudflare remains the production asset host for GitLab.
 ### Non-goals
 
 - Reimplementing the Cloudflare Worker (R2, ETag/If-Match, health checks, custom 404) on Vercel.
-- Changing the `@gitlab/web-ide` package consumed by the GitLab Rails
+- Changing the `@khulnasoft/web-ide` package consumed by the GitLab Rails
   application.
 - Migrating production traffic away from `*.cdn.web-ide.gitlab-static.net`.
 

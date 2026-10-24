@@ -7,7 +7,7 @@ import {
   createMockLocation,
   createFakeCrossWindowChannel,
 } from '@gitlab/utils-test';
-import { ErrorType, type WebIde, type WebIdeConfig } from '@gitlab/web-ide-types';
+import { ErrorType, type WebIde, type WebIdeConfig } from '@khulnasoft/web-ide-types';
 import { createOAuthClient } from '@gitlab/oauth-client';
 import { defaultLogger } from '@gitlab/logger';
 import { oauthCallback, pingWorkbench, start } from './index';

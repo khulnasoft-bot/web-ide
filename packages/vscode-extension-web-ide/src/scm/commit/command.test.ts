@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import type { FileStatus } from '@gitlab/web-ide-fs';
-import { FileStatusType } from '@gitlab/web-ide-fs';
+import type { FileStatus } from '@khulnasoft/web-ide-fs';
+import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { type DefaultGitLabClient, NOOP_AUTH_PROVIDER } from '@gitlab/gitlab-api-client';
 import { createFakePartial } from '@gitlab/utils-test';
 import type { GitLabCommitPayload } from '@gitlab/vscode-mediator-commands';
