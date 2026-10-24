@@ -148,7 +148,7 @@ $(pkg_webide_dist_public)/vscode/extensions/gitlab-vscode-extension: $(pkg_gitla
 ## ================
 
 $(pkg_vscode_bootstrap_dist)/main.js: $(all_ts)
-	pnpm --filter @gitlab/vscode-bootstrap run build
+	pnpm --filter @khulnasoft/vscode-bootstrap run build
 
 ## ============
 ## vscode-build

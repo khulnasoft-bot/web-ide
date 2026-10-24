@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab/vscode-bootstrap",
+  "name": "@khulnasoft/vscode-bootstrap",
   "version": "0.0.1",
   "main": "./src/main.ts",
   "dependencies": {
