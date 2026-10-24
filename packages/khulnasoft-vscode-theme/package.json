@@ -1,6 +1,6 @@
 {
-  "name": "khulnasoft-vscode-theme",
-  "displayName": "Khulnasoft Theme for Visual Studio Code",
+  "name": "neopilot-vscode-theme",
+  "displayName": "Neopilot Theme",
   "description": "The Khulnasoft Theme for Visual Studio Code brings the sleek and professional look of Khulnasoft to your coding environment.",
   "version": "0.0.1",
   "publisher": "Khulnasoft",
@@ -37,19 +37,49 @@
   "contributes": {
     "themes": [
       {
-        "label": "Khulnasoft Dark Midnight",
+        "label": "Neopilot Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/Khulnasoft_Dark_Midnight-color-theme.json"
+        "path": "./themes/dark.json"
       },
       {
-        "label": "Khulnasoft Dark",
+        "label": "Neopilot Dark Default",
         "uiTheme": "vs-dark",
-        "path": "./themes/Khulnasoft_Dark-color-theme.json"
+        "path": "./themes/dark-default.json"
       },
       {
-        "label": "Khulnasoft Light",
+        "label": "Neopilot Dark Dimmed",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-dimmed.json"
+      },
+      {
+        "label": "Neopilot Dark High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-high-contrast.json"
+      },
+      {
+        "label": "Neopilot Dark Colorblind",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-colorblind.json"
+      },
+      {
+        "label": "Neopilot Light",
         "uiTheme": "vs",
-        "path": "./themes/Khulnasoft_Light-color-theme.json"
+        "path": "./themes/light.json"
+      },
+      {
+        "label": "Neopilot Light Default",
+        "uiTheme": "vs",
+        "path": "./themes/light-default.json"
+      },
+      {
+        "label": "Neopilot Light High Contrast",
+        "uiTheme": "hc-light",
+        "path": "./themes/light-high-contrast.json"
+      },
+      {
+        "label": "Neopilot Light Colorblind",
+        "uiTheme": "vs",
+        "path": "./themes/light-colorblind.json"
       }
     ],
     "icons": {
