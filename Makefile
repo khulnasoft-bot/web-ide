@@ -43,21 +43,16 @@ pkg_vscode_extension_language_support_vue_dist_all=\
  $(pkg_vscode_extension_language_support_vue_dist)/package.json\
  ${pkg_vscode_extension_language_support_vue_dist_assets}
 
-pkg_vscode_extension_gitlab_vscode_theme=packages/vscode-extension-gitlab-vscode-theme
+pkg_vscode_extension_gitlab_vscode_theme=packages/khulnasoft-vscode-theme
 pkg_vscode_extension_gitlab_vscode_theme_dist=$(pkg_vscode_extension_gitlab_vscode_theme)/dist
-pkg_vscode_extension_gitlab_vscode_theme_jsons=$(shell find $(pkg_vscode_extension_gitlab_vscode_theme) -type f -name '*theme.json' -not -path '*/dist/*')
-pkg_vscode_extension_gitlab_vscode_theme_font=$(pkg_vscode_extension_gitlab_vscode_theme)/fonts/gitlab_webide.woff
+pkg_vscode_extension_gitlab_vscode_theme_jsons=$(shell find $(pkg_vscode_extension_gitlab_vscode_theme)/themes -type f -name '*.json')
 
 pkg_vscode_extension_gitlab_vscode_theme_sources=                 \
   ${pkg_vscode_extension_gitlab_vscode_theme}/package.json \
-	${pkg_vscode_extension_gitlab_vscode_theme}/icon.png            \
-	${pkg_vscode_extension_gitlab_vscode_theme_jsons}               \
-  ${pkg_vscode_extension_gitlab_vscode_theme_font}
+	${pkg_vscode_extension_gitlab_vscode_theme_jsons}
 
 pkg_vscode_extension_gitlab_vscode_theme_dist_all=             \
   $(pkg_vscode_extension_gitlab_vscode_theme_dist)/package.json \
-  $(pkg_vscode_extension_gitlab_vscode_theme_dist)/icon.png     \
-  $(pkg_vscode_extension_gitlab_vscode_theme_dist)/fonts/gitlab_webide.woff \
   $(patsubst $(pkg_vscode_extension_gitlab_vscode_theme)/%,$(pkg_vscode_extension_gitlab_vscode_theme_dist)/%,$(pkg_vscode_extension_gitlab_vscode_theme_jsons))
 
 pkg_vscode_extension_gitlab_vscode_extension=packages/vscode-extension-gitlab-vscode-extension

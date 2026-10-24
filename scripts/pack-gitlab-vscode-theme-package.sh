@@ -13,5 +13,5 @@ source "${root_dir}/scripts/pack-package-base.sh"
 mkdir -p $tmp_dir
 
 echo "Pack: Packing gitlab-vscode-theme package with version ${GITLAB_WEB_IDE_VERSION}..."
-node scripts/set-package-version.js packages/vscode-extension-gitlab-vscode-theme "${GITLAB_WEB_IDE_VERSION}"
-pnpm --filter gitlab-vscode-theme run package -- -o $tmp_dir
+node scripts/set-package-version.js packages/khulnasoft-vscode-theme "${GITLAB_WEB_IDE_VERSION}"
+pnpm --filter neopilot-vscode-theme run package -- -o $tmp_dir

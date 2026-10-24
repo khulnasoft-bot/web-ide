@@ -178,7 +178,7 @@ const getConfigurationDefaultFontFamily = (editorFont: WebIdeConfig['editorFont'
 };
 
 const getConfigurationDefaults = (config: WebIdeExtensionConfig) => ({
-  'workbench.colorTheme': 'GitLab Dark',
+  'workbench.colorTheme': 'NeoPilot Dark',
   'gitlab.duoCodeSuggestions.enabled': config.codeSuggestionsEnabled,
   'gitlab.featureFlags.languageServerWebIDE': config.featureFlags?.languageServerWebIDE,
   'editor.fontFamily': getConfigurationDefaultFontFamily(config.editorFont),

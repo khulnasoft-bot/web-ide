@@ -1,0 +1,3 @@
+[submodule "packages/khulnasoft-vscode-theme"]
+	path = packages/khulnasoft-vscode-theme
+	url = https://github.com/neopilot-ai/neopilot-vscode-theme
