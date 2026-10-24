@@ -1,4 +1,4 @@
-import { basename } from '@gitlab/utils-path';
+import { basename } from '@khulnasoft/utils-path';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 
 export const generateCommitMessage = (status: FileStatus[]) => {

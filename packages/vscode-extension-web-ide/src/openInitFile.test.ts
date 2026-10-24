@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { PATH_ROOT } from '@gitlab/utils-path';
+import { PATH_ROOT } from '@khulnasoft/utils-path';
 import type { WebIdeExtensionConfig } from '@khulnasoft/web-ide-types';
 import { openInitFile } from './openInitFile';
 import { getConfig } from './mediator';

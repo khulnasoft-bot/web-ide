@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { mapKeys } from 'lodash';
 import { FileFlag } from 'browserfs/dist/node/core/file_flag';
 import { existsAsFile, readAllFiles } from '../browserfs/utils';

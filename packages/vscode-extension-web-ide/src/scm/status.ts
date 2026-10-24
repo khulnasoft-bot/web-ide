@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { basename } from '@gitlab/utils-path';
+import { basename } from '@khulnasoft/utils-path';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { fromPathToScmUri, fromUriToScmUri } from './uri';

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import type { GitLabProject, GitLabRef } from '@gitlab/vscode-mediator-commands';
 import { getConfig } from '../../mediator';
 

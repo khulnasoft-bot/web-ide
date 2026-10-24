@@ -12,7 +12,7 @@
     "@gitlab/gitlab-api-client": "workspace:*",
     "@gitlab/gitlab-api-client-factory": "workspace:*",
     "@gitlab/logger": "workspace:*",
-    "@gitlab/utils-path": "workspace:*",
+    "@khulnasoft/utils-path": "workspace:*",
     "@gitlab/vscode-mediator-commands": "workspace:*",
     "@khulnasoft/web-ide-fs": "workspace:*",
     "@khulnasoft/web-ide-interop": "workspace:*",

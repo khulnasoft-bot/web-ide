@@ -14,7 +14,7 @@ import {
   getCrossOriginExtensionHost,
   validateCrossOriginExtensionHost,
 } from '../config';
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 
 const getAuthConfigFromExample = ({
   authType,

@@ -28,7 +28,7 @@
  * ====
  *
  */
-import { joinPaths, dirname } from '@gitlab/utils-path';
+import { joinPaths, dirname } from '@khulnasoft/utils-path';
 import { ApiError, ErrorCode } from 'browserfs/dist/node/core/api_error';
 import type { File } from 'browserfs/dist/node/core/file';
 import { ActionType, FileFlag } from 'browserfs/dist/node/core/file_flag';

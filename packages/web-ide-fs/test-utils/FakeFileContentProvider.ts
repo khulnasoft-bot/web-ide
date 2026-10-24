@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import { FileContentProvider } from '../src';
 
 export class FileNotFoundErorr extends Error {}

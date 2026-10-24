@@ -2,7 +2,7 @@
 import '../vscode.proposed.codiconDecoration.d';
 
 import * as vscode from 'vscode';
-import { basename, joinPaths } from '@gitlab/utils-path';
+import { basename, joinPaths } from '@khulnasoft/utils-path';
 import {
   initMergeRequestContext,
   MSG_FAILED,

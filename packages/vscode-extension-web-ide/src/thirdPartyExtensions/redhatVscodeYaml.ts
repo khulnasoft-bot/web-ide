@@ -1,4 +1,4 @@
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import * as vscode from 'vscode';
 import { FS_SCHEME } from '../constants';
 import { getConfig } from '../mediator';

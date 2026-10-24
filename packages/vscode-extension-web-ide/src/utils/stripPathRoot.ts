@@ -1,4 +1,4 @@
-import { cleanLeadingSeparator, joinPaths } from '@gitlab/utils-path';
+import { cleanLeadingSeparator, joinPaths } from '@khulnasoft/utils-path';
 
 export const stripPathRoot = (path: string, root: string) => {
   const cleanPath = cleanLeadingSeparator(path);

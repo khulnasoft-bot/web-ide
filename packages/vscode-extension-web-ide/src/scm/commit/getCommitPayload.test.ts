@@ -1,4 +1,4 @@
-import { cleanLeadingSeparator } from '@gitlab/utils-path';
+import { cleanLeadingSeparator } from '@khulnasoft/utils-path';
 import type { FileStatus } from '@khulnasoft/web-ide-fs';
 import { FileStatusType } from '@khulnasoft/web-ide-fs';
 import { getCommitPayload } from './getCommitPayload';

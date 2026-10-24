@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { joinPaths } from '@gitlab/utils-path';
+import { joinPaths } from '@khulnasoft/utils-path';
 import type {
   ApiRequest,
   DeleteRequest,

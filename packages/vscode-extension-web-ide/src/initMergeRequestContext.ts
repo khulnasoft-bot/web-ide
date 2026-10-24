@@ -1,5 +1,5 @@
 import { flow } from 'lodash';
-import { cleanLeadingSeparator, joinPaths } from '@gitlab/utils-path';
+import { cleanLeadingSeparator, joinPaths } from '@khulnasoft/utils-path';
 import type {
   FetchMergeRequestDiffStatsResponse,
   StartCommandResponse,

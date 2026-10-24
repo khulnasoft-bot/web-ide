@@ -9,7 +9,7 @@
     "@gitlab/gitlab-api-client": "workspace:*",
     "@gitlab/logger": "workspace:*",
     "@gitlab/utils-crypto": "workspace:*",
-    "@gitlab/utils-path": "workspace:*",
+    "@khulnasoft/utils-path": "workspace:*",
     "@khulnasoft/web-ide-types": "workspace:*",
     "nanoid": "^4.0.2"
   },
